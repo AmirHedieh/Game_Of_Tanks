@@ -13,7 +13,7 @@ public class Tank {
     private Gun gun;
     private int type;
 
-    //constrcutor
+    //constructor
     public Tank(int health, Gun gun, int type){
         this.health = health;
         this.gun = gun;
