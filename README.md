@@ -1,13 +1,9 @@
-# Java2D Game Template
+# 2D Game: Normal Tanks
 
-Templates for implementing simple 2D games using the Java programming language.
-As part of the "Advanced Programming" course in [Amirkabir University of Technology](http://aut.ac.ir/), 
-this project was designed and implemented by [S. M. Ghaffarian](http://linkedin.com/in/smghaffarian),
-to help students quickly get started with 2D game-development using the Java language.
-
-This project consists of two different templates:
-
- 1. Template based on classic **Double-Buffering** implementation.
- 2. Template based on the more modern **Buffer-Strategy** implementation.
-
-There is also a basic example game implemented using the Buffer-Strategy template.
+a 2D game which is written in java.
+the project is based on Buffer-Strategy implementation.
+th template used for the project can be found at : https://github.com/ghaffarian/java2D-game-template
+-----
+breif explanation of the game:
+a tank spawns at a location(map) and its mission is to eliminate all the enemies and reach the end of the map.
+enemies includes tanks , turrets , some robots , ... .
