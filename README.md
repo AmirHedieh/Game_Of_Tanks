@@ -4,6 +4,6 @@ a 2D game which is written in java.
 the project is based on Buffer-Strategy implementation.
 th template used for the project can be found at : https://github.com/ghaffarian/java2D-game-template
 -----
-breif explanation of the game:
-a tank spawns at a location(map) and its mission is to eliminate all the enemies and reach the end of the map.
+Brief explanation of the game:
+A tank spawns at a location(map) and its mission is to eliminate all the enemies and reach the end of the map.
 enemies includes tanks , turrets , some robots , ... .

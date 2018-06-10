@@ -21,7 +21,7 @@ public class Bullet { // todo: 2 classes must extend bullet ( missle - machine g
 
     /**
      * get damage of bullet
-     * @return amount if damage it provides
+     * @return amount of damage it provides
      */
     public int getDamage() {
         return damage;
