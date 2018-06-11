@@ -18,8 +18,8 @@ import javax.swing.JFrame;
  */
 public class GameFrame extends JFrame {
 	
-	public static final int GAME_HEIGHT = 720;                  // 720p game resolution
-	public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
+	public static final int GAME_HEIGHT = 1024;                  // 720p game resolution
+	public static final int GAME_WIDTH = 512;
 	
 	private BufferStrategy bufferStrategy;
 	
