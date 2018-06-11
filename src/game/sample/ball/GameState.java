@@ -27,9 +27,9 @@ public class GameState {
 	private MouseHandler mouseHandler;
 	
 	public GameState() {
-		locX = 100;
-		locY = 100;
-		diam = 32;
+		locX = 400;
+		locY = 400;
+		diam = 128;
 		gameOver = false;
 		//
 		keyUP = false;

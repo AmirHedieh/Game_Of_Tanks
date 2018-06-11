@@ -1,8 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
-import java.awt.Graphics2D;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
@@ -18,7 +17,7 @@ import javax.swing.JFrame;
  */
 public class GameFrame extends JFrame {
 	
-	public static final int GAME_HEIGHT = 720;                  // 720p game resolution
+	public static final int GAME_HEIGHT = 1024;                  // custom game resolution
 	public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 	
 	private BufferStrategy bufferStrategy;
@@ -68,10 +67,10 @@ public class GameFrame extends JFrame {
 	 * Rendering all game elements based on the game state.
 	 */
 	private void doRendering(Graphics2D g2d, GameState state) {
-		//
-		// Draw all game elements according 
-		//  to the game 'state' using 'g2d' ...
-		//
+		// Draw background
+		g2d.setColor(Color.GRAY);
+		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
 	}
 	
 }

@@ -1,6 +1,8 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.elements.Objects;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
@@ -26,6 +28,8 @@ public class Main {
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				frame.setVisible(true);
 				frame.initBufferStrategy();
+				//initialize game objects
+                Objects objects = new Objects();
 				// Create and execute the game-loop
 				GameLoop game = new GameLoop(frame);
 				game.init();

@@ -1,6 +1,8 @@
 /*** In The Name of Allah ***/
 package game.sample.ball;
 
+import javafx.stage.Screen;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -21,7 +23,7 @@ import javax.swing.JFrame;
  */
 public class GameFrame extends JFrame {
 	
-	public static final int GAME_HEIGHT = 720;                  // 720p game resolution
+	public static final int GAME_HEIGHT = 1024;                 // custom game resolution
 	public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 	
 	private long lastRender;
@@ -104,6 +106,7 @@ public class GameFrame extends JFrame {
 			avg /= fpsHistory.size();
 			String str = String.format("Average FPS = %.1f , Last Interval = %d ms",
 					avg, (currentRender - lastRender));
+			System.out.println(str);
 			g2d.setColor(Color.CYAN);
 			g2d.setFont(g2d.getFont().deriveFont(18.0f));
 			int strWidth = g2d.getFontMetrics().stringWidth(str);

@@ -6,14 +6,14 @@ package game.elements;
  *each gun has a damage field which is the amount of damage that it provides.
  * each gun has an specific amount of ammo.
  */
-public class Gun extends GameObject{
+public class Gun{
     //fields
     private int damage;
     private int ammo;
 
     //constructor
-    public Gun(int x, int y, int damage , int ammo){
-        super(x,y);
+    public Gun(int damage , int ammo){
+
     }
 
     //methods
