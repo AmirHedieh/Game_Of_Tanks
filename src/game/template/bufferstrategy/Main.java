@@ -25,11 +25,12 @@ public class Main {
 			public void run() {
 				GameFrame frame = new GameFrame("Game Title");
 				frame.setLocationRelativeTo(null); // put frame at center of screen
-				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 				frame.initBufferStrategy();
 				//initialize game objects
                 Objects objects = new Objects();
+                Objects.getObjects().init();
 				// Create and execute the game-loop
 				GameLoop game = new GameLoop(frame);
 				game.init();

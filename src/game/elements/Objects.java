@@ -34,11 +34,16 @@ public class Objects {
         return objects;
     }
 
-//    public void init(){
-//        Gun playerTankGun = new Gun(40,25);
-//        Tank playerTank = new Tank(100,100,100,playerTankGun,0);
-//
-//    }
+    /**
+     * if the game hasn't been started before it need to be initialized. player's tank must be created add a gun
+     * must be added to that. then
+     */
+    public void init(){
+        Tank playerTank = new Tank(100,100,100,0); // making player's tank
+        Gun playerTankGun = new Gun(40,25,playerTank); // create gun for player's tank
+        playerTank.setGun(playerTankGun); // add gun to player's tank
+        tanks.add(playerTank); //add player's tank to objects ( tanks arrayList)
+    }
 
     /**
      * add a tank to tanks ArrayList which contains all available tanks in game

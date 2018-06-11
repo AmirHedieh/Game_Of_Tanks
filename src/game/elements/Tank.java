@@ -14,10 +14,9 @@ public class Tank extends GameObject{
     private int type;
 
     //constructor
-    public Tank(int x, int y, int health, Gun gun, int type){
+    public Tank(int x, int y, int health, int type){ // gun must be added manually after making tank
         super(x,y);
         this.health = health;
-        this.gun = gun;
         this.type = type;
     }
 
