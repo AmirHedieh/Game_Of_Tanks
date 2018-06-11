@@ -4,13 +4,16 @@ package game.elements;
  * each Gun makes bullets to hit others.
  * Bullets takes their damages from the gun which made them.
  */
-public class Bullet { // todo: 2 classes must extend bullet ( missle - machine gun)
+public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( missle - machine gun)
     //fields
     private int damage;
+
     //constructor
+    public Bullet(int x, int y){
+        super(x,y);
+    }
 
     //methods
-
     /**
      * set damage for bullet
      * @param damage amount of damage it must provides

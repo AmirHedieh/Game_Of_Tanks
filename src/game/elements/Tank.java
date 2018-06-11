@@ -7,14 +7,15 @@ package game.elements;
  * the tank becomes dead.
  * type determines that if the tank is AI or Player(1 for AI, 0 for Player).
  */
-public class Tank {
+public class Tank extends GameObject{
     //fields
     private int health;
     private Gun gun;
     private int type;
 
     //constructor
-    public Tank(int health, Gun gun, int type){
+    public Tank(int x, int y, int health, Gun gun, int type){
+        super(x,y);
         this.health = health;
         this.gun = gun;
         this.type = type;

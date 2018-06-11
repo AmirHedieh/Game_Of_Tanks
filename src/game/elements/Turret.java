@@ -5,10 +5,13 @@ package game.elements;
  * turrets have infinite amount of ammo.
  * turrets also has health, when it gets down to zero means it is destroyed.
  */
-public class Turret {
+public class Turret extends GameObject {
     //fields
 
     //constructor
+    public Turret(int x , int y){
+        super(x,y);
+    }
 
     //methods
     
