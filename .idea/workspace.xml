@@ -4,420 +4,6 @@
     <list default="true" id="071667d4-c2a0-46a2-b8c4-6c571be06b70" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/map/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/map/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/map/TileGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/map/TileGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/map/TileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/map/TileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/alien.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/alien.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/base.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/base.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/boss.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/boss.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/cj.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/cj.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/ez.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/ez.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/fg.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/fg.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/fin.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/gameover.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/hangar.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/hangar.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/ialien.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/pause.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/pause.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/snowf.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/snowf.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/title.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/win.oggint.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/music/winds.oggmain.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screenshot/Image 9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Dynamit.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Dynamit2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Dynamit3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Shly.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/Shot2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/bat.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/blast.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/blastT.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/bom.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/boom.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/bri1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/bri2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/bri3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/briP.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/bt.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/btom.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/cannon.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/disk.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/diskL.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/dracon.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/draconb.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/draconb2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/draconu.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/drop.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/emit.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/empty.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/fire.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/groh.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/heart.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/helic.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/it.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/laun.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/life.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/meat1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/meat2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/meat3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/mehIn.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/mehout.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/mehstep.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/minUp.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/mines.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/motor1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/motor2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/motor3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/past.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/pastS.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/recosh.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/repair.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/select.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/shot.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/shotS.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/sn2Shot.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/sn3Shot.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/snShot.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/sopl.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/spPress.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/spid.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/spin.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/spiout.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/start.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/targ.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/targ2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sounds/tube.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/Untitled-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/destroyable walls/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/destroyable walls/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/destroyable walls/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/destroyable walls/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/destroyable walls/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/tanksgb3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/H7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Item.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M_clean.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M_clean_sharp.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M_noisy.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/M_noisy_sharp.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/N7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/Q7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/T7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/H7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Item.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/N7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/Q7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/clean/T7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/cracks9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/enemyselected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/expl9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/ground_units.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/ground_units.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_body_1b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_body_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_dualgun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_dualgun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_gun_destroyed-02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_body_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_dualgun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_dualgun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_gun_destroyed-02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank1b_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_body_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_dualgun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_dualgun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_dualgun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_body_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_dualgun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_dualgun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_dualgun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank2b_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_body_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3b_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3c_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_body_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_gun.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_gun_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_gun_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/tank3d_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1b_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1b_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1b_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1c_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1c_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck1c_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2b_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2b_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2b_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2c_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2c_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck2c_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3_body_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3_destroyed_shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3b_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3b_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3b_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3c_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3c_body_hit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck3c_destroyed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/images/truck_track.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/Pass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/Wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/pass2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/pass3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/pass4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/pass5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/pass6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/pass7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/wall2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/wall3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/wall4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/wall5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/wall6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/p/wall7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/pass9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/selected.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/tank1.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/tank2.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/tank3.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/truck1.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/texture/texture/wall9.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -429,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TileType.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TileType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/map/TileType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -447,36 +33,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/map/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
               <folding>
-                <element signature="e#612#613#0" expanded="true" />
-                <element signature="e#636#637#0" expanded="true" />
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="e#770#771#0" expanded="true" />
-                <element signature="e#857#858#0" expanded="true" />
-                <element signature="e#881#882#0" expanded="true" />
-                <element signature="e#989#990#0" expanded="true" />
-                <element signature="e#1015#1016#0" expanded="true" />
-                <element signature="e#1099#1100#0" expanded="true" />
-                <element signature="e#1127#1128#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1275#1276#0" expanded="true" />
-                <element signature="e#1362#1363#0" expanded="true" />
-                <element signature="e#1391#1392#0" expanded="true" />
-                <element signature="e#1509#1510#0" expanded="true" />
-                <element signature="e#1545#1546#0" expanded="true" />
-                <element signature="e#1635#1636#0" expanded="true" />
-                <element signature="e#1666#1667#0" expanded="true" />
-                <element signature="e#1789#1790#0" expanded="true" />
-                <element signature="e#1829#1830#0" expanded="true" />
-                <element signature="e#1873#1874#0" expanded="true" />
-                <element signature="e#1903#1904#0" expanded="true" />
+                <element signature="e#697#698#0" expanded="true" />
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#855#856#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+                <element signature="e#966#967#0" expanded="true" />
+                <element signature="e#1074#1075#0" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1184#1185#0" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1326#1327#0" expanded="true" />
+                <element signature="e#1360#1361#0" expanded="true" />
+                <element signature="e#1447#1448#0" expanded="true" />
+                <element signature="e#1476#1477#0" expanded="true" />
+                <element signature="e#1594#1595#0" expanded="true" />
+                <element signature="e#1630#1631#0" expanded="true" />
+                <element signature="e#1720#1721#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1874#1875#0" expanded="true" />
+                <element signature="e#1914#1915#0" expanded="true" />
                 <element signature="e#1954#1955#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
+                <element signature="e#1984#1985#0" expanded="true" />
+                <element signature="e#2035#2036#0" expanded="true" />
+                <element signature="e#2073#2074#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -523,8 +109,8 @@
         <option value="$PROJECT_DIR$/src/game/template/bufferstrategy/GameFrame.java" />
         <option value="$PROJECT_DIR$/src/game/template/bufferstrategy/GameLoop.java" />
         <option value="$PROJECT_DIR$/src/game/map/TileGrid.java" />
-        <option value="$PROJECT_DIR$/src/game/map/Tile.java" />
         <option value="$PROJECT_DIR$/src/game/map/TileType.java" />
+        <option value="$PROJECT_DIR$/src/game/map/Tile.java" />
       </list>
     </option>
   </component>
@@ -683,7 +269,7 @@
       <workItem from="1528572962017" duration="663000" />
       <workItem from="1528608108838" duration="1405000" />
       <workItem from="1528636245230" duration="1354000" />
-      <workItem from="1528713641915" duration="7893000" />
+      <workItem from="1528713641915" duration="8053000" />
     </task>
     <task id="LOCAL-00001" summary="Even more edit README.">
       <created>1528625445030</created>
@@ -699,11 +285,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528757200112</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="TileType class initialized">
+      <created>1528760041977</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528760041977</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11673000" />
+    <option name="totallyTimeSpent" value="11833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
@@ -748,7 +341,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Even more edit README." />
     <MESSAGE value="Tile, TileType, TileGrid classes in map package created + moodle textures added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tile, TileType, TileGrid classes in map package created + moodle textures added" />
+    <MESSAGE value="TileType class initialized" />
+    <option name="LAST_COMMIT_MESSAGE" value="TileType class initialized" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/game/elements/Bullet.java">
@@ -1002,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/map/TileGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/elements/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1023,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/elements/Tank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/elements/Gun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1037,43 +617,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/map/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding>
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1635#1636#0" expanded="true" />
-            <element signature="e#1666#1667#0" expanded="true" />
-            <element signature="e#1789#1790#0" expanded="true" />
-            <element signature="e#1829#1830#0" expanded="true" />
-            <element signature="e#1873#1874#0" expanded="true" />
-            <element signature="e#1903#1904#0" expanded="true" />
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/map/TileType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/map/TileGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/elements/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/map/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding>
+            <element signature="e#697#698#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1326#1327#0" expanded="true" />
+            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+            <element signature="e#1720#1721#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1874#1875#0" expanded="true" />
+            <element signature="e#1914#1915#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
+            <element signature="e#2073#2074#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
