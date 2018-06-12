@@ -14,6 +14,8 @@ public class Gun extends GameObject{
     //constructor
     public Gun(int damage , int ammo , Tank tank){
         super(tank.x,tank.y);
+        this.damage = damage;
+        this.ammo = ammo;
     }
 
     //methods

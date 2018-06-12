@@ -30,7 +30,7 @@ public class Main {
 				frame.initBufferStrategy();
 				//initialize game objects
                 Objects objects = new Objects();
-                Objects.getObjects().init();
+                objects.init();
 				// Create and execute the game-loop
 				GameLoop game = new GameLoop(frame);
 				game.init();

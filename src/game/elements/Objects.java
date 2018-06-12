@@ -4,36 +4,24 @@ import java.util.ArrayList;
 
 /**
  * a class containing all created objects like tanks, bullets , turrets , ... in game
- * it is created once and is usable through all classes.
  */
 public class Objects {
 
     //fields
-    public ArrayList<Tank> tanks;
-    public ArrayList<Bullet> bullets;
-    public ArrayList<Turret> turrets;
+    private ArrayList<Tank> tanks;
+    private ArrayList<Bullet> bullets;
+    private ArrayList<Turret> turrets;
 
-    private static Objects objects; //the object which is usable all across the other class.
 
     //constructor
 
     public Objects(){
-        objects = this;
         tanks = new ArrayList<>();
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
     }
 
     //methods
-
-    /**
-     * returns the objects(field) object which contains all game objects.
-     * @return
-     */
-    public static Objects getObjects() {
-        return objects;
-    }
-
     /**
      * if the game hasn't been started before it need to be initialized. player's tank must be created add a gun
      * must be added to that. then
@@ -91,5 +79,53 @@ public class Objects {
      */
     public void removeTurret(Turret turret){
         turrets.remove(turret);
+    }
+
+    /**
+     * set a new arrayList for tanks
+     * @param tanks
+     */
+    public void setTanks(ArrayList<Tank> tanks) {
+        this.tanks = tanks;
+    }
+
+    /**
+     * set a new arrayList for bullets
+     * @param bullets
+     */
+    public void setBullets(ArrayList<Bullet> bullets) {
+        this.bullets = bullets;
+    }
+
+    /**
+     * set a new arrayList for turrets
+     * @param turrets
+     */
+    public void setTurrets(ArrayList<Turret> turrets) {
+        this.turrets = turrets;
+    }
+
+    /**
+     * get arrayList that contains all tanks
+     * @return
+     */
+    public ArrayList<Tank> getTanks() {
+        return tanks;
+    }
+
+    /**
+     * get arrayList that contains all bullets
+     * @return
+     */
+    public ArrayList<Bullet> getBullets() {
+        return bullets;
+    }
+
+    /**
+     * get arrayList that contains all turrets
+     * @return
+     */
+    public ArrayList<Turret> getTurrets() {
+        return turrets;
     }
 }
