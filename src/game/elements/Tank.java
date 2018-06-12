@@ -21,6 +21,8 @@ public class Tank extends GameObject{
         super(x,y);
         this.health = health;
         this.type = type;
+        setVelX(12); //  set X velocity
+        setVelY(12); // set y velocity
     }
 
     //methods

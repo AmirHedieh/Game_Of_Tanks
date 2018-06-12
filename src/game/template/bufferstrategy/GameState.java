@@ -43,15 +43,15 @@ public class GameState {
 	public void update() {
 		// Update the state of all game elements 
 		//  based on user input and elapsed time ...
-        Tank player = objects.getTanks().get(0);
+        Tank player = objects.getTanks().get(0); //first element in arrayList is player tank
         if (keyUP)
-            player.setY( player.getY() - 8 );
+            player.setY( player.getY() - player.getVelY() );
         if (keyDOWN)
-            player.setY( player.getY() + 8 );
+            player.setY( player.getY() + player.getVelY() );
         if (keyLEFT)
-            player.setX( player.getX() - 8 );
+            player.setX( player.getX() - player.getVelX() );
         if (keyRIGHT)
-            player.setX( player.getX() + 8 );
+            player.setX( player.getX() + player.getVelX() );
 		//
 	}
 	
@@ -70,6 +70,11 @@ public class GameState {
 
 	/**
 	 * The keyboard handler.
+     * W for moving up.
+     * S for moving down.
+     * A for moving left.
+     * D for moving right.
+     * process : when a key is pressed its boolean field gets true until it gets released, keyReleased method make boolean false.
 	 */
 	class KeyHandler implements KeyListener {
 

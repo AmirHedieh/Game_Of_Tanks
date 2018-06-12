@@ -7,7 +7,7 @@ package game.elements;
 public class GameObject {
     //fields
     protected int x , y;
-    protected int velX,velY;
+    protected int velX , velY;
 
     //constructor
     public GameObject(int x, int y){
