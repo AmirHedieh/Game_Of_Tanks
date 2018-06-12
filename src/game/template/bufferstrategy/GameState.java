@@ -1,6 +1,8 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.elements.Objects;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -14,14 +16,18 @@ import java.awt.event.MouseMotionListener;
  * @author Seyed Mohammad Ghaffarian
  */
 public class GameState {
-	
+
+    public Objects objects = new Objects(); // objects of the game
+
 	private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
 	
 	public GameState() {
-		//
 		// Initialize the game state and all elements ...
-		//
+
+		objects.init(); //initialize game objects
+
+        //
 		keyHandler = new KeyHandler();
 		mouseHandler = new MouseHandler();
 	}

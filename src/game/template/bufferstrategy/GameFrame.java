@@ -1,8 +1,11 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.elements.Tank;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -70,7 +73,12 @@ public class GameFrame extends JFrame {
 		// Draw background
 		g2d.setColor(Color.GRAY);
 		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-
+		//draw tanks
+        ArrayList<Tank> tanks = state.objects.getTanks();
+		for(int i = 0 ; i < tanks.size() ; i++){
+			g2d.setColor(Color.orange);
+			g2d.fillRect(tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
+		}
 	}
 	
 }

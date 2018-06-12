@@ -28,9 +28,6 @@ public class Main {
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 				frame.initBufferStrategy();
-				//initialize game objects
-                Objects objects = new Objects();
-                objects.init();
 				// Create and execute the game-loop
 				GameLoop game = new GameLoop(frame);
 				game.init();
