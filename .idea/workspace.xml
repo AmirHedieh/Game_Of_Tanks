@@ -3,7 +3,94 @@
   <component name="ChangeListManager">
     <list default="true" id="071667d4-c2a0-46a2-b8c4-6c571be06b70" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/map/TileGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/map/TileGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/game/template/bufferstrategy/GameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NormalTanks/game/template/bufferstrategy/GameFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/alien.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/alien.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/base.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/base.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/boss.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/boss.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/cj.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/cj.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/ez.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/ez.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/fg.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/fg.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/fin.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/gameover.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/hangar.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/hangar.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/ialien.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/pause.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/pause.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/snowf.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/snowf.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/title.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/win.oggint.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/music/winds.oggmain.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/Dynamit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/Dynamit2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/Dynamit3.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/Shly.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/Shot2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/bat.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/blast.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/blastT.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/bom.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/boom.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/bri1.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/bri2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/bri3.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/briP.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/bt.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/btom.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/cannon.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/disk.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/diskL.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/dracon.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/draconb.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/draconb2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/draconu.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/drop.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/emit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/empty.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/fire.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/groh.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/heart.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/helic.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/it.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/laun.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/life.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/meat1.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/meat2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/meat3.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/mehIn.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/mehout.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/mehstep.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/minUp.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/mines.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/motor1.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/motor2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/motor3.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/past.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/pastS.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/recosh.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/repair.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/select.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/shot.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/shotS.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/sn2Shot.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/sn3Shot.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/snShot.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/sopl.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/spPress.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/spid.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/spin.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/spiout.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/start.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/targ.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/targ2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NormalTanks/sounds/tube.mp3" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +120,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileGrid.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TileGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/map/TileGrid.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
               <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game/sample/ball/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,9 +192,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,6 +226,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="map" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NormalTanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NormalTanks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="ball" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -225,7 +331,8 @@
       <workItem from="1528572962017" duration="663000" />
       <workItem from="1528608108838" duration="1405000" />
       <workItem from="1528636245230" duration="1354000" />
-      <workItem from="1528713641915" duration="9738000" />
+      <workItem from="1528713641915" duration="9850000" />
+      <workItem from="1528763327503" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="Even more edit README.">
       <created>1528625445030</created>
@@ -255,15 +362,21 @@
       <option name="project" value="LOCAL" />
       <updated>1528760116604</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TileGrid class initialized but it isn't complete">
+      <created>1528763265482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528763265482</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13518000" />
+    <option name="totallyTimeSpent" value="13685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -274,7 +387,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -285,7 +398,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -306,9 +419,31 @@
     <MESSAGE value="Tile, TileType, TileGrid classes in map package created + moodle textures added" />
     <MESSAGE value="TileType class initialized" />
     <MESSAGE value="Tile class initialized" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tile class initialized" />
+    <MESSAGE value="TileGrid class initialized but it isn't complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="TileGrid class initialized but it isn't complete" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/game/elements/Gun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/elements/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/map/TileGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/elements/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -473,16 +608,6 @@
     <entry file="file://$PROJECT_DIR$/NormalTanks.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/sample/ball/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/template/bufferstrategy/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -632,6 +757,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/sample/ball/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
