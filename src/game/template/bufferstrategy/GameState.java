@@ -2,6 +2,7 @@
 package game.template.bufferstrategy;
 
 import game.elements.Objects;
+import game.elements.Tank;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -19,7 +20,11 @@ public class GameState {
 
     public Objects objects = new Objects(); // objects of the game
 
-	private KeyHandler keyHandler;
+    private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
+    private boolean mousePress;
+    private int mouseX, mouseY;
+
+    private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
 	
 	public GameState() {
@@ -36,9 +41,17 @@ public class GameState {
 	 * The method which updates the game state.
 	 */
 	public void update() {
-		//
 		// Update the state of all game elements 
 		//  based on user input and elapsed time ...
+        Tank player = objects.getTanks().get(0);
+        if (keyUP)
+            player.setY( player.getY() - 8 );
+        if (keyDOWN)
+            player.setY( player.getY() + 8 );
+        if (keyLEFT)
+            player.setX( player.getX() - 8 );
+        if (keyRIGHT)
+            player.setX( player.getX() + 8 );
 		//
 	}
 	
@@ -66,11 +79,40 @@ public class GameState {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_W:
+                    keyUP = true;
+                    break;
+                case KeyEvent.VK_S:
+                    keyDOWN = true;
+                    break;
+                case KeyEvent.VK_A:
+                    keyLEFT = true;
+                    break;
+                case KeyEvent.VK_D:
+                    keyRIGHT = true;
+                    break;
+            }
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-		}
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_W:
+                    keyUP = false;
+                    break;
+                case KeyEvent.VK_S:
+                    keyDOWN = false;
+                    break;
+                case KeyEvent.VK_A:
+                    keyLEFT = false;
+                    break;
+                case KeyEvent.VK_D:
+                    keyRIGHT = false;
+                    break;
+            }
+
+        }
 
 	}
 
