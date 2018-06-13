@@ -82,8 +82,7 @@ public class GameFrame extends JFrame {
 		for(int i = 0 ; i < tanks.size() ; i++){
 			BufferedImage img = null;
 			try {
-				img = ImageIO.read(new File("F:\\AP\\HW\\Normal Tanks\\NormalTanks\\src\\resource\\texture\\8.png"));
-				//FIXME: hey Amas...change this path...
+				img = ImageIO.read(new File("src/resource/texture/8.png"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
