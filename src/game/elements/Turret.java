@@ -9,7 +9,7 @@ public class Turret extends GameObject {
     //fields
 
     //constructor
-    public Turret(int x , int y){
+    public Turret(double x , double y){
         super(x,y);
     }
 

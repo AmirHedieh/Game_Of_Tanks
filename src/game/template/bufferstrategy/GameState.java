@@ -21,6 +21,7 @@ public class GameState {
     public Objects objects = new Objects(); // objects of the game
 
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
+    private boolean shoot;
     private boolean mousePress;
     private int mouseX, mouseY;
 
@@ -29,7 +30,13 @@ public class GameState {
 	
 	public GameState() {
 		// Initialize the game state and all elements ...
-
+        keyUP = false;
+        keyDOWN = false;
+        keyRIGHT = false;
+        keyLEFT = false;
+        //
+        shoot = false;
+        //
 		objects.init(); //initialize game objects
 
         //
@@ -53,12 +60,12 @@ public class GameState {
         if (keyRIGHT)
             player.setX( player.getX() + player.getVelX() );
         //
+        if(shoot)
+            objects.addBullet(objects.getTanks().get(0).getGun().shoot(objects.getTanks().get(0).getX(),objects.getTanks().get(0).getY(),mouseX,mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+        //
         for(int i = 0 ; i < objects.getBullets().size() ; i++){
-            double newX = objects.getBullets().get(i).getX() + objects.getBullets().get(i).getVelX();
-        	objects.getBullets().get(i).setX(newX);
-            int newY =(int)( (double)objects.getBullets().get(i).getY() + (double)objects.getBullets().get(i).getVelX() * objects.getBullets().get(i).getSlope() );
-			System.out.println(newY);
-			objects.getBullets().get(i).setY(newY);
+        	objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
+			objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
 		}
 		//
 	}
@@ -140,12 +147,14 @@ public class GameState {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			objects.addBullet(objects.getTanks().get(0).getGun().shoot(objects.getTanks().get(0).getX(),objects.getTanks().get(0).getY(),e.getX(),e.getY())); //tank's gun shoots a bullet. bullet is added to bullets arrayList
-
+		    mouseX = e.getX();
+		    mouseY = e.getY();
+		    shoot = true;
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
+		    shoot = false;
 		}
 
 		@Override
@@ -158,6 +167,8 @@ public class GameState {
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
+            mouseX = e.getX();
+            mouseY = e.getY();
 		}
 
 		@Override

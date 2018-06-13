@@ -6,24 +6,26 @@ package game.elements;
  */
 public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( missle - machine gun)
     //fields
+    public final int BULLET_WIDTH = 10 ;
+    public final int BULLET_HEIGHT = 10;
+
     private int damage;
-    private double slope;
+    private double shootDirectionAngle;
 
     //constructor
     public Bullet(double x, double y, int startPointX, double startPointY, int damage){
         super(x,y);
         this.damage = damage;
-        slope = countLineSlope(x,y,startPointX,startPointY);
-        System.out.println(slope);
-        velX = 2;
+        shootDirectionAngle = calculateShootAngle(x,y,startPointX,startPointY);
+        System.out.println(shootDirectionAngle);
+        velX = 3;
+        velY = 3;
     }
 
     //methods
 
-    private double countLineSlope(double x1, double y1, double x2, double y2){
-        System.out.println(x1  + "-" + y1+"-" + x2+"-"+y2);
-        slope = (double)(y2 - y1) / (double)(x2 - x1);
-        return slope;
+    private double calculateShootAngle(double x1, double y1, double x2, double y2){
+        return Math.atan((y2 - y1) / (x2 - x1));
     }
     /**
      * set damage for bullet
@@ -41,7 +43,7 @@ public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( 
         return damage;
     }
 
-    public double getSlope() {
-        return slope;
+    public double getShootDirectionAngle() {
+        return shootDirectionAngle;
     }
 }
