@@ -20,6 +20,11 @@ public class Gun extends GameObject{
 
     //methods
 
+    public Bullet shoot(double tankX, double tankY, int mouseX, int mouseY){
+        Bullet bullet = new Bullet(tankX,tankY,mouseX,mouseY,damage);
+        return bullet;
+    }
+
     /**
      * set damage for the gun.
      * @param damage amount of damage it must provide.

@@ -6,11 +6,12 @@ package game.elements;
  */
 public class GameObject {
     //fields
-    protected int x , y;
+    protected double x;
+    protected double y;
     protected int velX , velY;
 
     //constructor
-    public GameObject(int x, int y){
+    public GameObject(double x, double y){
         this.x = x;
         this.y = y;
         velX = 0;
@@ -23,7 +24,7 @@ public class GameObject {
      * set a X location for object
      * @param x
      */
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -31,7 +32,7 @@ public class GameObject {
      * set a Y location for object
      * @param y
      */
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
@@ -55,7 +56,7 @@ public class GameObject {
      * returns x
      * @return X location of object
      */
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -63,7 +64,7 @@ public class GameObject {
      * returns y
      * @return Y location of object
      */
-    public int getY() {
+    public double getY() {
         return y;
     }
 
