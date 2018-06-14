@@ -87,16 +87,14 @@ public class GameFrame extends JFrame {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			g2d.drawImage(img, null, tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+			g2d.drawImage(img, null,(int) tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 			//g2d.setColor(Color.orange);
 			//g2d.fillRect(tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
-			g2d.setColor(Color.orange);
-			g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
 		}
 		ArrayList<Bullet> bullets = state.objects.getBullets();
 		for(int i = 0 ; i < bullets.size() ; i++){
-			g2d.setColor(Color.CYAN);
-			g2d.fillRect( (int) bullets.get(i).getX() ,(int) bullets.get(i).getY() , 5,5 );
+			g2d.setColor(Color.ORANGE);
+			g2d.fillRect( (int) bullets.get(i).getX() - bullets.get(i).BULLET_WIDTH / 2 ,(int) bullets.get(i).getY() - bullets.get(i).BULLET_HEIGHT / 2 , bullets.get(i).BULLET_WIDTH,bullets.get(i).BULLET_HEIGHT );
 		}
 	}
 	

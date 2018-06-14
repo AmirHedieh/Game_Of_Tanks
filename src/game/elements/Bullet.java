@@ -6,8 +6,8 @@ package game.elements;
  */
 public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( missle - machine gun)
     //fields
-    public final int BULLET_WIDTH = 10 ;
-    public final int BULLET_HEIGHT = 10;
+    public final int BULLET_WIDTH = 5 ;
+    public final int BULLET_HEIGHT = 5;
 
     private int damage;
     private double shootDirectionAngle;
@@ -17,25 +17,40 @@ public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( 
         super(startX,startY);
         this.damage = damage;
         shootDirectionAngle = calculateShootAngle(startX,startY,mouseX,mouseY);
-        System.out.println(shootDirectionAngle);
         //moving in 4 direction needs specific velocity
         if(mouseX > startX && mouseY > startY){
-            velX = 3;
-            velY = 3;
+            velX = 14;
+            velY = 14;
         }
         else if(mouseX > startX && mouseY < startY){
-            velX = 3;
-            velY = 3;
+            velX = 14;
+            velY = 14;
         }
         else if(mouseX < startX && mouseY < startY){
-            velX = -3;
-            velY = -3;
+            velX = -14;
+            velY = -14;
         }
-        if(mouseX < startX && mouseY > startY){
-            velX = -3;
-            velY = -3;
+        else if(mouseX < startX && mouseY > startY){
+            velX = -14;
+            velY = -14;
         }
-
+        //from now on if conditions are for times where angle is 0 or PI/2
+        else if(mouseX == startX && mouseY > startY){
+            velX = 0;
+            velY = 14;
+        }
+        else if(mouseX == startX && mouseY < startY){
+            velX = 0;
+            velY = 14;
+        }
+        else if(mouseX > startX && mouseY == startY){
+            velX = 14;
+            velY = 0;
+        }
+        else if(mouseX < startX && mouseY == startY){
+            velX = -14;
+            velY = 0;
+        }
     }
 
     //methods
@@ -67,6 +82,10 @@ public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( 
         return damage;
     }
 
+    /**
+     * returns the angle of the way bullet must go.
+     * @return the angle that way of bullet go.
+     */
     public double getShootDirectionAngle() {
         return shootDirectionAngle;
     }
