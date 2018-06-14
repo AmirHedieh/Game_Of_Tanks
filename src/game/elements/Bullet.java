@@ -13,17 +13,41 @@ public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( 
     private double shootDirectionAngle;
 
     //constructor
-    public Bullet(double x, double y, int startPointX, double startPointY, int damage){
-        super(x,y);
+    public Bullet(double startX, double startY, double mouseX, double mouseY, int damage){
+        super(startX,startY);
         this.damage = damage;
-        shootDirectionAngle = calculateShootAngle(x,y,startPointX,startPointY);
+        shootDirectionAngle = calculateShootAngle(startX,startY,mouseX,mouseY);
         System.out.println(shootDirectionAngle);
-        velX = 3;
-        velY = 3;
+        //moving in 4 direction needs specific velocity
+        if(mouseX > startX && mouseY > startY){
+            velX = 3;
+            velY = 3;
+        }
+        else if(mouseX > startX && mouseY < startY){
+            velX = 3;
+            velY = 3;
+        }
+        else if(mouseX < startX && mouseY < startY){
+            velX = -3;
+            velY = -3;
+        }
+        if(mouseX < startX && mouseY > startY){
+            velX = -3;
+            velY = -3;
+        }
+
     }
 
     //methods
 
+    /**
+     * calculate the angle that bullet must go.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @return
+     */
     private double calculateShootAngle(double x1, double y1, double x2, double y2){
         return Math.atan((y2 - y1) / (x2 - x1));
     }

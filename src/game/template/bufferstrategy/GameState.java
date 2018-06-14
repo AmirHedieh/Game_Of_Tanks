@@ -50,15 +50,15 @@ public class GameState {
 	public void update() {
 		// Update the state of all game elements 
 		//  based on user input and elapsed time ...
-        Tank player = objects.getTanks().get(0); //first element in arrayList is player tank
+        //first element( objects.getTanks().get(0) ) in arrayList is player's tank.
         if (keyUP)
-            player.setY( player.getY() - player.getVelY() );
+            objects.getTanks().get(0).setY( objects.getTanks().get(0).getY() - objects.getTanks().get(0).getVelY() );
         if (keyDOWN)
-            player.setY( player.getY() + player.getVelY() );
+            objects.getTanks().get(0).setY( objects.getTanks().get(0).getY() + objects.getTanks().get(0).getVelY() );
         if (keyLEFT)
-            player.setX( player.getX() - player.getVelX() );
+            objects.getTanks().get(0).setX( objects.getTanks().get(0).getX() - objects.getTanks().get(0).getVelX() );
         if (keyRIGHT)
-            player.setX( player.getX() + player.getVelX() );
+            objects.getTanks().get(0).setX( objects.getTanks().get(0).getX() + objects.getTanks().get(0).getVelX() );
         //
         if(shoot)
             objects.addBullet(objects.getTanks().get(0).getGun().shoot(objects.getTanks().get(0).getX(),objects.getTanks().get(0).getY(),mouseX,mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
@@ -148,8 +148,8 @@ public class GameState {
 		@Override
 		public void mousePressed(MouseEvent e) {
 		    mouseX = e.getX();
-		    mouseY = e.getY();
-		    shoot = true;
+            mouseY = e.getY();
+            shoot = true;
 		}
 
 		@Override
@@ -167,6 +167,7 @@ public class GameState {
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
+            // mabye user clicks and drags so it must be updated without clicking again.
             mouseX = e.getX();
             mouseY = e.getY();
 		}
