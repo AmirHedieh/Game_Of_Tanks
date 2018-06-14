@@ -6,8 +6,12 @@ import game.elements.Tank;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 /**
  * The window on which the rendering is performed.
@@ -77,6 +81,15 @@ public class GameFrame extends JFrame {
 		//draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
 		for(int i = 0 ; i < tanks.size() ; i++){
+			BufferedImage img = null;
+			try {
+				img = ImageIO.read(new File("src/resource/texture/8.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			g2d.drawImage(img, null, tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+			//g2d.setColor(Color.orange);
+			//g2d.fillRect(tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
 			g2d.setColor(Color.orange);
 			g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
 		}
