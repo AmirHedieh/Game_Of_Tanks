@@ -13,19 +13,42 @@ public class Tank extends GameObject{
     public final int TANK_HEIGHT = 128;
 
     private int health;
-    private Gun gun;
     private int type;
+
+    private Gun selectedGun;
+    private MissileGun missileGun;
+    private MachineGun machineGun;
 
     //constructor
     public Tank(double x, double y, int health, int type){ // gun must be added manually after making tank
         super(x,y);
+        missileGun = new MissileGun(this);
+        this.setMissileGun(missileGun);
+
+        machineGun = new MachineGun(this);
+        this.setMachineGun(machineGun);
+
+        this.selectedGun = missileGun;
         this.health = health;
         this.type = type;
+
         setVelX(12); //  set X velocity
         setVelY(12); // set y velocity
     }
 
     //methods
+
+    /**
+     * swap gun between missile and machine guns.
+     */
+    public void swapGun(){
+        if(selectedGun == missileGun){
+            selectedGun = machineGun;
+        }
+        else if(selectedGun == machineGun){
+            selectedGun = missileGun;
+        }
+    }
 
     /**
      * set amount of health for tank.
@@ -36,11 +59,26 @@ public class Tank extends GameObject{
     }
 
     /**
-     * set a gun for tank.
+     * set a Missile gun for tank.
      * @param gun
      */
-    public void setGun(Gun gun) {
-        this.gun = gun;
+    public void setMissileGun(MissileGun gun) {
+        this.missileGun = gun;
+    }
+
+    /**
+     * set a Machine gun for tank.
+     * @param gun
+     */
+    public void setMachineGun(MachineGun gun) {
+        this.machineGun = gun;
+    }
+
+    /**
+     * set the gun for tank to use(equip gun).
+     */
+    public void setSelectedGun(Gun selectedGun) {
+        this.selectedGun = selectedGun;
     }
 
     /**
@@ -59,10 +97,24 @@ public class Tank extends GameObject{
     }
 
     /**
-     * @return gun of the tank.
+     * @return Missile gun of tank
      */
-    public Gun getGun() {
-        return gun;
+    public MissileGun getMissileGun() {
+        return missileGun;
+    }
+
+    /**
+     * @return Machine gun of tank
+     */
+    public MachineGun getMachineGun() {
+        return machineGun;
+    }
+
+    /**
+     * @return the gun that tank is using right now(equipped gun).
+     */
+    public Gun getSelectedGun() {
+        return selectedGun;
     }
 
     /**
@@ -73,4 +125,5 @@ public class Tank extends GameObject{
     public int getType() {
         return type;
     }
+
 }

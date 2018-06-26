@@ -23,13 +23,10 @@ public class Objects {
 
     //methods
     /**
-     * if the game hasn't been started before it need to be initialized. player's tank must be created add a gun
-     * must be added to that.
+     * if the game hasn't been started before it needs to be initialized. player's tank must be create.
      */
     public void init(){
         Tank playerTank = new Tank(100,100,100,0); // making player's tank
-        Gun playerTankGun = new Gun(40,25,playerTank); // create gun for player's tank
-        playerTank.setGun(playerTankGun); // add gun to player's tank
         tanks.add(playerTank); //add player's tank to objects ( tanks arrayList)
     }
 
