@@ -29,6 +29,7 @@ public class Gun extends GameObject{
      */
     public Bullet shoot(double tankX, double tankY, int mouseX, int mouseY){
         Bullet bullet = new Bullet(tankX,tankY,mouseX,mouseY,damage);
+        ammo--; //todo : bound for 0 needed
         return bullet;
     }
 
