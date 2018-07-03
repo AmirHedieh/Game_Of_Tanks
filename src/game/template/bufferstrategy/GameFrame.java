@@ -5,6 +5,7 @@ import game.elements.Bullet;
 import game.elements.Tank;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -102,7 +103,13 @@ public class GameFrame extends JFrame {
 				e.printStackTrace();
 			}
 			g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
-			g2d.drawImage(gun, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 11);
+            /*int centerX = width / 2;
+            int centerY = height / 2;
+            double angle = Math.atan2(centerY - mouseY, centerX - mouseX) - Math.PI / 2;
+            addMouseMotionListener(new mo);
+
+            ((Graphics2D)g).rotate(angle, centerX, centerY);*/
+            g2d.drawImage(gun, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 11);
 			//g2d.setColor(Color.orange);
 			//g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
 		}
