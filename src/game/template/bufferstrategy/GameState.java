@@ -22,6 +22,7 @@ public class GameState {
 
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
     private boolean shoot;
+    private boolean swap;
     private boolean mousePress;
     private int mouseX, mouseY;
 
@@ -36,6 +37,7 @@ public class GameState {
         keyLEFT = false;
         //
         shoot = false;
+        swap = false;
         //
 		objects.init(); //initialize game objects
 
@@ -61,8 +63,14 @@ public class GameState {
             objects.getTanks().get(0).setX( objects.getTanks().get(0).getX() + objects.getTanks().get(0).getVelX() );
         //
         if(shoot)
-            objects.addBullet(objects.getTanks().get(0).getGun().shoot(objects.getTanks().get(0).getX(),objects.getTanks().get(0).getY(),mouseX,mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+            objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(),objects.getTanks().get(0).getY(),mouseX,mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
         //
+		if(swap) {
+			objects.getTanks().get(0).swapGun();
+			swap = false;
+		}
+
+		//
         for(int i = 0 ; i < objects.getBullets().size() ; i++){
         	objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
 			objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
@@ -147,14 +155,20 @@ public class GameState {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-		    mouseX = e.getX();
-            mouseY = e.getY();
-            shoot = true;
+			if(e.getButton() == MouseEvent.BUTTON1) { // when pressing LEFT CLICK it shoots
+				mouseX = e.getX();
+				mouseY = e.getY();
+				shoot = true;
+			}
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 		    shoot = false;
+		    if(e.getButton() == MouseEvent.BUTTON3){ // when pressing RIGHT CLICK it swaps tank gun
+				swap = true;
+			}
 		}
 
 		@Override
@@ -167,7 +181,7 @@ public class GameState {
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-            // mabye user clicks and drags so it must be updated without clicking again.
+            // maybe user clicks and drags so it must be updated without clicking again.
             mouseX = e.getX();
             mouseY = e.getY();
 		}

@@ -2,20 +2,19 @@ package game.elements;
 
 /**
  * a weapon that can provide damage to other objects.
- * two kind of guns are available: 1- Missle launcher 2- Machine gun
+ * two kind of guns are available: 1- MissileGun launcher 2- Machine gun
  *each gun has a damage field which is the amount of damage that it provides.
  * each gun has an specific amount of ammo.
  */
 public class Gun extends GameObject{
     //fields
-    private int damage;
-    private int ammo;
+    protected int damage;
+    protected int ammo;
 
     //constructor
-    public Gun(int damage , int ammo , Tank tank){
+    public Gun(Tank tank){
         super(tank.x,tank.y);
-        this.damage = damage;
-        this.ammo = ammo;
+
     }
 
     //methods
@@ -30,6 +29,7 @@ public class Gun extends GameObject{
      */
     public Bullet shoot(double tankX, double tankY, int mouseX, int mouseY){
         Bullet bullet = new Bullet(tankX,tankY,mouseX,mouseY,damage);
+        ammo--; //todo : bound for 0 needed
         return bullet;
     }
 
