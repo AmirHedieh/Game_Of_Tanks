@@ -3,6 +3,7 @@ package game.template.bufferstrategy;
 
 import game.elements.Bullet;
 import game.elements.Tank;
+import game.elements.Turret;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -113,10 +114,18 @@ public class GameFrame extends JFrame {
 			//g2d.setColor(Color.orange);
 			//g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
 		}
+
 		ArrayList<Bullet> bullets = state.objects.getBullets();
 		for(int i = 0 ; i < bullets.size() ; i++){
 			g2d.setColor(Color.CYAN);
 			g2d.fillRect( (int) bullets.get(i).getX() ,(int) bullets.get(i).getY() , 5,5 );
+		}
+
+		ArrayList<Turret> turrets = state.objects.getTurrets();
+		for(int i= 0 ; i < turrets.size() ; i++){
+			g2d.setColor(Color.GREEN);
+			g2d.fillRect( (int) turrets.get(i).getX() ,(int) turrets.get(i).getY() , 5,5 );
+			g2d.fillRect((int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2, turrets.get(i).TURRET_WIDTH, turrets.get(i).TURRET_HEIGHT);
 		}
 	}
 	

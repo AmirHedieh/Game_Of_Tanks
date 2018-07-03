@@ -25,7 +25,7 @@ public class GameState {
     private boolean shoot;
     private boolean swap;
     private boolean mousePress;
-    private int mouseX, mouseY;
+    private double mouseX, mouseY;
 
     private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
@@ -77,6 +77,10 @@ public class GameState {
         for(int i = 0 ; i < objects.getBullets().size() ; i++){
         	objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
 			objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
+		}
+		//
+		for(int i = 0 ; i < objects.getTurrets().size() ; i++){
+        	objects.getTurrets().get(i).tick();
 		}
 		//
 	}

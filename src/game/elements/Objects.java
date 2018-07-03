@@ -28,6 +28,9 @@ public class Objects {
     public void init(){
         Tank playerTank = new Tank(100,100,100,0); // making player's tank
         tanks.add(playerTank); //add player's tank to objects ( tanks arrayList)
+        // Turrets initialization
+        Turret turret = new Turret(1500,700 , playerTank,this);
+        turrets.add(turret);
     }
 
     /**
