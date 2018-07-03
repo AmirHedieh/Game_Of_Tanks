@@ -12,6 +12,7 @@ public class MissileGun extends Gun {
         super(tank);
         damage = 100;
         ammo = 15;
+        reloadTime = 1000; // millisecond
     }
     //methods
 

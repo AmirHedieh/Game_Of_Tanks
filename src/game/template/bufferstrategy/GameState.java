@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.Date;
 
 /**
  * This class holds the state of the game and all of its elements.
@@ -63,8 +64,10 @@ public class GameState {
             objects.getTanks().get(0).setX( objects.getTanks().get(0).getX() + objects.getTanks().get(0).getVelX() );
         //
         if(shoot)
-            objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(),objects.getTanks().get(0).getY(),mouseX,mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
-        //
+			if(objects.getTanks().get(0).getSelectedGun().readyForShoot()) {
+				objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(), objects.getTanks().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+			}
+		//
 		if(swap) {
 			objects.getTanks().get(0).swapGun();
 			swap = false;

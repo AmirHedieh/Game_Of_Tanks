@@ -1,5 +1,7 @@
 package game.elements;
 
+import java.util.Date;
+
 /**
  * a weapon that can provide damage to other objects.
  * two kind of guns are available: 1- MissileGun launcher 2- Machine gun
@@ -10,6 +12,8 @@ public class Gun extends GameObject{
     //fields
     protected int damage;
     protected int ammo;
+    protected long lastShootTime;
+    protected long reloadTime;
 
     //constructor
     public Gun(Tank tank){
@@ -28,9 +32,33 @@ public class Gun extends GameObject{
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
     public Bullet shoot(double tankX, double tankY, int mouseX, int mouseY){
-        Bullet bullet = new Bullet(tankX,tankY,mouseX,mouseY,damage);
-        ammo--; //todo : bound for 0 needed
-        return bullet;
+            Bullet bullet = new Bullet(tankX, tankY, mouseX, mouseY, damage);
+            ammo--; //todo : bound for 0 needed
+            lastShootTime = getCurrentTime();
+            System.out.println(lastShootTime);
+            return bullet;
+    }
+
+    /**
+     *checks that Gun is ready to shot or not(it is reloading or not).
+     * @return true if ready | false if reloading
+     */
+    public boolean readyForShoot(){
+        System.out.println("reloading " + reloadTime);
+        if(getCurrentTime() - lastShootTime > reloadTime ){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    /**
+     * to get current system time with millisecond accuracy.
+     * @return current system time
+     */
+    private long getCurrentTime(){
+        long time = new Date().getTime() % 10000000;
+        return time;
     }
 
     /**
