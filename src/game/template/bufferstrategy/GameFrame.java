@@ -77,27 +77,34 @@ public class GameFrame extends JFrame {
 	private void doRendering(Graphics2D g2d, GameState state) {
 
 		// Draw background
-		/*BufferedImage backGround = null;
+		BufferedImage backGround = null;
 		try {
-			backGround = ImageIO.read(new File("src/resource/backGround.png"));
+			backGround = ImageIO.read(new File("src/resource/Sahara.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		g2d.drawImage(backGround, null, 0, 0);*/
-		g2d.setColor(Color.GRAY);
-		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+		g2d.drawImage(backGround, null, 0, 0);
+		/*g2d.setColor(Color.GRAY);
+		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);*/
 		//draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
 		for(int i = 0 ; i < tanks.size() ; i++){
 			BufferedImage tank = null;
 			try {
-				tank = ImageIO.read(new File("src/resource/texture/8.png"));
+				tank = ImageIO.read(new File("src/resource/tank.png"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			//g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
-			g2d.setColor(Color.orange);
-			g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
+			BufferedImage gun = null;
+			try {
+				gun = ImageIO.read(new File("src/resource/tankGun01.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+			g2d.drawImage(gun, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 11);
+			//g2d.setColor(Color.orange);
+			//g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
 		}
 		ArrayList<Bullet> bullets = state.objects.getBullets();
 		for(int i = 0 ; i < bullets.size() ; i++){
