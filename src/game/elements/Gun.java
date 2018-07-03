@@ -16,9 +16,8 @@ public class Gun extends GameObject{
     protected long reloadTime;
 
     //constructor
-    public Gun(Tank tank){
-        super(tank.x,tank.y);
-
+    public Gun(double x, double y){
+        super(x,y);
     }
 
     //methods
@@ -31,11 +30,10 @@ public class Gun extends GameObject{
      * @param mouseY
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
-    public Bullet shoot(double tankX, double tankY, int mouseX, int mouseY){
+    public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY){
             Bullet bullet = new Bullet(tankX, tankY, mouseX, mouseY, damage);
             ammo--; //todo : bound for 0 needed
             lastShootTime = getCurrentTime();
-            System.out.println(lastShootTime);
             return bullet;
     }
 
@@ -44,7 +42,6 @@ public class Gun extends GameObject{
      * @return true if ready | false if reloading
      */
     public boolean readyForShoot(){
-        System.out.println("reloading " + reloadTime);
         if(getCurrentTime() - lastShootTime > reloadTime ){
             return true;
         }

@@ -8,8 +8,8 @@ public class MissileGun extends Gun {
     //fields
 
     //constructor
-    public MissileGun(Tank tank){ //todo : try not to pass tank from subclass to father
-        super(tank);
+    public MissileGun(double x, double y){ //todo : try not to pass tank from subclass to father
+        super(x,y);
         damage = 100;
         ammo = 15;
         reloadTime = 1000; // millisecond
