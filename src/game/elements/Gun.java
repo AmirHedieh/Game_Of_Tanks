@@ -20,6 +20,14 @@ public class Gun extends GameObject{
 
     //methods
 
+    /**
+     * shooting bullet from gun(creating a bullet).
+     * @param tankX
+     * @param tankY
+     * @param mouseX
+     * @param mouseY
+     * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
+     */
     public Bullet shoot(double tankX, double tankY, int mouseX, int mouseY){
         Bullet bullet = new Bullet(tankX,tankY,mouseX,mouseY,damage);
         return bullet;
