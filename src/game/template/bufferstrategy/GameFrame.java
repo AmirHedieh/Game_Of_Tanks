@@ -123,9 +123,15 @@ public class GameFrame extends JFrame {
 
 		ArrayList<Turret> turrets = state.objects.getTurrets();
 		for(int i= 0 ; i < turrets.size() ; i++){
-			g2d.setColor(Color.GREEN);
-			g2d.fillRect( (int) turrets.get(i).getX() ,(int) turrets.get(i).getY() , 5,5 );
-			g2d.fillRect((int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2, turrets.get(i).TURRET_WIDTH, turrets.get(i).TURRET_HEIGHT);
+            BufferedImage turret = null;
+            try {
+                turret = ImageIO.read(new File("src/resource/tank_turret.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            g2d.drawImage(turret, null, (int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+			/*g2d.setColor(Color.GREEN);
+			g2d.fillRect((int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2, turrets.get(i).TURRET_WIDTH, turrets.get(i).TURRET_HEIGHT);*/
 		}
 	}
 	
