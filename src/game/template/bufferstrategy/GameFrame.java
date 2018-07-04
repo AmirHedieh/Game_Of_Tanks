@@ -85,7 +85,7 @@ public class GameFrame extends JFrame {
 		AffineTransform oldTransform = g2d.getTransform();
 
 		// Draw background
-		BufferedImage backGround = Utility.loadImage("src/resource/Sahara.png");
+		BufferedImage backGround = Utility.loadImage("src/resource/field.png");
 		g2d.drawImage(backGround, null, 0, 0);
 		/*g2d.setColor(Color.GRAY);
 		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);*/
