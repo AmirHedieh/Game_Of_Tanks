@@ -11,7 +11,7 @@ public class Objects {
     private ArrayList<Tank> tanks;
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
-
+    private ArrayList<BuriedRobot> robots;
 
     //constructor
 
@@ -19,6 +19,7 @@ public class Objects {
         tanks = new ArrayList<>();
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
+        robots = new ArrayList<>();
     }
 
     //methods
@@ -35,6 +36,9 @@ public class Objects {
         //AI tanks initialization
 //        Tank tank1 = new Tank(700,700,100,1);
 //        tanks.add(tank1);
+        // Buried Robots initialization
+        BuriedRobot robot1 = new BuriedRobot(700,700);
+        robots.add(robot1);
     }
 
     /**
@@ -110,6 +114,14 @@ public class Objects {
     }
 
     /**
+     * set a new arrayList for buried robots
+     * @param robots
+     */
+    public void setRobots(ArrayList<BuriedRobot> robots) {
+        this.robots = robots;
+    }
+
+    /**
      * get arrayList that contains all tanks
      * @return
      */
@@ -132,4 +144,13 @@ public class Objects {
     public ArrayList<Turret> getTurrets() {
         return turrets;
     }
+
+    /**
+     * get arrayList that contains all buried robots
+     * @return
+     */
+    public ArrayList<BuriedRobot> getRobots() {
+        return robots;
+    }
+
 }

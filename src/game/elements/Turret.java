@@ -26,7 +26,9 @@ public class Turret extends GameObject {
     //methods
     public void tick(Objects objects){
         if(checkArea() == true){
-            objects.addBullet(gun.shoot(this.x,this.y,target.x,target.y));
+            if(gun.readyForShoot()) {
+                objects.addBullet(gun.shoot(this.x, this.y, target.x, target.y));
+            }
         }
     }
 

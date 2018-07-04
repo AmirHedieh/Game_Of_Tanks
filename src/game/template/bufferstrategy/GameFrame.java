@@ -2,6 +2,7 @@
 package game.template.bufferstrategy;
 
 import game.elements.Bullet;
+import game.elements.BuriedRobot;
 import game.elements.Tank;
 import game.elements.Turret;
 import game.Utils.*;
@@ -126,11 +127,19 @@ public class GameFrame extends JFrame {
 		}
 
 		ArrayList<Turret> turrets = state.objects.getTurrets();
-		for(int i= 0 ; i < turrets.size() ; i++){
+		for(int i = 0 ; i < turrets.size() ; i++){
             BufferedImage turret = Utility.loadImage("src/resource/tank_turret.png");
             g2d.drawImage(turret, null, (int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
 			/*g2d.setColor(Color.GREEN);
 			g2d.fillRect((int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2, turrets.get(i).TURRET_WIDTH, turrets.get(i).TURRET_HEIGHT);*/
+		}
+
+		ArrayList<BuriedRobot> robots = state.objects.getRobots();
+		for(int i = 0 ; i < robots.size() ; i++){
+			if(robots.get(i).isActivated()) {
+				g2d.setColor(Color.BLACK);
+				g2d.fillRect((int) robots.get(i).getX(), (int) robots.get(i).getY(), 20, 20);
+			}
 		}
 	}
 

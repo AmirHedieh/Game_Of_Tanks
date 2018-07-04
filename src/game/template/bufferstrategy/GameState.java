@@ -95,6 +95,10 @@ public class GameState {
 		}
 		//
 		aiTankHandler.tick(objects);
+        //
+		for(int i = 0 ; i < objects.getRobots().size() ; i++){
+			objects.getRobots().get(i).tick(objects);
+		}
 	}
 
 	
