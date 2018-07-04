@@ -1,6 +1,8 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.map.SpriteSheet;
+
 /**
  * A very simple structure for the main game loop.
  * THIS IS NOT PERFECT, but works for most situations.
@@ -25,6 +27,7 @@ public class GameLoop implements Runnable {
 	
 	private GameFrame canvas;
 	private GameState state;
+	private SpriteSheet spriteSheet;
 
 	public GameLoop(GameFrame frame) {
 		canvas = frame;
@@ -36,6 +39,7 @@ public class GameLoop implements Runnable {
 	public void init() {
 		// Perform all initializations ...
 		state = new GameState();
+		spriteSheet = new SpriteSheet("src/resource/sprite_sheet.png");
 		canvas.addKeyListener(state.getKeyListener());
 		canvas.addMouseListener(state.getMouseListener());
 		canvas.addMouseMotionListener(state.getMouseMotionListener());

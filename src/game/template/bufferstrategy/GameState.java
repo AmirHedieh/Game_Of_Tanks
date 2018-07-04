@@ -24,8 +24,17 @@ public class GameState {
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
     private boolean shoot;
     private boolean swap;
-    private boolean mousePress;
     private double mouseX, mouseY;
+
+    /*
+    this is a temp for last key pressed
+    one is for right
+    two is for up
+    three is for left
+    four is for down
+     */
+    private int lastKey;
+    public static double bodyAngle;
 
     private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
@@ -84,6 +93,8 @@ public class GameState {
 		}
 		//
 	}
+
+	
 	
 	
 	public KeyListener getKeyListener() {
@@ -117,15 +128,19 @@ public class GameState {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_W:
                     keyUP = true;
+                    lastKey = 2;
                     break;
                 case KeyEvent.VK_S:
                     keyDOWN = true;
+                    lastKey = 4;
                     break;
                 case KeyEvent.VK_A:
                     keyLEFT = true;
+                    lastKey = 3;
                     break;
                 case KeyEvent.VK_D:
                     keyRIGHT = true;
+                    lastKey = 1;
                     break;
             }
 		}

@@ -93,19 +93,26 @@ public class GameFrame extends JFrame {
         ArrayList<Tank> tanks = state.objects.getTanks();
 		for(int i = 0 ; i < tanks.size() ; i++){
 			BufferedImage tank = Utility.loadImage("src/resource/tank.png");
-            g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+            //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
             BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
 
-			/*int mouseY = MouseInfo.getPointerInfo().getLocation().y;
+			int mouseY = MouseInfo.getPointerInfo().getLocation().y;
             int mouseX = MouseInfo.getPointerInfo().getLocation().x;
 
             int centerX = (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2;
             int centerY = (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2;
 
             double angle = Math.atan2(centerY - mouseY, centerX - mouseX) - Math.PI / 2;
-            gun.createGraphics().rotate(angle, centerX, centerY);
-*/
+            //gun.createGraphics().rotate(angle, centerX, centerY);
+
+			/*AffineTransform atBody = g2d.getTransform();
+			atBody.rotate(Math.toRadians(tanks.get(i).getAngelBody()),
+					tanks.get(i).getX() + tank.getWidth() / 2,
+					tanks.get(i).getY() + tank.getHeight() / 2);
+			g2d.setTransform(atBody);*/
+			g2d.drawImage(tank, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
+			g2d.setTransform(oldTransform);
 
             g2d.drawImage(gun, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 11);
 			//g2d.setColor(Color.orange);
@@ -127,8 +134,8 @@ public class GameFrame extends JFrame {
 		}
 	}
 
-		/*// Draw background
-		VcamX=state.camlocX;
+		// Draw background
+		/*VcamX=state.camlocX;
 		VcamY=state.camlocY;
 		while(VcamX%200!=0){
 			VcamX--;
@@ -146,9 +153,11 @@ public class GameFrame extends JFrame {
 			for(int j=0;j<10;j++){
 				g2d.drawImage(groundimage,VcamX+200*i,VcamY+200*j,200,200,null);
 			}
-		}
+		}*/
+
+
 		// Draw tank
-		locationX = tankbodyimage.getWidth() / 2;
+		/*locationX = tankbodyimage.getWidth() / 2;
 		locationY = tankbodyimage.getHeight() / 2;
 		tx = AffineTransform.getRotateInstance(Math.toRadians(state.tanktheta), locationX, locationY);
 		op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
@@ -183,9 +192,11 @@ public class GameFrame extends JFrame {
 				state.shots.remove(i);
 				i--;
 			}
-		}
+		}*/
+
+
 		//Draw Weapon
-		if(state.isCannon) {
+		/*if(state.isCannon) {
 			try {
 				weaponimage=ImageIO.read(new File("src/Images/canoon.png"));
 			} catch (IOException e) {
@@ -245,14 +256,14 @@ public class GameFrame extends JFrame {
 				state.SEnemies[i].locX+=3*Math.cos(rotationRequired);
 				state.SEnemies[i].locY+=3*Math.sin(rotationRequired);
 			}
-		}
+		}*/
+
+
 		//Draw status
-		g2d.drawImage(Cstat,15,50,null);
+		/*g2d.drawImage(Cstat,15,50,null);
 		g2d.drawImage(Astat,20,115,null);
 		g2d.setFont(new Font(null,Font.BOLD,20));
 		g2d.drawString(Integer.toString(state.CCount),100,75);
-		g2d.drawString(Integer.toString(state.ACount),100,140);
-	}
-*/
+		g2d.drawString(Integer.toString(state.ACount),100,140);*/
 
 }

@@ -1,6 +1,7 @@
 package game.map;
 
 import game.Utils.Utility;
+import game.template.bufferstrategy.ThreadPool;
 
 import java.awt.image.BufferedImage;
 
@@ -15,7 +16,7 @@ public class SpriteSheet
     public SpriteSheet(String path)
     {
         BufferedImage image = Utility.loadImage("src/resource/sprite_sheet.png");
-
+        
         this.path = path;
         this.width = image.getWidth();
         this.height = image.getHeight();
