@@ -95,28 +95,20 @@ public class GameFrame extends JFrame {
 			BufferedImage tank = Utility.loadImage("src/resource/tank.png");
             //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
-            BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
-
 			int mouseY = MouseInfo.getPointerInfo().getLocation().y;
-            int mouseX = MouseInfo.getPointerInfo().getLocation().x;
+			int mouseX = MouseInfo.getPointerInfo().getLocation().x;
 
-            int centerX = (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2;
-            int centerY = (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2;
+			int centerX = (int)tanks.get(i).getX() + tanks.get(i).TANK_WIDTH / 2;
+			int centerY = (int)tanks.get(i).getY() + tanks.get(i).TANK_HEIGHT / 2;
 
-            double angle = Math.atan2(centerY - mouseY, centerX - mouseX) - Math.PI / 2;
-            //gun.createGraphics().rotate(angle, centerX, centerY);
-
-			/*AffineTransform atBody = g2d.getTransform();
-			atBody.rotate(Math.toRadians(tanks.get(i).getAngelBody()),
-					tanks.get(i).getX() + tank.getWidth() / 2,
-					tanks.get(i).getY() + tank.getHeight() / 2);
-			g2d.setTransform(atBody);*/
-			g2d.drawImage(tank, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
+			AffineTransform atBody = g2d.getTransform();
+			atBody.rotate(Math.toRadians(state.getBodyAngle()), centerX, centerY);
+			g2d.setTransform(atBody);
+			g2d.drawImage(tank, (int)tanks.get(i).getX(), (int)tanks.get(i).getY(), null);
 			g2d.setTransform(oldTransform);
 
-            g2d.drawImage(gun, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 11);
-			//g2d.setColor(Color.orange);
-			//g2d.fillRect((int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, tanks.get(i).TANK_WIDTH, tanks.get(i).TANK_HEIGHT);
+			BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
+			g2d.drawImage(gun, null, (int)tanks.get(i).getX() + 18,(int)tanks.get(i).getY() + 15);
 		}
 
 		ArrayList<Bullet> bullets = state.objects.getBullets();

@@ -36,7 +36,7 @@ public class GameState {
     four is for down
      */
     private int lastKey;
-    public static double bodyAngle;
+    public double bodyAngle;
 
     private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
@@ -97,9 +97,60 @@ public class GameState {
 		aiTankHandler.tick(objects);
 	}
 
-	
-	
-	
+	public void findBodyAngle()
+	{
+		/*
+		one is for right
+		two is for up
+		three is for left
+		four is for down
+		 */
+		int isPressed;
+		if (keyDOWN)
+		{
+			isPressed = 4;
+		}
+		else if (keyLEFT)
+		{
+			isPressed = 3;
+		}
+		else if (keyRIGHT)
+		{
+			isPressed = 1;
+		}
+		else if (keyUP)
+		{
+			isPressed = 2;
+		}
+		else
+		{
+			bodyAngle = 0;
+			return;
+		}
+
+		switch ( (isPressed - lastKey) % 2)
+		{
+			case 0:
+				bodyAngle = 0;
+				break;
+			case 1:
+				if (isPressed > lastKey)
+				{
+					bodyAngle = Math.PI / 2;
+				}
+				else
+				{
+					bodyAngle = (3 / 2) * Math.PI;
+				}
+				break;
+		}
+	}
+
+	public double getBodyAngle()
+	{
+		return bodyAngle;
+	}
+
 	public KeyListener getKeyListener() {
 		return keyHandler;
 	}
@@ -131,21 +182,18 @@ public class GameState {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_W:
                     keyUP = true;
-                    lastKey = 2;
                     break;
                 case KeyEvent.VK_S:
                     keyDOWN = true;
-                    lastKey = 4;
                     break;
                 case KeyEvent.VK_A:
                     keyLEFT = true;
-                    lastKey = 3;
                     break;
                 case KeyEvent.VK_D:
                     keyRIGHT = true;
-                    lastKey = 1;
                     break;
             }
+            findBodyAngle();
 		}
 
 		@Override
@@ -153,15 +201,19 @@ public class GameState {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_W:
                     keyUP = false;
+					lastKey = 2;
                     break;
                 case KeyEvent.VK_S:
                     keyDOWN = false;
+					lastKey = 4;
                     break;
                 case KeyEvent.VK_A:
                     keyLEFT = false;
+					lastKey = 3;
                     break;
                 case KeyEvent.VK_D:
                     keyRIGHT = false;
+					lastKey = 1;
                     break;
             }
 

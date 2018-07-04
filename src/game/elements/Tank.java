@@ -9,8 +9,8 @@ package game.elements;
  */
 public class Tank extends GameObject{
     //fields
-    public final int TANK_WIDTH = 128 ;
-    public final int TANK_HEIGHT = 128;
+    public final int TANK_WIDTH = 100;
+    public final int TANK_HEIGHT = 100;
 
     private int health;
     private int type;
