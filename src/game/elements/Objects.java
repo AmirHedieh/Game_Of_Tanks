@@ -26,11 +26,15 @@ public class Objects {
      * if the game hasn't been started before it needs to be initialized. player's tank must be create.
      */
     public void init(){
+        //Player tank initialization
         Tank playerTank = new Tank(100,100,100,0); // making player's tank
         tanks.add(playerTank); //add player's tank to objects ( tanks arrayList)
         // Turrets initialization
-        Turret turret = new Turret(1500,700 , playerTank,this);
+        Turret turret = new Turret(1500,700 , playerTank);
         turrets.add(turret);
+        //AI tanks initialization
+//        Tank tank1 = new Tank(700,700,100,1);
+//        tanks.add(tank1);
     }
 
     /**
