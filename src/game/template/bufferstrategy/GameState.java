@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.elements.AITankHandler;
 import game.elements.Objects;
 import game.elements.Tank;
 
@@ -20,6 +21,7 @@ import java.util.Date;
 public class GameState {
 
     public Objects objects = new Objects(); // objects of the game
+	private AITankHandler aiTankHandler; // AI tanks manager
 
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
     private boolean shoot;
@@ -41,7 +43,7 @@ public class GameState {
         swap = false;
         //
 		objects.init(); //initialize game objects
-
+		aiTankHandler = new AITankHandler();
         //
 		keyHandler = new KeyHandler();
 		mouseHandler = new MouseHandler();
@@ -80,9 +82,10 @@ public class GameState {
 		}
 		//
 		for(int i = 0 ; i < objects.getTurrets().size() ; i++){
-        	objects.getTurrets().get(i).tick();
+        	objects.getTurrets().get(i).tick(objects);
 		}
 		//
+		aiTankHandler.tick(objects);
 	}
 	
 	

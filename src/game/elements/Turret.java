@@ -14,27 +14,25 @@ public class Turret extends GameObject {
     MissileGun gun;
     private double rangeOfView;
     private Tank target;
-    Objects objects;
+
     //constructor
-    public Turret(double x , double y, Tank target, Objects objects){
+    public Turret(double x , double y, Tank target){
         super(x,y);
         gun = new MissileGun(this.x, this.y);
         rangeOfView = 800;
         this.target = target;
-        this.objects = objects;
     }
 
     //methods
-    public void tick(){
+    public void tick(Objects objects){
         if(checkArea() == true){
             objects.addBullet(gun.shoot(this.x,this.y,target.x,target.y));
         }
     }
 
-    private boolean checkArea(){
+    public boolean checkArea(){
         double distance = Math.sqrt( Math.pow(Math.abs(this.x - target.x),2) + Math.pow(Math.abs(this.y - target.y),2));
         if(distance - rangeOfView <= 0){
-            System.out.println("In Range");
             return true;
         }
         else
