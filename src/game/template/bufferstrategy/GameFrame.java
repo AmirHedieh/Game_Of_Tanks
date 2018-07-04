@@ -4,6 +4,7 @@ package game.template.bufferstrategy;
 import game.elements.Bullet;
 import game.elements.Tank;
 import game.elements.Turret;
+import game.Utils.*;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -80,7 +81,7 @@ public class GameFrame extends JFrame {
 	private void doRendering(Graphics2D g2d, GameState state) {
 
 		// Draw background
-		BufferedImage backGround = loadImage("src/resource/Sahara.png");
+		BufferedImage backGround = Utility.loadImage("src/resource/Sahara.png");
 		g2d.drawImage(backGround, null, 0, 0);
 		/*g2d.setColor(Color.GRAY);
 		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);*/
@@ -88,10 +89,10 @@ public class GameFrame extends JFrame {
 		//draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
 		for(int i = 0 ; i < tanks.size() ; i++){
-			BufferedImage tank = loadImage("src/resource/tank.png");
+			BufferedImage tank = Utility.loadImage("src/resource/tank.png");
             g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
-            BufferedImage gun = loadImage("src/resource/tankGun01.png");
+            BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
 
 			/*int mouseY = MouseInfo.getPointerInfo().getLocation().y;
             int mouseX = MouseInfo.getPointerInfo().getLocation().x;
@@ -116,23 +117,11 @@ public class GameFrame extends JFrame {
 
 		ArrayList<Turret> turrets = state.objects.getTurrets();
 		for(int i= 0 ; i < turrets.size() ; i++){
-            BufferedImage turret = loadImage("src/resource/tank_turret.png");
+            BufferedImage turret = Utility.loadImage("src/resource/tank_turret.png");
             g2d.drawImage(turret, null, (int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
 			/*g2d.setColor(Color.GREEN);
 			g2d.fillRect((int)turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2,(int)turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2, turrets.get(i).TURRET_WIDTH, turrets.get(i).TURRET_HEIGHT);*/
 		}
 	}
-
-	public BufferedImage loadImage(String path)
-    {
-        BufferedImage temp = null;
-        try
-        {
-            temp = ImageIO.read(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return temp;
-    }
 	
 }
