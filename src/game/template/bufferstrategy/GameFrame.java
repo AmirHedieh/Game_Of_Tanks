@@ -102,7 +102,7 @@ public class GameFrame extends JFrame {
 			int centerX = (int)tanks.get(i).getX() + tanks.get(i).TANK_WIDTH / 2;
 			int centerY = (int)tanks.get(i).getY() + tanks.get(i).TANK_HEIGHT / 2;
 
-			AffineTransform atBody = g2d.getTransform();
+			AffineTransform atBody = g2d.getTransform(); 
 			atBody.rotate(Math.toRadians(state.getBodyAngle()), centerX, centerY);
 			g2d.setTransform(atBody);
 			g2d.drawImage(tank, (int)tanks.get(i).getX(), (int)tanks.get(i).getY(), null);
@@ -127,10 +127,12 @@ public class GameFrame extends JFrame {
 		}
 
 		ArrayList<BuriedRobot> robots = state.objects.getRobots();
-		for(int i = 0 ; i < robots.size() ; i++){
+		for(int i = 0 ; i < robots.size() ; i++) {
 			if(robots.get(i).isActivated()) {
-				g2d.setColor(Color.BLACK);
-				g2d.fillRect((int) robots.get(i).getX(), (int) robots.get(i).getY(), 20, 20);
+				BufferedImage turret = Utility.loadImage("src/resource/buriedRobot.png");
+				g2d.drawImage(turret, null, (int) robots.get(i).getX(),(int) robots.get(i).getY());
+				/*g2d.setColor(Color.BLACK);
+				g2d.fillRect((int) robots.get(i).getX(), (int) robots.get(i).getY(), 20, 20);*/
 			}
 		}
 	}
