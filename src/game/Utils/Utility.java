@@ -13,7 +13,9 @@ public class Utility
         try
         {
             temp = ImageIO.read(new File(path));
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
         return temp;
