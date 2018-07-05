@@ -113,6 +113,26 @@ public class GameFrame extends JFrame {
 
 		ArrayList<Bullet> bullets = state.objects.getBullets();
 		for(int i = 0 ; i < bullets.size() ; i++){
+			/*if ()
+			{
+				BufferedImage bullet = Utility.loadImage("src/resource/HeavyBullet.png");
+				AffineTransform bulletTransform = g2d.getTransform();
+				double gunAngle = Math.atan2( (state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()) );
+				bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
+				g2d.setTransform(bulletTransform);
+				g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
+				g2d.setTransform(gameTransform);
+			}
+			else
+			{
+				BufferedImage bullet = Utility.loadImage("src/resource/LightBullet.png");
+				AffineTransform bulletTransform = g2d.getTransform();
+				double gunAngle = Math.atan2( (state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()) );
+				bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
+				g2d.setTransform(bulletTransform);
+				g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
+				g2d.setTransform(gameTransform);
+			}*/
 			BufferedImage bullet = Utility.loadImage("src/resource/LightBullet.png");
 			AffineTransform bulletTransform = g2d.getTransform();
 			double gunAngle = Math.atan2( (state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()) );
@@ -120,8 +140,6 @@ public class GameFrame extends JFrame {
 			g2d.setTransform(bulletTransform);
 			g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
 			g2d.setTransform(gameTransform);
-			/*g2d.setColor(Color.BLACK);
-			g2d.fillRect( (int) bullets.get(i).getX() ,(int) bullets.get(i).getY() , 5,5 );*/
 		}
 
 		ArrayList<Turret> turrets = state.objects.getTurrets();

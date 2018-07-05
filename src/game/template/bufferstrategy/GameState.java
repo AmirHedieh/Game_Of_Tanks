@@ -25,7 +25,6 @@ public class GameState {
     private boolean shoot;
     private boolean swap;
     private double mouseX, mouseY;
-    private double gunAngle;
 
 	/*
         this is a temp for last key pressed
@@ -36,9 +35,10 @@ public class GameState {
 	 */
 	private int lastKey;
 	public double bodyAngle;
-    private KeyHandler keyHandler;
 
+    private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
+
 	public GameState() {
 		// Initialize the game state and all elements ...
         keyUP = false;
