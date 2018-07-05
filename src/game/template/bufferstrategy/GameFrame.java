@@ -109,13 +109,12 @@ public class GameFrame extends JFrame {
 
 			BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
 
-			/*AffineTransform gunTransform = g2d.getTransform();
-			gunTransform.rotate(Math.toRadians(state.getBodyAngle()), centerX, centerY);
+			AffineTransform gunTransform = g2d.getTransform();
+			double gunAngle = Math.atan2( (state.getMouseYPointer() - centerY), (state.getMouseXPointer() - centerX) );
+			gunTransform.rotate(gunAngle, centerX, centerY);
 			g2d.setTransform(gunTransform);
-			g2d.drawImage(tank, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
-			g2d.setTransform(gameTransform);*/
-
 			g2d.drawImage(gun, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 15, null);
+			g2d.setTransform(gameTransform);
 		}
 
 		ArrayList<Bullet> bullets = state.objects.getBullets();

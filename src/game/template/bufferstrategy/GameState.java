@@ -3,14 +3,12 @@ package game.template.bufferstrategy;
 
 import game.elements.AITankHandler;
 import game.elements.Objects;
-import game.elements.Tank;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.Date;
 
 /**
  * This class holds the state of the game and all of its elements.
@@ -26,21 +24,22 @@ public class GameState {
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
     private boolean shoot;
     private boolean swap;
-    private double mouseX, mouseY;
+    private double mouseXDrag, mouseYDrag;
+    private double mouseXPointer, mouseYPointer;
+    private double gunAngle;
 
-    /*
-    this is a temp for last key pressed
-    one is for right
-    two is for up
-    three is for left
-    four is for down
-     */
-    private int lastKey;
-    public double bodyAngle;
-
+	/*
+        this is a temp for last key pressed
+        one is for right
+        two is for up
+        three is for left
+        four is for down
+	 */
+	private int lastKey;
+	public double bodyAngle;
     private KeyHandler keyHandler;
+
 	private MouseHandler mouseHandler;
-	
 	public GameState() {
 		// Initialize the game state and all elements ...
         keyUP = false;
@@ -57,12 +56,12 @@ public class GameState {
 		keyHandler = new KeyHandler();
 		mouseHandler = new MouseHandler();
 	}
-	
+
 	/**
 	 * The method which updates the game state.
 	 */
 	public void update() {
-		// Update the state of all game elements 
+		// Update the state of all game elements
 		//  based on user input and elapsed time ...
         //first element( objects.getTanks().get(0) ) in arrayList is player's tank.
         if (keyUP)
@@ -76,7 +75,7 @@ public class GameState {
         //
         if(shoot)
 			if(objects.getTanks().get(0).getSelectedGun().readyForShoot()) {
-				objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(), objects.getTanks().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+				objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(), objects.getTanks().get(0).getY(), mouseXDrag, mouseYDrag)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
 			}
 		//
 		if(swap) {
@@ -249,22 +248,40 @@ public class GameState {
 
 	}
 
+	/**
+	 * @return x of the mouse
+	 */
+	public double getMouseXPointer()
+	{
+		return mouseXPointer;
+	}
+
+	/**
+	 * @return y of the mouse
+	 */
+	public double getMouseYPointer()
+	{
+		return mouseYPointer;
+	}
+
 	public double getBodyAngle()
 	{
 		return bodyAngle;
 	}
 
+	/**
+	 * The mouse and key handler.
+	 */
 	public KeyListener getKeyListener() {
 		return keyHandler;
 	}
 	public MouseListener getMouseListener() {
 		return mouseHandler;
 	}
+
 	public MouseMotionListener getMouseMotionListener() {
 		return mouseHandler;
 	}
-
-
 
 	/**
 	 * The keyboard handler.
@@ -275,6 +292,7 @@ public class GameState {
      * process : when a key is pressed its boolean field gets true until it gets released, keyReleased method make boolean false.
 	 */
 	class KeyHandler implements KeyListener {
+
 
 		@Override
 		public void keyTyped(KeyEvent e) {
@@ -323,11 +341,8 @@ public class GameState {
         }
 
 	}
-
-	/**
-	 * The mouse handler.
-	 */
 	class MouseHandler implements MouseListener, MouseMotionListener {
+
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -336,8 +351,8 @@ public class GameState {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			if(e.getButton() == MouseEvent.BUTTON1) { // when pressing LEFT CLICK it shoots
-				mouseX = e.getX();
-				mouseY = e.getY();
+				mouseXDrag = e.getX();
+				mouseYDrag = e.getY();
 				shoot = true;
 			}
 
@@ -362,12 +377,14 @@ public class GameState {
 		@Override
 		public void mouseDragged(MouseEvent e) {
             // maybe user clicks and drags so it must be updated without clicking again.
-            mouseX = e.getX();
-            mouseY = e.getY();
+            mouseXDrag = e.getX();
+            mouseYDrag = e.getY();
 		}
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
+			mouseXPointer = e.getX();
+			mouseYPointer = e.getY();
 		}
 	}
 }
