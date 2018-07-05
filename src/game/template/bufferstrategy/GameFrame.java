@@ -9,13 +9,9 @@ import game.Utils.*;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -108,7 +104,7 @@ public class GameFrame extends JFrame {
 			BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
 			AffineTransform gunTransform = g2d.getTransform();
 			//we know that atan2 return radian :)
-			double gunAngle = Math.atan2( (state.getMouseYPointer() - centerY), (state.getMouseXPointer() - centerX) );
+			double gunAngle = Math.atan2( (state.getMouseY() - centerY), (state.getMouseX() - centerX) );
 			gunTransform.rotate(gunAngle, centerX, centerY);
 			g2d.setTransform(gunTransform);
 			g2d.drawImage(gun, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
@@ -118,7 +114,12 @@ public class GameFrame extends JFrame {
 		ArrayList<Bullet> bullets = state.objects.getBullets();
 		for(int i = 0 ; i < bullets.size() ; i++){
 			BufferedImage bullet = Utility.loadImage("src/resource/LightBullet.png");
-			g2d.drawImage(bullet, null, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
+			AffineTransform bulletTransform = g2d.getTransform();
+			double gunAngle = Math.atan2( (state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()) );
+			bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
+			g2d.setTransform(bulletTransform);
+			g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
+			g2d.setTransform(gameTransform);
 			/*g2d.setColor(Color.BLACK);
 			g2d.fillRect( (int) bullets.get(i).getX() ,(int) bullets.get(i).getY() , 5,5 );*/
 		}

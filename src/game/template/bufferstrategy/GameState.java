@@ -24,8 +24,7 @@ public class GameState {
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
     private boolean shoot;
     private boolean swap;
-    private double mouseXDrag, mouseYDrag;
-    private double mouseXPointer, mouseYPointer;
+    private double mouseX, mouseY;
     private double gunAngle;
 
 	/*
@@ -75,7 +74,7 @@ public class GameState {
         //
         if(shoot)
 			if(objects.getTanks().get(0).getSelectedGun().readyForShoot()) {
-				objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(), objects.getTanks().get(0).getY(), mouseXDrag, mouseYDrag)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+				objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(), objects.getTanks().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
 			}
 		//
 		if(swap) {
@@ -251,17 +250,17 @@ public class GameState {
 	/**
 	 * @return x of the mouse
 	 */
-	public double getMouseXPointer()
+	public double getMouseX()
 	{
-		return mouseXPointer;
+		return mouseX;
 	}
 
 	/**
 	 * @return y of the mouse
 	 */
-	public double getMouseYPointer()
+	public double getMouseY()
 	{
-		return mouseYPointer;
+		return mouseY;
 	}
 
 	public double getBodyAngle()
@@ -351,8 +350,8 @@ public class GameState {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			if(e.getButton() == MouseEvent.BUTTON1) { // when pressing LEFT CLICK it shoots
-				mouseXDrag = e.getX();
-				mouseYDrag = e.getY();
+				mouseX = e.getX();
+				mouseY = e.getY();
 				shoot = true;
 			}
 
@@ -377,14 +376,14 @@ public class GameState {
 		@Override
 		public void mouseDragged(MouseEvent e) {
             // maybe user clicks and drags so it must be updated without clicking again.
-            mouseXDrag = e.getX();
-            mouseYDrag = e.getY();
+            mouseX = e.getX();
+            mouseY = e.getY();
 		}
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			mouseXPointer = e.getX();
-			mouseYPointer = e.getY();
+			mouseX = e.getX();
+			mouseY = e.getY();
 		}
 	}
 }
