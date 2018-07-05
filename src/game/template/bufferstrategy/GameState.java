@@ -109,7 +109,7 @@ public class GameState {
 		three is for left
 		four is for down
 		 */
-		int isPressed;
+		/*int isPressed;
 		if (keyDOWN)
 		{
 			isPressed = 4;
@@ -147,7 +147,106 @@ public class GameState {
 					bodyAngle = (3 / 2) * Math.PI;
 				}
 				break;
+		}*/
+		/*if (keyDOWN)
+		{
+			switch (lastKey)
+			{
+				case 1:
+					bodyAngle = (3 / 2) * Math.PI;
+					break;
+				case 2:
+					bodyAngle = 0;
+					break;
+				case 3:
+					bodyAngle = Math.PI / 2;
+					break;
+				case 4:
+					bodyAngle = 0;
+					break;
+			}
 		}
+		else if (keyLEFT)
+		{
+			switch (lastKey)
+			{
+				case 1:
+					bodyAngle = 0;
+					break;
+				case 2:
+					bodyAngle = Math.PI / 2;
+					break;
+				case 3:
+					bodyAngle = 0;
+					break;
+				case 4:
+					bodyAngle = (3 / 2) * Math.PI;
+					break;
+			}
+		}
+		else if (keyRIGHT)
+		{
+			switch (lastKey)
+			{
+				case 1:
+					bodyAngle = 0;
+					break;
+				case 2:
+					bodyAngle = (3 / 2) * Math.PI;
+					break;
+				case 3:
+					bodyAngle = 0;
+					break;
+				case 4:
+					bodyAngle = Math.PI / 2;
+					break;
+			}
+		}
+		else if (keyUP)
+		{
+			switch (lastKey)
+			{
+				case 1:
+					bodyAngle = Math.PI / 2;
+					break;
+				case 2:
+					bodyAngle = 0;
+					break;
+				case 3:
+					bodyAngle = (3 / 2) * Math.PI;
+					break;
+				case 4:
+					bodyAngle = 0;
+					break;
+			}
+		}
+		else
+		{
+			bodyAngle = 0;
+			return;
+		}*/
+		if (keyDOWN)
+		{
+			bodyAngle = - Math.PI / 2;
+		}
+		else if (keyLEFT)
+		{
+			bodyAngle = 0;
+		}
+		else if (keyRIGHT)
+		{
+			bodyAngle = 0;
+		}
+		else if (keyUP)
+		{
+			bodyAngle = Math.PI / 2;
+		}
+		else
+		{
+			bodyAngle = 0;
+			return;
+		}
+
 	}
 
 	public double getBodyAngle()

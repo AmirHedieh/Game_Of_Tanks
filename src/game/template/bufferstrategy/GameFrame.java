@@ -82,13 +82,12 @@ public class GameFrame extends JFrame {
 	 */
 	private void doRendering(Graphics2D g2d, GameState state)
 	{
-		AffineTransform oldTransform = g2d.getTransform();
+		AffineTransform gameTransform = g2d.getTransform();
 
 		// Draw background
 		BufferedImage backGround = Utility.loadImage("src/resource/field.png");
+		//BufferedImage backGround = Utility.loadImage("src/resource/Sahara.png");
 		g2d.drawImage(backGround, null, 0, 0);
-		/*g2d.setColor(Color.GRAY);
-		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);*/
 
 		//draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
@@ -99,22 +98,29 @@ public class GameFrame extends JFrame {
 			int mouseY = MouseInfo.getPointerInfo().getLocation().y;
 			int mouseX = MouseInfo.getPointerInfo().getLocation().x;
 
-			int centerX = (int)tanks.get(i).getX() + tanks.get(i).TANK_WIDTH / 2;
-			int centerY = (int)tanks.get(i).getY() + tanks.get(i).TANK_HEIGHT / 2;
+			int centerX = (int)tanks.get(i).getX();
+			int centerY = (int)tanks.get(i).getY();
 
-			AffineTransform atBody = g2d.getTransform();
-			atBody.rotate(Math.toRadians(state.getBodyAngle()), centerX, centerY);
-			g2d.setTransform(atBody);
-			g2d.drawImage(tank, (int)tanks.get(i).getX(), (int)tanks.get(i).getY(), null);
-			g2d.setTransform(oldTransform);
+			AffineTransform bodyTransform = g2d.getTransform();
+			bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
+			g2d.setTransform(bodyTransform);
+			g2d.drawImage(tank, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
+			g2d.setTransform(gameTransform);
 
 			BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
-			g2d.drawImage(gun, null, (int)tanks.get(i).getX() + 18,(int)tanks.get(i).getY() + 15);
+
+			/*AffineTransform gunTransform = g2d.getTransform();
+			gunTransform.rotate(Math.toRadians(state.getBodyAngle()), centerX, centerY);
+			g2d.setTransform(gunTransform);
+			g2d.drawImage(tank, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
+			g2d.setTransform(gameTransform);*/
+
+			g2d.drawImage(gun, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 15, null);
 		}
 
 		ArrayList<Bullet> bullets = state.objects.getBullets();
 		for(int i = 0 ; i < bullets.size() ; i++){
-			g2d.setColor(Color.CYAN);
+			g2d.setColor(Color.BLACK);
 			g2d.fillRect( (int) bullets.get(i).getX() ,(int) bullets.get(i).getY() , 5,5 );
 		}
 
