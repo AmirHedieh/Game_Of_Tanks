@@ -95,9 +95,6 @@ public class GameFrame extends JFrame {
 			BufferedImage tank = Utility.loadImage("src/resource/tank.png");
             //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
-			int mouseY = MouseInfo.getPointerInfo().getLocation().y;
-			int mouseX = MouseInfo.getPointerInfo().getLocation().x;
-
 			int centerX = (int)tanks.get(i).getX();
 			int centerY = (int)tanks.get(i).getY();
 
@@ -107,13 +104,14 @@ public class GameFrame extends JFrame {
 			g2d.drawImage(tank, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
 			g2d.setTransform(gameTransform);
 
+			//draw and rotate gun
 			BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
-
 			AffineTransform gunTransform = g2d.getTransform();
+			//we know that atan2 return radian :)
 			double gunAngle = Math.atan2( (state.getMouseYPointer() - centerY), (state.getMouseXPointer() - centerX) );
 			gunTransform.rotate(gunAngle, centerX, centerY);
 			g2d.setTransform(gunTransform);
-			g2d.drawImage(gun, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2 + 15, null);
+			g2d.drawImage(gun, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
 			g2d.setTransform(gameTransform);
 		}
 
