@@ -8,7 +8,7 @@ public class HeavyBullet extends Bullet {
 
     //constructor
     public HeavyBullet(double startX, double startY, double mouseX, double mouseY){
-        super(startX,startY,mouseX,mouseY);
+        super(startX,startY,mouseX,mouseY,ObjectId.HeavyBullet);
         damage = 100;
     }
 

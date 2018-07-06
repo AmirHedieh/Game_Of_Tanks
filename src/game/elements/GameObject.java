@@ -8,19 +8,28 @@ import org.omg.CORBA.PUBLIC_MEMBER;
  */
 public class GameObject {
     //fields
+    protected ObjectId id;
     protected double x;
     protected double y;
     protected int velX , velY;
 
     //constructor
-    public GameObject(double x, double y){
+    public GameObject(double x, double y, ObjectId id){
         this.x = x;
         this.y = y;
         velX = 0;
         velY = 0;
+        this.id = id;
     }
 
     //methods
+
+    /**
+     * set an id for game object
+     */
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
     /**
      * set a X location for object
@@ -52,6 +61,14 @@ public class GameObject {
      */
     public void setVelY(int velY) {
         this.velY = velY;
+    }
+
+    /**
+     * return the id of the object
+     * @return Object' id
+     */
+    public ObjectId getId() {
+        return id;
     }
 
     /**
