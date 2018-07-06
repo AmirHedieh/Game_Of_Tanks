@@ -1,10 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
-import game.elements.Bullet;
-import game.elements.BuriedRobot;
-import game.elements.Tank;
-import game.elements.Turret;
+import game.elements.*;
 import game.Utils.*;
 
 import java.awt.*;
@@ -124,7 +121,7 @@ public class GameFrame extends JFrame
         for (int i = 0; i < bullets.size(); i++)
         {
             //TODO: heavy and light bullet
-			/*if ()
+			if (bullets.get(i) instanceof HeavyBullet)
 			{
 				BufferedImage bullet = Utility.loadImage("src/resource/HeavyBullet.png");
 				AffineTransform bulletTransform = g2d.getTransform();
@@ -134,7 +131,7 @@ public class GameFrame extends JFrame
 				g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
 				g2d.setTransform(gameTransform);
 			}
-			else
+			else if(bullets.get(i) instanceof LightBullet)
 			{
 				BufferedImage bullet = Utility.loadImage("src/resource/LightBullet.png");
 				AffineTransform bulletTransform = g2d.getTransform();
@@ -143,14 +140,16 @@ public class GameFrame extends JFrame
 				g2d.setTransform(bulletTransform);
 				g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
 				g2d.setTransform(gameTransform);
-			}*/
-            BufferedImage bullet = Utility.loadImage("src/resource/HeavyBullet.png");
-            AffineTransform bulletTransform = g2d.getTransform();
-            double gunAngle = Math.atan2((state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()));
-            bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
-            g2d.setTransform(bulletTransform);
-            g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
-            g2d.setTransform(gameTransform);
+			}
+
+
+//            BufferedImage bullet = Utility.loadImage("src/resource/HeavyBullet.png");
+//            AffineTransform bulletTransform = g2d.getTransform();
+//            double gunAngle = Math.atan2((state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()));
+//            bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
+//            g2d.setTransform(bulletTransform);
+//            g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
+//            g2d.setTransform(gameTransform);
         }
 
         ArrayList<Turret> turrets = state.objects.getTurrets();
