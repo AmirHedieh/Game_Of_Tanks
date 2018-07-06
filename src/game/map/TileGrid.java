@@ -23,6 +23,7 @@ public class TileGrid
     }
 
     //methods
+
     /**
      * TODO: complete javadoc
      */

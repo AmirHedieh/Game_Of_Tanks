@@ -1,6 +1,7 @@
 package game.elements;
 
-public enum ObjectId {
+public enum ObjectId
+{
     Player,
     MachineGun,
     MissileGun,

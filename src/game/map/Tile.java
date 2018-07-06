@@ -38,6 +38,7 @@ public class Tile
 
     /**
      * set the x(location) of the tile
+     *
      * @param x
      */
     public void setX(float x)
@@ -56,6 +57,7 @@ public class Tile
 
     /**
      * set the y(location) of the tile
+     *
      * @param y
      */
     public void setY(float y)
@@ -73,6 +75,7 @@ public class Tile
 
     /**
      * set the width of the tile
+     *
      * @param width
      */
     public void setWidth(float width)
@@ -91,6 +94,7 @@ public class Tile
 
     /**
      * set the height of the tile
+     *
      * @param height
      */
     public void setHeight(float height)
@@ -109,6 +113,7 @@ public class Tile
 
     /**
      * set the type of a tile
+     *
      * @param tileType
      */
     public void setTileType(TileType tileType)
