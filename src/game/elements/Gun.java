@@ -8,9 +8,8 @@ import java.util.Date;
  *each gun has a damage field which is the amount of damage that it provides.
  * each gun has an specific amount of ammo.
  */
-public class Gun extends GameObject{
+public abstract class Gun extends GameObject{
     //fields
-    protected int damage;
     protected int ammo;
     protected long lastShootTime;
     protected long reloadTime;
@@ -30,12 +29,7 @@ public class Gun extends GameObject{
      * @param mouseY
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
-    public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY){
-            Bullet bullet = new Bullet(tankX, tankY, mouseX, mouseY, damage);
-            ammo--; //todo : bound for 0 needed
-            lastShootTime = getCurrentTime();
-            return bullet;
-    }
+    public abstract Bullet shoot(double tankX, double tankY, double mouseX, double mouseY);
 
     /**
      *checks that Gun is ready to shot or not(it is reloading or not).
@@ -53,17 +47,9 @@ public class Gun extends GameObject{
      * to get current system time with millisecond accuracy.
      * @return current system time
      */
-    private long getCurrentTime(){
+    protected long getCurrentTime(){
         long time = new Date().getTime() % 10000000;
         return time;
-    }
-
-    /**
-     * set damage for the gun.
-     * @param damage amount of damage it must provide.
-     */
-    public void setDamage(int damage) {
-        this.damage = damage;
     }
 
     /**
@@ -72,14 +58,6 @@ public class Gun extends GameObject{
      */
     public void setAmmo(int ammo) {
         this.ammo = ammo;
-    }
-
-    /**
-     * how much damage th gun provides.
-     * @return amount of damage
-     */
-    public int getDamage() {
-        return damage;
     }
 
     /**

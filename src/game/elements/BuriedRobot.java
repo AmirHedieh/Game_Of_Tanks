@@ -12,8 +12,8 @@ public class BuriedRobot extends GameObject{
         super(x,y);
         minDistance = 400;
         activated = false;
-        setVelX(10);
-        setVelY(10);
+        setVelX(5);
+        setVelY(5);
     }
 
     //methods
@@ -34,17 +34,17 @@ public class BuriedRobot extends GameObject{
     }
 
     public void move(Tank target){
-            if(target.x > this.x) {
+            if(target.x >= this.x) {
                 this.setX(this.getX() + this.getVelX());
             }
-            else if (target.x < this.x) {
+            else if (target.x <= this.x) {
                 this.setX(this.getX() - this.getVelX());
             }
 
-            if(target.y > this.y) {
+            if(target.y >= this.y) {
                 this.setY(this.getY() + this.getVelY());
             }
-            else if(target.y < this.y) {
+            else if(target.y <= this.y) {
                 this.setY(this.getY() - this.getVelY());
             }
 
