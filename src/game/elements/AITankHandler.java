@@ -17,12 +17,12 @@ public class AITankHandler {
 
     //methods
     public void tick(Objects objects){
-        move(objects.getTanks(),objects.getTanks().get(0));
-        fire(objects.getTanks(),objects.getTanks().get(0),objects);
+        move(objects.getTanks(),objects.getPlayer());
+        fire(objects.getTanks(),objects.getPlayer(),objects);
     }
 
     public void move(ArrayList<Tank> tanks, Tank target){
-        for(int i = 1 ; i < tanks.size() ; i++){ // starts from 1 because player tank is must be skipped
+        for(int i = 0 ; i < tanks.size() ; i++){
             if(tanks.get(i).getType() == 0){
                 continue;
             }
@@ -50,8 +50,8 @@ public class AITankHandler {
         }
     }
 
-    public void fire(ArrayList<Tank> tanks,Tank target, Objects objects){ // starts from 1 because player tank is must be skipped
-        for(int i = 1 ; i < tanks.size() ; i++){
+    public void fire(ArrayList<Tank> tanks,Tank target, Objects objects){
+        for(int i = 0 ; i < tanks.size() ; i++){
             objects.addBullet(tanks.get(i).getSelectedGun().shoot(tanks.get(i).x,tanks.get(i).y,target.x,target.y));
         }
     }

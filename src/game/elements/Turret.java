@@ -17,7 +17,7 @@ public class Turret extends GameObject {
 
     //constructor
     public Turret(double x , double y, Tank target){
-        super(x,y);
+        super(x,y,ObjectId.Turret);
         gun = new MissileGun(this.x, this.y);
         rangeOfView = 800;
         this.target = target;

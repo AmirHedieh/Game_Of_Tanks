@@ -15,8 +15,8 @@ public abstract class Gun extends GameObject{
     protected long reloadTime;
 
     //constructor
-    public Gun(double x, double y){
-        super(x,y);
+    public Gun(double x, double y, ObjectId id){
+        super(x,y,id);
     }
 
     //methods

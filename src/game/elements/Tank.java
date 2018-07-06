@@ -20,8 +20,8 @@ public class Tank extends GameObject{
     private MachineGun machineGun;
 
     //constructor
-    public Tank(double x, double y, int health, int type){ // gun must be added manually after making tank
-        super(x,y);
+    public Tank(double x, double y, int health, ObjectId id){ // gun must be added manually after making tank
+        super(x,y,id);
         missileGun = new MissileGun(this.x, this.y);
         this.setMissileGun(missileGun);
 

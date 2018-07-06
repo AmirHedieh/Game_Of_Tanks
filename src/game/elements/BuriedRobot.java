@@ -9,7 +9,7 @@ public class BuriedRobot extends GameObject{
 
     //constructor
     public BuriedRobot(double x , double y){
-        super(x,y);
+        super(x,y,ObjectId.BuriedRobot);
         minDistance = 400;
         activated = false;
         setVelX(5);
@@ -19,10 +19,10 @@ public class BuriedRobot extends GameObject{
     //methods
     public void tick(Objects objects){
         if(activated){ // pass player tank as target
-            move(objects.getTanks().get(0));
+            move(objects.getPlayer());
         }
         else
-            checkArea(objects.getTanks().get(0));
+            checkArea(objects.getPlayer());
     }
 
     private void checkArea(Tank target){

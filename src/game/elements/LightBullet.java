@@ -8,7 +8,7 @@ public class LightBullet extends Bullet {
 
     //constructor
     public LightBullet(double startX, double startY, double mouseX, double mouseY){
-        super(startX,startY,mouseX,mouseY);
+        super(startX,startY,mouseX,mouseY,ObjectId.LightBullet);
         damage = 20;
     }
 

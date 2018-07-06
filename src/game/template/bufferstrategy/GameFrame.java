@@ -1,10 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
-import game.elements.Bullet;
-import game.elements.BuriedRobot;
-import game.elements.Tank;
-import game.elements.Turret;
+import game.elements.*;
 import game.Utils.*;
 
 import java.awt.*;
@@ -92,84 +89,61 @@ public class GameFrame extends JFrame
         BufferedImage backGround = Utility.loadImage("src/resource/Sahara.png");
         g2d.drawImage(backGround, null, 0, 0);
 
-        //draw map components
-        /*BufferedImage map = Utility.loadImage("src/resource/sprite_sheet_black.png");
-        //int[] pixels = map.getRGB(0, 0, map.getWidth(), map.getHeight(), null, 0, map.getWidth());
-        for (int i = 0; i < 12; i++)
-        {
-            for (int j = 0; j < 19; j++)
-            {
-                int pixel = map.getRGB(j, i);
-                int red = (pixel >> 16) & 0xff;
-                int green = (pixel >> 8) & 0xff;
-                int blue = (pixel) & 0xff;
-                if (red == 255)
-                {
-                    //BufferedImage hardWall = Utility.loadImage("src/resource/hardWall.png");
-                    //g2d.drawImage(hardWall, null, j * 100, i * 100);
-                }
-            }
-        }*/
+        //draw player tank
+        BufferedImage tank = Utility.loadImage("src/resource/tank.png");
+        //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+
+        int centerX = (int) state.objects.getPlayer().getX();
+        int centerY = (int) state.objects.getPlayer().getY();
+
+        AffineTransform bodyTransform = g2d.getTransform();
+        //TODO: rotate by wasd
+        //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
+        g2d.setTransform(bodyTransform);
+        g2d.drawImage(tank, (int) state.objects.getPlayer().getX() - state.objects.getPlayer().TANK_WIDTH / 2, (int) state.objects.getPlayer().getY() - state.objects.getPlayer().TANK_HEIGHT / 2, null);
+        g2d.setTransform(gameTransform);
+
+        //draw and rotate gun
+        BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
+        AffineTransform gunTransform = g2d.getTransform();
+        //we know that atan2 return radian :)
+        double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+        gunTransform.rotate(playerGunAngle, centerX, centerY);
+        g2d.setTransform(gunTransform);
+        g2d.drawImage(gun, (int) state.objects.getPlayer().getX() - state.objects.getPlayer().TANK_WIDTH / 2 + 18, (int) state.objects.getPlayer().getY() - state.objects.getPlayer().TANK_HEIGHT / 2, null);
+        g2d.setTransform(gameTransform);
+
 
         //draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
         for (int i = 0; i < tanks.size(); i++)
         {
-            BufferedImage tank = Utility.loadImage("src/resource/tank.png");
-            //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
-            int centerX = (int) tanks.get(i).getX();
-            int centerY = (int) tanks.get(i).getY();
-
-            AffineTransform bodyTransform = g2d.getTransform();
-            //TODO: rotate by wasd
-            //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
-            g2d.setTransform(bodyTransform);
-            g2d.drawImage(tank, (int) tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2, (int) tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
-            g2d.setTransform(gameTransform);
-
-            //draw and rotate gun
-            BufferedImage gun = Utility.loadImage("src/resource/tankGun01.png");
-            AffineTransform gunTransform = g2d.getTransform();
-            //we know that atan2 return radian :)
-            double gunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-            gunTransform.rotate(gunAngle, centerX, centerY);
-            g2d.setTransform(gunTransform);
-            g2d.drawImage(gun, (int) tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2 + 18, (int) tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2, null);
-            g2d.setTransform(gameTransform);
         }
 
         ArrayList<Bullet> bullets = state.objects.getBullets();
         for (int i = 0; i < bullets.size(); i++)
         {
-            //TODO: heavy and light bullet
-			/*if ()
+			if (bullets.get(i).getId().equals(ObjectId.HeavyBullet))
 			{
 				BufferedImage bullet = Utility.loadImage("src/resource/HeavyBullet.png");
 				AffineTransform bulletTransform = g2d.getTransform();
-				double gunAngle = Math.atan2( (state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()) );
+				double gunAngle = Math.atan2( (bullets.get(i).getTargetY() - (int) bullets.get(i).getY()), (bullets.get(i).getTargetX() - (int) bullets.get(i).getX()) );
 				bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
 				g2d.setTransform(bulletTransform);
 				g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
 				g2d.setTransform(gameTransform);
 			}
-			else
+			else if(bullets.get(i).getId().equals(ObjectId.LightBullet))
 			{
 				BufferedImage bullet = Utility.loadImage("src/resource/LightBullet.png");
 				AffineTransform bulletTransform = g2d.getTransform();
-				double gunAngle = Math.atan2( (state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()) );
+				double gunAngle = Math.atan2( (bullets.get(i).getTargetY() - (int) bullets.get(i).getY()), (bullets.get(i).getTargetX() - (int) bullets.get(i).getX()) );
 				bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
 				g2d.setTransform(bulletTransform);
 				g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
 				g2d.setTransform(gameTransform);
-			}*/
-            BufferedImage bullet = Utility.loadImage("src/resource/HeavyBullet.png");
-            AffineTransform bulletTransform = g2d.getTransform();
-            double gunAngle = Math.atan2((state.getMouseY() - (int) bullets.get(i).getY()), (state.getMouseX() - (int) bullets.get(i).getX()));
-            bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
-            g2d.setTransform(bulletTransform);
-            g2d.drawImage(bullet, (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
-            g2d.setTransform(gameTransform);
+			}
         }
 
         ArrayList<Turret> turrets = state.objects.getTurrets();
