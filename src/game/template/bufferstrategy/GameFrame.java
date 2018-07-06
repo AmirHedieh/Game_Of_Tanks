@@ -92,6 +92,25 @@ public class GameFrame extends JFrame
         BufferedImage backGround = Utility.loadImage("src/resource/Sahara.png");
         g2d.drawImage(backGround, null, 0, 0);
 
+        //draw map components
+        /*BufferedImage map = Utility.loadImage("src/resource/sprite_sheet_black.png");
+        //int[] pixels = map.getRGB(0, 0, map.getWidth(), map.getHeight(), null, 0, map.getWidth());
+        for (int i = 0; i < 12; i++)
+        {
+            for (int j = 0; j < 19; j++)
+            {
+                int pixel = map.getRGB(j, i);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue = (pixel) & 0xff;
+                if (red == 255)
+                {
+                    //BufferedImage hardWall = Utility.loadImage("src/resource/hardWall.png");
+                    //g2d.drawImage(hardWall, null, j * 100, i * 100);
+                }
+            }
+        }*/
+
         //draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
         for (int i = 0; i < tanks.size(); i++)

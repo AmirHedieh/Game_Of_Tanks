@@ -10,7 +10,8 @@ public enum TileType
     //enums
     //TODO: create final textures
     //TODO: complete the enumerators
-    Wall("wall", false, false);
+    HardWall("hard wall", false, false),
+    SoftWall("soft wall", true, false);
 
     //fields
     String textureName;
