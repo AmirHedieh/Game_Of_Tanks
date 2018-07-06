@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Objects {
 
     //fields
+    private Tank player;
     private ArrayList<Tank> tanks;
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
@@ -28,10 +29,9 @@ public class Objects {
      */
     public void init(){
         //Player tank initialization
-        Tank playerTank = new Tank(100,100,100,ObjectId.Player); // making player's tank
-        tanks.add(playerTank); //add player's tank to objects ( tanks arrayList)
+        player = new Tank(100,100,100,ObjectId.Player); // making player's tank
         // Turrets initialization
-        Turret turret = new Turret(1500,700 , playerTank);
+        Turret turret = new Turret(1500,700 , player);
         turrets.add(turret);
         //AI tanks initialization
 //        Tank tank1 = new Tank(700,700,100,1);
@@ -119,6 +119,14 @@ public class Objects {
      */
     public void setRobots(ArrayList<BuriedRobot> robots) {
         this.robots = robots;
+    }
+
+    /**
+     * return player tank
+     * @return player tank
+     */
+    public Tank getPlayer() {
+        return player;
     }
 
     /**

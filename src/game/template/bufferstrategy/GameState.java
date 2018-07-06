@@ -65,35 +65,35 @@ public class GameState
     {
         // Update the state of all game elements
         //  based on user input and elapsed time ...
-        //first element( objects.getTanks().get(0) ) in arrayList is player's tank.
+        //first element( objects.getPlayer() ) in arrayList is player's tank.
         if (keyUP)
         {
-            objects.getTanks().get(0).setY(objects.getTanks().get(0).getY() - objects.getTanks().get(0).getVelY());
+            objects.getPlayer().setY(objects.getPlayer().getY() - objects.getPlayer().getVelY());
         }
         if (keyDOWN)
         {
-            objects.getTanks().get(0).setY(objects.getTanks().get(0).getY() + objects.getTanks().get(0).getVelY());
+            objects.getPlayer().setY(objects.getPlayer().getY() + objects.getPlayer().getVelY());
         }
         if (keyLEFT)
         {
-            objects.getTanks().get(0).setX(objects.getTanks().get(0).getX() - objects.getTanks().get(0).getVelX());
+            objects.getPlayer().setX(objects.getPlayer().getX() - objects.getPlayer().getVelX());
         }
         if (keyRIGHT)
         {
-            objects.getTanks().get(0).setX(objects.getTanks().get(0).getX() + objects.getTanks().get(0).getVelX());
+            objects.getPlayer().setX(objects.getPlayer().getX() + objects.getPlayer().getVelX());
         }
         //
         if (shoot)
         {
-            if (objects.getTanks().get(0).getSelectedGun().readyForShoot())
+            if (objects.getPlayer().getSelectedGun().readyForShoot())
             {
-                objects.addBullet(objects.getTanks().get(0).getSelectedGun().shoot(objects.getTanks().get(0).getX(), objects.getTanks().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                objects.addBullet(objects.getPlayer().getSelectedGun().shoot(objects.getPlayer().getX(), objects.getPlayer().getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
             }
         }
         //
         if (swap)
         {
-            objects.getTanks().get(0).swapGun();
+            objects.getPlayer().swapGun();
             swap = false;
         }
 

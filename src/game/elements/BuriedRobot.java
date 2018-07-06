@@ -19,10 +19,10 @@ public class BuriedRobot extends GameObject{
     //methods
     public void tick(Objects objects){
         if(activated){ // pass player tank as target
-            move(objects.getTanks().get(0));
+            move(objects.getPlayer());
         }
         else
-            checkArea(objects.getTanks().get(0));
+            checkArea(objects.getPlayer());
     }
 
     private void checkArea(Tank target){

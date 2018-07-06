@@ -11,10 +11,13 @@ public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( 
 
     protected int damage;
     private double shootDirectionAngle;
+    private double targetX , targetY;
 
     //constructor
     public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id){
         super(startX,startY,id);
+        targetX = mouseX;
+        targetY = mouseY;
         shootDirectionAngle = calculateShootAngle(startX,startY,mouseX,mouseY);
         //moving in 4 direction needs specific velocity
         if(mouseX > startX && mouseY > startY){
@@ -79,6 +82,22 @@ public class Bullet extends GameObject{ // todo: 2 classes must extend bullet ( 
      */
     public int getDamage() {
         return damage;
+    }
+
+    /**
+     * the X position where bullet is going to(where mouse was clicked)
+     * @return X of where mouse was clicked to shoot there
+     */
+    public double getTargetX() {
+        return targetX;
+    }
+
+    /**
+     * the Y position where bullet is going to(where mouse was clicked)
+     * @return Y of where mouse was clicked to shoot there
+     */
+    public double getTargetY() {
+        return targetY;
     }
 
     /**
