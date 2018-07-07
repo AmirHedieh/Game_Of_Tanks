@@ -10,9 +10,9 @@ public enum ObjectId
     AITank,
     BuriedRobot,
     Turret,
-    HardWall, //yellow
-    SoftWall, //blue
-    Plant, //green
-    Soil, //white
-    Teazel; //purple
+    HardWall, //yellow (255, 255, 0)
+    SoftWall, //blue (0, 0, 255)
+    Plant, //green (0, 255, 0)
+    Soil, //white (255, 255, 255)
+    Teazel; //purple (255, 0, 255)
 }

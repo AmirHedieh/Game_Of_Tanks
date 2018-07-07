@@ -1,5 +1,7 @@
 package game.elements;
 
+import java.awt.*;
+
 /**
  * an entity which is a moving object though the map.
  * it contains a gun to hit other objects. it also has
@@ -146,4 +148,9 @@ public class Tank extends GameObject
         return type;
     }
 
+    @Override
+    public Rectangle getBounds()
+    {
+        return new Rectangle((int) x, (int) y, 100, 100);
+    }
 }

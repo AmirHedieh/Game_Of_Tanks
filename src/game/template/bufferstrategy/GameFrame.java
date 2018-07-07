@@ -92,14 +92,45 @@ public class GameFrame extends JFrame
         g2d.translate(-camera.getX(), -camera.getY());
 
         //draw map components
-        //for ()
-        
+        BufferedImage map = Utility.loadImage("src/resource/sprite_sheet.png");
+        for (int xx = 0; xx < map.getWidth(); xx++)
+        {
+            for (int yy = 0; yy < map.getHeight(); yy++)
+            {
+                int pixel = map.getRGB(xx, yy);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue = (pixel) & 0xff;
+
+                if ((red == 255) && (green == 255) && (blue == 0)) //HardWall
+                {
+                    //g2d.drawImage(Utility.loadImage("src/resource/hardWall.png"), xx * 100, yy * 100, null);
+                }
+                if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
+                {
+                   //g2d.drawImage(Utility.loadImage("src/resource/softWall.png"), xx * 100, yy * 100, null);
+                }
+
+                if ((red == 0) && (green == 255) && (blue == 0)) //Plant
+                {
+                    //g2d.drawImage(Utility.loadImage("src/resource/plant.png"), xx * 100, yy * 100, null);
+                }
+
+                if ((red == 255) && (green == 255) && (blue == 255)) //Soil
+                {
+
+                }
+
+                if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
+                {
+                    //g2d.drawImage(Utility.loadImage("src/resource/teazel2.png"), xx * 100, yy * 100, null);
+                }
+            }
+        }
+
 
         //render camera
-
-        camera.setX(((state.objects.getPlayer().getX() - camera.getX()) - GAME_WIDTH / 2) * 0.05f);
-        camera.setY(((state.objects.getPlayer().getX() - camera.getX()) - GAME_HEIGHT / 2) * 0.05f);
-
+        //camera.tick(state.objects.getPlayer());
 
 
         //draw player tank

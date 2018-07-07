@@ -16,7 +16,7 @@ public class GameObject
     protected double x;
     protected double y;
     protected int velX, velY;
-    private BufferedImage texture;
+    protected BufferedImage texture;
 
 
     //constructor
@@ -142,6 +142,6 @@ public class GameObject
 
     public Rectangle getBounds()
     {
-        return null;
+        return new Rectangle((int) x, (int) y, 100, 100);
     }
 }

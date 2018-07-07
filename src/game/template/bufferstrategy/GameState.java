@@ -2,6 +2,7 @@
 package game.template.bufferstrategy;
 
 import game.elements.AITankHandler;
+import game.elements.ObjectId;
 import game.elements.Objects;
 
 import java.awt.event.KeyEvent;
@@ -66,6 +67,7 @@ public class GameState
         // Update the state of all game elements
         //  based on user input and elapsed time ...
         //first element( objects.getPlayer() ) in arrayList is player's tank.
+        collision();
         if (keyUP)
         {
             objects.getPlayer().setY(objects.getPlayer().getY() - objects.getPlayer().getVelY());
@@ -114,6 +116,23 @@ public class GameState
         for (int i = 0; i < objects.getRobots().size(); i++)
         {
             objects.getRobots().get(i).tick(objects);
+        }
+    }
+
+    public void collision()
+    {
+        for (int i = 0; i < objects.getTurrets().size(); i++)
+        {
+            System.out.println(objects.getTurrets().size());
+            if (objects.getTurrets().get(i).getId() ==ObjectId.Turret)
+            {
+                if (objects.getPlayer().getBounds().intersects(objects.getTurrets().get(i).getBounds()))
+                {
+                    objects.getPlayer().setX( objects.getPlayer().getX() + (objects.getPlayer().getVelX() * (-1)) );
+                    objects.getPlayer().setY( objects.getPlayer().getY() + (objects.getPlayer().getVelY() * (-1)) );
+
+                }
+            }
         }
     }
 
