@@ -1,8 +1,11 @@
+/*
 package game.map;
 
+*/
 /**
  * TODO: complete javadoc
- */
+ *//*
+
 public class TileGrid
 {
     //fields
@@ -24,9 +27,11 @@ public class TileGrid
 
     //methods
 
-    /**
+    */
+/**
      * TODO: complete javadoc
-     */
+     *//*
+
     public void draw()
     {
         for (int i = 0; i < map.length; i++)
@@ -40,3 +45,4 @@ public class TileGrid
         }
     }
 }
+*/

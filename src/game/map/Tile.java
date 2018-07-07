@@ -8,30 +8,28 @@ import com.sun.prism.Texture;
 public class Tile
 {
     //fields
-    private float x;
-    private float y;
-    private float width;
-    private float height;
+    private double x;
+    private double y;
+    private double width;
+    private double height;
     private TileType tileType;
     private Texture texture;
 
     //constructor
 
-    public Tile(float x, float y, float width, float height, TileType tileType)
+    public Tile(double x, double y, double width, double height, TileType tileType)
     {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.tileType = tileType;
-        //TODO: read about Texture class and OpenGL
-        //this.texture = QuickLoad();
     }
 
     /**
      * @return x(location) of the tile
      */
-    public float getX()
+    public double getX()
     {
         return x;
     }
@@ -50,7 +48,7 @@ public class Tile
     /**
      * @return y(location) of the tile
      */
-    public float getY()
+    public double getY()
     {
         return y;
     }
@@ -68,7 +66,7 @@ public class Tile
     /**
      * @return width of the tile
      */
-    public float getWidth()
+    public double getWidth()
     {
         return width;
     }
@@ -87,7 +85,7 @@ public class Tile
     /**
      * @return height of the tile
      */
-    public float getHeight()
+    public double getHeight()
     {
         return height;
     }
