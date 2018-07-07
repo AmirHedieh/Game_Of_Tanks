@@ -134,9 +134,12 @@ public class GameFrame extends JFrame
 
 
         //draw player tank
-        //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
-        int centerX = (int) state.objects.getPlayer().getX();
-        int centerY = (int) state.objects.getPlayer().getY();
+        for(int i = 0 ; i < state.objects.getPlayers().size() ; i++) {
+            BufferedImage tank = Utility.loadImage("src/resource/tank.png");
+            //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+
+            int centerX = (int) state.objects.getPlayers().get(i).getX();
+            int centerY = (int) state.objects.getPlayers().get(i).getY();
 
         AffineTransform bodyTransform = g2d.getTransform();
         //TODO: rotate by wasd

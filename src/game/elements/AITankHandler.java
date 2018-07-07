@@ -20,8 +20,8 @@ public class AITankHandler
     //methods
     public void tick(Objects objects)
     {
-        move(objects.getTanks(), objects.getPlayer());
-        fire(objects.getTanks(), objects.getPlayer(), objects);
+        move(objects.getTanks(), objects.getPlayers().get(0));
+        fire(objects.getTanks(), objects.getPlayers().get(0), objects);
     }
 
     public void move(ArrayList<Tank> tanks, Tank target)
