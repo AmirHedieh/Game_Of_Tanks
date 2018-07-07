@@ -10,7 +10,7 @@ public class LightBullet extends Bullet
     //constructor
     public LightBullet(double startX, double startY, double mouseX, double mouseY)
     {
-        super(startX, startY, mouseX, mouseY, ObjectId.LightBullet);
+        super(startX, startY, mouseX, mouseY, ObjectId.LightBullet, "src/resource/LightBullet.png");
         damage = 20;
     }
 

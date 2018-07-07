@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * a class containing all created objects like tanks, bullets , turrets , ... in game
+ * Ali call this class handler
  */
 public class Objects
 {

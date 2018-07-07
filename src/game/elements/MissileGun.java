@@ -11,7 +11,7 @@ public class MissileGun extends Gun
     //constructor
     public MissileGun(double x, double y)
     { //todo : try not to pass tank from subclass to father
-        super(x, y, ObjectId.MissileGun);
+        super(x, y, ObjectId.MissileGun, "src/resource/tankGun01.png");
         ammo = 15;
         reloadTime = 1000; // millisecond
     }

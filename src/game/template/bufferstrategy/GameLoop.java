@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.map.Camera;
 import game.map.SpriteSheet;
 
 /**
@@ -29,6 +30,7 @@ public class GameLoop implements Runnable
     private GameFrame canvas;
     private GameState state;
     private SpriteSheet spriteSheet;
+    private Camera camera;
 
     public GameLoop(GameFrame frame)
     {
@@ -43,6 +45,8 @@ public class GameLoop implements Runnable
         // Perform all initializations ...
         state = new GameState();
         spriteSheet = new SpriteSheet("src/resource/sprite_sheet.png");
+        //camera = new Camera(state.objects.getPlayer().getX(), state.objects.getPlayer().getY());
+        camera = new Camera(0, 0);
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
@@ -59,7 +63,7 @@ public class GameLoop implements Runnable
                 long start = System.currentTimeMillis();
                 //
                 state.update();
-                canvas.render(state);
+                canvas.render(state, camera, spriteSheet);
                 //
                 long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
                 if (delay > 0)

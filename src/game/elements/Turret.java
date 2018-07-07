@@ -2,6 +2,8 @@ package game.elements;
 
 import java.util.ArrayList;
 
+import java.util.ArrayList;
+
 /**
  * a Turret is a unmovable kind of weapon stuck to the ground.
  * turrets have infinite amount of ammo.
@@ -21,7 +23,7 @@ public class Turret extends GameObject
     //constructor
     public Turret(double x, double y, ArrayList<Tank> targets)
     {
-        super(x, y, ObjectId.Turret);
+        super(x, y, ObjectId.Turret,"src/resource/tank_turret.png");
         target = targets.get(0);
         if(targets.size() > 1) {
             determineTarget(targets);
