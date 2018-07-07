@@ -124,13 +124,12 @@ public class GameState
     {
         for (int i = 0; i < objects.getTurrets().size(); i++)
         {
-            System.out.println(objects.getTurrets().size());
             if (objects.getTurrets().get(i).getId().equals(ObjectId.Turret))
             {
-                if (objects.getPlayer().getBounds().intersects(objects.getTurrets().get(i).getBounds()))
+                if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
                 {
-                    objects.getPlayer().setX( objects.getPlayer().getX() + (objects.getPlayer().getVelX() * (-1)) );
-                    objects.getPlayer().setY( objects.getPlayer().getY() + (objects.getPlayer().getVelY() * (-1)) );
+                    objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
+                    objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
 
                 }
             }

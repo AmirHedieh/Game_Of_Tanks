@@ -11,7 +11,7 @@ public class SpriteSheet
 
     public SpriteSheet(String path)
     {
-        image = Utility.loadImage("src/resource/sprite_sheet.png");
+        //image = Utility.loadImage("src/resource/sprite_sheet.png");
     }
 
     public BufferedImage grabImage(int column, int row, int width, int height)
