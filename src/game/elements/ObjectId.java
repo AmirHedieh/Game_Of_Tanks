@@ -9,5 +9,10 @@ public enum ObjectId
     HeavyBullet,
     AITank,
     BuriedRobot,
-    Turret;
+    Turret,
+    HardWall, //yellow
+    SoftWall, //blue
+    Plant, //green
+    Soil, //white
+    Teazel; //purple
 }

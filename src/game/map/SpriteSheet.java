@@ -21,7 +21,7 @@ public class SpriteSheet
         this.width = image.getWidth();
         this.height = image.getHeight();
 
-        pixels = image.getRGB(0, 0, width, height, null, 0, width);
+        /*pixels = image.getRGB(0, 0, width, height, null, 0, width);
 
         for (int i = 0; i < pixels.length; i++)
         {
@@ -31,6 +31,6 @@ public class SpriteSheet
         for (int i = 0; i < 8; i++)
         {
             System.out.println(pixels[i]);
-        }
+        }*/
     }
 }

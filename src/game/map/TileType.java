@@ -5,9 +5,5 @@ package game.map;
  */
 public enum TileType
 {
-    HardWall, //yellow
-    SoftWall, //blue
-    Plant, //green
-    Soil, //white
-    Teazel; //purple
+
 }

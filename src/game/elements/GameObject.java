@@ -1,6 +1,9 @@
 package game.elements;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
+import game.Utils.Utility;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * each object in the game like tank or bullets and ... has a location(x,y)
@@ -13,15 +16,17 @@ public class GameObject
     protected double x;
     protected double y;
     protected int velX, velY;
+    private BufferedImage texture;
 
     //constructor
-    public GameObject(double x, double y, ObjectId id)
+    public GameObject(double x, double y, ObjectId id, String path)
     {
         this.x = x;
         this.y = y;
         velX = 0;
         velY = 0;
         this.id = id;
+        this.texture = Utility.loadImage(path);
     }
 
     //methods
@@ -122,5 +127,10 @@ public class GameObject
     public int getVelY()
     {
         return velY;
+    }
+
+    public Rectangle getBounds()
+    {
+        return null;
     }
 }
