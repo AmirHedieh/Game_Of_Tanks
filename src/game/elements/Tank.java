@@ -23,7 +23,7 @@ public class Tank extends GameObject
     //constructor
     public Tank(double x, double y, int health, ObjectId id)
     { // gun must be added manually after making tank
-        super(x, y, id);
+        super(x, y, id, "src/resource/tank.png");
         missileGun = new MissileGun(this.x, this.y);
         this.setMissileGun(missileGun);
 
