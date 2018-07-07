@@ -92,7 +92,7 @@ public class GameFrame extends JFrame
         g2d.translate(-camera.getX(), -camera.getY());
 
         //draw map components
-        BufferedImage map = Utility.loadImage("src/resource/sprite_sheet.png");
+        BufferedImage map = Utility.loadImage("src/resource/map.png");
         for (int xx = 0; xx < map.getWidth(); xx++)
         {
             for (int yy = 0; yy < map.getHeight(); yy++)
