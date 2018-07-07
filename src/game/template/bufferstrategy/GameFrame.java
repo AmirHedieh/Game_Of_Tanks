@@ -104,16 +104,16 @@ public class GameFrame extends JFrame
 
                 if ((red == 255) && (green == 255) && (blue == 0)) //HardWall
                 {
-                    //g2d.drawImage(Utility.loadImage("src/resource/hardWall.png"), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getHardWall().getTexture(), xx * 100, yy * 100, null);
                 }
                 if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
                 {
-                   //g2d.drawImage(Utility.loadImage("src/resource/softWall.png"), xx * 100, yy * 100, null);
+                   g2d.drawImage(state.objects.getSoftWall().getTexture(), xx * 100, yy * 100, null);
                 }
 
                 if ((red == 0) && (green == 255) && (blue == 0)) //Plant
                 {
-                    //g2d.drawImage(Utility.loadImage("src/resource/plant.png"), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getPlant().getTexture(), xx * 100, yy * 100, null);
                 }
 
                 if ((red == 255) && (green == 255) && (blue == 255)) //Soil
@@ -123,7 +123,7 @@ public class GameFrame extends JFrame
 
                 if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
                 {
-                    //g2d.drawImage(Utility.loadImage("src/resource/teazel2.png"), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getTeazel().getTexture(), xx * 100, yy * 100, null);
                 }
             }
         }

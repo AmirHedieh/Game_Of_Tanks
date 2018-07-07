@@ -4,7 +4,7 @@ import game.elements.*;
 
 public class Teazel extends GameObject
 {
-    public Teazel(double x, double y, ObjectId id, String path)
+    public Teazel(double x, double y)
     {
         super(x, y, ObjectId.Teazel, "src/resource/teazel2.png");
     }

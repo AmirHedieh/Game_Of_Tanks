@@ -4,7 +4,7 @@ import game.elements.*;
 
 public class SoftWall extends GameObject
 {
-    public SoftWall(double x, double y, ObjectId id, String path)
+    public SoftWall(double x, double y)
     {
         super(x, y, ObjectId.SoftWall, "src/resource/softWall.png");
     }
