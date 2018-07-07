@@ -18,6 +18,7 @@ public class GameObject
     protected int velX, velY;
     private BufferedImage texture;
 
+
     //constructor
     public GameObject(double x, double y, ObjectId id, String path)
     {
@@ -127,6 +128,16 @@ public class GameObject
     public int getVelY()
     {
         return velY;
+    }
+
+    public BufferedImage getTexture()
+    {
+        return texture;
+    }
+
+    public void setTexture(BufferedImage texture)
+    {
+        this.texture = texture;
     }
 
     public Rectangle getBounds()
