@@ -9,7 +9,7 @@ public class Objects
 {
 
     //fields
-    private Tank player;
+    private ArrayList<Tank> players;
     private ArrayList<Tank> tanks;
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
@@ -19,6 +19,7 @@ public class Objects
 
     public Objects()
     {
+        players = new ArrayList<>();
         tanks = new ArrayList<>();
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
@@ -33,9 +34,9 @@ public class Objects
     public void init()
     {
         //Player tank initialization
-        player = new Tank(100, 100, 100, ObjectId.Player); // making player's tank
+        players.add(new Tank(100, 100, 100, ObjectId.Player)); // making player's tank
         // Turrets initialization
-        Turret turret = new Turret(1500, 700, player);
+        Turret turret = new Turret(1500, 700, players);
         turrets.add(turret);
         //AI tanks initialization
 //        Tank tank1 = new Tank(700,700,100,1);
@@ -45,6 +46,12 @@ public class Objects
 //        robots.add(robot1);
     }
 
+    /**
+     * add a new player tank.
+     * @param tank
+     */
+    public void addPlayerTank(Tank tank){players.add(tank);
+    }
     /**
      * add a tank to tanks ArrayList which contains all available tanks in game
      *
@@ -146,13 +153,13 @@ public class Objects
     }
 
     /**
-     * return player tank
+     * return players tanks
      *
      * @return player tank
      */
-    public Tank getPlayer()
+    public ArrayList<Tank> getPlayers()
     {
-        return player;
+        return players;
     }
 
     /**

@@ -90,41 +90,39 @@ public class GameFrame extends JFrame
         g2d.drawImage(backGround, null, 0, 0);
 
         //draw player tank
-        BufferedImage tank = Utility.loadImage("src/resource/tank.png");
-        //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
+        for(int i = 0 ; i < state.objects.getPlayers().size() ; i++) {
+            BufferedImage tank = Utility.loadImage("src/resource/tank.png");
+            //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
-        int centerX = (int) state.objects.getPlayer().getX();
-        int centerY = (int) state.objects.getPlayer().getY();
+            int centerX = (int) state.objects.getPlayers().get(i).getX();
+            int centerY = (int) state.objects.getPlayers().get(i).getY();
 
-        AffineTransform bodyTransform = g2d.getTransform();
-        //TODO: rotate by wasd
-        //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
-        g2d.setTransform(bodyTransform);
-        g2d.drawImage(tank, (int) state.objects.getPlayer().getX() - state.objects.getPlayer().TANK_WIDTH / 2, (int) state.objects.getPlayer().getY() - state.objects.getPlayer().TANK_HEIGHT / 2, null);
-        g2d.setTransform(gameTransform);
+            AffineTransform bodyTransform = g2d.getTransform();
+            //TODO: rotate by wasd
+            //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
+            g2d.setTransform(bodyTransform);
+            g2d.drawImage(tank, (int) state.objects.getPlayers().get(i).getX() - state.objects.getPlayers().get(i).TANK_WIDTH / 2, (int) state.objects.getPlayers().get(i).getY() - state.objects.getPlayers().get(i).TANK_HEIGHT / 2, null);
+            g2d.setTransform(gameTransform);
 
-        //draw the Gun of the Player Tank and handle its rotation
-        BufferedImage gun = null;
-        if (state.objects.getPlayer().getSelectedGun().getId().equals(ObjectId.MissileGun))
-        {
-            gun = Utility.loadImage("src/resource/tankGun01.png");
-            AffineTransform gunTransform = g2d.getTransform();
-            //we know that atan2 return radian :)
-            double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-            gunTransform.rotate(playerGunAngle, centerX, centerY);
-            g2d.setTransform(gunTransform);
+            //draw the Gun of the Player Tank and handle its rotation
+            BufferedImage gun = null;
+            if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun)) {
+                gun = Utility.loadImage("src/resource/tankGun01.png");
+                AffineTransform gunTransform = g2d.getTransform();
+                //we know that atan2 return radian :)
+                double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+                gunTransform.rotate(playerGunAngle, centerX, centerY);
+                g2d.setTransform(gunTransform);
+            } else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun)) {
+                gun = Utility.loadImage("src/resource/tankGun02.png");
+                AffineTransform gunTransform = g2d.getTransform();
+                double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+                gunTransform.rotate(playerGunAngle, centerX, centerY);
+                g2d.setTransform(gunTransform);
+            }
+            g2d.drawImage(gun, (int) state.objects.getPlayers().get(i).getX() - state.objects.getPlayers().get(i).TANK_WIDTH / 2 + 18, (int) state.objects.getPlayers().get(i).getY() - state.objects.getPlayers().get(i).TANK_HEIGHT / 2, null);
+            g2d.setTransform(gameTransform);
         }
-        else if (state.objects.getPlayer().getSelectedGun().getId().equals(ObjectId.MachineGun))
-        {
-            gun = Utility.loadImage("src/resource/tankGun02.png");
-            AffineTransform gunTransform = g2d.getTransform();
-            double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-            gunTransform.rotate(playerGunAngle, centerX, centerY);
-            g2d.setTransform(gunTransform);
-        }
-        g2d.drawImage(gun, (int) state.objects.getPlayer().getX() - state.objects.getPlayer().TANK_WIDTH / 2 + 18, (int) state.objects.getPlayer().getY() - state.objects.getPlayer().TANK_HEIGHT / 2, null);
-        g2d.setTransform(gameTransform);
-
 
         //draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();

@@ -1,5 +1,7 @@
 package game.elements;
 
+import java.util.ArrayList;
+
 /**
  * a Turret is a unmovable kind of weapon stuck to the ground.
  * turrets have infinite amount of ammo.
@@ -17,15 +19,31 @@ public class Turret extends GameObject
     private Tank target;
 
     //constructor
-    public Turret(double x, double y, Tank target)
+    public Turret(double x, double y, ArrayList<Tank> targets)
     {
         super(x, y, ObjectId.Turret);
+        target = targets.get(0);
+        if(targets.size() > 1) {
+            determineTarget(targets);
+        }
         gun = new MissileGun(this.x, this.y);
         rangeOfView = 800;
-        this.target = target;
     }
 
     //methods
+
+    /**
+     * if more than 1 player is playing then turret will shoot the player which is closer to turret
+     * @param tanks
+     */
+    public void determineTarget(ArrayList<Tank> tanks){
+        for(int i = 0 ; i < tanks.size() ; i++){
+            double distance = calculateDistance(tanks.get(i));
+            if(distance < calculateDistance(target)){
+                target = tanks.get(i);
+            }
+        }
+    }
     public void tick(Objects objects)
     {
         if (checkArea() == true)
@@ -39,7 +57,7 @@ public class Turret extends GameObject
 
     public boolean checkArea()
     {
-        double distance = Math.sqrt(Math.pow(Math.abs(this.x - target.x), 2) + Math.pow(Math.abs(this.y - target.y), 2));
+        double distance = calculateDistance(target);
         if (distance - rangeOfView <= 0)
         {
             return true;
@@ -48,6 +66,11 @@ public class Turret extends GameObject
         {
             return false;
         }
+    }
+
+    private double calculateDistance(Tank tank){
+        double distance = Math.sqrt(Math.pow(Math.abs(this.x - tank.x), 2) + Math.pow(Math.abs(this.y - tank.y), 2));
+        return distance;
     }
 
 }
