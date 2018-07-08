@@ -126,12 +126,14 @@ public class GameFrame extends JFrame
 
 
         //render camera
-        //camera.tick(state.objects.getPlayer());
+
+        //https://youtu.be/vdcOIwkB6dA
 
 
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
+            camera.tick(state.objects.getPlayers().get(i));
             int centerX = (int) state.objects.getPlayers().get(i).getX();
             int centerY = (int) state.objects.getPlayers().get(i).getY();
 
