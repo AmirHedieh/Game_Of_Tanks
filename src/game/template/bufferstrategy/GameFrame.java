@@ -31,13 +31,31 @@ public class GameFrame extends JFrame
     public GameFrame(String title)
     {
         super(title);
-        setResizable(false);
-        setSize(GAME_WIDTH, GAME_HEIGHT);
-        //
+        if(false) // Full screen mode
+        {
+            // Disables decorations for this frame.
+            this.setUndecorated(true);
+            // Puts the frame to full screen.
+            this.setExtendedState(this.MAXIMIZED_BOTH);
+        }
+        else // Window mode
+        {
+            // Size of the frame.
+            this.setSize(GAME_WIDTH, GAME_HEIGHT);
+            // Puts frame to center of the screen.
+            this.setLocationRelativeTo(null);
+            // So that frame cannot be resizable by the user.
+            this.setResizable(false);
+        }
         // Initialize the JFrame ...
         //
         setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon("src/resource/cursor.png").getImage(), new Point(30, 30), "custom cursor"));
     }
+
+    /*
+        linear algebra for game developers: http://blog.wolfire.com/2009/07/linear-algebra-for-game-developers-part-1/
+        http://www.gametutorial.net
+     */
 
     /**
      * This must be called once after the JFrame is shown:

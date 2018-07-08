@@ -63,7 +63,7 @@ public class Objects implements Serializable
         //robots.add(robot1);
 
         //load map
-        BufferedImage map = Utility.loadImage("src/resource/map.png");
+        BufferedImage map = Utility.loadBufferedImage("src/resource/map.png");
         for (int xx = 0; xx < map.getWidth(); xx++)
         {
             for (int yy = 0; yy < map.getHeight(); yy++)

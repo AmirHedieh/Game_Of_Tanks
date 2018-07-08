@@ -27,7 +27,7 @@ public class GameObject
         velX = 0;
         velY = 0;
         this.id = id;
-        this.texture = Utility.loadImage(path);
+        this.texture = Utility.loadBufferedImage(path);
     }
 
     //methods
