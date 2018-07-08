@@ -62,10 +62,6 @@ public class GameFrame extends JFrame
     {
         // Get a new graphics context to render the current frame
         Graphics2D graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
-        // Draw background
-        //BufferedImage backGround = Utility.loadImage("src/resource/field.png");
-        BufferedImage backGround = Utility.loadImage("src/resource/Sahara.png");
-        graphics.drawImage(backGround, null, 0, 0);
         try
         {
             // Do the rendering
@@ -108,7 +104,7 @@ public class GameFrame extends JFrame
                 }
                 if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
                 {
-                   g2d.drawImage(state.objects.getSoftWall().getTexture(), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getSoftWall().getTexture(), xx * 100, yy * 100, null);
                 }
 
                 if ((red == 0) && (green == 255) && (blue == 0)) //Plant
@@ -118,7 +114,7 @@ public class GameFrame extends JFrame
 
                 if ((red == 255) && (green == 255) && (blue == 255)) //Soil
                 {
-
+                    g2d.drawImage(state.objects.getSoil().getTexture(), xx * 100, yy * 100, null);
                 }
 
                 if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
@@ -134,11 +130,8 @@ public class GameFrame extends JFrame
 
 
         //draw player tank
-        for(int i = 0 ; i < state.objects.getPlayers().size() ; i++)
+        for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            BufferedImage tank = Utility.loadImage("src/resource/tank.png");
-            //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
-
             int centerX = (int) state.objects.getPlayers().get(i).getX();
             int centerY = (int) state.objects.getPlayers().get(i).getY();
 
