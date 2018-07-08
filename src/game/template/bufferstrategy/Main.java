@@ -4,6 +4,8 @@ package game.template.bufferstrategy;
 import game.elements.ObjectId;
 import game.elements.Objects;
 
+import java.awt.*;
+import javax.swing.*;
 import java.awt.EventQueue;
 import java.util.Scanner;
 import javax.swing.JFrame;
@@ -15,13 +17,35 @@ import javax.swing.JFrame;
  */
 public class Main
 {
+    /*  //Load Menu
+                ImageIcon ImageBackGround = new ImageIcon("src/resource/Startup.png");
+                JLabel startup = new JLabel(ImageBackGround);
+                frame.add(startup);
+
+                JButton onePlayer = new JButton("Play Game");
+                onePlayer.setSize(100, 30);
+                onePlayer.setFont(new Font(null, 20 ,20));
+                onePlayer.setForeground(Color.WHITE);
+                onePlayer.setLocation(100, 800);
+                onePlayer.setOpaque(false);
+                onePlayer.setContentAreaFilled(false);
+                onePlayer.setBorderPainted(false);
+                frame.add(onePlayer);
+
+                JButton twoPlayer = new JButton("MultiPlayer");
+                twoPlayer.setSize(100, 30);
+                twoPlayer.setFont(new Font(null, 20 ,20));
+                twoPlayer.setForeground(Color.WHITE);
+                twoPlayer.setLocation(300, 800);
+                twoPlayer.setOpaque(false);
+                twoPlayer.setContentAreaFilled(false);
+                twoPlayer.setBorderPainted(false);
+                frame.add(twoPlayer);*/
 
     public static void main(String[] args)
     {
         // Initialize the global thread-pool
         ThreadPool.init();
-
-        // Show the game menu ...
 
         // After the player clicks 'PLAY' ...
         EventQueue.invokeLater(new Runnable()

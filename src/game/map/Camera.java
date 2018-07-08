@@ -1,6 +1,7 @@
 package game.map;
 
 import game.elements.GameObject;
+import game.elements.Tank;
 
 public class Camera
 {
@@ -12,28 +13,30 @@ public class Camera
         this.y = y;
     }
 
-    public void tick(GameObject player)
+    public void tick(Tank player)
     {
         x += ((player.getX() - x) - 1820 / 2) * 0.05f;
         y += ((player.getY() - y) - 1024 / 2) * 0.05f;
+
+        /*x += ((player.getSelectedGun().getX() - x) - 1820 / 2) * 0.05f;
+        y += ((player.getSelectedGun().getY() - y) - 1024 / 2) * 0.05f;*/
 
         if (x <= 0)
         {
             x = 0;
         }
-        if (x >= 1820 + 32)
+        if (x >= 1670)
         {
-            x = 1820 + 32;
+            x = 1670;
         }
         if (y <= 0)
         {
             y = 0;
         }
-        if (y >= 1024 + 16)
+        if (y >= 5450)
         {
-            y = 1024 + 16;
+            y = 5450;
         }
-
     }
 
     public double getX()

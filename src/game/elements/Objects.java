@@ -1,8 +1,10 @@
 package game.elements;
 
+import game.Utils.Utility;
 import game.map.*;
 
 import java.io.Serializable;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -18,11 +20,11 @@ public class Objects implements Serializable
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
-    private HardWall hardWall;
-    private Plant plant;
-    private SoftWall softWall;
-    private Teazel teazel;
-    private Soil soil;
+    private ArrayList<HardWall> hardWall;
+    private ArrayList<Plant> plant;
+    private ArrayList<SoftWall> softWall;
+    private ArrayList<Teazel> teazel;
+    private ArrayList<Soil> soil;
 
     //constructor
     public Objects()
@@ -32,11 +34,11 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
-        hardWall = new HardWall(0, 0);
-        softWall = new SoftWall(0, 0);
-        plant = new Plant(0, 0);
-        teazel = new Teazel(0, 0);
-        soil = new Soil(0, 0);
+        hardWall = new ArrayList<>();
+        softWall = new ArrayList<>();
+        plant = new ArrayList<>();
+        teazel = new ArrayList<>();
+        soil = new ArrayList<>();
 
     }
 
@@ -49,22 +51,59 @@ public class Objects implements Serializable
     {
         //Player tank initialization
         players.add(new Tank(100, 100, 100, ObjectId.Player)); // making player's tank
+        //players.add(new Tank(1150, 6350, 100, ObjectId.Player)); // making player's tank
         // Turrets initialization
         Turret turret = new Turret(1500, 700, players);
         turrets.add(turret);
         //AI tanks initialization
 //        Tank tank1 = new Tank(700,700,100,1);
 //        tanks.add(tank1);
-        // Buried Robots initialization
-//        BuriedRobot robot1 = new BuriedRobot(700, 700);
-//        robots.add(robot1);
+        //Buried Robots initialization
+        //BuriedRobot robot1 = new BuriedRobot(700, 700);
+        //robots.add(robot1);
+
+        //load map
+        BufferedImage map = Utility.loadImage("src/resource/map.png");
+        for (int xx = 0; xx < map.getWidth(); xx++)
+        {
+            for (int yy = 0; yy < map.getHeight(); yy++)
+            {
+                int pixel = map.getRGB(xx, yy);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue = (pixel) & 0xff;
+
+                if ((red == 255) && (green == 255) && (blue == 0)) //HardWall
+                {
+                    hardWall.add(new HardWall(xx, yy));
+                }
+                else if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
+                {
+                    softWall.add(new SoftWall(xx, yy));
+                }
+                else if ((red == 0) && (green == 255) && (blue == 0)) //Plant
+                {
+                    plant.add(new Plant(xx, yy));
+                }
+                else if ((red == 255) && (green == 255) && (blue == 255)) //Soil
+                {
+                    soil.add(new Soil(xx, yy));
+                }
+                else if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
+                {
+                    teazel.add(new Teazel(xx, yy));
+                }
+            }
+        }
     }
 
     /**
      * add a new player tank.
      * @param tank
      */
-    public void addPlayerTank(Tank tank){players.add(tank);
+    public void addPlayerTank(Tank tank)
+    {
+        players.add(tank);
     }
     /**
      * add a tank to tanks ArrayList which contains all available tanks in game
@@ -221,54 +260,53 @@ public class Objects implements Serializable
         this.players = players;
     }
 
-    public HardWall getHardWall()
+    public ArrayList<HardWall> getHardWall()
     {
         return hardWall;
     }
 
-    public void setHardWall(HardWall hardWall)
+    public void setHardWall(ArrayList<HardWall> hardWall)
     {
         this.hardWall = hardWall;
     }
 
-    public Plant getPlant()
+    public ArrayList<Plant> getPlant()
     {
         return plant;
     }
 
-    public void setPlant(Plant plant)
+    public void setPlant(ArrayList<Plant> plant)
     {
         this.plant = plant;
     }
 
-    public SoftWall getSoftWall()
+    public ArrayList<SoftWall> getSoftWall()
     {
         return softWall;
     }
 
-    public void setSoftWall(SoftWall softWall)
+    public void setSoftWall(ArrayList<SoftWall> softWall)
     {
         this.softWall = softWall;
     }
 
-    public Teazel getTeazel()
+    public ArrayList<Teazel> getTeazel()
     {
         return teazel;
     }
 
-    public void setTeazel(Teazel teazel)
+    public void setTeazel(ArrayList<Teazel> teazel)
     {
         this.teazel = teazel;
     }
 
-    public Soil getSoil()
+    public ArrayList<Soil> getSoil()
     {
         return soil;
     }
 
-    public void setSoil(Soil soil)
+    public void setSoil(ArrayList<Soil> soil)
     {
         this.soil = soil;
     }
-
 }

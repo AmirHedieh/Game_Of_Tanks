@@ -51,7 +51,7 @@ public class GameLoop implements Runnable
         // Perform all initializations ...
         state = new GameState();
         spriteSheet = new SpriteSheet("src/resource/sprite_sheet.png");
-        //camera = new Camera(state.objects.getPlayer().getX(), state.objects.getPlayer().getY());
+        //camera = new Camera(803, 5450);
         camera = new Camera(0, 0);
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());

@@ -88,50 +88,32 @@ public class GameFrame extends JFrame
         g2d.translate(-camera.getX(), -camera.getY());
 
         //draw map components
-        BufferedImage map = Utility.loadImage("src/resource/map.png");
-        for (int xx = 0; xx < map.getWidth(); xx++)
+        for (int i = 0; i < state.objects.getHardWall().size(); i++)
         {
-            for (int yy = 0; yy < map.getHeight(); yy++)
-            {
-                int pixel = map.getRGB(xx, yy);
-                int red = (pixel >> 16) & 0xff;
-                int green = (pixel >> 8) & 0xff;
-                int blue = (pixel) & 0xff;
-
-                if ((red == 255) && (green == 255) && (blue == 0)) //HardWall
-                {
-                    g2d.drawImage(state.objects.getHardWall().getTexture(), xx * 100, yy * 100, null);
-                }
-                if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
-                {
-                    g2d.drawImage(state.objects.getSoftWall().getTexture(), xx * 100, yy * 100, null);
-                }
-
-                if ((red == 0) && (green == 255) && (blue == 0)) //Plant
-                {
-                    g2d.drawImage(state.objects.getPlant().getTexture(), xx * 100, yy * 100, null);
-                }
-
-                if ((red == 255) && (green == 255) && (blue == 255)) //Soil
-                {
-                    g2d.drawImage(state.objects.getSoil().getTexture(), xx * 100, yy * 100, null);
-                }
-
-                if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
-                {
-                    g2d.drawImage(state.objects.getTeazel().getTexture(), xx * 100, yy * 100, null);
-                }
-            }
+            g2d.drawImage(state.objects.getHardWall().get(i).getTexture(), (int) state.objects.getHardWall().get(i).getX() * 100, (int) state.objects.getHardWall().get(i).getY() * 100, null);
         }
-
-
-        //render camera
-        //camera.tick(state.objects.getPlayer());
-
+        for (int i = 0; i < state.objects.getSoftWall().size(); i++)
+        {
+            g2d.drawImage(state.objects.getSoftWall().get(i).getTexture(), (int) state.objects.getSoftWall().get(i).getX() * 100, (int) state.objects.getSoftWall().get(i).getY() * 100, null);
+        }
+        for (int i = 0; i < state.objects.getPlant().size(); i++)
+        {
+            g2d.drawImage(state.objects.getPlant().get(i).getTexture(), (int) state.objects.getPlant().get(i).getX() * 100, (int) state.objects.getPlant().get(i).getY() * 100, null);
+        }
+        for (int i = 0; i < state.objects.getTeazel().size(); i++)
+        {
+            g2d.drawImage(state.objects.getTeazel().get(i).getTexture(), (int) state.objects.getTeazel().get(i).getX() * 100, (int) state.objects.getTeazel().get(i).getY() * 100, null);
+        }
+        for (int i = 0; i < state.objects.getSoil().size(); i++)
+        {
+            g2d.drawImage(state.objects.getSoil().get(i).getTexture(), (int) state.objects.getSoil().get(i).getX() * 100, (int) state.objects.getSoil().get(i).getY() * 100, null);
+        }
+        // g2d.drawImage(state.objects.getHardWall().getTexture(), xx * 100, yy * 100, null);
 
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
+            camera.tick(state.objects.getPlayers().get(i));
             int centerX = (int) state.objects.getPlayers().get(i).getX();
             int centerY = (int) state.objects.getPlayers().get(i).getY();
 
@@ -143,7 +125,6 @@ public class GameFrame extends JFrame
             g2d.setTransform(gameTransform);
 
             //draw the Gun of the Player Tank and handle its rotation
-            BufferedImage gun = null;
             if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
             {
                 AffineTransform gunTransform = g2d.getTransform();
