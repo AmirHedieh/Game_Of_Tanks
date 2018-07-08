@@ -36,7 +36,7 @@ public class GameFrame extends JFrame
         //
         // Initialize the JFrame ...
         //
-        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon("src/resource/cursor.png").getImage(), new Point(0, 0), "custom cursor"));
+        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon("src/resource/cursor.png").getImage(), new Point(30, 30), "custom cursor"));
     }
 
     /**
@@ -107,6 +107,7 @@ public class GameFrame extends JFrame
         }
         // g2d.drawImage(state.objects.getHardWall().getTexture(), xx * 100, yy * 100, null);
 
+        //draw bullets
         ArrayList<Bullet> bullets = state.objects.getBullets();
         for (int i = 0; i < bullets.size(); i++)
         {
@@ -157,7 +158,6 @@ public class GameFrame extends JFrame
             g2d.setTransform(gameTransform);
         }
 
-
         //draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();
         for (int i = 0; i < tanks.size(); i++)
@@ -165,12 +165,14 @@ public class GameFrame extends JFrame
 
         }
 
+        //draw turrets
         ArrayList<Turret> turrets = state.objects.getTurrets();
         for (int i = 0; i < turrets.size(); i++)
         {
             g2d.drawImage(turrets.get(i).getTexture(), null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
         }
 
+        //draw robots
         ArrayList<BuriedRobot> robots = state.objects.getRobots();
         for (int i = 0; i < robots.size(); i++)
         {
