@@ -52,7 +52,7 @@ public class Turret extends GameObject
         {
             if (gun.readyForShoot())
             {
-                objects.addBullet(gun.shoot(this.x, this.y, target.x, target.y));
+                objects.addBullet(gun.shoot(this.x, this.y, target.x + 50, target.y + 50));
             }
         }
     }
