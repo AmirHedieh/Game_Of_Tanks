@@ -134,6 +134,15 @@ public class GameState
                 }
             }
         }
+        if (objects.getHardWall().getId().equals(ObjectId.HardWall))
+        {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getHardWall().getBounds()))
+            {
+                objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
+                objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
+
+            }
+        }
 
         //and other arrayLists
     }

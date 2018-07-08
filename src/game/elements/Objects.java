@@ -1,9 +1,6 @@
 package game.elements;
 
-import game.map.HardWall;
-import game.map.Plant;
-import game.map.SoftWall;
-import game.map.Teazel;
+import game.map.*;
 
 import java.util.ArrayList;
 
@@ -24,6 +21,7 @@ public class Objects
     private Plant plant;
     private SoftWall softWall;
     private Teazel teazel;
+    private Soil soil;
 
     //constructor
     public Objects()
@@ -37,6 +35,8 @@ public class Objects
         softWall = new SoftWall(0, 0);
         plant = new Plant(0, 0);
         teazel = new Teazel(0, 0);
+        soil = new Soil(0, 0);
+
     }
 
     //methods
@@ -258,6 +258,16 @@ public class Objects
     public void setTeazel(Teazel teazel)
     {
         this.teazel = teazel;
+    }
+
+    public Soil getSoil()
+    {
+        return soil;
+    }
+
+    public void setSoil(Soil soil)
+    {
+        this.soil = soil;
     }
 
 }
