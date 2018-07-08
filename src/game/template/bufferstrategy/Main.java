@@ -1,9 +1,11 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.elements.ObjectId;
 import game.elements.Objects;
 
 import java.awt.EventQueue;
+import java.util.Scanner;
 import javax.swing.JFrame;
 
 /**
@@ -27,6 +29,7 @@ public class Main
             @Override
             public void run()
             {
+                Scanner scanner = new Scanner(System.in);
                 GameFrame frame = new GameFrame("Normal Tanks ( Beta )");
                 frame.setLocationRelativeTo(null); // put frame at center of screen
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,6 +37,17 @@ public class Main
                 frame.initBufferStrategy();
                 // Create and execute the game-loop
                 GameLoop game = new GameLoop(frame);
+                System.out.println("Which game? 1-Single 2-Coop");
+                int a = scanner.nextInt();
+                scanner.nextLine();
+                if(a == 1){
+                    System.out.println("Single Started");
+                    game.setGameType(ObjectId.SinglePlayer);
+                }
+                else if(a == 2){
+                    System.out.println("Coop started");
+                    game.setGameType(ObjectId.TwoPlayer);
+                }
                 game.init();
                 ThreadPool.execute(game);
                 // and the game starts ...

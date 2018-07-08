@@ -1,8 +1,10 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.elements.ObjectId;
 import game.map.Camera;
 import game.map.SpriteSheet;
+import game.multiplayer.Server;
 
 /**
  * A very simple structure for the main game loop.
@@ -31,7 +33,8 @@ public class GameLoop implements Runnable
     private GameState state;
     private SpriteSheet spriteSheet;
     private Camera camera;
-
+    private ObjectId gameType,playerType;
+    
     public GameLoop(GameFrame frame)
     {
         canvas = frame;
@@ -62,8 +65,18 @@ public class GameLoop implements Runnable
             {
                 long start = System.currentTimeMillis();
                 //
-                state.update();
-                canvas.render(state, camera, spriteSheet);
+                if(gameType.equals(ObjectId.SinglePlayer)) {
+                    state.update();
+                    canvas.render(state, camera, spriteSheet);
+                }
+                else if(gameType.equals(ObjectId.TwoPlayer)){
+                    if(playerType.equals(ObjectId.ServerPlayer)){
+
+                    }
+                    else if(playerType.equals(ObjectId.ClientPlayer)){
+
+                    }
+                }
                 //
                 long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
                 if (delay > 0)
@@ -76,4 +89,9 @@ public class GameLoop implements Runnable
             }
         }
     }
+
+    public void setGameType(ObjectId id){
+        gameType = id;
+    }
+
 }

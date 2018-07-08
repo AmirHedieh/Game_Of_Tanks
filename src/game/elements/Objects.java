@@ -2,13 +2,14 @@ package game.elements;
 
 import game.map.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * a class containing all created objects like tanks, bullets , turrets , ... in game
  * Ali call this class handler
  */
-public class Objects
+public class Objects implements Serializable
 {
 
     //fields

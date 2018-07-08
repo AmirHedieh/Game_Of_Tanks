@@ -14,5 +14,9 @@ public enum ObjectId
     SoftWall, //blue (0, 0, 255)
     Plant, //green (0, 255, 0)
     Soil, //white (255, 255, 255)
-    Teazel; //purple (255, 0, 255)
+    Teazel, //purple (255, 0, 255)
+    ServerPlayer,
+    ClientPlayer,
+    SinglePlayer,
+    TwoPlayer;
 }
