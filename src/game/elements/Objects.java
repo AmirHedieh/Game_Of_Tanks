@@ -1,5 +1,10 @@
 package game.elements;
 
+import game.map.HardWall;
+import game.map.Plant;
+import game.map.SoftWall;
+import game.map.Teazel;
+
 import java.util.ArrayList;
 
 /**
@@ -15,9 +20,12 @@ public class Objects
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
+    private HardWall hardWall;
+    private Plant plant;
+    private SoftWall softWall;
+    private Teazel teazel;
 
     //constructor
-
     public Objects()
     {
         players = new ArrayList<>();
@@ -25,6 +33,10 @@ public class Objects
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
+        hardWall = new HardWall(0, 0);
+        softWall = new SoftWall(0, 0);
+        plant = new Plant(0, 0);
+        teazel = new Teazel(0, 0);
     }
 
     //methods
@@ -201,6 +213,51 @@ public class Objects
     public ArrayList<BuriedRobot> getRobots()
     {
         return robots;
+    }
+
+    public void setPlayers(ArrayList<Tank> players)
+    {
+        this.players = players;
+    }
+
+    public HardWall getHardWall()
+    {
+        return hardWall;
+    }
+
+    public void setHardWall(HardWall hardWall)
+    {
+        this.hardWall = hardWall;
+    }
+
+    public Plant getPlant()
+    {
+        return plant;
+    }
+
+    public void setPlant(Plant plant)
+    {
+        this.plant = plant;
+    }
+
+    public SoftWall getSoftWall()
+    {
+        return softWall;
+    }
+
+    public void setSoftWall(SoftWall softWall)
+    {
+        this.softWall = softWall;
+    }
+
+    public Teazel getTeazel()
+    {
+        return teazel;
+    }
+
+    public void setTeazel(Teazel teazel)
+    {
+        this.teazel = teazel;
     }
 
 }

@@ -124,8 +124,7 @@ public class GameState
     {
         for (int i = 0; i < objects.getTurrets().size(); i++)
         {
-            System.out.println(objects.getTurrets().size());
-            if (objects.getTurrets().get(i).getId() ==ObjectId.Turret)
+            if (objects.getTurrets().get(i).getId().equals(ObjectId.Turret))
             {
                 if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
                 {
@@ -135,6 +134,8 @@ public class GameState
                 }
             }
         }
+
+        //and other arrayLists
     }
 
     public void findBodyAngle()

@@ -92,7 +92,7 @@ public class GameFrame extends JFrame
         g2d.translate(-camera.getX(), -camera.getY());
 
         //draw map components
-        BufferedImage map = Utility.loadImage("src/resource/sprite_sheet.png");
+        BufferedImage map = Utility.loadImage("src/resource/map.png");
         for (int xx = 0; xx < map.getWidth(); xx++)
         {
             for (int yy = 0; yy < map.getHeight(); yy++)
@@ -104,16 +104,16 @@ public class GameFrame extends JFrame
 
                 if ((red == 255) && (green == 255) && (blue == 0)) //HardWall
                 {
-                    //g2d.drawImage(Utility.loadImage("src/resource/hardWall.png"), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getHardWall().getTexture(), xx * 100, yy * 100, null);
                 }
                 if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
                 {
-                   //g2d.drawImage(Utility.loadImage("src/resource/softWall.png"), xx * 100, yy * 100, null);
+                   g2d.drawImage(state.objects.getSoftWall().getTexture(), xx * 100, yy * 100, null);
                 }
 
                 if ((red == 0) && (green == 255) && (blue == 0)) //Plant
                 {
-                    //g2d.drawImage(Utility.loadImage("src/resource/plant.png"), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getPlant().getTexture(), xx * 100, yy * 100, null);
                 }
 
                 if ((red == 255) && (green == 255) && (blue == 255)) //Soil
@@ -123,7 +123,7 @@ public class GameFrame extends JFrame
 
                 if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
                 {
-                    //g2d.drawImage(Utility.loadImage("src/resource/teazel2.png"), xx * 100, yy * 100, null);
+                    g2d.drawImage(state.objects.getTeazel().getTexture(), xx * 100, yy * 100, null);
                 }
             }
         }
@@ -134,7 +134,8 @@ public class GameFrame extends JFrame
 
 
         //draw player tank
-        for(int i = 0 ; i < state.objects.getPlayers().size() ; i++) {
+        for(int i = 0 ; i < state.objects.getPlayers().size() ; i++)
+        {
             BufferedImage tank = Utility.loadImage("src/resource/tank.png");
             //g2d.drawImage(tank, null, (int)tanks.get(i).getX() - tanks.get(i).TANK_WIDTH / 2,(int)tanks.get(i).getY() - tanks.get(i).TANK_HEIGHT / 2);
 
@@ -150,13 +151,16 @@ public class GameFrame extends JFrame
 
             //draw the Gun of the Player Tank and handle its rotation
             BufferedImage gun = null;
-            if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun)) {
+            if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
+            {
                 AffineTransform gunTransform = g2d.getTransform();
                 //we know that atan2 return radian :)
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
                 g2d.setTransform(gunTransform);
-            } else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun)) {
+            }
+            else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun))
+            {
                 AffineTransform gunTransform = g2d.getTransform();
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
@@ -165,6 +169,7 @@ public class GameFrame extends JFrame
             g2d.drawImage(state.objects.getPlayers().get(i).getSelectedGun().getTexture(), (int) state.objects.getPlayers().get(i).getX() - state.objects.getPlayers().get(i).TANK_WIDTH / 2 + 18, (int) state.objects.getPlayers().get(i).getY() - state.objects.getPlayers().get(i).TANK_HEIGHT / 2, null);
             g2d.setTransform(gameTransform);
         }
+
 
         //draw tanks
         ArrayList<Tank> tanks = state.objects.getTanks();

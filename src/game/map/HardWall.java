@@ -7,7 +7,7 @@ import java.awt.*;
 public class HardWall extends GameObject
 {
 
-    public HardWall(double x, double y, ObjectId id, String path)
+    public HardWall(double x, double y)
     {
         super(x, y, ObjectId.HardWall, "src/resource/hardWall.png");
     }
