@@ -4,6 +4,7 @@ package game.template.bufferstrategy;
 import game.elements.ObjectId;
 import game.map.Camera;
 import game.map.SpriteSheet;
+import game.multiplayer.Client;
 import game.multiplayer.Server;
 
 /**
@@ -34,7 +35,9 @@ public class GameLoop implements Runnable
     private SpriteSheet spriteSheet;
     private Camera camera;
     private ObjectId gameType,playerType;
-    
+    private Server server;
+    private Client client;
+
     public GameLoop(GameFrame frame)
     {
         canvas = frame;
@@ -53,6 +56,12 @@ public class GameLoop implements Runnable
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
+        if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ServerPlayer)){
+            server = new Server(state.objects);
+        }
+        else if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ClientPlayer)){
+            client = new Client();
+        }
     }
 
     @Override
@@ -71,10 +80,15 @@ public class GameLoop implements Runnable
                 }
                 else if(gameType.equals(ObjectId.TwoPlayer)){
                     if(playerType.equals(ObjectId.ServerPlayer)){
+                        state.update();
+                        canvas.render(state, camera, spriteSheet);
+                        server.sendData();
+                        server.receiveData();
 
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
-
+                        client.receiveData(state.objects);
+                        canvas.render(state, camera, spriteSheet);
                     }
                 }
                 //
@@ -94,4 +108,7 @@ public class GameLoop implements Runnable
         gameType = id;
     }
 
+    public void setPlayerType(ObjectId id){
+        playerType = id;
+    }
 }

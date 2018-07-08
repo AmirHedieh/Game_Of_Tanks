@@ -42,8 +42,9 @@ public class Server {
         }
     }
 
-//    public void getData(){
-//
-//    }
+    public void receiveData(){
+
+    }
+
 }
 

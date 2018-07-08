@@ -47,6 +47,17 @@ public class Main
                 else if(a == 2){
                     System.out.println("Coop started");
                     game.setGameType(ObjectId.TwoPlayer);
+                    System.out.println("1-Host or 2-Client");
+                    a = scanner.nextInt();
+                    scanner.nextLine();
+                    if( a == 1 ){
+                        System.out.println("U R Host");
+                        game.setPlayerType(ObjectId.ServerPlayer);
+                    }
+                    else if( a == 2 ){
+                        System.out.println("U R Client");
+                        game.setPlayerType(ObjectId.ClientPlayer);
+                    }
                 }
                 game.init();
                 ThreadPool.execute(game);

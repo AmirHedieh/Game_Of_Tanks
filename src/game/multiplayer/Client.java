@@ -1,5 +1,6 @@
 package game.multiplayer;
 
+import game.elements.ObjectId;
 import game.elements.Objects;
 import game.template.bufferstrategy.Main;
 
@@ -24,9 +25,10 @@ public class Client {
         }
     }
 
-    public void receiveData(){
+    public void receiveData(Objects objects){
         try {
-            Objects objects = (Objects)ois.readObject();
+            Objects updatedObjects = (Objects)ois.readObject();
+            objects = updatedObjects;
         } catch (IOException e) {
             System.out.println("couldn't read objects");
         } catch (ClassNotFoundException e) {
