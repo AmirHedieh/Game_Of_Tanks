@@ -4,6 +4,7 @@ import game.elements.*;
 
 import java.awt.*;
 
+
 public class HardWall extends GameObject
 {
 

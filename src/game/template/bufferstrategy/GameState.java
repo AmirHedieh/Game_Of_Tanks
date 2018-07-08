@@ -68,7 +68,7 @@ public class GameState
         //  based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         //first element( objects.getPlayer() ) in arrayList is player's tank.
-        collision();
+        //collision();
         if (keyUP)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
@@ -124,25 +124,25 @@ public class GameState
     {
         for (int i = 0; i < objects.getTurrets().size(); i++)
         {
-            if (objects.getTurrets().get(i).getId().equals(ObjectId.Turret))
-            {
-                if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
-                {
-                    objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
-                    objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
-
-                }
-            }
-        }
-        /*if (objects.getHardWall().getId().equals(ObjectId.HardWall))
-        {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getHardWall().getBounds()))
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
             {
                 objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
                 objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
 
             }
-        }*/
+        }
+
+        for (int i = 0; i < objects.getHardWall().size(); i++)
+        {
+            //System.out.println("in for before if");
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getHardWall().get(i).getBounds()))
+            {
+                System.out.println("in if");
+                objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
+                objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
+
+            }
+        }
 
         //and other arrayLists
     }

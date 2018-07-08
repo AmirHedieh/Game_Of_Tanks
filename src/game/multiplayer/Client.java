@@ -17,7 +17,7 @@ public class Client {
 
     public Client() {
         try {
-            socket = new Socket("192.168.1.8",6666);
+            socket = new Socket("192.168.43.92",6666);
             oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {

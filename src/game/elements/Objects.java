@@ -50,7 +50,7 @@ public class Objects implements Serializable
     public void init()
     {
         //Player tank initialization
-        players.add(new Tank(100, 100, 100, ObjectId.Player)); // making player's tank
+        players.add(new Tank(50, 50, 100, ObjectId.Player)); // making player's tank
         //players.add(new Tank(1150, 6350, 100, ObjectId.Player)); // making player's tank
         // Turrets initialization
         Turret turret = new Turret(1500, 700, players);
@@ -75,23 +75,23 @@ public class Objects implements Serializable
 
                 if ((red == 255) && (green == 255) && (blue == 0)) //HardWall
                 {
-                    hardWall.add(new HardWall(xx, yy));
+                    hardWall.add(new HardWall(xx * 100, yy * 100));
                 }
                 else if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
                 {
-                    softWall.add(new SoftWall(xx, yy));
+                    softWall.add(new SoftWall(xx * 100, yy * 100));
                 }
                 else if ((red == 0) && (green == 255) && (blue == 0)) //Plant
                 {
-                    plant.add(new Plant(xx, yy));
+                    plant.add(new Plant(xx * 100, yy * 100));
                 }
                 else if ((red == 255) && (green == 255) && (blue == 255)) //Soil
                 {
-                    soil.add(new Soil(xx, yy));
+                    soil.add(new Soil(xx * 100, yy * 100));
                 }
                 else if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
                 {
-                    teazel.add(new Teazel(xx, yy));
+                    teazel.add(new Teazel(xx * 100, yy * 100));
                 }
             }
         }

@@ -13,6 +13,8 @@ public class Bullet extends GameObject
     protected int damage;
     private double shootDirectionAngle;
     private double targetX, targetY;
+    private boolean isThrown;
+    private double thrownAngle;
 
     //constructor
     public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id, String path)
@@ -63,6 +65,7 @@ public class Bullet extends GameObject
             velX = -14;
             velY = 0;
         }
+        this.isThrown = false;
     }
 
     //methods
@@ -129,5 +132,25 @@ public class Bullet extends GameObject
     public double getShootDirectionAngle()
     {
         return shootDirectionAngle;
+    }
+
+    public boolean isThrown()
+    {
+        return isThrown;
+    }
+
+    public void setThrown(boolean thrown)
+    {
+        isThrown = thrown;
+    }
+
+    public double getThrownAngle()
+    {
+        return thrownAngle;
+    }
+
+    public void setThrownAngle(double thrownAngle)
+    {
+        this.thrownAngle = thrownAngle;
     }
 }
