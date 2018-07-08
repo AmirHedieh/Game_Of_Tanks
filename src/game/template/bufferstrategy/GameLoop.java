@@ -3,7 +3,6 @@ package game.template.bufferstrategy;
 
 import game.elements.ObjectId;
 import game.map.Camera;
-import game.map.SpriteSheet;
 import game.multiplayer.Client;
 import game.multiplayer.Server;
 
@@ -32,7 +31,6 @@ public class GameLoop implements Runnable
 
     private GameFrame canvas;
     private GameState state;
-    private SpriteSheet spriteSheet;
     private Camera camera;
     private ObjectId gameType,playerType;
     private Server server;
@@ -50,7 +48,6 @@ public class GameLoop implements Runnable
     {
         // Perform all initializations ...
         state = new GameState();
-        spriteSheet = new SpriteSheet("src/resource/sprite_sheet.png");
         //camera = new Camera(803, 5450);
         camera = new Camera(0, 0);
         canvas.addKeyListener(state.getKeyListener());
@@ -76,19 +73,19 @@ public class GameLoop implements Runnable
                 //
                 if(gameType.equals(ObjectId.SinglePlayer)) {
                     state.update();
-                    canvas.render(state, camera, spriteSheet);
+                    canvas.render(state, camera);
                 }
                 else if(gameType.equals(ObjectId.TwoPlayer)){
                     if(playerType.equals(ObjectId.ServerPlayer)){
                         state.update();
-                        canvas.render(state, camera, spriteSheet);
+                        canvas.render(state, camera);
                         server.sendData();
                         server.receiveData();
 
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
                         client.receiveData(state.objects);
-                        canvas.render(state, camera, spriteSheet);
+                        canvas.render(state, camera);
                     }
                 }
                 //

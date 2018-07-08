@@ -22,7 +22,7 @@ public class Bullet extends GameObject
         super(startX, startY, id, path);
         targetX = mouseX;
         targetY = mouseY;
-        shootDirectionAngle = calculateShootAngle(startX, startY, mouseX, mouseY);
+        shootDirectionAngle = calculateShootAngle(startX + 50, startY + 50, mouseX, mouseY);
         //moving in 4 direction needs specific velocity
         if (mouseX > startX && mouseY > startY)
         {
