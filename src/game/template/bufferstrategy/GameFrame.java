@@ -178,21 +178,11 @@ public class GameFrame extends JFrame
         {
             if (bullets.get(i).getId().equals(ObjectId.HeavyBullet))
             {
-                AffineTransform bulletTransform = g2d.getTransform();
-                double gunAngle = Math.atan2((bullets.get(i).getTargetY() - (int) bullets.get(i).getY()), (bullets.get(i).getTargetX() - (int) bullets.get(i).getX()));
-                bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
-                g2d.setTransform(bulletTransform);
-                g2d.drawImage(bullets.get(i).getTexture(), (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
-                g2d.setTransform(gameTransform);
+                drawBullet(gameTransform,g2d,bullets.get(i));
             }
             else if (bullets.get(i).getId().equals(ObjectId.LightBullet))
             {
-                AffineTransform bulletTransform = g2d.getTransform();
-                double gunAngle = Math.atan2((bullets.get(i).getTargetY() - (int) bullets.get(i).getY()), (bullets.get(i).getTargetX() - (int) bullets.get(i).getX()));
-                bulletTransform.rotate(gunAngle, (int) bullets.get(i).getX(), (int) bullets.get(i).getY());
-                g2d.setTransform(bulletTransform);
-                g2d.drawImage(bullets.get(i).getTexture(), (int) bullets.get(i).getX(), (int) bullets.get(i).getY(), null);
-                g2d.setTransform(gameTransform);
+                drawBullet(gameTransform,g2d,bullets.get(i));
             }
         }
 
@@ -211,5 +201,14 @@ public class GameFrame extends JFrame
             }
         }
         g2d.translate(camera.getX(), camera.getY());
+    }
+
+    private void drawBullet(AffineTransform gameTransform,Graphics2D g2d , Bullet bullet){
+        AffineTransform bulletTransform = g2d.getTransform();
+        double gunAngle = Math.atan2((bullet.getTargetY() - (int) bullet.getY()), (bullet.getTargetX() - (int) bullet.getX()));
+        bulletTransform.rotate(gunAngle, (int) bullet.getX(), (int) bullet.getY());
+        g2d.setTransform(bulletTransform);
+        g2d.drawImage(bullet.getTexture(), (int) bullet.getX(), (int) bullet.getY(), null);
+        g2d.setTransform(gameTransform);
     }
 }
