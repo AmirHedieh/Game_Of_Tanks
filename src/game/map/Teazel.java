@@ -8,6 +8,6 @@ public class Teazel extends GameObject
 {
     public Teazel(double x, double y)
     {
-        super(x, y, ObjectId.Teazel, "src/resource/teazel.png");
+        super(x, y, ObjectId.Teazel);
     }
 }

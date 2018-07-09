@@ -18,7 +18,7 @@ public abstract class Gun extends GameObject
     //constructor
     public Gun(double x, double y, ObjectId id, String path)
     {
-        super(x, y, id, path);
+        super(x, y, id);
     }
 
     //methods

@@ -7,6 +7,6 @@ public class Soil extends GameObject
 {
     public Soil(double x, double y)
     {
-        super(x, y, ObjectId.Soil, "src/resource/soil.png");
+        super(x, y, ObjectId.Soil);
     }
 }

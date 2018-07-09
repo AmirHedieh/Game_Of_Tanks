@@ -16,18 +16,16 @@ public class GameObject
     protected double x;
     protected double y;
     protected int velX, velY;
-    protected BufferedImage texture;
 
 
     //constructor
-    public GameObject(double x, double y, ObjectId id, String path)
+    public GameObject(double x, double y, ObjectId id)
     {
         this.x = x;
         this.y = y;
         velX = 0;
         velY = 0;
         this.id = id;
-        this.texture = Utility.loadBufferedImage(path);
     }
 
     //methods
@@ -130,18 +128,8 @@ public class GameObject
         return velY;
     }
 
-    public BufferedImage getTexture()
-    {
-        return texture;
-    }
-
-    public void setTexture(BufferedImage texture)
-    {
-        this.texture = texture;
-    }
-
     public Rectangle getBounds()
     {
-        return new Rectangle((int) x, (int) y, texture.getWidth(), texture.getTileHeight());
+        return new Rectangle((int) x, (int) y, 100, 100);
     }
 }

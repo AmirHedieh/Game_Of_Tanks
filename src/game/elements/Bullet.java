@@ -17,9 +17,9 @@ public class Bullet extends GameObject
     private double thrownAngle;
 
     //constructor
-    public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id, String path)
+    public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id)
     {
-        super(startX, startY, id, path);
+        super(startX, startY, id);
         targetX = mouseX;
         targetY = mouseY;
         startX += 50;//this must be changed if tank size changes

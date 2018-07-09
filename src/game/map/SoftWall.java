@@ -8,6 +8,6 @@ public class SoftWall extends GameObject
 {
     public SoftWall(double x, double y)
     {
-        super(x, y, ObjectId.SoftWall, "src/resource/softWall.png");
+        super(x, y, ObjectId.SoftWall);
     }
 }

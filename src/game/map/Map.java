@@ -1,5 +1,6 @@
 package game.map;
 
+import com.sun.prism.Texture;
 import game.Utils.Utility;
 import game.elements.*;
 
@@ -56,23 +57,23 @@ public class Map
     {
         for (int i = 0; i < hardWall.size(); i++)
         {
-            g2d.drawImage(hardWall.get(i).getTexture(), (int) hardWall.get(i).getX(), (int) hardWall.get(i).getY(), null);
+            g2d.drawImage(Textures.hardWall, (int) hardWall.get(i).getX(), (int) hardWall.get(i).getY(), null);
         }
         for (int i = 0; i < softWall.size(); i++)
         {
-            g2d.drawImage(softWall.get(i).getTexture(), (int) softWall.get(i).getX(), (int) softWall.get(i).getY(), null);
+            g2d.drawImage(Textures.softWall, (int) softWall.get(i).getX(), (int) softWall.get(i).getY(), null);
         }
         for (int i = 0; i < plant.size(); i++)
         {
-            g2d.drawImage(plant.get(i).getTexture(), (int) plant.get(i).getX(), (int) plant.get(i).getY(), null);
+            g2d.drawImage(Textures.plant, (int) plant.get(i).getX(), (int) plant.get(i).getY(), null);
         }
         for (int i = 0; i < teazel.size(); i++)
         {
-            g2d.drawImage(teazel.get(i).getTexture(), (int) teazel.get(i).getX(), (int) teazel.get(i).getY(), null);
+            g2d.drawImage(Textures.teazel, (int) teazel.get(i).getX(), (int) teazel.get(i).getY(), null);
         }
         for (int i = 0; i < soil.size(); i++)
         {
-            g2d.drawImage(soil.get(i).getTexture(), (int) soil.get(i).getX(), (int) soil.get(i).getY(), null);
+            g2d.drawImage(Textures.soil, (int) soil.get(i).getX(), (int) soil.get(i).getY(), null);
         }
     }
 
