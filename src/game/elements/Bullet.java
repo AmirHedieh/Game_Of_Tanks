@@ -22,46 +22,59 @@ public class Bullet extends GameObject
         super(startX, startY, id, path);
         targetX = mouseX;
         targetY = mouseY;
-        shootDirectionAngle = calculateShootAngle(startX + 50, startY + 50, mouseX, mouseY);
+        startX += 50;//this must be changed if tank size changes
+        startY += 50; //this must be changed if tank size changes
+        shootDirectionAngle = calculateShootAngle(startX , startY , mouseX, mouseY);
         //moving in 4 direction needs specific velocity
+        System.out.println(mouseX + " " + mouseY + " " + startX + " " + startY);
+//        System.out.println(shootDirectionAngle);
+////        System.out.println("PI" + Math.PI / 2);
         if (mouseX > startX && mouseY > startY)
         {
+            System.out.println("1");
             velX = 14;
             velY = 14;
         }
         else if (mouseX > startX && mouseY < startY)
         {
+            System.out.println("2");
             velX = 14;
             velY = 14;
         }
         else if (mouseX < startX && mouseY < startY)
         {
+            System.out.println("3");
             velX = -14;
             velY = -14;
         }
         else if (mouseX < startX && mouseY > startY)
         {
+            System.out.println("4");
             velX = -14;
             velY = -14;
         }
         //from now on if conditions are for times where angle is 0 or PI/2
         else if (mouseX == startX && mouseY > startY)
         {
+            System.out.println("5");
             velX = 0;
             velY = 14;
         }
         else if (mouseX == startX && mouseY < startY)
         {
+            System.out.println("6");
             velX = 0;
-            velY = 14;
+            velY = 14; //idk why but its true
         }
         else if (mouseX > startX && mouseY == startY)
         {
+            System.out.println("7");
             velX = 14;
             velY = 0;
         }
         else if (mouseX < startX && mouseY == startY)
         {
+            System.out.println("8");
             velX = -14;
             velY = 0;
         }
