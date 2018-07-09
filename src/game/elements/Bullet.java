@@ -17,6 +17,10 @@ public class Bullet extends GameObject
     private double thrownAngle;
 
     //constructor
+    public Bullet(){
+
+    }
+
     public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id, String path)
     {
         super(startX, startY, id, path);

@@ -21,6 +21,9 @@ public class Turret extends GameObject
     private Tank target;
 
     //constructor
+    public Turret(){
+
+    }
     public Turret(double x, double y, ArrayList<Tank> targets)
     {
         super(x, y, ObjectId.Turret,"src/resource/tank_turret.png");

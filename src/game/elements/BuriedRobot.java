@@ -9,6 +9,10 @@ public class BuriedRobot extends GameObject
     public boolean activated;
 
     //constructor
+    public BuriedRobot(){
+
+    }
+
     public BuriedRobot(double x, double y)
     {
         super(x, y, ObjectId.BuriedRobot, "src/resource/buriedRobot.png");

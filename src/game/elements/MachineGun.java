@@ -14,7 +14,8 @@ public class MachineGun extends Gun implements Serializable
     public MachineGun()
     {
 
-    }    public MachineGun(double x, double y)
+    }
+    public MachineGun(double x, double y)
     { //todo : try not to pass tank from subclass to father
         super(x, y, ObjectId.MachineGun, "src/resource/tankGun02.png");
         ammo = 70;

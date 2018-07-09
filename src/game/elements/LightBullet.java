@@ -8,6 +8,9 @@ public class LightBullet extends Bullet
 {
 
     //constructor
+    public LightBullet(){
+
+    }
     public LightBullet(double startX, double startY, double mouseX, double mouseY)
     {
         super(startX, startY, mouseX, mouseY, ObjectId.LightBullet, "src/resource/LightBullet.png");
