@@ -100,8 +100,9 @@ public class GameFrame extends JFrame
      */
     private void doRendering(Graphics2D g2d, GameState state, Camera camera)
     {
+        Utility.tankAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-        g2d.translate(-camera.getX(), -camera.getY());
+        //g2d.translate(-camera.getX(), -camera.getY());
 
         //render map
         state.objects.getMap().render(g2d);
@@ -117,7 +118,7 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            camera.tick(state.objects.getPlayers().get(i));
+            //camera.tick(state.objects.getPlayers().get(i));
 
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
@@ -126,10 +127,21 @@ public class GameFrame extends JFrame
             //TODO: rotate by wasd
             //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
             g2d.setTransform(bodyTransform);
-            g2d.drawImage(Utility.tank,
+            if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyLEFT())
+            {
+                g2d.drawImage(Utility.tank02,
+                        (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile
+                        (int) state.objects.getPlayers().get(i).getY(), //this is the Y upper left corner of the tile
+                        null);
+            }
+            else
+            {
+                Utility.tankAnimation.drawAnimation(g2d, (int) state.objects.getPlayers().get(i).getX(), (int) state.objects.getPlayers().get(i).getY(), 0);
+            }
+           /* g2d.drawImage(Utility.tank,
                     (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile
                     (int) state.objects.getPlayers().get(i).getY(), //this is the Y upper left corner of the tile
-                    null);
+                    null);*/
             g2d.setTransform(gameTransform);
             //draw the Gun of the Player Tank and handle its rotation
             if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
@@ -139,7 +151,7 @@ public class GameFrame extends JFrame
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
                 g2d.setTransform(gunTransform);
-                g2d.drawImage(Utility.tankGun01,
+                g2d.drawImage(Utility.gun01,
                         (int) state.objects.getPlayers().get(i).getX() + 18,
                         (int) state.objects.getPlayers().get(i).getY() + 5,
                         null);
@@ -150,7 +162,7 @@ public class GameFrame extends JFrame
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
                 g2d.setTransform(gunTransform);
-                g2d.drawImage(Utility.tankGun02,
+                g2d.drawImage(Utility.gun02,
                         (int) state.objects.getPlayers().get(i).getX() + 18 - (int)camera.getX(),
                         (int) state.objects.getPlayers().get(i).getY() - (int)camera.getY(),
                         null);
@@ -181,7 +193,7 @@ public class GameFrame extends JFrame
                 g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
             }
         }
-        g2d.translate(camera.getX(), camera.getY());
+        //g2d.translate(camera.getX(), camera.getY());
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet)
