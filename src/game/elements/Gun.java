@@ -22,7 +22,7 @@ public abstract class Gun extends GameObject implements Serializable
     }
     public Gun(double x, double y, ObjectId id, String path)
     {
-        super(x, y, id, path);
+        super(x, y, id);
     }
 
     //methods

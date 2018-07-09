@@ -30,7 +30,7 @@ public class Tank extends GameObject implements Serializable
     }
     public Tank(double x, double y, int health, ObjectId id)
     { // gun must be added manually after making tank
-        super(x, y, id, "src/resource/tank.png");
+        super(x, y, id);
         missileGun = new MissileGun(this.x, this.y);
         this.setMissileGun(missileGun);
 
@@ -151,11 +151,5 @@ public class Tank extends GameObject implements Serializable
     public int getType()
     {
         return type;
-    }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) x, (int) y, 100, 100);
     }
 }

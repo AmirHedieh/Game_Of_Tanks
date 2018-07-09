@@ -1,5 +1,7 @@
 package game.elements;
 
+import game.map.Camera;
+
 import java.util.ArrayList;
 
 import java.util.ArrayList;
@@ -26,7 +28,7 @@ public class Turret extends GameObject
     }
     public Turret(double x, double y, ArrayList<Tank> targets)
     {
-        super(x, y, ObjectId.Turret,"src/resource/tank_turret.png");
+        super(x, y, ObjectId.Turret);
         target = targets.get(0);
         if(targets.size() > 1) {
             determineTarget(targets);

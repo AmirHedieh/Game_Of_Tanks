@@ -15,7 +15,7 @@ public class BuriedRobot extends GameObject
 
     public BuriedRobot(double x, double y)
     {
-        super(x, y, ObjectId.BuriedRobot, "src/resource/buriedRobot.png");
+        super(x, y, ObjectId.BuriedRobot);
         minDistance = 400;
         activated = false;
         setVelX(5);

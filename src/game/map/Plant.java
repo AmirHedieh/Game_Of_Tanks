@@ -8,6 +8,6 @@ public class Plant extends GameObject
 {
     public Plant(double x, double y)
     {
-        super(x, y, ObjectId.Plant, "src/resource/plant.png");
+        super(x, y, ObjectId.Plant);
     }
 }

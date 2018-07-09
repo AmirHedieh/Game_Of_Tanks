@@ -23,8 +23,8 @@ public class Sound
         {
             clip = AudioSystem.getClip();
 
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(audio);             //Main.class.getResourceAsStream("/path/to/sounds/"+ url
-            clip.open(inputStream);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audio);             //Main.class.getResourceAsStream("/path/to/sounds/"+ url
+            clip.open(audioInputStream);
         }
         catch (Exception e)
         {

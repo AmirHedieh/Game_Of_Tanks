@@ -13,7 +13,7 @@ public class HeavyBullet extends Bullet
     }
     public HeavyBullet(double startX, double startY, double mouseX, double mouseY)
     {
-        super(startX, startY, mouseX, mouseY, ObjectId.HeavyBullet, "src/resource/HeavyBullet.png");
+        super(startX, startY, mouseX, mouseY, ObjectId.HeavyBullet);
         damage = 100;
     }
 

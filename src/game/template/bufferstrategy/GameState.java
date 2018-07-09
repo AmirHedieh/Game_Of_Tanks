@@ -2,7 +2,6 @@
 package game.template.bufferstrategy;
 
 import game.elements.AITankHandler;
-import game.elements.ObjectId;
 import game.elements.Objects;
 
 import java.awt.event.KeyEvent;
@@ -68,22 +67,30 @@ public class GameState
         //  based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         //first element( objects.getPlayer() ) in arrayList is player's tank.
-        //collision();
+        //Physics.checkCollision(objects);
         if (keyUP)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
+            objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
+            Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyDOWN)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
+            objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
+            Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyLEFT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
+            objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
+            Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyRIGHT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
+            objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
+            Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         //
         if (shoot)
@@ -118,33 +125,6 @@ public class GameState
         {
             objects.getRobots().get(i).tick(objects);
         }
-    }
-
-    public void collision()
-    {
-        for (int i = 0; i < objects.getTurrets().size(); i++)
-        {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
-            {
-                objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
-                objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
-
-            }
-        }
-
-        for (int i = 0; i < objects.getHardWall().size(); i++)
-        {
-            //System.out.println("in for before if");
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getHardWall().get(i).getBounds()))
-            {
-                System.out.println("in if");
-                objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
-                objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
-
-            }
-        }
-
-        //and other arrayLists
     }
 
     public void findBodyAngle()

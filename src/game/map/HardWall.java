@@ -10,12 +10,6 @@ public class HardWall extends GameObject
 
     public HardWall(double x, double y)
     {
-        super(x, y, ObjectId.HardWall, "src/resource/hardWall.png");
-    }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) x, (int) y, 100, 100);
+        super(x, y, ObjectId.HardWall);
     }
 }
