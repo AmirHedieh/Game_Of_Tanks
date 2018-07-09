@@ -26,7 +26,7 @@ public class Bullet extends GameObject
         startY += 50; //this must be changed if tank size changes
         shootDirectionAngle = calculateShootAngle(startX, startY, mouseX, mouseY);
         //moving in 4 direction needs specific velocity
-        System.out.println(mouseX + " " + mouseY + " " + startX + " " + startY);
+//        System.out.println(mouseX + " " + mouseY + " " + startX + " " + startY);
 //        System.out.println(shootDirectionAngle);
 ////        System.out.println("PI" + Math.PI / 2);
         if (mouseX > startX && mouseY > startY)

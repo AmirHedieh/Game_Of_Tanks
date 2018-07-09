@@ -23,6 +23,7 @@ public class Utility
     public static BufferedImage tankGun02 = Utility.loadBufferedImage(resourceDirectory + "tankGun02.png");
     public static BufferedImage teazel = Utility.loadBufferedImage(resourceDirectory + "teazel.png");
     public static BufferedImage turret = Utility.loadBufferedImage(resourceDirectory + "turret.png");
+    public static File backgroundSound = new File("src/resource/backgroundSound.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {
