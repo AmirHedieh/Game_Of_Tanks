@@ -34,16 +34,24 @@ public class Server {
 
     public  void sendData(){
         try {
-            oos.writeObject(objects);
+            TransferingData data = new TransferingData();
+            makeData(data);
+            oos.writeObject(data);
             oos.flush();
+            System.out.println("SENT");
 //            oos.close();
         } catch (IOException e) {
             System.out.println("Sending Failed!");
+            e.printStackTrace();
         }
     }
 
     public void receiveData(){
 
+    }
+
+    private void makeData(TransferingData data){
+        data.setPlayers(objects.getPlayers());
     }
 
 }

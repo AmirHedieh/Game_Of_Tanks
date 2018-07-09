@@ -6,6 +6,8 @@ import game.map.Camera;
 import game.multiplayer.Client;
 import game.multiplayer.Server;
 
+import java.util.Scanner;
+
 /**
  * A very simple structure for the main game loop.
  * THIS IS NOT PERFECT, but works for most situations.
@@ -77,15 +79,19 @@ public class GameLoop implements Runnable
                 }
                 else if(gameType.equals(ObjectId.TwoPlayer)){
                     if(playerType.equals(ObjectId.ServerPlayer)){
-                        state.update();
-                        canvas.render(state, camera);
+//                        state.update();
+//                        canvas.render(state, camera);
                         server.sendData();
-                        server.receiveData();
+//                        server.receiveData();
+                        Scanner scanner = new Scanner(System.in);
+                        int a = scanner.nextInt();
+                        scanner.nextLine();
 
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
                         client.receiveData(state.objects);
-                        canvas.render(state, camera);
+//                        canvas.render(state, camera);
+
                     }
                 }
                 //

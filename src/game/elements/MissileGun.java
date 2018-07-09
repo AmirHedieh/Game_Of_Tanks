@@ -1,14 +1,19 @@
 package game.elements;
 
+import java.io.Serializable;
+
 /**
  * primary gun of the tank. it has higher damage  but less fire rate than machine gun.
  */
-public class MissileGun extends Gun
+public class MissileGun extends Gun implements Serializable
 {
 
     //fields
 
     //constructor
+    public MissileGun(){
+
+    }
     public MissileGun(double x, double y)
     { //todo : try not to pass tank from subclass to father
         super(x, y, ObjectId.MissileGun, "src/resource/tankGun01.png");

@@ -23,7 +23,7 @@ import javax.swing.*;
 public class GameFrame extends JFrame
 {
 
-    public static final int GAME_HEIGHT = 1024;                  // custom game resolution
+    public static final int GAME_HEIGHT = 720;                  // custom game resolution
     public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
     private BufferStrategy bufferStrategy;
@@ -135,7 +135,7 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            //camera.tick(state.objects.getPlayers().get(i));
+//            camera.tick(state.objects.getPlayers().get(i));
 
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player

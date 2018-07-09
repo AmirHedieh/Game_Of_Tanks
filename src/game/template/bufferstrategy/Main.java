@@ -62,9 +62,9 @@ public class Main
                 // Create and execute the game-loop
                 GameLoop game = new GameLoop(frame);
                 System.out.println("Which game? 1-Single 2-Coop");
-                //int a = scanner.nextInt();
-                int a = 1;
-                //scanner.nextLine();
+                int a = scanner.nextInt();
+//                int a = 1;
+                scanner.nextLine();
                 if(a == 1){
                     System.out.println("Single Started");
                     game.setGameType(ObjectId.SinglePlayer);

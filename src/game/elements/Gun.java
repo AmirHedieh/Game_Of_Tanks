@@ -1,5 +1,6 @@
 package game.elements;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
  * each gun has a damage field which is the amount of damage that it provides.
  * each gun has an specific amount of ammo.
  */
-public abstract class Gun extends GameObject
+public abstract class Gun extends GameObject implements Serializable
 {
     //fields
     protected int ammo;
@@ -16,6 +17,9 @@ public abstract class Gun extends GameObject
     protected long reloadTime;
 
     //constructor
+    public Gun(){
+
+    }
     public Gun(double x, double y, ObjectId id, String path)
     {
         super(x, y, id, path);

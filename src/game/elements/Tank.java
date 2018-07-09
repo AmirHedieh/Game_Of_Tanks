@@ -1,6 +1,7 @@
 package game.elements;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * an entity which is a moving object though the map.
@@ -9,7 +10,7 @@ import java.awt.*;
  * the tank becomes dead.
  * type determines that if the tank is AI or Player(1 for AI, 0 for Player).
  */
-public class Tank extends GameObject
+public class Tank extends GameObject implements Serializable
 {
     //fields
     public final int TANK_WIDTH = 100;
@@ -23,6 +24,9 @@ public class Tank extends GameObject
     private MachineGun machineGun;
 
     //constructor
+    public Tank(){
+
+    }
     public Tank(double x, double y, int health, ObjectId id)
     { // gun must be added manually after making tank
         super(x, y, id, "src/resource/tank.png");

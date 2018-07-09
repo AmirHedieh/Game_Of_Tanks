@@ -4,13 +4,13 @@ import game.Utils.Utility;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * each object in the game like tank or bullets and ... has a location(x,y)
  * and certain velocity at X,Y Dimensions.
  */
-public class GameObject
-{
+public class GameObject {
     //fields
     protected ObjectId id;
     protected double x;
@@ -20,6 +20,9 @@ public class GameObject
 
 
     //constructor
+    public GameObject(){
+
+    }
     public GameObject(double x, double y, ObjectId id, String path)
     {
         this.x = x;

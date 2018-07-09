@@ -1,15 +1,20 @@
 package game.elements;
 
+import java.io.Serializable;
+
 /**
  * secondary gun of the tank. it has higher fire rate but less damage than missile gun.
  */
-public class MachineGun extends Gun
+public class MachineGun extends Gun implements Serializable
 {
 
     //fields
 
     //constructor
-    public MachineGun(double x, double y)
+    public MachineGun()
+    {
+
+    }    public MachineGun(double x, double y)
     { //todo : try not to pass tank from subclass to father
         super(x, y, ObjectId.MachineGun, "src/resource/tankGun02.png");
         ammo = 70;

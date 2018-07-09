@@ -17,7 +17,7 @@ public class Client {
 
     public Client() {
         try {
-            socket = new Socket("192.168.43.92",6666);
+            socket = new Socket("192.168.1.8",6666);
             oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -27,9 +27,10 @@ public class Client {
 
     public void receiveData(Objects objects){
         try {
-            Objects updatedObjects = (Objects)ois.readObject();
-            objects = updatedObjects;
+            TransferingData updatedObjects = (TransferingData) ois.readObject();
+            System.out.println(updatedObjects.getPlayers().get(0).getVelX());
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("couldn't read objects");
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found while reading!");
