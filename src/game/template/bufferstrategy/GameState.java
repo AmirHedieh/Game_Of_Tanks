@@ -67,25 +67,29 @@ public class GameState
         //  based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         //first element( objects.getPlayer() ) in arrayList is player's tank.
-        //Physics.checkCollision(objects);
+        Physics.checkCollision(objects);
         if (keyUP)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
+            objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyDOWN)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
+            objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyLEFT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
+            objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyRIGHT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
+            objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         //

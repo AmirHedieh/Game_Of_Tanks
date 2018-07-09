@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.Sound;
 import game.elements.ObjectId;
 import game.map.Camera;
 import game.multiplayer.Client;
@@ -35,6 +36,7 @@ public class GameLoop implements Runnable
     private ObjectId gameType,playerType;
     private Server server;
     private Client client;
+    private Sound backGroundSound;
 
     public GameLoop(GameFrame frame)
     {
@@ -59,6 +61,8 @@ public class GameLoop implements Runnable
         else if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ClientPlayer)){
             client = new Client();
         }
+        backGroundSound = new Sound("src/resource/backgroundSound.wav", true);;
+        backGroundSound.playSound();
     }
 
     @Override

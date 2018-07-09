@@ -31,7 +31,7 @@ public class GameFrame extends JFrame
     public GameFrame(String title)
     {
         super(title);
-        if(false) // Full screen mode
+        if (false) // Full screen mode
         {
             // Disables decorations for this frame.
             this.setUndecorated(true);
@@ -123,7 +123,6 @@ public class GameFrame extends JFrame
         {
             g2d.drawImage(state.objects.getSoil().get(i).getTexture(), (int) state.objects.getSoil().get(i).getX(), (int) state.objects.getSoil().get(i).getY(), null);
         }
-        // g2d.drawImage(state.objects.getHardWall().getTexture(), xx * 100, yy * 100, null);
 
         //draw bullets
         ArrayList<Bullet> bullets = state.objects.getBullets();

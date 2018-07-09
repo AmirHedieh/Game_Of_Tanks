@@ -7,7 +7,18 @@ public class Physics
 {
     public static void checkCollision(Objects objects)
     {
-        for (int i = 0; i < objects.getTurrets().size(); i++)
+     /*   for (int i = 0; i < objects.getBullets().size(); i++)
+        {
+            for (int j = 0; j < objects.getHardWall().size(); j++)
+            {
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getTurrets().get(j).getBounds()))
+                {
+                    objects.getBullets().remove(i);
+                    break;
+                }
+            }
+        }*/
+        /*for (int i = 0; i < objects.getTurrets().size(); i++)
         {
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
             {
@@ -25,7 +36,7 @@ public class Physics
                 objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
 
             }
-        }
+        }*/
     }
 
     public static void checkMapBounds(GameObject object)

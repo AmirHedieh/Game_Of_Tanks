@@ -15,6 +15,9 @@ public class Camera
 
     public void tick(Tank player)
     {
+       /* x += ((player.getX() - x) - 1820 / 2) * 0.05f;
+        y += ((player.getY() - y) - 1024 / 2) * 0.05f;*/
+
         x += ((player.getX() - x) - 1820 / 2) * 0.05f;
         y += ((player.getY() - y) - 1024 / 2) * 0.05f;
 
