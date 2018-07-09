@@ -18,9 +18,6 @@ public class Camera
         x += ((player.getX() - x) - 1820 / 2) * 0.05f;
         y += ((player.getY() - y) - 1024 / 2) * 0.05f;
 
-        /*x += ((player.getSelectedGun().getX() - x) - 1820 / 2) * 0.05f;
-        y += ((player.getSelectedGun().getY() - y) - 1024 / 2) * 0.05f;*/
-
         if (x <= 0)
         {
             x = 0;

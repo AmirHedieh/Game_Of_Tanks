@@ -147,10 +147,4 @@ public class Tank extends GameObject
     {
         return type;
     }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) x, (int) y, 100, 100);
-    }
 }

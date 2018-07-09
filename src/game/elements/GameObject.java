@@ -142,6 +142,6 @@ public class GameObject
 
     public Rectangle getBounds()
     {
-        return new Rectangle((int) x, (int) y, 100, 100);
+        return new Rectangle((int) x, (int) y, texture.getWidth(), texture.getTileHeight());
     }
 }

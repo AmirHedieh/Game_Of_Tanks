@@ -10,10 +10,4 @@ public class SoftWall extends GameObject
     {
         super(x, y, ObjectId.SoftWall, "src/resource/softWall.png");
     }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) x, (int) y, 100, 100);
-    }
 }

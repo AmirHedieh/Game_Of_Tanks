@@ -31,7 +31,7 @@ public class GameFrame extends JFrame
     public GameFrame(String title)
     {
         super(title);
-        if(false) // Full screen mode
+        if(true) // Full screen mode
         {
             // Disables decorations for this frame.
             this.setUndecorated(true);
@@ -135,7 +135,7 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            //camera.tick(state.objects.getPlayers().get(i));
+            camera.tick(state.objects.getPlayers().get(i));
 
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
@@ -214,10 +214,6 @@ public class GameFrame extends JFrame
         {
             bulletAngle = bullet.getShootDirectionAngle();
             if (bullet.getTargetX() < bullet.getX())
-            {
-                bulletAngle += Math.PI;
-            }
-            if (bullet.getTargetX() == bullet.getX())
             {
                 bulletAngle += Math.PI;
             }

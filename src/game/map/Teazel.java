@@ -10,10 +10,4 @@ public class Teazel extends GameObject
     {
         super(x, y, ObjectId.Teazel, "src/resource/teazel.png");
     }
-
-    @Override
-    public Rectangle getBounds()
-    {
-        return new Rectangle((int) x, (int) y, 100, 100);
-    }
 }
