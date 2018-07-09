@@ -48,8 +48,8 @@ public class GameLoop implements Runnable
     {
         // Perform all initializations ...
         state = new GameState();
-        camera = new Camera(803, 5450);
-        //camera = new Camera(0, 0);
+        //camera = new Camera(803, 5450);
+        camera = new Camera(0, 0);
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
