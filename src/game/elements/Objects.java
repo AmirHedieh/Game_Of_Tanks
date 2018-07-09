@@ -31,7 +31,7 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
-        map = new Map(this);
+        map = new Map("src/resource/map.png");
     }
 
     //methods

@@ -18,7 +18,7 @@ public class Physics
                 }
             }
         }*/
-        /*for (int i = 0; i < objects.getTurrets().size(); i++)
+        for (int i = 0; i < objects.getTurrets().size(); i++)
         {
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
             {
@@ -28,15 +28,15 @@ public class Physics
             }
         }
 
-        for (int i = 0; i < objects.getHardWall().size(); i++)
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getHardWall().get(i).getBounds()))
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
                 objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
                 objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
 
             }
-        }*/
+        }
     }
 
     public static void checkMapBounds(GameObject object)

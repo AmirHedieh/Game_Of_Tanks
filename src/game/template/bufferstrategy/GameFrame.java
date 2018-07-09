@@ -101,6 +101,7 @@ public class GameFrame extends JFrame
     {
         AffineTransform gameTransform = g2d.getTransform();
         g2d.translate(-camera.getX(), -camera.getY());
+        System.out.println(camera.getX() +  "   " + camera.getY());
 
 
         //render map
@@ -119,16 +120,16 @@ public class GameFrame extends JFrame
         {
             camera.tick(state.objects.getPlayers().get(i));
 
-            int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
-            int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
+            int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2 - (int)camera.getX(); //this is the X center of the player
+            int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2 - (int)camera.getY(); //this is the Y center of the player
 
             AffineTransform bodyTransform = g2d.getTransform();
             //TODO: rotate by wasd
             //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
             g2d.setTransform(bodyTransform);
             g2d.drawImage(state.objects.getPlayers().get(i).getTexture(),
-                    (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile
-                    (int) state.objects.getPlayers().get(i).getY(), //this is the Y upper left corner of the tile
+                    (int) state.objects.getPlayers().get(i).getX() - (int)camera.getX(), //this is the X upper left corner of the tile
+                    (int) state.objects.getPlayers().get(i).getY() - (int)camera.getY(), //this is the Y upper left corner of the tile
                     null);
             g2d.setTransform(gameTransform);
             //draw the Gun of the Player Tank and handle its rotation
@@ -140,8 +141,8 @@ public class GameFrame extends JFrame
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
                 g2d.setTransform(gunTransform);
                 g2d.drawImage(state.objects.getPlayers().get(i).getSelectedGun().getTexture(),
-                        (int) state.objects.getPlayers().get(i).getX() + 18,
-                        (int) state.objects.getPlayers().get(i).getY() + 5,
+                        (int) state.objects.getPlayers().get(i).getX() + 18 - (int)camera.getX(),
+                        (int) state.objects.getPlayers().get(i).getY() + 5 - (int)camera.getY(),
                         null);
             }
             else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun))
