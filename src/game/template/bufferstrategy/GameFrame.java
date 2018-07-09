@@ -102,26 +102,27 @@ public class GameFrame extends JFrame
         AffineTransform gameTransform = g2d.getTransform();
         g2d.translate(-camera.getX(), -camera.getY());
 
+
         //draw map components
-        for (int i = 0; i < state.objects.getHardWall().size(); i++)
+        for (int i = 0; i < state.objects.getMap().getHardWall().size(); i++)
         {
-            g2d.drawImage(state.objects.getHardWall().get(i).getTexture(), (int) state.objects.getHardWall().get(i).getX(), (int) state.objects.getHardWall().get(i).getY(), null);
+            g2d.drawImage(state.objects.getMap().getHardWall().get(i).getTexture(), (int) state.objects.getMap().getHardWall().get(i).getX(), (int) state.objects.getMap().getHardWall().get(i).getY(), null);
         }
-        for (int i = 0; i < state.objects.getSoftWall().size(); i++)
+        for (int i = 0; i < state.objects.getMap().getSoftWall().size(); i++)
         {
-            g2d.drawImage(state.objects.getSoftWall().get(i).getTexture(), (int) state.objects.getSoftWall().get(i).getX(), (int) state.objects.getSoftWall().get(i).getY(), null);
+            g2d.drawImage(state.objects.getMap().getSoftWall().get(i).getTexture(), (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
         }
-        for (int i = 0; i < state.objects.getPlant().size(); i++)
+        for (int i = 0; i < state.objects.getMap().getPlant().size(); i++)
         {
-            g2d.drawImage(state.objects.getPlant().get(i).getTexture(), (int) state.objects.getPlant().get(i).getX(), (int) state.objects.getPlant().get(i).getY(), null);
+            g2d.drawImage(state.objects.getMap().getPlant().get(i).getTexture(), (int) state.objects.getMap().getPlant().get(i).getX(), (int) state.objects.getMap().getPlant().get(i).getY(), null);
         }
-        for (int i = 0; i < state.objects.getTeazel().size(); i++)
+        for (int i = 0; i < state.objects.getMap().getTeazel().size(); i++)
         {
-            g2d.drawImage(state.objects.getTeazel().get(i).getTexture(), (int) state.objects.getTeazel().get(i).getX(), (int) state.objects.getTeazel().get(i).getY(), null);
+            g2d.drawImage(state.objects.getMap().getTeazel().get(i).getTexture(), (int) state.objects.getMap().getTeazel().get(i).getX(), (int) state.objects.getMap().getTeazel().get(i).getY(), null);
         }
-        for (int i = 0; i < state.objects.getSoil().size(); i++)
+        for (int i = 0; i < state.objects.getMap().getSoil().size(); i++)
         {
-            g2d.drawImage(state.objects.getSoil().get(i).getTexture(), (int) state.objects.getSoil().get(i).getX(), (int) state.objects.getSoil().get(i).getY(), null);
+            g2d.drawImage(state.objects.getMap().getSoil().get(i).getTexture(), (int) state.objects.getMap().getSoil().get(i).getX(), (int) state.objects.getMap().getSoil().get(i).getY(), null);
         }
 
         //draw bullets
