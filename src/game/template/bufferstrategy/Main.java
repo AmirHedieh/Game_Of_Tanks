@@ -7,6 +7,7 @@ import game.elements.Objects;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.EventQueue;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
@@ -46,7 +47,13 @@ public class Main
     {
         // Initialize the global thread-pool
         ThreadPool.init();
-
+//        System.out.println(new Date().getTime());
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(new Date().getTime());
         // After the player clicks 'PLAY' ...
         EventQueue.invokeLater(new Runnable()
         {

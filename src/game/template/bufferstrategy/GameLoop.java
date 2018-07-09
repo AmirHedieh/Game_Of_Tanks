@@ -6,6 +6,7 @@ import game.map.Camera;
 import game.multiplayer.Client;
 import game.multiplayer.Server;
 
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -36,6 +37,7 @@ public class GameLoop implements Runnable
     private Camera camera;
     private ObjectId gameType,playerType;
     private Server server;
+    private long sentTime; // gap between sending 2 data to client
     private Client client;
 
     public GameLoop(GameFrame frame)
@@ -57,6 +59,7 @@ public class GameLoop implements Runnable
         canvas.addMouseMotionListener(state.getMouseMotionListener());
         if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ServerPlayer)){
             server = new Server(state.objects);
+            sentTime = new Date().getTime();
         }
         else if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ClientPlayer)){
             client = new Client();
@@ -81,17 +84,19 @@ public class GameLoop implements Runnable
                     if(playerType.equals(ObjectId.ServerPlayer)){
 //                        state.update();
 //                        canvas.render(state, camera);
-                        server.sendData();
+                        long time = new Date().getTime();
+                        if(time - sentTime > 60){
+                            System.out.println(time);
+                            System.out.println(sentTime);
+                            server.sendData();
+                            sentTime = time;
+                        }
 //                        server.receiveData();
 //                        Scanner scanner = new Scanner(System.in);
-//                        int a = scanner.nextInt();
-//                        scanner.nextLine();
-//                        System.out.println("tick1");
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
                         client.receiveData(state.objects);
 //                        canvas.render(state, camera);
-
                     }
                 }
                 //

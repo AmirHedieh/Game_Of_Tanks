@@ -39,10 +39,7 @@ public class Server {
 //            System.out.println(objects.getPlayers().get(0).getX()+" SENT");
             //****************
             XStream serDes = new XStream(new StaxDriver());
-            TestSerDes tsd = new TestSerDes();
-            tsd.TestInt = 10;
-            tsd.TestStr = "Hello xml";
-            String xml = serDes.toXML(objects.getPlayers().get(0));
+            String xml = serDes.toXML(objects);
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
             osw.write(xml  + "\r\n", 0, xml.length()+2);
             osw.flush();
