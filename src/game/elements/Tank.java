@@ -18,6 +18,7 @@ public class Tank extends GameObject implements Serializable
 
     private int health;
     private int type;
+//    public double x;
 
     private Gun selectedGun;
     private MissileGun missileGun;

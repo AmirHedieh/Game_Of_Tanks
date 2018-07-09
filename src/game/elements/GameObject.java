@@ -1,5 +1,6 @@
 package game.elements;
 
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import game.Utils.Utility;
 
 import java.awt.*;
@@ -16,7 +17,8 @@ public class GameObject {
     protected double x;
     protected double y;
     protected int velX, velY;
-    protected BufferedImage texture;
+//    @XStreamOmitField
+//    protected BufferedImage texture;
 
 
     //constructor
@@ -30,7 +32,7 @@ public class GameObject {
         velX = 0;
         velY = 0;
         this.id = id;
-        this.texture = Utility.loadBufferedImage(path);
+//        this.texture = Utility.loadBufferedImage(path);
     }
 
     //methods
@@ -133,15 +135,15 @@ public class GameObject {
         return velY;
     }
 
-    public BufferedImage getTexture()
-    {
-        return texture;
-    }
-
-    public void setTexture(BufferedImage texture)
-    {
-        this.texture = texture;
-    }
+//    public BufferedImage getTexture()
+//    {
+//        return texture;
+//    }
+//
+//    public void setTexture(BufferedImage texture)
+//    {
+//        this.texture = texture;
+//    }
 
     public Rectangle getBounds()
     {

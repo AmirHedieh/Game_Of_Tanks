@@ -1,11 +1,10 @@
 package game.multiplayer;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 import game.elements.Objects;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -34,12 +33,20 @@ public class Server {
 
     public  void sendData(){
         try {
-            TransferingData data = new TransferingData();
-            makeData(data);
-            oos.writeObject(data);
-            oos.flush();
-            System.out.println("SENT");
-//            oos.close();
+            //****************
+//            oos.writeObject(objects.getPlayers().get(0));
+//            oos.flush();
+//            System.out.println(objects.getPlayers().get(0).getX()+" SENT");
+            //****************
+            XStream serDes = new XStream(new StaxDriver());
+            TestSerDes tsd = new TestSerDes();
+            tsd.TestInt = 10;
+            tsd.TestStr = "Hello xml";
+            String xml = serDes.toXML(objects.getPlayers().get(0));
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+            osw.write(xml  + "\r\n", 0, xml.length()+2);
+            osw.flush();
+            //****************
         } catch (IOException e) {
             System.out.println("Sending Failed!");
             e.printStackTrace();
@@ -55,4 +62,6 @@ public class Server {
     }
 
 }
+
+
 

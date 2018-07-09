@@ -83,10 +83,10 @@ public class GameLoop implements Runnable
 //                        canvas.render(state, camera);
                         server.sendData();
 //                        server.receiveData();
-                        Scanner scanner = new Scanner(System.in);
-                        int a = scanner.nextInt();
-                        scanner.nextLine();
-
+//                        Scanner scanner = new Scanner(System.in);
+//                        int a = scanner.nextInt();
+//                        scanner.nextLine();
+//                        System.out.println("tick1");
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
                         client.receiveData(state.objects);
