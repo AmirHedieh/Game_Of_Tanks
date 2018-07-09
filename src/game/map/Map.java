@@ -3,6 +3,7 @@ package game.map;
 import game.Utils.Utility;
 import game.elements.*;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -48,6 +49,30 @@ public class Map
                     teazel.add(new Teazel(xx * 100, yy * 100));
                 }
             }
+        }
+    }
+
+    public void render(Graphics2D g2d)
+    {
+        for (int i = 0; i < hardWall.size(); i++)
+        {
+            g2d.drawImage(hardWall.get(i).getTexture(), (int) hardWall.get(i).getX(), (int) hardWall.get(i).getY(), null);
+        }
+        for (int i = 0; i < softWall.size(); i++)
+        {
+            g2d.drawImage(softWall.get(i).getTexture(), (int) softWall.get(i).getX(), (int) softWall.get(i).getY(), null);
+        }
+        for (int i = 0; i < plant.size(); i++)
+        {
+            g2d.drawImage(plant.get(i).getTexture(), (int) plant.get(i).getX(), (int) plant.get(i).getY(), null);
+        }
+        for (int i = 0; i < teazel.size(); i++)
+        {
+            g2d.drawImage(teazel.get(i).getTexture(), (int) teazel.get(i).getX(), (int) teazel.get(i).getY(), null);
+        }
+        for (int i = 0; i < soil.size(); i++)
+        {
+            g2d.drawImage(soil.get(i).getTexture(), (int) soil.get(i).getX(), (int) soil.get(i).getY(), null);
         }
     }
 
