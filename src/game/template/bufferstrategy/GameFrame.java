@@ -1,9 +1,9 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.Utility;
 import game.elements.*;
 import game.map.Camera;
-import game.map.Textures;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -50,7 +50,7 @@ public class GameFrame extends JFrame
         }
         // Initialize the JFrame ...
         //
-        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Textures.cursor, new Point(20, 14), "custom cursor"));
+        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Utility.cursor, new Point(20, 14), "custom cursor"));
     }
 
     /*
@@ -101,7 +101,7 @@ public class GameFrame extends JFrame
     private void doRendering(Graphics2D g2d, GameState state, Camera camera)
     {
         AffineTransform gameTransform = g2d.getTransform();
-        g2d.translate(-camera.getX(), -camera.getY());
+        //g2d.translate(-camera.getX(), -camera.getY());
         System.out.println(camera.getX() +  "   " + camera.getY());
 
 
@@ -119,7 +119,7 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            camera.tick(state.objects.getPlayers().get(i));
+           // camera.tick(state.objects.getPlayers().get(i));
 
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2 - (int)camera.getX(); //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2 - (int)camera.getY(); //this is the Y center of the player
@@ -128,7 +128,7 @@ public class GameFrame extends JFrame
             //TODO: rotate by wasd
             //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
             g2d.setTransform(bodyTransform);
-            g2d.drawImage(Textures.tank,
+            g2d.drawImage(Utility.tank,
                     (int) state.objects.getPlayers().get(i).getX() - (int)camera.getX(), //this is the X upper left corner of the tile
                     (int) state.objects.getPlayers().get(i).getY() - (int)camera.getY(), //this is the Y upper left corner of the tile
                     null);
@@ -141,7 +141,7 @@ public class GameFrame extends JFrame
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
                 g2d.setTransform(gunTransform);
-                g2d.drawImage(Textures.tankGun01,
+                g2d.drawImage(Utility.tankGun01,
                         (int) state.objects.getPlayers().get(i).getX() + 18 - (int)camera.getX(),
                         (int) state.objects.getPlayers().get(i).getY() + 5 - (int)camera.getY(),
                         null);
@@ -152,7 +152,7 @@ public class GameFrame extends JFrame
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
                 g2d.setTransform(gunTransform);
-                g2d.drawImage(Textures.tankGun02,
+                g2d.drawImage(Utility.tankGun02,
                         (int) state.objects.getPlayers().get(i).getX() + 18 - (int)camera.getX(),
                         (int) state.objects.getPlayers().get(i).getY() - (int)camera.getY(),
                         null);
@@ -171,7 +171,7 @@ public class GameFrame extends JFrame
         ArrayList<Turret> turrets = state.objects.getTurrets();
         for (int i = 0; i < turrets.size(); i++)
         {
-            g2d.drawImage(Textures.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
         }
 
         //draw robots
@@ -180,10 +180,10 @@ public class GameFrame extends JFrame
         {
             if (robots.get(i).isActivated())
             {
-                g2d.drawImage(Textures.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
+                g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
             }
         }
-        g2d.translate(camera.getX(), camera.getY());
+        //g2d.translate(camera.getX(), camera.getY());
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet, Camera camera)
@@ -208,11 +208,11 @@ public class GameFrame extends JFrame
         g2d.setTransform(bulletTransform);
         if (bullet.getId().equals(ObjectId.HeavyBullet))
         {
-            g2d.drawImage(Textures.heavyBullet, (int) bullet.getX() + 52 - (int)camera.getX(), (int) bullet.getY() + 50 - (int)camera.getY(), null);
+            g2d.drawImage(Utility.heavyBullet, (int) bullet.getX() + 52 - (int)camera.getX(), (int) bullet.getY() + 50 - (int)camera.getY(), null);
         }
         else
         {
-            g2d.drawImage(Textures.lightBullet, (int) bullet.getX() + 52 - (int)camera.getX(), (int) bullet.getY() + 50 - (int)camera.getY(), null);
+            g2d.drawImage(Utility.lightBullet, (int) bullet.getX() + 52 - (int)camera.getX(), (int) bullet.getY() + 50 - (int)camera.getY(), null);
         }
         g2d.setTransform(gameTransform);
     }
