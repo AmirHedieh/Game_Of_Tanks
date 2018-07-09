@@ -49,7 +49,7 @@ public class GameFrame extends JFrame
         }
         // Initialize the JFrame ...
         //
-        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon("src/resource/cursor.png").getImage(), new Point(30, 30), "custom cursor"));
+        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(new ImageIcon("src/resource/cursor.png").getImage(), new Point(20, 14), "custom cursor"));
     }
 
     /*

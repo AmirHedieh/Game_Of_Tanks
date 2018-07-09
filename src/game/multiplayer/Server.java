@@ -36,7 +36,7 @@ public class Server {
         try {
             oos.writeObject(objects);
             oos.flush();
-            oos.close();
+//            oos.close();
         } catch (IOException e) {
             System.out.println("Sending Failed!");
         }
