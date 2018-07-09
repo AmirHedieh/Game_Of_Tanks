@@ -16,9 +16,9 @@ public class Map
     private ArrayList<Teazel> teazel = new ArrayList<>();
     private ArrayList<Soil> soil = new ArrayList<>();
 
-    public Map(Objects objects)
+    public Map(String path)
     {
-        mapImage = Utility.loadBufferedImage("src/resource/map.png");
+        mapImage = Utility.loadBufferedImage(path);
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
             for (int yy = 0; yy < mapImage.getHeight(); yy++)

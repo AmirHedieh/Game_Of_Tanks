@@ -1,5 +1,7 @@
 package game.elements;
 
+import game.map.Camera;
+
 import java.util.ArrayList;
 
 import java.util.ArrayList;
