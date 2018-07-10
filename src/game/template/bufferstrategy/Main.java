@@ -60,9 +60,11 @@ public class Main
                     if( a == 1 ){
                         System.out.println("U R Host");
                         game.setPlayerType(ObjectId.ServerPlayer);
+                        frame.setTitle("Server");
                     }
                     else if( a == 2 ){
                         System.out.println("U R Client");
+                        frame.setTitle("Client");
                         game.setPlayerType(ObjectId.ClientPlayer);
                     }
                 }

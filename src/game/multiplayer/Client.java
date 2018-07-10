@@ -12,8 +12,8 @@ public class Client {
     private ObjectInputStream ois;
 
     public Client() {
-        try {
-            socket = new Socket("192.168.1.8",6666);
+        try {   
+            socket = new Socket("127.0.0.1",6666);
             oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -38,8 +38,9 @@ public class Client {
             InputStreamReader isr = new InputStreamReader(socket.getInputStream());
             BufferedReader br = new BufferedReader(isr);
             String str = br.readLine();
-            Objects updatedObjects = (Objects) (new XStream(new StaxDriver())).fromXML(str);
-            System.out.println(updatedObjects.getPlayers().get(0).getX());
+            TransferringData updatedObjects = (TransferringData) (new XStream(new StaxDriver())).fromXML(str);
+            updateObjects(objects,updatedObjects);
+//            System.out.println(updatedObjects.getPlayers().get(0).getX());
             //***********
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,4 +50,11 @@ public class Client {
         }*/
     }
 
+    private void updateObjects(Objects objects, TransferringData data){
+        objects.setPlayers(data.getPlayers());
+        objects.setBullets(data.getBullets());
+        objects.setRobots(data.getRobots());
+        objects.setTanks(data.getTanks());
+        objects.setTurrets(data.getTurrets());
+    }
 }

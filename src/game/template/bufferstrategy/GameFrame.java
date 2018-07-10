@@ -102,7 +102,7 @@ public class GameFrame extends JFrame
     {
         Utility.tankAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-        //g2d.translate(-camera.getX(), -camera.getY());
+//        g2d.translate(-camera.getX(), -camera.getY());
 
         //render map
         state.objects.getMap().render(g2d);

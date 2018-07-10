@@ -63,7 +63,7 @@ public class GameLoop implements Runnable
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
         if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ServerPlayer)){
-            server = new Server(state.objects);
+            server = new Server();
             sentTime = new Date().getTime();
         }
         else if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ClientPlayer)){
@@ -89,13 +89,12 @@ public class GameLoop implements Runnable
                 }
                 else if(gameType.equals(ObjectId.TwoPlayer)){
                     if(playerType.equals(ObjectId.ServerPlayer)){
-//                        state.update();
-//                        canvas.render(state, camera);
+                        state.update();
+                        canvas.render(state, camera);
+                        server.sendData(state.objects);
                         long time = new Date().getTime();
-                        if(time - sentTime > 60){
-                            System.out.println(time);
-                            System.out.println(sentTime);
-                            server.sendData();
+                        if(time - sentTime > 30){
+
                             sentTime = time;
                         }
 //                        server.receiveData();
@@ -103,7 +102,7 @@ public class GameLoop implements Runnable
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
                         client.receiveData(state.objects);
-//                        canvas.render(state, camera);
+                        canvas.render(state, camera);
                     }
                 }
                 //
