@@ -1,10 +1,7 @@
 package game.elements;
 
-import game.Utils.Utility;
 import game.map.*;
-
 import java.io.Serializable;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -51,8 +48,8 @@ public class Objects implements Serializable
 //        Tank tank1 = new Tank(700,700,100,1);
 //        tanks.add(tank1);
         //Buried Robots initialization
-        //BuriedRobot robot1 = new BuriedRobot(700, 700);
-        //robots.add(robot1);
+//        BuriedRobot robot1 = new BuriedRobot(700, 700);
+//        robots.add(robot1);
 
     }
 

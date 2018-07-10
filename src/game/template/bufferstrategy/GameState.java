@@ -27,16 +27,6 @@ public class GameState
     private boolean swap;
     private double mouseX, mouseY;
 
-    /*
-        this is a temp for last key pressed
-        one is for right
-        two is for up
-        three is for left
-        four is for down
-     */
-    private int lastKey;
-    public double bodyAngle;
-
     private KeyHandler keyHandler;
     private MouseHandler mouseHandler;
 
@@ -63,33 +53,43 @@ public class GameState
      */
     public void update()
     {
-        // Update the state of all game elements
-        //  based on user input and elapsed time ...
+        //Update the state of all game elements
+        //based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
-        //first element( objects.getPlayer() ) in arrayList is player's tank.
-//        Physics.checkCollision(objects);
         if (keyUP)
         {
-            objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
-            objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
+            if (!Physics.checkHardWallsCollisionUp(objects))
+            {
+                objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
+                objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
+            }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyDOWN)
         {
-            objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
-            objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
+            if (!Physics.checkHardWallsCollisionDown(objects))
+            {
+                objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
+                objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
+            }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyLEFT)
         {
-            objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
-            objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
+            if (!Physics.checkHardWallsCollisionLeft(objects))
+            {
+                objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
+                objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
+            }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyRIGHT)
         {
-            objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
-            objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
+            if (!Physics.checkHardWallsCollisionRight(objects))
+            {
+                objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
+                objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
+            }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         //
@@ -127,155 +127,6 @@ public class GameState
         }
     }
 
-    public void findBodyAngle()
-    {
-        //TODO: find angle from wasd
-		/*
-		one is for right
-		two is for up
-		three is for left
-		four is for down
-		 */
-		/*int isPressed;
-		if (keyDOWN)
-		{
-			isPressed = 4;
-		}
-		else if (keyLEFT)
-		{
-			isPressed = 3;
-		}
-		else if (keyRIGHT)
-		{
-			isPressed = 1;
-		}
-		else if (keyUP)
-		{
-			isPressed = 2;
-		}
-		else
-		{
-			bodyAngle = 0;
-			return;
-		}
-
-		switch ( (isPressed - lastKey) % 2)
-		{
-			case 0:
-				bodyAngle = 0;
-				break;
-			case 1:
-				if (isPressed > lastKey)
-				{
-					bodyAngle = Math.PI / 2;
-				}
-				else
-				{
-					bodyAngle = (3 / 2) * Math.PI;
-				}
-				break;
-		}*/
-		/*if (keyDOWN)
-		{
-			switch (lastKey)
-			{
-				case 1:
-					bodyAngle = (3 / 2) * Math.PI;
-					break;
-				case 2:
-					bodyAngle = 0;
-					break;
-				case 3:
-					bodyAngle = Math.PI / 2;
-					break;
-				case 4:
-					bodyAngle = 0;
-					break;
-			}
-		}
-		else if (keyLEFT)
-		{
-			switch (lastKey)
-			{
-				case 1:
-					bodyAngle = 0;
-					break;
-				case 2:
-					bodyAngle = Math.PI / 2;
-					break;
-				case 3:
-					bodyAngle = 0;
-					break;
-				case 4:
-					bodyAngle = (3 / 2) * Math.PI;
-					break;
-			}
-		}
-		else if (keyRIGHT)
-		{
-			switch (lastKey)
-			{
-				case 1:
-					bodyAngle = 0;
-					break;
-				case 2:
-					bodyAngle = (3 / 2) * Math.PI;
-					break;
-				case 3:
-					bodyAngle = 0;
-					break;
-				case 4:
-					bodyAngle = Math.PI / 2;
-					break;
-			}
-		}
-		else if (keyUP)
-		{
-			switch (lastKey)
-			{
-				case 1:
-					bodyAngle = Math.PI / 2;
-					break;
-				case 2:
-					bodyAngle = 0;
-					break;
-				case 3:
-					bodyAngle = (3 / 2) * Math.PI;
-					break;
-				case 4:
-					bodyAngle = 0;
-					break;
-			}
-		}
-		else
-		{
-			bodyAngle = 0;
-			return;
-		}*/
-        if (keyDOWN)
-        {
-            bodyAngle = -Math.PI / 2;
-        }
-        else if (keyLEFT)
-        {
-            bodyAngle = 0;
-        }
-        else if (keyRIGHT)
-        {
-            bodyAngle = 0;
-        }
-        else if (keyUP)
-        {
-            bodyAngle = Math.PI / 2;
-        }
-        else
-        {
-            bodyAngle = 0;
-            return;
-        }
-
-    }
-
     /**
      * @return x of the mouse
      */
@@ -290,11 +141,6 @@ public class GameState
     public double getMouseY()
     {
         return mouseY;
-    }
-
-    public double getBodyAngle()
-    {
-        return bodyAngle;
     }
 
     public boolean isKeyUP()
@@ -390,7 +236,6 @@ public class GameState
                     keyRIGHT = true;
                     break;
             }
-            findBodyAngle();
         }
 
         @Override
@@ -400,19 +245,15 @@ public class GameState
             {
                 case KeyEvent.VK_W:
                     keyUP = false;
-                    lastKey = 2;
                     break;
                 case KeyEvent.VK_S:
                     keyDOWN = false;
-                    lastKey = 4;
                     break;
                 case KeyEvent.VK_A:
                     keyLEFT = false;
-                    lastKey = 3;
                     break;
                 case KeyEvent.VK_D:
                     keyRIGHT = false;
-                    lastKey = 1;
                     break;
             }
 
@@ -433,7 +274,8 @@ public class GameState
         public void mousePressed(MouseEvent e)
         {
             if (e.getButton() == MouseEvent.BUTTON1)
-            { // when pressing LEFT CLICK it shoots
+            {
+                // when pressing LEFT CLICK it shoots
                 mouseX = e.getX();
                 mouseY = e.getY();
                 shoot = true;
@@ -446,7 +288,8 @@ public class GameState
         {
             shoot = false;
             if (e.getButton() == MouseEvent.BUTTON3)
-            { // when pressing RIGHT CLICK it swaps tank gun
+            {
+                // when pressing RIGHT CLICK it swaps tank gun
                 swap = true;
             }
         }

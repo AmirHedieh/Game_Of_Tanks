@@ -103,10 +103,9 @@ public class GameFrame extends JFrame
     private void doRendering(Graphics2D g2d, GameState state, Camera camera)
     {
         rectangles.removeAll(rectangles);
-        Physics.checkCollision(state.objects);
         Utility.tankAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-        g2d.translate(-camera.getX(), -camera.getY());
+        //g2d.translate(-camera.getX(), -camera.getY());
 
         //render map
         state.objects.getMap().render(g2d);
@@ -122,15 +121,14 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            camera.tick(state.objects.getPlayers().get(i));
+            //camera.tick(state.objects.getPlayers().get(i));
 
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2 - (int)camera.getX(); //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2 - (int)camera.getY(); //this is the Y center of the player
 
-            AffineTransform bodyTransform = g2d.getTransform();
-            //TODO: rotate by wasd
-            //bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
-            g2d.setTransform(bodyTransform);
+            //AffineTransform bodyTransform = g2d.getTransform();
+            // bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
+            //g2d.setTransform(bodyTransform);
             if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyLEFT())
             {
                 g2d.drawImage(Utility.tank02,
@@ -142,10 +140,6 @@ public class GameFrame extends JFrame
             {
                 Utility.tankAnimation.drawAnimation(g2d, (int) state.objects.getPlayers().get(i).getX() - (int)camera.getX(), (int) state.objects.getPlayers().get(i).getY() - (int)camera.getY(), 0);
             }
-           /* g2d.drawImage(Utility.tank,
-                    (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile
-                    (int) state.objects.getPlayers().get(i).getY(), //this is the Y upper left corner of the tile
-                    null);*/
             g2d.setTransform(gameTransform);
             //draw the Gun of the Player Tank and handle its rotation
             if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
@@ -197,7 +191,7 @@ public class GameFrame extends JFrame
                 g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
             }
         }
-        g2d.translate(camera.getX(), camera.getY());
+        //g2d.translate(camera.getX(), camera.getY());
         System.out.println(rectangles.size());
         for (Rectangle x : rectangles)
         {

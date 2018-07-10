@@ -5,41 +5,64 @@ import game.elements.Objects;
 
 public class Physics
 {
-    public static void checkCollision(Objects objects)
+    public static boolean checkHardWallsCollisionUp(Objects objects)
     {
-     /*   for (int i = 0; i < objects.getBullets().size(); i++)
-        {
-            for (int j = 0; j < objects.getHardWall().size(); j++)
-            {
-                if (objects.getBullets().get(i).getBounds().intersects(objects.getTurrets().get(j).getBounds()))
-                {
-                    objects.getBullets().remove(i);
-                    break;
-                }
-            }
-        }*/
-        for (int i = 0; i < objects.getTurrets().size(); i++)
-        {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds()))
-            {
-                objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
-                objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
-
-            }
-        }
-
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
-            GameFrame.rectangles.add(objects.getMap().getHardWall().get(i).getBounds());
-            GameFrame.rectangles.add(objects.getPlayers().get(0).getBounds());
-
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
-                objects.getPlayers().get(0).setX( objects.getPlayers().get(0).getX() + (objects.getPlayers().get(0).getVelX() * (-1)) );
-                objects.getPlayers().get(0).setY( objects.getPlayers().get(0).getY() + (objects.getPlayers().get(0).getVelY() * (-1)) );
+                if (objects.getPlayers().get(0).getY() > objects.getMap().getHardWall().get(i).getY())
+                {
+                    return true;
+                }
             }
-
         }
+        return false;
+    }
+
+    public static boolean checkHardWallsCollisionDown(Objects objects)
+    {
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            {
+                if (objects.getPlayers().get(0).getY() < objects.getMap().getHardWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkHardWallsCollisionRight(Objects objects)
+    {
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            {
+                if (objects.getPlayers().get(0).getX() < objects.getMap().getHardWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkHardWallsCollisionLeft(Objects objects)
+    {
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            {
+                if (objects.getPlayers().get(0).getX() > objects.getMap().getHardWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public static void checkMapBounds(GameObject object)
@@ -61,6 +84,5 @@ public class Physics
         {
             object.setY(0);
         }
-
     }
 }
