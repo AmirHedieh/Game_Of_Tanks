@@ -220,6 +220,10 @@ public class Objects implements Serializable
         return robots;
     }
 
+    public void replacePlayerTank(Tank tank , int number){
+        players.remove(players.get(number));
+        players.add(tank);
+    }
     public void setPlayers(ArrayList<Tank> players)
     {
         this.players = players;

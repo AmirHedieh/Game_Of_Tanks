@@ -9,6 +9,8 @@ public class SharedData {
 
     public ObjectId gameType;
     public ObjectId playerType;
+    public Boolean clientSending = false;
+    public Boolean clientMoved = false;
 
     //Singleton
     private static SharedData sharedData;

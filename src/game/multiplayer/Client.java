@@ -2,6 +2,7 @@ package game.multiplayer;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
+import game.Utils.SharedData;
 import game.elements.Objects;
 import java.io.*;
 import java.net.Socket;
@@ -14,14 +15,23 @@ public class Client {
     public Client() {
         try {
             socket = new Socket("127.0.0.1",6666);
-            oos = new ObjectOutputStream(socket.getOutputStream());
 //            ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             System.out.println("Couldn't connect to server");
         }
     }
 
-    public void receiveData(Objects objects){
+    public void tick(Objects objects){
+        receiveData(objects);
+        sendLocationData(objects);
+        if(SharedData.getData().clientSending) {
+            if(SharedData.getData().clientMoved) {
+
+            }
+        }
+    }
+
+    private void receiveData(Objects objects){
         try {
             ois = new ObjectInputStream(socket.getInputStream());
             TransferringData data = (TransferringData) ois.readObject();
@@ -52,11 +62,27 @@ public class Client {
         }
     }
 
-    private void updateObjects(Objects objects, TransferringData data){
-        objects.setPlayers(data.getPlayers());
+    private void updateObjects(Objects objects, TransferringData data){ // called in receive data
+//        objects.setPlayers(data.getPlayers());
+        objects.replacePlayerTank(data.getPlayers().get(0),1);
         objects.setBullets(data.getBullets());
         objects.setRobots(data.getRobots());
         objects.setTanks(data.getTanks());
         objects.setTurrets(data.getTurrets());
     }
+
+    private void sendLocationData(Objects objects){
+        try {
+            System.out.println("Data");
+            oos = new ObjectOutputStream(socket.getOutputStream());
+            oos.writeObject(objects.getPlayers().get(0));
+            SharedData.getData().clientMoved = false;
+            SharedData.getData().clientSending = false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Couldn't send from client side");
+        }
+
+    }
+
 }

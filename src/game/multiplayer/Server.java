@@ -2,7 +2,9 @@ package game.multiplayer;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
+import game.elements.ObjectId;
 import game.elements.Objects;
+import game.elements.Tank;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -22,13 +24,18 @@ public class Server {
             socket = serverSocket.accept();
             System.out.println("Connection established!");
 //            oos = new ObjectOutputStream(socket.getOutputStream());
-            ois = new ObjectInputStream(socket.getInputStream());
+//            ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             System.out.println("Couldn't create server socket");
         }
     }
 
-    public  void sendData(Objects objects){
+    public void tick(Objects objects){
+        sendData(objects);
+        receiveData(objects);
+    }
+
+    private void sendData(Objects objects){
         try {
             //****************
             oos = new ObjectOutputStream(socket.getOutputStream());
@@ -50,8 +57,23 @@ public class Server {
         }
     }
 
-    public void receiveData(){
-
+    public void receiveData(Objects objects){
+        System.out.println("REC");
+        try {
+            System.out.println("**************");
+            ois = new ObjectInputStream(socket.getInputStream());
+            System.out.println("###################");
+            try {
+                System.out.println("HAHAHHAHAH");
+                Tank clientTank = (Tank)ois.readObject();
+                System.out.println("KHKHKHKHHK");
+                objects.replacePlayerTank(clientTank,1);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 //    private void makeData(TransferingData data){

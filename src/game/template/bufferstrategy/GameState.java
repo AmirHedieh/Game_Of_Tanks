@@ -1,7 +1,9 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.elements.AITankHandler;
+import game.elements.ObjectId;
 import game.elements.Objects;
 
 import java.awt.event.KeyEvent;
@@ -73,24 +75,40 @@ public class GameState
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
             objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
             Physics.checkMapBounds(objects.getPlayers().get(0));
+            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                SharedData.getData().clientSending = true;
+                SharedData.getData().clientMoved = true;
+            }
         }
         if (keyDOWN)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
             objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
             Physics.checkMapBounds(objects.getPlayers().get(0));
+            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                SharedData.getData().clientSending = true;
+                SharedData.getData().clientMoved = true;
+            }
         }
         if (keyLEFT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
             objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
             Physics.checkMapBounds(objects.getPlayers().get(0));
+            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                SharedData.getData().clientSending = true;
+                SharedData.getData().clientMoved = true;
+            }
         }
         if (keyRIGHT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
             objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
             Physics.checkMapBounds(objects.getPlayers().get(0));
+            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                SharedData.getData().clientSending = true;
+                SharedData.getData().clientMoved = true;
+            }
         }
         //
         if (shoot)

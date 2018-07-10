@@ -91,17 +91,18 @@ public class GameLoop implements Runnable
                     if(SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
                         state.update();
                         canvas.render(state, camera);
-                        server.sendData(state.objects);
-                        long time = new Date().getTime();
-                        if(time - sentTime > 0){
-
-                            sentTime = time;
-                        }
-//                        server.receiveData();
-//                        Scanner scanner = new Scanner(System.in);
+                        server.tick(state.objects);
+//                        long time = new Date().getTime();
+//                        if(time - sentTime > 0){
+//                            sentTime = time;
+//                        }
+//                        if(SharedData.getData().clientSending){
+//
+//                        }
                     }
                     else if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-                        client.receiveData(state.objects);
+                        client.tick(state.objects);
+                        state.update();
                         canvas.render(state, camera);
                     }
                 }
