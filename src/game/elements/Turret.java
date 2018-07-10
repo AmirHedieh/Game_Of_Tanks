@@ -1,5 +1,6 @@
 package game.elements;
 
+import game.Utils.SharedData;
 import game.map.Camera;
 
 import java.io.Serializable;
@@ -19,8 +20,9 @@ public class Turret extends GameObject implements Serializable
     public final int TURRET_WIDTH = 128;
     public final int TURRET_HEIGHT = 128;
 
-    MissileGun gun;
+    private MissileGun gun;
     private double rangeOfView;
+    private ArrayList<Tank> targets;
     private Tank target;
 
     //constructor
@@ -31,9 +33,7 @@ public class Turret extends GameObject implements Serializable
     {
         super(x, y, ObjectId.Turret);
         target = targets.get(0);
-        if(targets.size() > 1) {
-            determineTarget(targets);
-        }
+        this.targets = targets;
         gun = new MissileGun(this.x, this.y);
         rangeOfView = 800;
     }
@@ -52,8 +52,12 @@ public class Turret extends GameObject implements Serializable
             }
         }
     }
+
     public void tick(Objects objects)
     {
+        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
+            determineTarget(targets);
+        }
         if (checkArea() == true)
         {
             if (gun.readyForShoot())
