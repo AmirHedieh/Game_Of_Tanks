@@ -3,6 +3,7 @@ package game.template.bufferstrategy;
 
 import game.elements.AITankHandler;
 import game.elements.Objects;
+import game.map.Camera;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -30,6 +31,8 @@ public class GameState
     private KeyHandler keyHandler;
     private MouseHandler mouseHandler;
 
+    public Camera camera;
+
     public GameState()
     {
         // Initialize the game state and all elements ...
@@ -46,6 +49,8 @@ public class GameState
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
+        //camera = new Camera(803, 5450);
+        camera = new Camera(1000, 0);
     }
 
     /**
@@ -97,7 +102,7 @@ public class GameState
         {
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
-                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX() , objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
             }
         }
         //

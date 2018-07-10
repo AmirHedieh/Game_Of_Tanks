@@ -38,7 +38,6 @@ public class GameLoop implements Runnable
 
     private GameFrame canvas;
     private GameState state;
-    private Camera camera;
     private ObjectId gameType,playerType;
     private Server server;
     private long sentTime; // gap between sending 2 data to client
@@ -57,8 +56,6 @@ public class GameLoop implements Runnable
     {
         // Perform all initializations ...
         state = new GameState();
-        //camera = new Camera(803, 5450);
-        camera = new Camera(1000, 0);
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
@@ -85,12 +82,12 @@ public class GameLoop implements Runnable
                 //
                 if(gameType.equals(ObjectId.SinglePlayer)) {
                     state.update();
-                    canvas.render(state, camera);
+                    canvas.render(state);
                 }
                 else if(gameType.equals(ObjectId.TwoPlayer)){
                     if(playerType.equals(ObjectId.ServerPlayer)){
                         state.update();
-                        canvas.render(state, camera);
+                        canvas.render(state);
                         server.sendData(state.objects);
                         long time = new Date().getTime();
                         if(time - sentTime > 150){
@@ -102,7 +99,7 @@ public class GameLoop implements Runnable
                     }
                     else if(playerType.equals(ObjectId.ClientPlayer)){
                         client.receiveData(state.objects);
-                        canvas.render(state, camera);
+                        canvas.render(state);
                     }
                 }
                 //

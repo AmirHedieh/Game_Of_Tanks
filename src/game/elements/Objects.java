@@ -51,7 +51,6 @@ public class Objects implements Serializable
         //Buried Robots initialization
 //        BuriedRobot robot1 = new BuriedRobot(700, 700);
 //        robots.add(robot1);
-
     }
 
     /**
