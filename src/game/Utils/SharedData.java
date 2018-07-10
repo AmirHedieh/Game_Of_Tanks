@@ -1,5 +1,6 @@
 package game.Utils;
 
+import game.elements.Bullet;
 import game.elements.ObjectId;
 
 /**
@@ -9,8 +10,8 @@ public class SharedData {
 
     public ObjectId gameType;
     public ObjectId playerType;
-    public Boolean clientSending = false;
-    public Boolean clientMoved = false;
+    public Boolean clientShot = false;
+    public Bullet clientLastShotBullet;
 
     //Singleton
     private static SharedData sharedData;

@@ -75,40 +75,24 @@ public class GameState
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
             objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
             Physics.checkMapBounds(objects.getPlayers().get(0));
-            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-                SharedData.getData().clientSending = true;
-                SharedData.getData().clientMoved = true;
-            }
         }
         if (keyDOWN)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
             objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
             Physics.checkMapBounds(objects.getPlayers().get(0));
-            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-                SharedData.getData().clientSending = true;
-                SharedData.getData().clientMoved = true;
-            }
         }
         if (keyLEFT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
             objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
             Physics.checkMapBounds(objects.getPlayers().get(0));
-            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-                SharedData.getData().clientSending = true;
-                SharedData.getData().clientMoved = true;
-            }
         }
         if (keyRIGHT)
         {
             objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
             objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
             Physics.checkMapBounds(objects.getPlayers().get(0));
-            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-                SharedData.getData().clientSending = true;
-                SharedData.getData().clientMoved = true;
-            }
         }
         //
         if (shoot)
@@ -116,6 +100,10 @@ public class GameState
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
                 objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                    SharedData.getData().clientShot = true;
+                    SharedData.getData().clientLastShotBullet = objects.getBullets().get(objects.getBullets().size()-1); //save last bullet to pass it to server
+                }
             }
         }
         //

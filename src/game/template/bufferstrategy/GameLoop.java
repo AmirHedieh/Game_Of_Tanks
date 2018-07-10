@@ -63,11 +63,11 @@ public class GameLoop implements Runnable
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
         if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
-            server = new Server();
+            server = new Server(state.objects);
             sentTime = new Date().getTime();
         }
         else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-            client = new Client();
+            client = new Client(state.objects);
         }
         backGroundSound = new Sound(Utility.backgroundSound, true);
         backGroundSound.playSound();
@@ -101,7 +101,7 @@ public class GameLoop implements Runnable
 //                        }
                     }
                     else if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
-                        client.tick(state.objects);
+                        client.tick();
                         state.update();
                         canvas.render(state, camera);
                     }

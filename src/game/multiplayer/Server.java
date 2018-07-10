@@ -1,8 +1,5 @@
 package game.multiplayer;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
-import game.elements.ObjectId;
 import game.elements.Objects;
 import game.elements.Tank;
 
@@ -12,30 +9,30 @@ import java.net.Socket;
 
 public class Server {
     //fields
-    ServerSocket serverSocket;
-    Socket socket;
-    ObjectOutputStream oos;
-    ObjectInputStream ois;
+    private ServerSocket serverSocket;
+    private Socket socket;
+    private ObjectOutputStream oos;
+    private ObjectInputStream ois;
+    private Objects objects;
 
-    public Server(){
+    public Server(Objects objects){
         try {
             serverSocket = new ServerSocket(6666);
             System.out.println("Server created");
             socket = serverSocket.accept();
             System.out.println("Connection established!");
-//            oos = new ObjectOutputStream(socket.getOutputStream());
-//            ois = new ObjectInputStream(socket.getInputStream());
+            this.objects = objects;
         } catch (IOException e) {
             System.out.println("Couldn't create server socket");
         }
     }
 
     public void tick(Objects objects){
-        sendData(objects);
-        receiveData(objects);
+        sendData();
+        receiveData();
     }
 
-    private void sendData(Objects objects){
+    private void sendData(){
         try {
             //****************
             oos = new ObjectOutputStream(socket.getOutputStream());
@@ -57,17 +54,18 @@ public class Server {
         }
     }
 
-    public void receiveData(Objects objects){
+    public void receiveData(){
         System.out.println("REC");
         try {
-            System.out.println("**************");
             ois = new ObjectInputStream(socket.getInputStream());
-            System.out.println("###################");
             try {
-                System.out.println("HAHAHHAHAH");
-                Tank clientTank = (Tank)ois.readObject();
-                System.out.println("KHKHKHKHHK");
-                objects.replacePlayerTank(clientTank,1);
+//                Tank clientTank = (Tank)ois.readObject();
+//                objects.replacePlayerTank(clientTank,1);
+                ClientSendingData data = (ClientSendingData)ois.readObject(); //
+                objects.replacePlayerTank(data.getClientTank(),1);
+                if(data.getLastShotBullet() != null){
+                    objects.addBullet(data.getLastShotBullet());
+                }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
