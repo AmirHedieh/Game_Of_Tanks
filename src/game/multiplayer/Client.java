@@ -15,7 +15,7 @@ public class Client {
         try {
             socket = new Socket("127.0.0.1",6666);
             oos = new ObjectOutputStream(socket.getOutputStream());
-            ois = new ObjectInputStream(socket.getInputStream());
+//            ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             System.out.println("Couldn't connect to server");
         }
@@ -23,8 +23,10 @@ public class Client {
 
     public void receiveData(Objects objects){
         try {
-//            Tank tank = (Tank)ois.readObject();
-//            System.out.println(tank.getX());
+            ois = new ObjectInputStream(socket.getInputStream());
+            TransferringData data = (TransferringData) ois.readObject();
+//            System.out.println(data.getPlayers().get(0).getX());
+            updateObjects(objects,data);
             //******************
 //            byte[] bytes = new byte[1024];
 //            int rd = socket.getInputStream().read();
@@ -35,19 +37,19 @@ public class Client {
 //                rd = socket.getInputStream().read();
 //            }
             //***********
-            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
-            BufferedReader br = new BufferedReader(isr);
-            String str = br.readLine();
-            TransferringData updatedObjects = (TransferringData) (new XStream(new StaxDriver())).fromXML(str);
-            updateObjects(objects,updatedObjects);
+//            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
+//            BufferedReader br = new BufferedReader(isr);
+//            String str = br.readLine();
+//            TransferringData updatedObjects = (TransferringData) (new XStream(new StaxDriver())).fromXML(str);
+//            updateObjects(objects,updatedObjects);
 //            System.out.println(updatedObjects.getPlayers().get(0).getX());
             //***********
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("couldn't read objects");
-        } /*catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.out.println("Class not found while reading!");
-        }*/
+        }
     }
 
     private void updateObjects(Objects objects, TransferringData data){

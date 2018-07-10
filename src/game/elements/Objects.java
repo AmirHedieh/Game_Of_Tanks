@@ -1,5 +1,6 @@
 package game.elements;
 
+import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.map.*;
 
@@ -43,13 +44,18 @@ public class Objects implements Serializable
     {
         //Player tank initialization
         players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
-        //players.add(new Tank(1150, 6350, 100, ObjectId.Player)); // making player's tank
+        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
+            players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank
+        }
+
         // Turrets initialization
         Turret turret = new Turret(1500, 700, players);
         turrets.add(turret);
+
         //AI tanks initialization
 //        Tank tank1 = new Tank(700,700,100,1);
 //        tanks.add(tank1);
+
         //Buried Robots initialization
         //BuriedRobot robot1 = new BuriedRobot(700, 700);
         //robots.add(robot1);

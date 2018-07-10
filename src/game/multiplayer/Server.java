@@ -21,7 +21,7 @@ public class Server {
             System.out.println("Server created");
             socket = serverSocket.accept();
             System.out.println("Connection established!");
-            oos = new ObjectOutputStream(socket.getOutputStream());
+//            oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             System.out.println("Couldn't create server socket");
@@ -31,16 +31,18 @@ public class Server {
     public  void sendData(Objects objects){
         try {
             //****************
-//            oos.writeObject(objects.getPlayers().get(0));
-//            oos.flush();
-//            System.out.println(objects.getPlayers().get(0).getX()+" SENT");
-            //****************
-            XStream serDes = new XStream(new StaxDriver());
+            oos = new ObjectOutputStream(socket.getOutputStream());
             TransferringData data = new TransferringData(objects);
-            String xml = serDes.toXML(data);
-            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-            osw.write(xml  + "\r\n", 0, xml.length()+2);
-            osw.flush();
+            oos.writeObject(data);
+            oos.flush();
+//            System.out.println(data.getPlayers().get(0).getX()+" SENT");
+            //****************
+//            XStream serDes = new XStream(new StaxDriver());
+//            TransferringData data = new TransferringData(objects);
+//            String xml = serDes.toXML(data);
+//            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+//            osw.write(xml  + "\r\n", 0, xml.length()+2);
+//            osw.flush();
             //****************
         } catch (IOException e) {
             System.out.println("Sending Failed!");

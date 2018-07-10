@@ -1,8 +1,10 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.elements.ObjectId;
 import game.elements.Objects;
+import sun.security.provider.SHA;
 
 import java.awt.*;
 import javax.swing.*;
@@ -36,6 +38,7 @@ public class Main
             public void run()
             {
                 Scanner scanner = new Scanner(System.in);
+                SharedData sharedData = new SharedData();
                 GameFrame frame = new GameFrame("Normal Tanks ( Beta )");
                 frame.setLocationRelativeTo(null); // put frame at center of screen
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,23 +52,23 @@ public class Main
                 scanner.nextLine();
                 if(a == 1){
                     System.out.println("Single Started");
-                    game.setGameType(ObjectId.SinglePlayer);
+                    SharedData.getData().gameType = ObjectId.SinglePlayer;
                 }
                 else if(a == 2){
                     System.out.println("Coop started");
-                    game.setGameType(ObjectId.TwoPlayer);
+                    SharedData.getData().gameType = ObjectId.TwoPlayer;
                     System.out.println("1-Host or 2-Client");
                     a = scanner.nextInt();
                     scanner.nextLine();
                     if( a == 1 ){
                         System.out.println("U R Host");
-                        game.setPlayerType(ObjectId.ServerPlayer);
+                        SharedData.getData().playerType = ObjectId.ServerPlayer;
                         frame.setTitle("Server");
                     }
                     else if( a == 2 ){
                         System.out.println("U R Client");
                         frame.setTitle("Client");
-                        game.setPlayerType(ObjectId.ClientPlayer);
+                        SharedData.getData().playerType = ObjectId.ClientPlayer;
                     }
                 }
                 game.init();
