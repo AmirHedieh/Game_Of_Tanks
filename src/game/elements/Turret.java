@@ -81,4 +81,13 @@ public class Turret extends GameObject implements Serializable
         return distance;
     }
 
+    public Tank getTarget()
+    {
+        return target;
+    }
+
+    public void setTarget(Tank target)
+    {
+        this.target = target;
+    }
 }

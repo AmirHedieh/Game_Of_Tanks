@@ -16,7 +16,8 @@ public class Utility
 
     public static BufferedImage heavyBullet = Utility.loadBufferedImage(resourceDirectory + "heavyBullet.png");
     public static BufferedImage lightBullet = Utility.loadBufferedImage(resourceDirectory + "lightBullet.png");
-    public static BufferedImage map = Utility.loadBufferedImage(resourceDirectory + "map.png");
+    public static BufferedImage mapOriginal = Utility.loadBufferedImage(resourceDirectory + "mapOriginal.png");
+    public static BufferedImage mapRotated = Utility.loadBufferedImage(resourceDirectory + "mapRotated.png");
 
     public static BufferedImage startup = Utility.loadBufferedImage(resourceDirectory + "startup.png");
     public static BufferedImage tank = Utility.loadBufferedImage(resourceDirectory + "tank.png");

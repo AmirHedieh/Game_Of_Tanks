@@ -24,8 +24,6 @@ import javax.swing.*;
  */
 public class GameFrame extends JFrame
 {
-
-    public static ArrayList<Rectangle> rectangles = new ArrayList<>();
     public static final int GAME_HEIGHT = 1024;                  // custom game resolution
     public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
@@ -54,11 +52,6 @@ public class GameFrame extends JFrame
         //
         setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Utility.cursor, new Point(20, 14), "custom cursor"));
     }
-
-    /*
-        linear algebra for game developers: http://blog.wolfire.com/2009/07/linear-algebra-for-game-developers-part-1/
-        http://www.gametutorial.net
-     */
 
     /**
      * This must be called once after the JFrame is shown:
@@ -102,12 +95,11 @@ public class GameFrame extends JFrame
      */
     private void doRendering(Graphics2D g2d, GameState state, Camera camera)
     {
-        rectangles.removeAll(rectangles);
         Utility.tankAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-        //g2d.translate(-camera.getX(), -camera.getY());
+        g2d.translate(-camera.getX(), -camera.getY());
 
-        //render map
+        //render mapOriginal
         state.objects.getMap().render(g2d);
 
 
@@ -121,10 +113,10 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-            //camera.tick(state.objects.getPlayers().get(i));
+            camera.tick(state.objects.getPlayers().get(i));
 
-            int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2 - (int)camera.getX(); //this is the X center of the player
-            int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2 - (int)camera.getY(); //this is the Y center of the player
+            int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2 - (int) camera.getX(); //this is the X center of the player
+            int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2 - (int) camera.getY(); //this is the Y center of the player
 
             //AffineTransform bodyTransform = g2d.getTransform();
             // bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
@@ -179,7 +171,7 @@ public class GameFrame extends JFrame
         ArrayList<Turret> turrets = state.objects.getTurrets();
         for (int i = 0; i < turrets.size(); i++)
         {
-            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2 - (int)camera.getX(), (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2 - (int)camera.getY());
         }
 
         //draw robots
@@ -191,12 +183,7 @@ public class GameFrame extends JFrame
                 g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
             }
         }
-        //g2d.translate(camera.getX(), camera.getY());
-        System.out.println(rectangles.size());
-        for (Rectangle x : rectangles)
-        {
-            g2d.draw(x);
-        }
+        g2d.translate(camera.getX(), camera.getY());
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet)

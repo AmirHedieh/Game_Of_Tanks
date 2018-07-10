@@ -28,7 +28,7 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
-        map = new Map("src/resource/map.png");
+        map = new Map();
     }
 
     //methods
@@ -39,8 +39,9 @@ public class Objects implements Serializable
     public void init()
     {
         //Player tank initialization
-        players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
-        //players.add(new Tank(1150, 6350, 100, ObjectId.Player)); // making player's tank
+//        players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
+        players.add(new Tank(2300, 100, 100, ObjectId.Player)); // making player's tank
+//        players.add(new Tank(1150, 6300, 100, ObjectId.Player)); // making player's tank
         // Turrets initialization
         Turret turret = new Turret(1500, 700, players);
         turrets.add(turret);

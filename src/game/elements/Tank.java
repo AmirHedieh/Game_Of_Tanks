@@ -4,7 +4,7 @@ import java.awt.*;
 import java.io.Serializable;
 
 /**
- * an entity which is a moving object though the map.
+ * an entity which is a moving object though the mapOriginal.
  * it contains a gun to hit other objects. it also has
  * specific amount of health. if health comes down to zero
  * the tank becomes dead.
