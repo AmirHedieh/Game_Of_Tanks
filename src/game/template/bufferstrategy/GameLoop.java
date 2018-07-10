@@ -2,6 +2,7 @@
 package game.template.bufferstrategy;
 
 import game.Utils.Sound;
+import game.Utils.Utility;
 import game.elements.ObjectId;
 import game.map.Camera;
 import game.multiplayer.Client;
@@ -9,6 +10,8 @@ import game.multiplayer.Server;
 
 import java.util.Date;
 import java.util.Scanner;
+
+import javax.rmi.CORBA.Util;
 
 /**
  * A very simple structure for the main game loop.
@@ -66,7 +69,7 @@ public class GameLoop implements Runnable
         else if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ClientPlayer)){
             client = new Client();
         }
-        backGroundSound = new Sound("src/resource/backgroundSound.wav", true);;
+        backGroundSound = new Sound(Utility.backgroundSound, true);
         backGroundSound.playSound();
     }
 
