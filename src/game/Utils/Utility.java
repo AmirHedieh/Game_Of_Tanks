@@ -30,9 +30,6 @@ public class Utility
     public static BufferedImage gun02 = Utility.loadBufferedImage(resourceDirectory + "gun002.png");
     public static Animation tankAnimation = new Animation(3, tank01, tank02, tank03);
 
-    public static BufferedImage tankGun01 = Utility.loadBufferedImage(resourceDirectory + "tankGun01.png");
-    public static BufferedImage tankGun02 = Utility.loadBufferedImage(resourceDirectory + "tankGun02.png");
-
     public static BufferedImage teazel = Utility.loadBufferedImage(resourceDirectory + "teazel.png");
     public static BufferedImage plant = Utility.loadBufferedImage(resourceDirectory + "plant.png");
     public static BufferedImage softWall = Utility.loadBufferedImage(resourceDirectory + "softWall.png");
