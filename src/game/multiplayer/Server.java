@@ -14,9 +14,8 @@ public class Server {
     Socket socket;
     ObjectOutputStream oos;
     ObjectInputStream ois;
-    Objects objects;
 
-    public Server(Objects objects){
+    public Server(){
         try {
             serverSocket = new ServerSocket(6666);
             System.out.println("Server created");
@@ -24,14 +23,12 @@ public class Server {
             System.out.println("Connection established!");
             oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
-            this.objects = objects;
-//            oos.writeObject();
         } catch (IOException e) {
             System.out.println("Couldn't create server socket");
         }
     }
 
-    public  void sendData(){
+    public  void sendData(Objects objects){
         try {
             //****************
 //            oos.writeObject(objects.getPlayers().get(0));
@@ -39,7 +36,8 @@ public class Server {
 //            System.out.println(objects.getPlayers().get(0).getX()+" SENT");
             //****************
             XStream serDes = new XStream(new StaxDriver());
-            String xml = serDes.toXML(objects);
+            TransferringData data = new TransferringData(objects);
+            String xml = serDes.toXML(data);
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
             osw.write(xml  + "\r\n", 0, xml.length()+2);
             osw.flush();
@@ -54,9 +52,9 @@ public class Server {
 
     }
 
-    private void makeData(TransferingData data){
-        data.setPlayers(objects.getPlayers());
-    }
+//    private void makeData(TransferingData data){
+//        data.setPlayers(objects.getPlayers());
+//    }
 
 }
 
