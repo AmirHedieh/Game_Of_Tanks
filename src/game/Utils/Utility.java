@@ -38,6 +38,7 @@ public class Utility
     public static BufferedImage hardWall = Utility.loadBufferedImage(resourceDirectory + "hardWall.png");
 
     public static BufferedImage turret = Utility.loadBufferedImage(resourceDirectory + "turret.png");
+    public static File backgroundSound = new File("src/resource/backgroundSound.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {
