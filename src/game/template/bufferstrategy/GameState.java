@@ -297,6 +297,46 @@ public class GameState
         return bodyAngle;
     }
 
+    public boolean isKeyUP()
+    {
+        return keyUP;
+    }
+
+    public void setKeyUP(boolean keyUP)
+    {
+        this.keyUP = keyUP;
+    }
+
+    public boolean isKeyDOWN()
+    {
+        return keyDOWN;
+    }
+
+    public void setKeyDOWN(boolean keyDOWN)
+    {
+        this.keyDOWN = keyDOWN;
+    }
+
+    public boolean isKeyRIGHT()
+    {
+        return keyRIGHT;
+    }
+
+    public void setKeyRIGHT(boolean keyRIGHT)
+    {
+        this.keyRIGHT = keyRIGHT;
+    }
+
+    public boolean isKeyLEFT()
+    {
+        return keyLEFT;
+    }
+
+    public void setKeyLEFT(boolean keyLEFT)
+    {
+        this.keyLEFT = keyLEFT;
+    }
+
     /**
      * The mouse and key handler.
      */

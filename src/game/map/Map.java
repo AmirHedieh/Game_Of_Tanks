@@ -1,6 +1,7 @@
 package game.map;
 
 import com.sun.prism.Texture;
+import game.Utils.Animation;
 import game.Utils.Utility;
 import game.elements.*;
 
@@ -16,6 +17,7 @@ public class Map
     private ArrayList<SoftWall> softWall = new ArrayList<>();
     private ArrayList<Teazel> teazel = new ArrayList<>();
     private ArrayList<Soil> soil = new ArrayList<>();
+
 
     public Map(String path)
     {
