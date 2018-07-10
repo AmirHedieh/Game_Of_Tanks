@@ -13,11 +13,11 @@ public class Sound
     private boolean isLoop;
     private boolean isStoped = false;
 
-    public Sound(String audioAddress, boolean isLoop)
+    public Sound(File audio, boolean isLoop)
     {
         this.isLoop = isLoop;
 
-        audio = new File(audioAddress);
+        this.audio = audio;
 
         try
         {
