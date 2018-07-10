@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;
 import game.map.Camera;
@@ -24,7 +25,7 @@ import javax.swing.*;
 public class GameFrame extends JFrame
 {
 
-    public static final int GAME_HEIGHT = 720;                  // custom game resolution
+    public static final int GAME_HEIGHT = 480;                  // custom game resolution
     public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
     private BufferStrategy bufferStrategy;
@@ -148,8 +149,14 @@ public class GameFrame extends JFrame
             {
                 AffineTransform gunTransform = g2d.getTransform();
                 //we know that atan2 return radian :)
-                double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-                gunTransform.rotate(playerGunAngle, centerX, centerY);
+                if(i == 0) {
+                    double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+                    gunTransform.rotate(playerGunAngle, centerX, centerY);
+                    state.objects.getPlayers().get(0).setGunAngle(playerGunAngle); //set angle in tank info
+                }
+                else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && i == 1){
+                    gunTransform.rotate(state.objects.getPlayers().get(1).getGunAngle(), centerX, centerY);
+                }
                 g2d.setTransform(gunTransform);
                 g2d.drawImage(Utility.gun01,
                         (int) state.objects.getPlayers().get(i).getX() + 18,
@@ -159,8 +166,14 @@ public class GameFrame extends JFrame
             else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun))
             {
                 AffineTransform gunTransform = g2d.getTransform();
-                double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-                gunTransform.rotate(playerGunAngle, centerX, centerY);
+                if(i == 0) {
+                    double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+                    gunTransform.rotate(playerGunAngle, centerX, centerY);
+                    state.objects.getPlayers().get(0).setGunAngle(playerGunAngle); //set angle in tank info
+                }
+                else if(i == 1){
+                    gunTransform.rotate(state.objects.getPlayers().get(1).getGunAngle(), centerX, centerY);
+                }
                 g2d.setTransform(gunTransform);
                 g2d.drawImage(Utility.gun02,
                         (int) state.objects.getPlayers().get(i).getX() + 18 - (int)camera.getX(),

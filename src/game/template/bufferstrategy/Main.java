@@ -53,6 +53,7 @@ public class Main
                 if(a == 1){
                     System.out.println("Single Started");
                     SharedData.getData().gameType = ObjectId.SinglePlayer;
+                    SharedData.getData().playerType = ObjectId.Alone;
                 }
                 else if(a == 2){
                     System.out.println("Coop started");

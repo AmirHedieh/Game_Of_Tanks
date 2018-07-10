@@ -18,7 +18,7 @@ public class Tank extends GameObject implements Serializable
 
     private int health;
     private int type;
-//    public double x;
+    private double gunAngle = 0;
 
     private Gun selectedGun;
     private MissileGun missileGun;
@@ -62,6 +62,13 @@ public class Tank extends GameObject implements Serializable
         }
     }
 
+    /**
+     * set an angle that gun must be rotated
+     * @param angle
+     */
+    public void setGunAngle(double angle){
+        gunAngle = angle;
+    }
     /**
      * set amount of health for tank.
      *
@@ -151,5 +158,13 @@ public class Tank extends GameObject implements Serializable
     public int getType()
     {
         return type;
+    }
+
+    /**
+     * angle that gun must be rotated
+     * @return
+     */
+    public double getGunAngle() {
+        return gunAngle;
     }
 }
