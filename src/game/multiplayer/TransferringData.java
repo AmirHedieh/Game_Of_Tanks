@@ -44,3 +44,4 @@ public class TransferringData implements Serializable {
         this.robots = objects.getRobots();
     }
 }
+

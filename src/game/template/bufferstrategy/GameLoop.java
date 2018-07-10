@@ -93,7 +93,7 @@ public class GameLoop implements Runnable
                         canvas.render(state, camera);
                         server.sendData(state.objects);
                         long time = new Date().getTime();
-                        if(time - sentTime > 30){
+                        if(time - sentTime > 150){
 
                             sentTime = time;
                         }

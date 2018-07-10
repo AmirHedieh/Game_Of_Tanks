@@ -67,7 +67,7 @@ public class GameState
         //  based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         //first element( objects.getPlayer() ) in arrayList is player's tank.
-        //Physics.checkCollision(objects);
+//        Physics.checkCollision(objects);
         if (keyUP)
         {
             objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());

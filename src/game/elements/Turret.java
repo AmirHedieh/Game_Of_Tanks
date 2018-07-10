@@ -2,6 +2,7 @@ package game.elements;
 
 import game.map.Camera;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * turrets have infinite amount of ammo.
  * turrets also has health, when it gets down to zero means it is destroyed.
  */
-public class Turret extends GameObject
+public class Turret extends GameObject implements Serializable
 {
 
     //fields
