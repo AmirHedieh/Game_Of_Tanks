@@ -27,7 +27,7 @@ public class GameFrame extends JFrame
 {
 
     public static ArrayList<Rectangle> rectangles = new ArrayList<>();
-    public static final int GAME_HEIGHT = 480;                  // custom game resolution
+    public static final int GAME_HEIGHT = 1024;                  // custom game resolution
     public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
     private BufferStrategy bufferStrategy;
