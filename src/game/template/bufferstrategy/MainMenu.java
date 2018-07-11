@@ -23,8 +23,8 @@ public class MainMenu
     private JPanel multiPlayerPanel;
     private JLabel playAs;
     private JPanel clientServerPanel;
-    private JRadioButton clientButton;
-    private JRadioButton serverButton;
+    private JRadioButton clientButton = new JRadioButton();
+    private JRadioButton serverButton = new JRadioButton();
     private JPanel ipPanel;
     private JLabel ipTextLabel;
     private JTextField IPTextField;
@@ -143,6 +143,7 @@ public class MainMenu
             {
                 System.out.println("singlePlayerGameButton");
                 output = 10;
+                menuFrame.setVisible(false);
                 new Game(output, ip);
             }
             if (e.getSource().equals(multiPlayerButton))
@@ -255,14 +256,14 @@ public class MainMenu
             clientServerPanel.setBackground(Color.BLACK);
             clientServerPanel.setBorder(BorderFactory.createEmptyBorder(10, 120, 10, 10));
 
-            clientButton = new JRadioButton("Client");
+            clientButton.setText("Client");
             clientButton.setFont(new Font("Titillium Web", 4, 20));
             clientButton.setForeground(Color.WHITE);
             clientButton.setBackground(Color.BLACK);
             clientButton.setFocusable(false);
             clientButton.addActionListener(new ActionHandler());
 
-            serverButton = new JRadioButton("Server");
+            serverButton.setText("Server");
             serverButton.setFont(new Font("Titillium Web", 4, 20));
             serverButton.setForeground(Color.WHITE);
             serverButton.setBackground(Color.BLACK);
