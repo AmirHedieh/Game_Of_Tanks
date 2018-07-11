@@ -39,11 +39,10 @@ public class GameLoop implements Runnable
 
     private GameFrame canvas;
     private GameState state;
-    private Camera camera;
+    private ObjectId gameType,playerType;
     private Server server;
     private long sentTime; // gap between sending 2 data to client
     private Client client;
-    private Sound backGroundSound;
 
     public GameLoop(GameFrame frame)
     {
@@ -57,8 +56,6 @@ public class GameLoop implements Runnable
     {
         // Perform all initializations ...
         state = new GameState();
-        //camera = new Camera(803, 5450);
-        camera = new Camera(0, 0);
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
@@ -69,8 +66,6 @@ public class GameLoop implements Runnable
         else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
             client = new Client(state.objects);
         }
-        backGroundSound = new Sound(Utility.backgroundSound, true);
-        backGroundSound.playSound();
     }
 
     @Override
@@ -85,12 +80,12 @@ public class GameLoop implements Runnable
                 //
                 if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer)) {
                     state.update();
-                    canvas.render(state, camera);
+                    canvas.render(state);
                 }
                 else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
                     if(SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
                         state.update();
-                        canvas.render(state, camera);
+                        canvas.render(state);
                         server.tick(state.objects);
 //                        long time = new Date().getTime();
 //                        if(time - sentTime > 0){
@@ -103,7 +98,7 @@ public class GameLoop implements Runnable
                     else if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
                         client.tick();
                         state.update();
-                        canvas.render(state, camera);
+                        canvas.render(state);
                     }
                 }
                 //

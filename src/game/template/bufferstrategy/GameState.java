@@ -5,6 +5,7 @@ import game.Utils.SharedData;
 import game.elements.AITankHandler;
 import game.elements.ObjectId;
 import game.elements.Objects;
+import game.map.Camera;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -32,6 +33,8 @@ public class GameState
     private KeyHandler keyHandler;
     private MouseHandler mouseHandler;
 
+    public Camera camera;
+
     public GameState()
     {
         // Initialize the game state and all elements ...
@@ -48,6 +51,8 @@ public class GameState
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
+        camera = new Camera(803, 5450);
+//        camera = new Camera(0, 0);
     }
 
     /**
@@ -108,7 +113,7 @@ public class GameState
             objects.getPlayers().get(0).swapGun();
             swap = false;
         }
-
+        Physics.checkBulletsCollision(objects);
         //things that client side must not do
         if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
             for (int i = 0; i < objects.getBullets().size(); i++)

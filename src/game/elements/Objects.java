@@ -1,7 +1,6 @@
 package game.elements;
 
 import game.Utils.SharedData;
-import game.Utils.Utility;
 import game.map.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
-        map = new Map("src/resource/map.png");
+        map = new Map();
     }
 
     //methods
@@ -42,6 +41,8 @@ public class Objects implements Serializable
     {
         //Player tank initialization
         players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
+//        players.add(new Tank(1100, 100, 100, ObjectId.Player)); // making player's tank
+//        players.add(new Tank(1150, 6300, 100, ObjectId.Player)); // making player's tank
         if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
             players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank
         }
@@ -55,9 +56,8 @@ public class Objects implements Serializable
         tanks.add(tank1);
 
         //Buried Robots initialization
-//        BuriedRobot robot1 = new BuriedRobot(700, 700);
-//        robots.add(robot1);
-
+        BuriedRobot robot1 = new BuriedRobot(700, 700);
+        robots.add(robot1);
     }
 
     /**

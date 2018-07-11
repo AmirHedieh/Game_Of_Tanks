@@ -4,6 +4,7 @@ import com.sun.prism.Texture;
 import game.Utils.Animation;
 import game.Utils.Utility;
 import game.elements.*;
+import game.template.bufferstrategy.GameState;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,9 +20,10 @@ public class Map
     private ArrayList<Soil> soil = new ArrayList<>();
 
 
-    public Map(String path)
+    public Map()
     {
-        mapImage = Utility.loadBufferedImage(path);
+//        mapImage = Utility.mapRotated;
+        mapImage = Utility.mapOriginal;
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
             for (int yy = 0; yy < mapImage.getHeight(); yy++)

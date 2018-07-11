@@ -26,6 +26,7 @@ public class Camera
         {
             x = 1670;
         }
+
         if (y <= 0)
         {
             y = 0;
