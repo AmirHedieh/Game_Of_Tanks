@@ -190,7 +190,7 @@ public static final int GAME_WIDTH = 800;
         {
             int centerX = (int) state.objects.getTanks().get(i).getX() + state.objects.getTanks().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getTanks().get(i).getY() + state.objects.getTanks().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
-            
+
             AffineTransform tankTrans = g2d.getTransform();
             tankTrans.rotate(state.objects.getTanks().get(i).getTankAngle(),centerX,centerY);
 
