@@ -110,13 +110,6 @@ public class GameFrame extends JFrame
             drawBullet(gameTransform, g2d, bullets.get(i), state.camera);
         }
 
-        //draw turrets
-        ArrayList<Turret> turrets = state.objects.getTurrets();
-        for (int i = 0; i < turrets.size(); i++)
-        {
-            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
-        }
-
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
@@ -125,10 +118,10 @@ public class GameFrame extends JFrame
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
 
-            AffineTransform tankTransform = g2d.getTransform();
+           /* AffineTransform tankTransform = g2d.getTransform();
             System.out.println(state.objects.getPlayers().get(i).getTankAngle());
             tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
-            g2d.setTransform(tankTransform);
+            g2d.setTransform(tankTransform);*/
             if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyLEFT())
             {
                 g2d.drawImage(Utility.tank02,
@@ -140,15 +133,15 @@ public class GameFrame extends JFrame
             {
                 Utility.tankAnimation.drawAnimation(g2d, (int) state.objects.getPlayers().get(i).getX(), (int) state.objects.getPlayers().get(i).getY(), 0);
             }
-            g2d.setTransform(gameTransform);
+           // g2d.setTransform(gameTransform);
             //draw the Gun of the Player Tank and handle its rotation
             if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
             {
-                AffineTransform gunTransform = g2d.getTransform();
+        /*        AffineTransform gunTransform = g2d.getTransform();
                 //we know that atan2 return radian :)
                 double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
                 gunTransform.rotate(playerGunAngle, centerX, centerY);
-                g2d.setTransform(gunTransform);
+                g2d.setTransform(gunTransform);*/
                 g2d.drawImage(Utility.gun01,
                         (int) state.objects.getPlayers().get(i).getX() + 18,
                         (int) state.objects.getPlayers().get(i).getY() + 5,
@@ -165,7 +158,7 @@ public class GameFrame extends JFrame
                         (int) state.objects.getPlayers().get(i).getY(),
                         null);
             }
-            g2d.setTransform(gameTransform);
+         //   g2d.setTransform(gameTransform);
         }
 
         //draw tanks
@@ -175,7 +168,12 @@ public class GameFrame extends JFrame
 
         }
 
-
+        //draw turrets
+        ArrayList<Turret> turrets = state.objects.getTurrets();
+        for (int i = 0; i < turrets.size(); i++)
+        {
+            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+        }
 
         //draw robots
         ArrayList<BuriedRobot> robots = state.objects.getRobots();

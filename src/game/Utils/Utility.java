@@ -14,30 +14,31 @@ public class Utility
     public static String resourceDirectory = "src/resource/";
     public static Image cursor = new ImageIcon("src/resource/cursor.png").getImage();
 
-    public static BufferedImage buriedRobot = Utility.loadBufferedImage(resourceDirectory + "buriedRobot.png");
+    public static BufferedImage buriedRobot = loadBufferedImage(resourceDirectory + "buriedRobot.png");
 
-    public static BufferedImage heavyBullet = Utility.loadBufferedImage(resourceDirectory + "heavyBullet.png");
-    public static BufferedImage lightBullet = Utility.loadBufferedImage(resourceDirectory + "lightBullet.png");
-    public static BufferedImage mapOriginal = Utility.loadBufferedImage(resourceDirectory + "mapOriginal.png");
-    public static BufferedImage mapRotated = Utility.loadBufferedImage(resourceDirectory + "mapRotated.png");
+    public static BufferedImage heavyBullet = loadBufferedImage(resourceDirectory + "heavyBullet.png");
+    public static BufferedImage lightBullet = loadBufferedImage(resourceDirectory + "lightBullet.png");
+    public static BufferedImage mapOriginal = loadBufferedImage(resourceDirectory + "mapOriginal.png");
+    public static BufferedImage mapRotated = loadBufferedImage(resourceDirectory + "mapRotated.png");
 
-    public static BufferedImage startup = Utility.loadBufferedImage(resourceDirectory + "startup.png");
-    public static BufferedImage tank = Utility.loadBufferedImage(resourceDirectory + "tank.png");
+    public static BufferedImage tank = loadBufferedImage(resourceDirectory + "tank.png");
 
-    public static BufferedImage tank01 = Utility.loadBufferedImage(resourceDirectory + "tank01.png");
-    public static BufferedImage tank02 = Utility.loadBufferedImage(resourceDirectory + "tank02.png");
-    public static BufferedImage tank03 = Utility.loadBufferedImage(resourceDirectory + "tank03.png");
-    public static BufferedImage gun01 = Utility.loadBufferedImage(resourceDirectory + "gun001.png");
-    public static BufferedImage gun02 = Utility.loadBufferedImage(resourceDirectory + "gun002.png");
+    public static ImageIcon startup = loadImageIcon(resourceDirectory + "startup.png");
+
+    public static BufferedImage tank01 = loadBufferedImage(resourceDirectory + "tank01.png");
+    public static BufferedImage tank02 = loadBufferedImage(resourceDirectory + "tank02.png");
+    public static BufferedImage tank03 = loadBufferedImage(resourceDirectory + "tank03.png");
     public static Animation tankAnimation = new Animation(3, tank01, tank02, tank03);
+    public static BufferedImage gun01 = loadBufferedImage(resourceDirectory + "gun001.png");
+    public static BufferedImage gun02 = loadBufferedImage(resourceDirectory + "gun002.png");
 
-    public static BufferedImage teazel = Utility.loadBufferedImage(resourceDirectory + "teazel.png");
-    public static BufferedImage plant = Utility.loadBufferedImage(resourceDirectory + "plant.png");
-    public static BufferedImage softWall = Utility.loadBufferedImage(resourceDirectory + "softWall.png");
-    public static BufferedImage soil = Utility.loadBufferedImage(resourceDirectory + "soil.png");
-    public static BufferedImage hardWall = Utility.loadBufferedImage(resourceDirectory + "hardWall.png");
+    public static BufferedImage teazel = loadBufferedImage(resourceDirectory + "teazel.png");
+    public static BufferedImage plant = loadBufferedImage(resourceDirectory + "plant.png");
+    public static BufferedImage softWall = loadBufferedImage(resourceDirectory + "softWall.png");
+    public static BufferedImage soil = loadBufferedImage(resourceDirectory + "soil.png");
+    public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "hardWall.png");
 
-    public static BufferedImage turret = Utility.loadBufferedImage(resourceDirectory + "turret.png");
+    public static BufferedImage turret = loadBufferedImage(resourceDirectory + "turret.png");
     public static File backgroundSound = new File("src/resource/backgroundSound.wav");
 
     public static BufferedImage loadBufferedImage(String path)
@@ -54,6 +55,11 @@ public class Utility
         return temp;
     }
 
+    public static ImageIcon loadImageIcon(String path)
+    {
+        return new ImageIcon(String.valueOf(new File(path)));
+    }
+
     public static BufferedImage loadImageIO(String path)
     {
         BufferedImage temp = null;
@@ -67,6 +73,7 @@ public class Utility
         }
         return temp;
     }
+
 
     /*
         This is how to delete a directory from the repository:

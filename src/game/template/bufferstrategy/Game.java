@@ -20,7 +20,7 @@ import javax.swing.JFrame;
  */
 public class Game
 {
-    public Game(int input)
+    public Game(int startState, String ip)
     {
         // Initialize the global thread-pool
         ThreadPool.init();
@@ -38,29 +38,29 @@ public class Game
                 frame.initBufferStrategy();
                 // Create and execute the game-loop
                 GameLoop game = new GameLoop(frame);
-                if (input == 10)
+                if (startState == 10)
                 {
                     System.out.println("Single Started");
                     SharedData.getData().gameType = ObjectId.SinglePlayer;
                     SharedData.getData().playerType = ObjectId.Alone;
                 }
-                /*else if(a == 2){
-                    System.out.println("Coop started");
+                else if (startState == 21 || startState == 22)
+                {
+                    System.out.println("Host ip: " + ip);
                     SharedData.getData().gameType = ObjectId.TwoPlayer;
-                    System.out.println("1-Host or 2-Client");
-                    a = scanner.nextInt();
-                    scanner.nextLine();
-                    if( a == 1 ){
+                    if (startState == 22)
+                    {
                         System.out.println("U R Host");
                         SharedData.getData().playerType = ObjectId.ServerPlayer;
                         frame.setTitle("Server");
                     }
-                    else if( a == 2 ){
+                    else if (startState == 21)
+                    {
                         System.out.println("U R Client");
                         frame.setTitle("Client");
                         SharedData.getData().playerType = ObjectId.ClientPlayer;
                     }
-                }*/
+                }
                 game.init();
                 ThreadPool.execute(game);
                 // and the game starts ...
@@ -74,7 +74,7 @@ public class Game
 //            e.printStackTrace();
 //        }
 //        System.out.println(new Date().getTime());
-                // After the player clicks 'PLAY' ...
+        // After the player clicks 'PLAY' ...
         /*EventQueue.invokeLater(new Runnable()
         {
             @Override

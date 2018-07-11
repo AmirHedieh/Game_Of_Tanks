@@ -108,7 +108,7 @@ public class Physics
         //buriedRobot
         Iterator<Bullet> bulletIterator = objects.getBullets().iterator();
         Iterator<BuriedRobot> buriedRobotIterator = objects.getRobots().iterator();
-        while (bulletIterator.hasNext())
+        /*while (bulletIterator.hasNext())
         {
             while (buriedRobotIterator.hasNext())
             {
@@ -119,7 +119,7 @@ public class Physics
                     break;
                 }
             }
-        }
+        }*/
 
     }
 }
