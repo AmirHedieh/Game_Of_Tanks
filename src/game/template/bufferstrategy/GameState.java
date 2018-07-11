@@ -109,25 +109,30 @@ public class GameState
             swap = false;
         }
 
-        //
-        for (int i = 0; i < objects.getBullets().size(); i++)
-        {
-            objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
-            objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
+        //things that client side must not do
+        if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
+            for (int i = 0; i < objects.getBullets().size(); i++)
+            {
+                objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
+                objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
+            }
+            //
+            for (int i = 0; i < objects.getTurrets().size(); i++)
+            {
+                objects.getTurrets().get(i).tick(objects);
+            }
+            //
+            for (int i = 0; i < objects.getRobots().size(); i++)
+            {
+                objects.getRobots().get(i).tick(objects);
+            }
+            //1
+
+            aiTankHandler.tick();
+            //
         }
-        //
-        for (int i = 0; i < objects.getTurrets().size(); i++)
-        {
-            objects.getTurrets().get(i).tick(objects);
-        }
-        //
-        aiTankHandler.tick();
         objects.getPlayers().get(0).rotate(keyUP,keyDOWN,keyRIGHT,keyLEFT);
         //
-        for (int i = 0; i < objects.getRobots().size(); i++)
-        {
-            objects.getRobots().get(i).tick(objects);
-        }
     }
 
     /**
