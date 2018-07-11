@@ -32,7 +32,7 @@ public class GameFrame extends JFrame
     public GameFrame(String title)
     {
         super(title);
-        if (false) // Full screen mode
+        if (true) // Full screen mode
         {
             // Disables decorations for this frame.
             this.setUndecorated(true);

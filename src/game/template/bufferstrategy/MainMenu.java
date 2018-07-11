@@ -28,16 +28,17 @@ public class MainMenu extends JPanel
         setButtons();
 
         background = Utility.loadImageIO("src/resource/Startup.png");
-        backgroundSound = new Sound("src/resource/oggmain.mp3", true);
+        backgroundSound = new Sound(Utility.backgroundSound, true);
         backgroundSound.playSound();
 
         frame.setContentPane(this);
     }
 
-    */
-/**
+
+
+*
      * add buttons to panel!
-     *//*
+
 
     private void setButtons() {
         singlePlayerGameBtn = new JButton("playgame");
@@ -54,9 +55,10 @@ public class MainMenu extends JPanel
     }
 }
 
-*/
 
-/*  //Load Menu
+
+
+  //Load Menu
                 ImageIcon ImageBackGround = new ImageIcon("src/resource/Startup.png");
                 JLabel startup = new JLabel(ImageBackGround);
                 frame.add(startup);
@@ -79,9 +81,11 @@ public class MainMenu extends JPanel
                 twoPlayer.setOpaque(false);
                 twoPlayer.setContentAreaFilled(false);
                 twoPlayer.setBorderPainted(false);
-                frame.add(twoPlayer);*/
+                frame.add(twoPlayer);
+
 
 
 //snake source code: http://it-tips.org/java-snake-open-source/
 
 
+*/

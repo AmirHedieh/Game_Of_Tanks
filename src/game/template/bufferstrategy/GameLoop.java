@@ -43,7 +43,6 @@ public class GameLoop implements Runnable
     private Server server;
     private long sentTime; // gap between sending 2 data to client
     private Client client;
-    private Sound backGroundSound;
 
     public GameLoop(GameFrame frame)
     {
@@ -67,8 +66,6 @@ public class GameLoop implements Runnable
         else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
             client = new Client(state.objects);
         }
-        backGroundSound = new Sound(Utility.backgroundSound, true);
-//        backGroundSound.playSound();
     }
 
     @Override

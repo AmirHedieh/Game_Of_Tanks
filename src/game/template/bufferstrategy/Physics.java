@@ -1,7 +1,11 @@
 package game.template.bufferstrategy;
 
+import game.elements.Bullet;
+import game.elements.BuriedRobot;
 import game.elements.GameObject;
 import game.elements.Objects;
+
+import java.util.Iterator;
 
 public class Physics
 {
@@ -88,6 +92,7 @@ public class Physics
 
     public static void checkBulletsCollision(Objects objects)
     {
+        //hardWalls
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
             for (int j = 0; j < objects.getMap().getHardWall().size(); j++)
@@ -99,5 +104,22 @@ public class Physics
                 }
             }
         }
+
+        //buriedRobot
+        Iterator<Bullet> bulletIterator = objects.getBullets().iterator();
+        Iterator<BuriedRobot> buriedRobotIterator = objects.getRobots().iterator();
+        while (bulletIterator.hasNext())
+        {
+            while (buriedRobotIterator.hasNext())
+            {
+                if (bulletIterator.next().getBounds().intersects(buriedRobotIterator.next().getBounds()))
+                {
+                    bulletIterator.remove();
+                    buriedRobotIterator.remove();
+                    break;
+                }
+            }
+        }
+
     }
 }
