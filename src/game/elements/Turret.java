@@ -63,6 +63,7 @@ public class Turret extends GameObject implements Serializable
             if (gun.readyForShoot())
             {
                 objects.addBullet(gun.shoot(this.x, this.y, target.x + 50, target.y + 50));
+                target = objects.getPlayers().get(0);
             }
         }
     }
@@ -80,6 +81,11 @@ public class Turret extends GameObject implements Serializable
         }
     }
 
+    /**
+     * calculate the distance between turret and target(player tank).
+     * @param tank target
+     * @return distance between turret and player tank
+     */
     private double calculateDistance(Tank tank){
         double distance = Math.sqrt(Math.pow(Math.abs(this.x - tank.x), 2) + Math.pow(Math.abs(this.y - tank.y), 2));
         return distance;

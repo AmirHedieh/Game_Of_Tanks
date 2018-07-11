@@ -14,7 +14,7 @@ public class Objects implements Serializable
 
     //fields
     private ArrayList<Tank> players;
-    private ArrayList<Tank> tanks;
+    private ArrayList<AITank> tanks;
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
@@ -48,12 +48,12 @@ public class Objects implements Serializable
         }
 
         // Turrets initialization
-        Turret turret = new Turret(800, 700, players);
-        turrets.add(turret);
+//        Turret turret = new Turret(800, 700, players);
+//        turrets.add(turret);
 
         //AI tanks initialization
-//        Tank tank1 = new Tank(700,700,100,1);
-//        tanks.add(tank1);
+        AITank tank1 = new AITank(400,400,100,ObjectId.AITank,new MachineGun());
+        tanks.add(tank1);
 
         //Buried Robots initialization
 //        BuriedRobot robot1 = new BuriedRobot(700, 700);
@@ -73,7 +73,7 @@ public class Objects implements Serializable
      *
      * @param tank the tank which must be added
      */
-    public void addTank(Tank tank)
+    public void addTank(AITank tank)
     {
         tanks.add(tank);
     }
@@ -133,7 +133,7 @@ public class Objects implements Serializable
      *
      * @param tanks
      */
-    public void setTanks(ArrayList<Tank> tanks)
+    public void setTanks(ArrayList<AITank> tanks)
     {
         this.tanks = tanks;
     }
@@ -183,7 +183,7 @@ public class Objects implements Serializable
      *
      * @return
      */
-    public ArrayList<Tank> getTanks()
+    public ArrayList<AITank> getTanks()
     {
         return tanks;
     }

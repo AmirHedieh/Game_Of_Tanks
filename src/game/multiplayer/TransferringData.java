@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class TransferringData implements Serializable {
     private ArrayList<Tank> players;
-    private ArrayList<Tank> tanks;
+    private ArrayList<AITank> tanks;
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
@@ -16,7 +16,7 @@ public class TransferringData implements Serializable {
         return players;
     }
 
-    public ArrayList<Tank> getTanks() {
+    public ArrayList<AITank> getTanks() {
         return tanks;
     }
 

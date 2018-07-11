@@ -47,7 +47,7 @@ public class GameState
         swap = false;
         //
         objects.init(); //initialize game objects
-        aiTankHandler = new AITankHandler();
+        aiTankHandler = new AITankHandler(objects);
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
@@ -113,27 +113,31 @@ public class GameState
             objects.getPlayers().get(0).swapGun();
             swap = false;
         }
+//        Physics.checkBulletsCollision(objects);
+        //things that client side must not do
+        if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
+            for (int i = 0; i < objects.getBullets().size(); i++)
+            {
+                objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
+                objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
+            }
+            //
+            for (int i = 0; i < objects.getTurrets().size(); i++)
+            {
+                objects.getTurrets().get(i).tick(objects);
+            }
+            //
+            for (int i = 0; i < objects.getRobots().size(); i++)
+            {
+                objects.getRobots().get(i).tick(objects);
+            }
+            //1
 
-        //
-        Physics.checkBulletsCollision(objects);
-        for (int i = 0; i < objects.getBullets().size(); i++)
-        {
-            objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
-            objects.getBullets().get(i).setY(objects.getBullets().get(i).getY() + Math.sin(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelY());
+            aiTankHandler.tick();
+            //
         }
-        //
-        for (int i = 0; i < objects.getTurrets().size(); i++)
-        {
-            objects.getTurrets().get(i).tick(objects);
-        }
-        //
-        aiTankHandler.tick(objects);
         objects.getPlayers().get(0).rotate(keyUP,keyDOWN,keyRIGHT,keyLEFT);
         //
-        for (int i = 0; i < objects.getRobots().size(); i++)
-        {
-            objects.getRobots().get(i).tick(objects);
-        }
     }
 
     /**
