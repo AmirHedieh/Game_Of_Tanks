@@ -13,7 +13,7 @@ public class AITankHandler
 
     //fields
     private double range;
-    private Tank target;
+//    private Tank target;
     private Objects objects;
     private ArrayList<Tank> players;
 
@@ -22,7 +22,8 @@ public class AITankHandler
         range = 500;
         this.players = objects.getPlayers();
         this.objects = objects;
-        target = objects.getPlayers().get(0);
+//        target = objects.getPlayers().get(0);
+
     }
 
     //methods
@@ -34,14 +35,17 @@ public class AITankHandler
     public void tick()
     {
         for(int i = 0 ; i < objects.getTanks().size() ; i++) {
+            for(int j = 0 ; j < objects.getTanks().size() ; j++){
+                objects.getTanks().get(j).setTarget(objects.getPlayers().get(0)); // player 0 as default target for all tanks
+            }
+            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
+                determineTarget(objects.getTanks().get(i));
+            }
             checkToActivate(objects.getTanks().get(i));
             checkToDisable(objects.getTanks().get(i));
-            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
-                determineTarget(players);
-            }
             if(objects.getTanks().get(i).isActivated()){
-                move(objects.getTanks().get(i), target);
-                fire(objects.getTanks().get(i), target);
+                move(objects.getTanks().get(i), objects.getTanks().get(i).getTarget());
+                fire(objects.getTanks().get(i), objects.getTanks().get(i).getTarget());
             }
         }
 
@@ -109,7 +113,7 @@ public class AITankHandler
      * @param aiTank AI tank to be check whether to be invoked or not
      */
     private void checkToActivate(AITank aiTank){
-        if(calculateDistance(aiTank) < range) {
+        if(calculateDistance(aiTank,aiTank.getTarget()) < range) {
             aiTank.setActivated(true);
         }
     }
@@ -119,31 +123,31 @@ public class AITankHandler
      * @param aiTank AI tank to be check whether to be disabled or not
      */
     private void checkToDisable(AITank aiTank){
-        if(calculateDistance(aiTank) > range) {
+        if(calculateDistance(aiTank,aiTank.getTarget()) > range) {
             aiTank.setActivated(false);
         }
     }
 
     /**
      * if more than 1 player is playing then turret will shoot the player which is closer to turret
-     * @param tanks
      */
-    public void determineTarget(ArrayList<Tank> tanks){
-        for(int i = 0 ; i < tanks.size() ; i++){
-            double distance = calculateDistance(tanks.get(i));
-            if(distance < calculateDistance(target)){
-                target = tanks.get(i);
+    public void determineTarget(AITank aiTank){
+        for(int i = 0 ; i < players.size() ; i++){
+            double distance = calculateDistance(players.get(i),aiTank);
+            if(distance < calculateDistance(aiTank.getTarget(),players.get(i))){
+                aiTank.setTarget(players.get(i));
             }
         }
     }
 
     /**
-     * calculate the distance between tank and player tank.
-     * @param tank AI tank
+     * calculate the distance between two object(tanks here).
+     * @param tank1 tank num1
+     * @param tank2 tank num2
      * @return distance between Ai tank and player tank
      */
-    private double calculateDistance(Tank tank){
-        double distance = Math.sqrt(Math.pow(Math.abs(tank.x - target.x), 2) + Math.pow(Math.abs(tank.y - target.y), 2));
+    private double calculateDistance(Tank tank1, Tank tank2){
+        double distance = Math.sqrt(Math.pow(Math.abs(tank1.x - tank2.x), 2) + Math.pow(Math.abs(tank1.y - tank2.y), 2));
         return distance;
     }
 
