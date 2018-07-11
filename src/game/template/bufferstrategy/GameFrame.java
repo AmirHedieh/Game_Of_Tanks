@@ -188,10 +188,12 @@ public static final int GAME_WIDTH = 800;
         }
 
         //draw tanks
-        ArrayList<Tank> tanks = state.objects.getTanks();
+        ArrayList<AITank> tanks = state.objects.getTanks();
         for (int i = 0; i < tanks.size(); i++)
         {
-
+            //It is just temporary and image drawing must be replaced here.
+            g2d.setColor(Color.CYAN);
+            g2d.fillRect((int)tanks.get(i).getX(),(int)tanks.get(i).getY(),100,100);
         }
 
         //draw turrets

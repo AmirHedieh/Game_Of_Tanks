@@ -44,7 +44,7 @@ public class GameState
         swap = false;
         //
         objects.init(); //initialize game objects
-        aiTankHandler = new AITankHandler();
+        aiTankHandler = new AITankHandler(objects);
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
@@ -121,7 +121,7 @@ public class GameState
             objects.getTurrets().get(i).tick(objects);
         }
         //
-        aiTankHandler.tick(objects);
+        aiTankHandler.tick();
         objects.getPlayers().get(0).rotate(keyUP,keyDOWN,keyRIGHT,keyLEFT);
         //
         for (int i = 0; i < objects.getRobots().size(); i++)

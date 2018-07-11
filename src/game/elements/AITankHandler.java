@@ -1,5 +1,7 @@
 package game.elements;
 
+import game.Utils.SharedData;
+
 import java.util.ArrayList;
 
 /**
@@ -10,63 +12,150 @@ public class AITankHandler
 {
 
     //fields
+    private double range;
+    private Tank target;
+    private Objects objects;
+    private ArrayList<Tank> players;
 
     //constructor
-    public AITankHandler()
-    {
-
+    public AITankHandler(Objects objects) {
+        range = 500;
+        this.players = objects.getPlayers();
+        this.objects = objects;
+        target = objects.getPlayers().get(0);
     }
 
     //methods
-    public void tick(Objects objects)
+
+    /**
+     * ticks tanks. means checking that if they must be invoked , getting closer to player , shoot player.
+     * it also checks if a tank must be disabled.
+     */
+    public void tick()
     {
-        move(objects.getTanks(), objects.getPlayers().get(0));
-        fire(objects.getTanks(), objects.getPlayers().get(0), objects);
+        for(int i = 0 ; i < objects.getTanks().size() ; i++) {
+            checkToActivate(objects.getTanks().get(i));
+            checkToDisable(objects.getTanks().get(i));
+            if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
+                determineTarget(players);
+            }
+            if(objects.getTanks().get(i).isActivated()){
+                move(objects.getTanks().get(i), target);
+                fire(objects.getTanks().get(i), target);
+            }
+        }
+
     }
 
-    public void move(ArrayList<Tank> tanks, Tank target)
-    {
-        for (int i = 0; i < tanks.size(); i++)
-        {
-            if (tanks.get(i).getType() == 0)
+    /**
+     * if conditions are okay the tank must get closer to player. but it has a bound
+     * that it can't get closer than that.
+     * @param tank AI Tank
+     * @param target player tank
+     */
+    public void move(AITank tank, Tank target) {
+        //movement in X direction
+            if (target.x > tank.x && (Math.abs(target.x - tank.x) > 205))
             {
-                continue;
+                System.out.println("1");
+                tank.setX(tank.getX() + tank.getVelX());
             }
+            else if(target.x > tank.x && (Math.abs(target.x - tank.x) < 195)){
+                System.out.println("2");
+                tank.setX(tank.getX() - tank.getVelX());
+            }
+            else if (target.x == tank.x)
+            {
+                System.out.println("3");
+            }
+            else if (target.x < tank.x && (Math.abs(target.x - tank.x)) > 205)
+            {
+                System.out.println("4");
+                tank.setX(tank.getX() - tank.getVelX());
+            }
+            else if(target.x < tank.x && (Math.abs(target.x - tank.x) < 195)){
+                System.out.println("5");
+                tank.setX(tank.getX() + tank.getVelX());
+            }
+            //movement in Y direction
+            if (target.y > tank.y && (Math.abs(target.y - tank.y) > 205))
+            {
+                System.out.println("6");
+                tank.setY(tank.getY() + tank.getVelY());
+            }
+            else if (target.y > tank.y && (Math.abs(target.y - tank.y) < 195))
+            {
+                System.out.println("7");
+                 tank.setY(tank.getY() - tank.getVelY());
+            }
+            else if (target.y < tank.y && (Math.abs(target.y - tank.y) > 205))
+            {
+                System.out.println("8");
+                tank.setY(tank.getY() - tank.getVelY());
+            }
+            else if (target.y < tank.y && (Math.abs(target.y - tank.y) < 195))
+            {
+                System.out.println("9");
+                tank.setY(tank.getY() + tank.getVelY());
+            }
+            else if (target.y == tank.y)
+            {
+                System.out.println("10");
+            }
+    }
 
-            if (target.x > tanks.get(i).x && (Math.abs(target.x - tanks.get(i).x) > 200))
-            {
-                tanks.get(i).setX(tanks.get(i).getX() + tanks.get(i).getVelX());
-            }
-            else if (target.x == tanks.get(i).x)
-            {
+    /**
+     * if tank is closer than tank range , tank must be invoked
+     * @param aiTank AI tank to be check whether to be invoked or not
+     */
+    private void checkToActivate(AITank aiTank){
+        if(calculateDistance(aiTank) < range) {
+            aiTank.setActivated(true);
+        }
+    }
 
-            }
-            else if (target.x < tanks.get(i).x && (Math.abs(target.x - tanks.get(i).x)) > 200)
-            {
-                tanks.get(i).setX(tanks.get(i).getX() - tanks.get(i).getVelX());
-            }
+    /**
+     * if tank is more far than tank range , tank must be disabled.
+     * @param aiTank AI tank to be check whether to be disabled or not
+     */
+    private void checkToDisable(AITank aiTank){
+        if(calculateDistance(aiTank) > range) {
+            aiTank.setActivated(false);
+        }
+    }
 
-
-            if (target.y >= tanks.get(i).y)
-            {
-                tanks.get(i).setY(tanks.get(i).getY() + tanks.get(i).getVelY());
-            }
-            else if (target.y < tanks.get(i).y)
-            {
-                tanks.get(i).setY(tanks.get(i).getY() - tanks.get(i).getVelY());
-            }
-            else if (target.y == tanks.get(i).y)
-            {
-
+    /**
+     * if more than 1 player is playing then turret will shoot the player which is closer to turret
+     * @param tanks
+     */
+    public void determineTarget(ArrayList<Tank> tanks){
+        for(int i = 0 ; i < tanks.size() ; i++){
+            double distance = calculateDistance(tanks.get(i));
+            if(distance < calculateDistance(target)){
+                target = tanks.get(i);
             }
         }
     }
 
-    public void fire(ArrayList<Tank> tanks, Tank target, Objects objects)
-    {
-        for (int i = 0; i < tanks.size(); i++)
-        {
-            objects.addBullet(tanks.get(i).getSelectedGun().shoot(tanks.get(i).x, tanks.get(i).y, target.x, target.y));
+    /**
+     * calculate the distance between tank and player tank.
+     * @param tank AI tank
+     * @return distance between Ai tank and player tank
+     */
+    private double calculateDistance(Tank tank){
+        double distance = Math.sqrt(Math.pow(Math.abs(tank.x - target.x), 2) + Math.pow(Math.abs(tank.y - target.y), 2));
+        return distance;
+    }
+
+
+    /**
+     * if conditions are true, tank must shoot at player tank.
+     * @param tank tank that must shoot to player
+     * @param target player tank as the target
+     */
+    public void fire(AITank tank, Tank target) {
+        if (tank.getSelectedGun().readyForShoot()) {
+            objects.addBullet(tank.getSelectedGun().shoot(tank.x, tank.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
         }
     }
 

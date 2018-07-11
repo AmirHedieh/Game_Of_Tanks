@@ -17,18 +17,17 @@ public class Tank extends GameObject implements Serializable
     public final int TANK_WIDTH = 100;
     public final int TANK_HEIGHT = 100;
 
-    private int health;
-    private int type;
+    protected int health;
 
-    private double gunAngle = 0;
+    protected double gunAngle = 0;
 
-    private double tankAngle = 0;
+    protected double tankAngle = 0;
     private long lastRotateTime;
     private long rechargeRotationTime;
 
-    private Gun selectedGun;
-    private MissileGun missileGun;
-    private MachineGun machineGun;
+    protected Gun selectedGun;
+    protected MissileGun missileGun;
+    protected MachineGun machineGun;
 
     //constructor
     public Tank(){
@@ -45,7 +44,6 @@ public class Tank extends GameObject implements Serializable
 
         this.selectedGun = missileGun;
         this.health = health;
-        this.type = type;
 
         lastRotateTime = getCurrentTime();
         rechargeRotationTime = 10;
@@ -228,16 +226,6 @@ public class Tank extends GameObject implements Serializable
     }
 
     /**
-     * set a type for tank(1 for AI, 0 for Player).
-     *
-     * @param type
-     */
-    public void setType(int type)
-    {
-        this.type = type;
-    }
-
-    /**
      * @return amount of health remained for tank
      */
     public int getHealth()
@@ -269,16 +257,6 @@ public class Tank extends GameObject implements Serializable
         return selectedGun;
     }
 
-    /**
-     * 0 if tank is AI.
-     * 1 if tank is Player.
-     *
-     * @return the type of tank
-     */
-    public int getType()
-    {
-        return type;
-    }
 
     /**
      * angle that gun must be rotated

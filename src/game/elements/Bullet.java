@@ -78,7 +78,7 @@ public class Bullet extends GameObject
         }
         else if (mouseX < startX && mouseY == startY)
         {
-            System.out.println("8");
+//            System.out.println("8");
             velX = -14;
             velY = 0;
         }
