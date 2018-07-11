@@ -51,8 +51,8 @@ public class GameState
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
-        camera = new Camera(803, 5450);
-//        camera = new Camera(0, 0);
+//        camera = new Camera(803, 5450);
+        camera = new Camera(0, 0);
     }
 
     /**

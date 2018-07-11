@@ -26,6 +26,11 @@ public class MainMenu extends JFrame
 
     int output;
 
+    public static void main(String[] args)
+    {
+        new MainMenu();
+    }
+
     public MainMenu()
     {
         super("Normal Tanks");
@@ -129,19 +134,24 @@ public class MainMenu extends JFrame
             if (e.getSource().equals(multiPlayerButton))
             {
                 System.out.println("multiPlayerButton");
+                output = 20;
             }
             if (e.getSource().equals(settingButton))
             {
                 System.out.println("settingButton");
+                //output = 10;
             }
             if (e.getSource().equals(aboutButton))
             {
                 System.out.println("aboutButton");
+                //output = 10;
             }
             if (e.getSource().equals(exitButton))
             {
                 System.out.println("exitButton");
+                //output = 10;
             }
+            new Game(output);
         }
     }
 

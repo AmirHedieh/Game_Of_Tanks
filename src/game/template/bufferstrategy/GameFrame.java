@@ -97,7 +97,7 @@ public class GameFrame extends JFrame
     {
         Utility.tankAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-//        g2d.translate(-state.camera.getX(), -state.camera.getY());
+        g2d.translate(-state.camera.getX(), -state.camera.getY());
 
         //render map
         state.objects.getMap().render(g2d);
@@ -120,7 +120,7 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-//            state.camera.tick(state.objects.getPlayers().get(i));
+            state.camera.tick(state.objects.getPlayers().get(i));
 
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
@@ -186,7 +186,7 @@ public class GameFrame extends JFrame
                 g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
             }
         }
-//        g2d.translate(state.camera.getX(), state.camera.getY());
+        g2d.translate(state.camera.getX(), state.camera.getY());
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet, Camera camera)
