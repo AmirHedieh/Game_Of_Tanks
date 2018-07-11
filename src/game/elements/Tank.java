@@ -2,6 +2,7 @@ package game.elements;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * an entity which is a moving object though the mapOriginal.
@@ -18,7 +19,12 @@ public class Tank extends GameObject implements Serializable
 
     private int health;
     private int type;
-//    public double x;
+
+    private double gunAngle = 0;
+
+    private double tankAngle = 0;
+    private long lastRotateTime;
+    private long rechargeRotationTime;
 
     private Gun selectedGun;
     private MissileGun missileGun;
@@ -41,11 +47,125 @@ public class Tank extends GameObject implements Serializable
         this.health = health;
         this.type = type;
 
+        lastRotateTime = getCurrentTime();
+        rechargeRotationTime = 10;
+
         setVelX(12); //  set X velocity
         setVelY(12); // set y velocity
     }
 
     //methods
+
+    /**
+     * prevents tank from rotating so fast. it checks whether enough time has been passed from
+     * last rotate time or not.
+     * @return
+     */
+    public boolean readyForRotate()
+    {
+        if (getCurrentTime() - lastRotateTime > rechargeRotationTime)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * to get current system time with millisecond accuracy.
+     *
+     * @return current system time
+     */
+    private long getCurrentTime()
+    {
+        long time = new Date().getTime();
+        return time;
+    }
+
+
+    /**
+     * when tank whats to move, its direction must be set to where its heading.this set suitable value for tank direction angle
+     * based on which direction its heading.
+     * @param up is tank moving up
+     * @param down is tank moving down
+     * @param right is tank moving right
+     * @param left is tank moving left
+     */
+    public void rotate(Boolean up, Boolean down, Boolean right, Boolean left){
+        if(readyForRotate()) {
+            double angle = 7 * 0.0174533;
+            if ( up && !right && !left && tankAngle < Math.PI / 2 && tankAngle!= -Math.PI / 2) {
+                tankAngle += angle; //degree * (1degree to radian) - total value is based on radian
+                if(tankAngle < angle + Math.PI / 2 && tankAngle > + Math.PI / 2 - angle ){
+                    tankAngle = Math.PI / 2;
+                }
+            }
+
+            if ( down && !right && !left && tankAngle > -Math.PI / 2 && tankAngle != Math.PI / 2) {
+                tankAngle -= angle; //degree * (1degree to radian) - total value is based on radian
+                if(tankAngle > -Math.PI / 2 - angle && tankAngle < -Math.PI / 2 + angle ){
+                    tankAngle = -Math.PI / 2;
+                }
+            }
+
+            if((right || left) && !up && !down && tankAngle != 0){
+                if(tankAngle > 0) {
+                    tankAngle -= angle;
+                }
+                else if(tankAngle < 0){
+                    tankAngle += angle;
+                }
+                if(tankAngle < angle && tankAngle > -1*angle ){
+                    tankAngle = 0;
+                }
+            }
+
+            //two direction at same time
+            if(up && right && !left && !down){
+                if(tankAngle < -Math.PI / 4 - angle)
+                tankAngle += angle;
+                else if(tankAngle > -Math.PI / 4 + angle)
+                    tankAngle -= angle;
+            }
+            else if(up && left && !right && !down){
+                if(tankAngle < Math.PI / 4 - angle)
+                    tankAngle += angle;
+                else if(tankAngle > Math.PI / 4 + angle)
+                    tankAngle -= angle;
+            }
+            else if(down && left && !right && !up){
+                if(tankAngle < -Math.PI / 4 - angle)
+                    tankAngle += angle;
+                else if(tankAngle > -Math.PI / 4 + angle)
+                    tankAngle -= angle;
+            }
+            else if(down && right && !left && !up){
+                if(tankAngle < Math.PI / 4 - angle)
+                    tankAngle += angle;
+                else if(tankAngle > Math.PI / 4 + angle)
+                    tankAngle -= angle;
+            }
+            lastRotateTime = getCurrentTime();
+        }
+    }
+
+    /**
+     * set an angle for tank to rotate
+     * @param tankAngle
+     */
+    public void setTankAngle(double tankAngle) {
+        this.tankAngle = tankAngle;
+    }
+
+    /**
+     * the angle that tank is currently there.
+     * @return angle which is direction of tank
+     */
+    public double getTankAngle() {
+        return tankAngle;
+    }
 
     /**
      * swap gun between missile and machine guns.
@@ -62,6 +182,13 @@ public class Tank extends GameObject implements Serializable
         }
     }
 
+    /**
+     * set an angle that gun must be rotated
+     * @param angle
+     */
+    public void setGunAngle(double angle){
+        gunAngle = angle;
+    }
     /**
      * set amount of health for tank.
      *
@@ -151,5 +278,13 @@ public class Tank extends GameObject implements Serializable
     public int getType()
     {
         return type;
+    }
+
+    /**
+     * angle that gun must be rotated
+     * @return
+     */
+    public double getGunAngle() {
+        return gunAngle;
     }
 }

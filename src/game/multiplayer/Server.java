@@ -1,8 +1,7 @@
 package game.multiplayer;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 import game.elements.Objects;
+import game.elements.Tank;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -10,32 +9,37 @@ import java.net.Socket;
 
 public class Server {
     //fields
-    ServerSocket serverSocket;
-    Socket socket;
-    ObjectOutputStream oos;
-    ObjectInputStream ois;
+    private ServerSocket serverSocket;
+    private Socket socket;
+    private ObjectOutputStream oos;
+    private ObjectInputStream ois;
+    private Objects objects;
 
-    public Server(){
+    public Server(Objects objects){
         try {
             serverSocket = new ServerSocket(6666);
             System.out.println("Server created");
             socket = serverSocket.accept();
             System.out.println("Connection established!");
-//            oos = new ObjectOutputStream(socket.getOutputStream());
-            ois = new ObjectInputStream(socket.getInputStream());
+            this.objects = objects;
         } catch (IOException e) {
             System.out.println("Couldn't create server socket");
         }
     }
 
-    public  void sendData(Objects objects){
+    public void tick(Objects objects){
+        sendData();
+        receiveData();
+    }
+
+    private void sendData(){
         try {
             //****************
             oos = new ObjectOutputStream(socket.getOutputStream());
             TransferringData data = new TransferringData(objects);
             oos.writeObject(data);
             oos.flush();
-            System.out.println(data.getPlayers().get(0).getX()+" SENT");
+//            System.out.println(data.getPlayers().get(0).getX()+" SENT");
             //****************
 //            XStream serDes = new XStream(new StaxDriver());
 //            TransferringData data = new TransferringData(objects);
@@ -51,7 +55,23 @@ public class Server {
     }
 
     public void receiveData(){
-
+        System.out.println("REC");
+        try {
+            ois = new ObjectInputStream(socket.getInputStream());
+            try {
+//                Tank clientTank = (Tank)ois.readObject();
+//                objects.replacePlayerTank(clientTank,1);
+                ClientSendingData data = (ClientSendingData)ois.readObject(); //
+                objects.replacePlayerTank(data.getClientTank(),1);
+                if(data.getLastShotBullet() != null){
+                    objects.addBullet(data.getLastShotBullet());
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 //    private void makeData(TransferingData data){

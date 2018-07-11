@@ -59,12 +59,12 @@ public class GameLoop implements Runnable
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
-        if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ServerPlayer)){
-            server = new Server();
+        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
+            server = new Server(state.objects);
             sentTime = new Date().getTime();
         }
-        else if(gameType.equals(ObjectId.TwoPlayer) && playerType.equals(ObjectId.ClientPlayer)){
-            client = new Client();
+        else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+            client = new Client(state.objects);
         }
         backGroundSound = new Sound(Utility.backgroundSound, true);
 //        backGroundSound.playSound();
@@ -80,26 +80,27 @@ public class GameLoop implements Runnable
             {
                 long start = System.currentTimeMillis();
                 //
-                if(gameType.equals(ObjectId.SinglePlayer)) {
+                if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer)) {
                     state.update();
                     canvas.render(state);
                 }
-                else if(gameType.equals(ObjectId.TwoPlayer)){
-                    if(playerType.equals(ObjectId.ServerPlayer)){
+                else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
+                    if(SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
                         state.update();
-                        canvas.render(state);
-                        server.sendData(state.objects);
-                        long time = new Date().getTime();
-                        if(time - sentTime > 150){
-
-                            sentTime = time;
-                        }
-//                        server.receiveData();
-//                        Scanner scanner = new Scanner(System.in);
+                        canvas.render(state, camera);
+                        server.tick(state.objects);
+//                        long time = new Date().getTime();
+//                        if(time - sentTime > 0){
+//                            sentTime = time;
+//                        }
+//                        if(SharedData.getData().clientSending){
+//
+//                        }
                     }
-                    else if(playerType.equals(ObjectId.ClientPlayer)){
-                        client.receiveData(state.objects);
-                        canvas.render(state);
+                    else if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                        client.tick();
+                        state.update();
+                        canvas.render(state, camera);
                     }
                 }
                 //
@@ -113,13 +114,5 @@ public class GameLoop implements Runnable
             {
             }
         }
-    }
-
-    public void setGameType(ObjectId id){
-        gameType = id;
-    }
-
-    public void setPlayerType(ObjectId id){
-        playerType = id;
     }
 }

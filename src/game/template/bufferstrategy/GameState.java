@@ -3,7 +3,6 @@ package game.template.bufferstrategy;
 
 import game.elements.AITankHandler;
 import game.elements.Objects;
-import game.map.Camera;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -63,37 +62,33 @@ public class GameState
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         if (keyUP)
         {
-            if (!Physics.checkHardWallsCollisionUp(objects))
-            {
-                objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
-                objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
+            if (!Physics.checkHardWallsCollisionUp(objects)) {
+                    objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
+                    objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyDOWN)
         {
-            if (!Physics.checkHardWallsCollisionDown(objects))
-            {
-                objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
-                objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
+            if (!Physics.checkHardWallsCollisionDown(objects)) {
+                    objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
+                    objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyLEFT)
         {
-            if (!Physics.checkHardWallsCollisionLeft(objects))
-            {
-                objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
-                objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
+            if (!Physics.checkHardWallsCollisionLeft(objects)) {
+                    objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
+                    objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyRIGHT)
         {
-            if (!Physics.checkHardWallsCollisionRight(objects))
-            {
-                objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
-                objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
+            if (!Physics.checkHardWallsCollisionRight(objects)) {
+                    objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
+                    objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
@@ -102,7 +97,11 @@ public class GameState
         {
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
-                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX() - (int)camera.getX() , objects.getPlayers().get(0).getY() - (int)camera.getX(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                    SharedData.getData().clientShot = true;
+                    SharedData.getData().clientLastShotBullet = objects.getBullets().get(objects.getBullets().size()-1); //save last bullet to pass it to server
+                }
             }
         }
         //
@@ -125,6 +124,7 @@ public class GameState
         }
         //
         aiTankHandler.tick(objects);
+        objects.getPlayers().get(0).rotate(keyUP,keyDOWN,keyRIGHT,keyLEFT);
         //
         for (int i = 0; i < objects.getRobots().size(); i++)
         {

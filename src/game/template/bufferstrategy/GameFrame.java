@@ -99,7 +99,7 @@ public class GameFrame extends JFrame
         AffineTransform gameTransform = g2d.getTransform();
 //        g2d.translate(-state.camera.getX(), -state.camera.getY());
 
-        //render mapOriginal
+        //render map
         state.objects.getMap().render(g2d);
 
 

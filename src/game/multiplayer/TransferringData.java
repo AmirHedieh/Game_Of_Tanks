@@ -36,6 +36,7 @@ public class TransferringData implements Serializable {
     public TransferringData(){
 
     }
+
     public TransferringData(Objects objects){
         this.players = objects.getPlayers();
         this.tanks = objects.getTanks();

@@ -18,5 +18,6 @@ public enum ObjectId
     ServerPlayer,
     ClientPlayer,
     SinglePlayer,
+    Alone,
     TwoPlayer;
 }
