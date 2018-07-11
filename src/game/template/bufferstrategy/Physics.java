@@ -7,7 +7,7 @@ public class Physics
 {
     public static boolean checkHardWallsCollisionUp(Objects objects)
     {
-        /*for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
@@ -16,13 +16,13 @@ public class Physics
                     return true;
                 }
             }
-        }*/
+        }
         return false;
     }
 
     public static boolean checkHardWallsCollisionDown(Objects objects)
     {
-        /*for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
@@ -31,13 +31,13 @@ public class Physics
                     return true;
                 }
             }
-        }*/
+        }
         return false;
     }
 
     public static boolean checkHardWallsCollisionRight(Objects objects)
     {
-        /*for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
@@ -46,13 +46,13 @@ public class Physics
                     return true;
                 }
             }
-        }*/
+        }
         return false;
     }
 
     public static boolean checkHardWallsCollisionLeft(Objects objects)
     {
-        /*for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
@@ -61,7 +61,7 @@ public class Physics
                     return true;
                 }
             }
-        }*/
+        }
         return false;
     }
 
