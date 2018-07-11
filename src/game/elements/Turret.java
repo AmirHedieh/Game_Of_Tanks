@@ -63,6 +63,7 @@ public class Turret extends GameObject implements Serializable
             if (gun.readyForShoot())
             {
                 objects.addBullet(gun.shoot(this.x, this.y, target.x + 50, target.y + 50));
+                target = objects.getPlayers().get(0);
             }
         }
     }

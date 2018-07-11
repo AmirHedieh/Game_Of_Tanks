@@ -27,9 +27,10 @@ public class GameFrame extends JFrame
 {
 
     public static ArrayList<Rectangle> rectangles = new ArrayList<>();
-    public static final int GAME_HEIGHT = 1024;                  // custom game resolution
-    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
-
+//    public static final int GAME_HEIGHT = 520;                  // custom game resolution
+//    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
+public static final int GAME_HEIGHT = 1000;
+public static final int GAME_WIDTH = 800;
     private BufferStrategy bufferStrategy;
 
     public GameFrame(String title)
@@ -129,7 +130,6 @@ public class GameFrame extends JFrame
 
             //
             AffineTransform tankTransform = g2d.getTransform();
-            System.out.println(state.objects.getPlayers().get(i).getTankAngle());
             tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
             g2d.setTransform(tankTransform);
             //
