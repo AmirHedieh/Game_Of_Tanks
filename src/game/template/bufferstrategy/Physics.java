@@ -85,4 +85,19 @@ public class Physics
             object.setY(0);
         }
     }
+
+    public static void checkBulletsCollision(Objects objects)
+    {
+        for (int i = 0; i < objects.getBullets().size(); i++)
+        {
+            for (int j = 0; j < objects.getMap().getHardWall().size(); j++)
+            {
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getHardWall().get(j).getBounds()))
+                {
+                    objects.getBullets().remove(i);
+                    break;
+                }
+            }
+        }
+    }
 }

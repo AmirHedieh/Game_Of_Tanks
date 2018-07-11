@@ -125,9 +125,10 @@ public class GameFrame extends JFrame
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
 
-            //AffineTransform bodyTransform = g2d.getTransform();
-            // bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
-            //g2d.setTransform(bodyTransform);
+            AffineTransform tankTransform = g2d.getTransform();
+            System.out.println(state.objects.getPlayers().get(i).getTankAngle());
+            tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
+            g2d.setTransform(tankTransform);
             if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyLEFT())
             {
                 g2d.drawImage(Utility.tank02,

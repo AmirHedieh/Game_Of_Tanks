@@ -1,8 +1,11 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.elements.AITankHandler;
+import game.elements.ObjectId;
 import game.elements.Objects;
+import game.map.Camera;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -112,6 +115,7 @@ public class GameState
         }
 
         //
+        Physics.checkBulletsCollision(objects);
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
             objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());

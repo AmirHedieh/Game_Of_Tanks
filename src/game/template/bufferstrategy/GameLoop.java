@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.ObjectId;
@@ -87,7 +88,7 @@ public class GameLoop implements Runnable
                 else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
                     if(SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
                         state.update();
-                        canvas.render(state, camera);
+                        canvas.render(state);
                         server.tick(state.objects);
 //                        long time = new Date().getTime();
 //                        if(time - sentTime > 0){
@@ -100,7 +101,7 @@ public class GameLoop implements Runnable
                     else if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
                         client.tick();
                         state.update();
-                        canvas.render(state, camera);
+                        canvas.render(state);
                     }
                 }
                 //

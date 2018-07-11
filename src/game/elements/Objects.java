@@ -1,5 +1,6 @@
 package game.elements;
 
+import game.Utils.SharedData;
 import game.map.*;
 import java.io.Serializable;
 import java.util.ArrayList;
