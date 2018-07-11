@@ -52,7 +52,7 @@ public class Objects implements Serializable
 //        turrets.add(turret);
 
         //AI tanks initialization
-        AITank tank1 = new AITank(700,700,100,ObjectId.AITank,new MachineGun());
+        AITank tank1 = new AITank(400,400,100,ObjectId.AITank,new MachineGun());
         tanks.add(tank1);
 
         //Buried Robots initialization

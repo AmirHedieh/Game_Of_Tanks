@@ -113,7 +113,7 @@ public class GameState
             objects.getPlayers().get(0).swapGun();
             swap = false;
         }
-        Physics.checkBulletsCollision(objects);
+//        Physics.checkBulletsCollision(objects);
         //things that client side must not do
         if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
             for (int i = 0; i < objects.getBullets().size(); i++)

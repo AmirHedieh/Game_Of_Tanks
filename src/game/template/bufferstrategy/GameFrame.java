@@ -132,6 +132,7 @@ public static final int GAME_WIDTH = 800;
             AffineTransform tankTransform = g2d.getTransform();
             tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
             g2d.setTransform(tankTransform);
+
             if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyLEFT())
             {
                 g2d.drawImage(Utility.tank02,
@@ -187,16 +188,18 @@ public static final int GAME_WIDTH = 800;
         ArrayList<AITank> tanks = state.objects.getTanks();
         for (int i = 0; i < tanks.size(); i++)
         {
-            //It is just temporary and image drawing must be replaced here.
-            g2d.setColor(Color.CYAN);
-            g2d.fillRect((int)tanks.get(i).getX(),(int)tanks.get(i).getY(),100,100);
-        }
+            int centerX = (int) state.objects.getTanks().get(i).getX() + state.objects.getTanks().get(i).TANK_WIDTH / 2; //this is the X center of the player
+            int centerY = (int) state.objects.getTanks().get(i).getY() + state.objects.getTanks().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
 
-        //draw turrets
-        ArrayList<Turret> turrets = state.objects.getTurrets();
-        for (int i = 0; i < turrets.size(); i++)
-        {
-            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+            AffineTransform tankTrans = g2d.getTransform();
+            tankTrans.rotate(state.objects.getTanks().get(i).getTankAngle(),centerX,centerY);
+
+            g2d.setTransform(tankTrans);
+            g2d.drawImage(Utility.turret,
+                    (int) state.objects.getTanks().get(i).getX(), //this is the X upper left corner of the tile
+                    (int) state.objects.getTanks().get(i).getY(), //this is the Y upper left corner of the tile
+                    null);
+            g2d.setTransform(gameTransform);
         }
 
         //draw robots

@@ -36,6 +36,7 @@ public class Tank extends GameObject implements Serializable
     public Tank(double x, double y, int health, ObjectId id)
     { // gun must be added manually after making tank
         super(x, y, id);
+
         missileGun = new MissileGun(this.x, this.y);
         this.setMissileGun(missileGun);
 

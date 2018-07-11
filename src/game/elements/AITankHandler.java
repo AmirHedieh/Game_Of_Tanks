@@ -44,6 +44,7 @@ public class AITankHandler
             checkToActivate(objects.getTanks().get(i));
             checkToDisable(objects.getTanks().get(i));
             if(objects.getTanks().get(i).isActivated()){
+                setAngle(objects.getTanks().get(i));
                 move(objects.getTanks().get(i), objects.getTanks().get(i).getTarget());
                 fire(objects.getTanks().get(i), objects.getTanks().get(i).getTarget());
             }
@@ -57,54 +58,45 @@ public class AITankHandler
      * @param tank AI Tank
      * @param target player tank
      */
-    public void move(AITank tank, Tank target) {
+    private void move(AITank tank, Tank target) {
         //movement in X direction
             if (target.x > tank.x && (Math.abs(target.x - tank.x) > 205))
             {
-                System.out.println("1");
                 tank.setX(tank.getX() + tank.getVelX());
             }
             else if(target.x > tank.x && (Math.abs(target.x - tank.x) < 195)){
-                System.out.println("2");
                 tank.setX(tank.getX() - tank.getVelX());
             }
             else if (target.x == tank.x)
             {
-                System.out.println("3");
+
             }
             else if (target.x < tank.x && (Math.abs(target.x - tank.x)) > 205)
             {
-                System.out.println("4");
                 tank.setX(tank.getX() - tank.getVelX());
             }
             else if(target.x < tank.x && (Math.abs(target.x - tank.x) < 195)){
-                System.out.println("5");
                 tank.setX(tank.getX() + tank.getVelX());
             }
             //movement in Y direction
             if (target.y > tank.y && (Math.abs(target.y - tank.y) > 205))
             {
-                System.out.println("6");
                 tank.setY(tank.getY() + tank.getVelY());
             }
             else if (target.y > tank.y && (Math.abs(target.y - tank.y) < 195))
             {
-                System.out.println("7");
                  tank.setY(tank.getY() - tank.getVelY());
             }
             else if (target.y < tank.y && (Math.abs(target.y - tank.y) > 205))
             {
-                System.out.println("8");
                 tank.setY(tank.getY() - tank.getVelY());
             }
             else if (target.y < tank.y && (Math.abs(target.y - tank.y) < 195))
             {
-                System.out.println("9");
                 tank.setY(tank.getY() + tank.getVelY());
             }
             else if (target.y == tank.y)
             {
-                System.out.println("10");
             }
     }
 
@@ -157,10 +149,13 @@ public class AITankHandler
      * @param tank tank that must shoot to player
      * @param target player tank as the target
      */
-    public void fire(AITank tank, Tank target) {
+    private void fire(AITank tank, Tank target) {
         if (tank.getSelectedGun().readyForShoot()) {
-            objects.addBullet(tank.getSelectedGun().shoot(tank.x, tank.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
+            objects.addBullet(tank.getSelectedGun().shoot(tank.x + tank.TANK_WIDTH / 2  , tank.y + tank.TANK_HEIGHT / 2, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
         }
     }
 
+    private void setAngle(AITank tank){
+        tank.setTankAngle(Math.atan( (tank.getTarget().getY() - tank.getY()) / (tank.getTarget().getX() - tank.getX()) ));
+    }
 }
