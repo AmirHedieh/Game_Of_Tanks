@@ -126,7 +126,7 @@ public class GameFrame extends JFrame
             tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
             g2d.setTransform(tankTransform);
 
-            if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyLEFT())
+            if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyUP())
             {
                 g2d.drawImage(Utility.tank02,
                         (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile

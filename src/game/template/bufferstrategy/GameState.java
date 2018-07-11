@@ -2,9 +2,9 @@
 package game.template.bufferstrategy;
 
 import game.Utils.SharedData;
-import game.elements.AITankHandler;
-import game.elements.ObjectId;
-import game.elements.Objects;
+import game.Utils.Sound;
+import game.Utils.Utility;
+import game.elements.*;
 import game.map.Camera;
 
 import java.awt.event.KeyEvent;
@@ -37,6 +37,8 @@ public class GameState
 
     public GameState()
     {
+//        Sound sound = new Sound(Utility.backgroundSound, true);
+//        sound.playSound();
         // Initialize the game state and all elements ...
         keyUP = false;
         keyDOWN = false;
@@ -101,9 +103,18 @@ public class GameState
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
                 objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                if(objects.getPlayers().get(0).getSelectedGun() instanceof MissileGun) {
+                    Sound sound = new Sound(Utility.heavyShotSound, false);
+                    sound.playSound();
+                }
+                else if(objects.getPlayers().get(0).getSelectedGun() instanceof MachineGun){
+                    Sound sound = new Sound(Utility.lightShotSound, false);
+                    sound.playSound();
+                }
+
                 if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
                     SharedData.getData().clientShot = true;
-                    SharedData.getData().clientLastShotBullet = objects.getBullets().get(objects.getBullets().size()-1); //save last bullet to pass it to server
+                    SharedData.getData().clientLastShotBullet = objects.getBullets().get(objects.getBullets().size() - 1); //save last bullet to pass it to server
                 }
             }
         }
