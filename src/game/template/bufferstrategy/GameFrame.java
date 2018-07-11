@@ -27,7 +27,7 @@ public class GameFrame extends JFrame
 {
 
     public static ArrayList<Rectangle> rectangles = new ArrayList<>();
-    public static final int GAME_HEIGHT = 1024;                  // custom game resolution
+    public static final int GAME_HEIGHT = 480;                  // custom game resolution
     public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
     private BufferStrategy bufferStrategy;
@@ -127,6 +127,12 @@ public class GameFrame extends JFrame
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2 - (int)camera.getX(); //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2 - (int)camera.getY(); //this is the Y center of the player
 
+            //
+            AffineTransform tankTransform = g2d.getTransform();
+            System.out.println(state.objects.getPlayers().get(i).getTankAngle());
+            tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
+            g2d.setTransform(tankTransform);
+            //
             //AffineTransform bodyTransform = g2d.getTransform();
             // bodyTransform.rotate(state.getBodyAngle(), centerX, centerY);
             //g2d.setTransform(bodyTransform);
@@ -205,7 +211,7 @@ public class GameFrame extends JFrame
             }
         }
         //g2d.translate(camera.getX(), camera.getY());
-        System.out.println(rectangles.size());
+//        System.out.println(rectangles.size());
         for (Rectangle x : rectangles)
         {
             g2d.draw(x);

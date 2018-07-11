@@ -65,6 +65,7 @@ public class GameState
                 objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
                 objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
             }
+//            objects.getPlayers().get(0).setTankAngle(objects.getPlayers().get(0).getTankAngle() + 5);
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyDOWN)
@@ -126,6 +127,7 @@ public class GameState
         }
         //
         aiTankHandler.tick(objects);
+        objects.getPlayers().get(0).rotate(keyUP,keyDOWN,keyRIGHT,keyLEFT);
         //
         for (int i = 0; i < objects.getRobots().size(); i++)
         {

@@ -2,6 +2,7 @@ package game.elements;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * an entity which is a moving object though the map.
@@ -19,7 +20,9 @@ public class Tank extends GameObject implements Serializable
     private int health;
     private int type;
     private double gunAngle = 0;
-
+    private double tankAngle = 0;
+    private long lastRotateTime = getCurrentTime();
+    private long rechargeRotationTime = 10;
     private Gun selectedGun;
     private MissileGun missileGun;
     private MachineGun machineGun;
@@ -46,6 +49,61 @@ public class Tank extends GameObject implements Serializable
     }
 
     //methods
+
+    public boolean readyForRotate()
+    {
+        if (getCurrentTime() - lastRotateTime > rechargeRotationTime)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * to get current system time with millisecond accuracy.
+     *
+     * @return current system time
+     */
+    private long getCurrentTime()
+    {
+        long time = new Date().getTime();
+        return time;
+    }
+
+    public void rotate(Boolean up, Boolean down, Boolean right, Boolean left){
+        if(readyForRotate()) {
+            double angle = 5 * 0.0174533;
+            if ( (up || down) && !right && !left && tankAngle < Math.PI / 2) {
+                tankAngle += angle; //degree * (1degree to radian) - total value is based on radian
+            }
+
+            if((right || left) && !up && !down && tankAngle != 0){
+                if(tankAngle > 0) {
+                    tankAngle -= angle;
+                }
+                else if(tankAngle < 0){
+                    tankAngle += angle;
+                }
+                if(tankAngle < angle && tankAngle > -1*angle ){
+                    tankAngle = 0;
+                }
+            }
+
+            lastRotateTime = getCurrentTime();
+        }
+    }
+
+    public void setTankAngle(double tankAngle) {
+        this.tankAngle = tankAngle;
+    }
+
+    public double getTankAngle() {
+
+        return tankAngle;
+    }
 
     /**
      * swap gun between missile and machine guns.
