@@ -22,6 +22,8 @@ public class Main
 {
     public static void main(String[] args)
     {
+        //MainMenu menu = new MainMenu();
+
         // Initialize the global thread-pool
         ThreadPool.init();
 //        System.out.println(new Date().getTime());
