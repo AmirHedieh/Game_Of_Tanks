@@ -11,6 +11,7 @@ public class BuriedRobot extends GameObject
     private double minDistance;
     private boolean activated;
     private Tank target;
+    private double angle;
 
     //constructor
     public BuriedRobot(){
@@ -22,6 +23,7 @@ public class BuriedRobot extends GameObject
         super(x, y, ObjectId.BuriedRobot);
         minDistance = 400;
         activated = false;
+        angle = 0;
         setVelX(5);
         setVelY(5);
     }
@@ -36,6 +38,7 @@ public class BuriedRobot extends GameObject
      */
     public void tick(Objects objects) {
         determineTarget(objects);
+        setAngle(calculateAngle(this,target));
         if (activated) { // pass player tank as target
             move(target);
         }
@@ -58,6 +61,21 @@ public class BuriedRobot extends GameObject
         else { //in single player
             target = objects.getPlayers().get(0);
         }
+    }
+
+    /**
+     * calculate angle between 2 objects.
+     * @param object1 starting point
+     * @param object2 second point
+     * @return
+     */
+    private static double calculateAngle(GameObject object1, GameObject object2){
+        double angle = Math.atan( ( object2.getY() - object1.getY() ) / (object2.getX() - object1.getX()));
+//        angle += Math.PI / 2;
+        if(object2.getX() < object1.getX()){
+            angle += Math.PI;
+        }
+        return angle;
     }
 
     /**
@@ -114,5 +132,14 @@ public class BuriedRobot extends GameObject
     public void setActivated(boolean state)
     {
         activated = state;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
+    }
+
+    public double getAngle() {
+
+        return angle;
     }
 }
