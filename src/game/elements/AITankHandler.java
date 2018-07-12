@@ -112,9 +112,7 @@ public class AITankHandler
         }
         else if (target.y < tank.y && (Math.abs(target.y - tank.y) > 205))
         {
-            System.out.println("1");
             if(!Physics.aiTankCheckHardWallsCollisionUp(objects,tank)) {
-                System.out.println("2");
                 tank.setY(tank.getY() - tank.getVelY());
             }
         }
