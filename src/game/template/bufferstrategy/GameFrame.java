@@ -28,10 +28,10 @@ public class GameFrame extends JFrame
 
 //    public static final int GAME_HEIGHT = 520;                  // custom game resolution
 //    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
-    public static final int GAME_HEIGHT = 1000;
-    public static final int GAME_WIDTH = 800;
-//    public static final int GAME_HEIGHT = 1024;
-//    public static final int GAME_WIDTH = 1820;
+//    public static final int GAME_HEIGHT = 1000;
+//    public static final int GAME_WIDTH = 800;
+    public static final int GAME_HEIGHT = 1024;
+    public static final int GAME_WIDTH = 1820;
 
     private BufferStrategy bufferStrategy;
 
@@ -82,8 +82,11 @@ public class GameFrame extends JFrame
         Graphics2D graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
         try
         {
+            graphics.translate(-state.camera.getX(), -state.camera.getY());
             // Do the rendering
             doRendering(graphics, state);
+
+            graphics.translate(state.camera.getX(), state.camera.getY());
         }
         finally
         {
@@ -102,14 +105,14 @@ public class GameFrame extends JFrame
      */
     private void doRendering(Graphics2D g2d, GameState state)
     {
+
         Utility.tankAnimation.runAnimation();
         Utility.buriedRobotAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-//        g2d.translate(-state.camera.getX(), -state.camera.getY());
+
 
         //render map
         state.objects.getMap().render(g2d);
-
 
         //draw bullets
         ArrayList<Bullet> bullets = state.objects.getBullets();
@@ -122,8 +125,6 @@ public class GameFrame extends JFrame
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-//            state.camera.tick(state.objects.getPlayers().get(i));
-
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
 
@@ -275,8 +276,6 @@ public class GameFrame extends JFrame
         g2d.setColor(Color.green);
         g2d.drawString(lightBullets, 40, 135);
         //
-
-//        g2d.translate(state.camera.getX(), state.camera.getY());
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet, Camera camera)

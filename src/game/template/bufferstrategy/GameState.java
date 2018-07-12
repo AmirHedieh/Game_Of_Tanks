@@ -62,38 +62,43 @@ public class GameState
      */
     public void update()
     {
+        camera.tick(objects.getPlayers().get(0));
         //Update the state of all game elements
         //based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         if (keyUP)
         {
-            if (!Physics.checkHardWallsCollisionUp(objects)) {
-                    objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
-                    objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
+            if (!Physics.checkHardWallsCollisionUp(objects))
+            {
+                objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
+                objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyDOWN)
         {
-            if (!Physics.checkHardWallsCollisionDown(objects)) {
-                    objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
-                    objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
+            if (!Physics.checkHardWallsCollisionDown(objects))
+            {
+                objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
+                objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyLEFT)
         {
-            if (!Physics.checkHardWallsCollisionLeft(objects)) {
-                    objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
-                    objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
+            if (!Physics.checkHardWallsCollisionLeft(objects))
+            {
+                objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
+                objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         if (keyRIGHT)
         {
-            if (!Physics.checkHardWallsCollisionRight(objects)) {
-                    objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
-                    objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
+            if (!Physics.checkHardWallsCollisionRight(objects))
+            {
+                objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
+                objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
             }
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
@@ -104,16 +109,19 @@ public class GameState
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
                 objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
-                if(objects.getPlayers().get(0).getSelectedGun() instanceof MissileGun) {
+                if (objects.getPlayers().get(0).getSelectedGun() instanceof MissileGun)
+                {
                     Sound sound = new Sound(Utility.heavyShotSound, false);
                     sound.playSound();
                 }
-                else if(objects.getPlayers().get(0).getSelectedGun() instanceof MachineGun){
+                else if (objects.getPlayers().get(0).getSelectedGun() instanceof MachineGun)
+                {
                     Sound sound = new Sound(Utility.lightShotSound, false);
                     sound.playSound();
                 }
 
-                if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                if (SharedData.getData().playerType.equals(ObjectId.ClientPlayer))
+                {
                     SharedData.getData().clientShot = true;
                     SharedData.getData().clientLastShotBullet = objects.getBullets().get(objects.getBullets().size() - 1); //save last bullet to pass it to server
                 }
@@ -127,7 +135,8 @@ public class GameState
         }
 //        Physics.checkBulletsCollision(objects);
         //things that client side must not do
-        if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
+        if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
+        {
             for (int i = 0; i < objects.getBullets().size(); i++)
             {
                 objects.getBullets().get(i).setX(objects.getBullets().get(i).getX() + Math.cos(objects.getBullets().get(i).getShootDirectionAngle()) * objects.getBullets().get(i).getVelX());
@@ -148,7 +157,7 @@ public class GameState
             aiTankHandler.tick();
             //
         }
-        objects.getPlayers().get(0).rotate(keyUP,keyDOWN,keyRIGHT,keyLEFT);
+        objects.getPlayers().get(0).rotate(keyUP, keyDOWN, keyRIGHT, keyLEFT);
         //
     }
 
