@@ -168,6 +168,10 @@ public class AITankHandler
 
     private void setAngle(AITank tank)
     {
-        tank.setTankAngle(Math.atan((tank.getTarget().getY() - tank.getY()) / (tank.getTarget().getX() - tank.getX())));
+        double angle = Math.atan((tank.getTarget().getY() - tank.getY()) / (tank.getTarget().getX() - tank.getX()));
+        if(tank.getTarget().x > tank.x){
+            angle += Math.PI;
+        }
+        tank.setTankAngle(angle);
     }
 }
