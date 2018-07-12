@@ -316,8 +316,8 @@ public class GameState
             if (e.getButton() == MouseEvent.BUTTON1)
             {
                 // when pressing LEFT CLICK it shoots
-                mouseX = e.getX();
-                mouseY = e.getY();
+                mouseX = e.getX() + camera.getX();
+                mouseY = e.getY() + camera.getY();
                 shoot = true;
             }
 
@@ -348,15 +348,15 @@ public class GameState
         public void mouseDragged(MouseEvent e)
         {
             // maybe user clicks and drags so it must be updated without clicking again.
-            mouseX = e.getX();
-            mouseY = e.getY();
+            mouseX = e.getX() + camera.getX();
+            mouseY = e.getY() + camera.getY();
         }
 
         @Override
         public void mouseMoved(MouseEvent e)
         {
-            mouseX = e.getX();
-            mouseY = e.getY();
+            mouseX = e.getX() + camera.getX();
+            mouseY = e.getY() + camera.getY();
         }
     }
 }
