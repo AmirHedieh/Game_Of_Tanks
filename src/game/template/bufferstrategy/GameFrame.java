@@ -36,6 +36,7 @@ public class GameFrame extends JFrame
     public GameFrame(String title)
     {
         super(title);
+        this.setUndecorated(true);
         if (false) // Full screen mode
         {
             // Disables decorations for this frame.
@@ -189,7 +190,7 @@ public class GameFrame extends JFrame
             tankTrans.rotate(state.objects.getTanks().get(i).getTankAngle(),centerX,centerY);
 
             g2d.setTransform(tankTrans);
-            g2d.drawImage(Utility.turret,
+            g2d.drawImage(Utility.tank,
                     (int) state.objects.getTanks().get(i).getX(), //this is the X upper left corner of the tile
                     (int) state.objects.getTanks().get(i).getY(), //this is the Y upper left corner of the tile
                     null);
@@ -203,7 +204,7 @@ public class GameFrame extends JFrame
            //before
 //            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
             //after
-            //g2d.drawImage(Utility.tmpTurret, null, (int) turrets.get(i).getX(), (int) turrets.get(i).getY());
+            g2d.drawImage(Utility.tmpTurret, null, (int) turrets.get(i).getX(), (int) turrets.get(i).getY());
 
             AffineTransform gunTrans = g2d.getTransform();
             gunTrans.rotate(state.objects.getTurrets().get(i).getGunAngle(),
@@ -211,7 +212,7 @@ public class GameFrame extends JFrame
                     state.objects.getTurrets().get(i).getY() + 50 );
 
             g2d.setTransform(gunTrans);
-            g2d.drawImage(Utility.tutu1,
+            g2d.drawImage(Utility.tmpTurretGun,
                     (int) state.objects.getTurrets().get(i).getX() + 20, //this is the X upper left corner of the tile
                     (int) state.objects.getTurrets().get(i).getY() , //this is the Y upper left corner of the tile
                     null);
@@ -236,6 +237,19 @@ public class GameFrame extends JFrame
                 g2d.setTransform(gameTransform);
             }
         }
+
+        //draw number of bullets
+        g2d.drawImage(Utility.numberOfHeavyBullet, (int) state.camera.getX() + 10, (int) state.camera.getY() + 10, null);
+        String numberOfHeavyBullets = String.valueOf(state.objects.getPlayers().get(0).getMissileGun().getAmmo());
+        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
+        g2d.setColor(Color.green);
+        g2d.drawString(numberOfHeavyBullets, (int) state.camera.getX() + 40, (int) state.camera.getY() + 60);
+
+        g2d.drawImage(Utility.numberOfLightBullet, (int) state.camera.getX() + 10, (int) state.camera.getY() + 85, null);
+        String numberOfLightBullets = String.valueOf(state.objects.getPlayers().get(0).getMachineGun().getAmmo());
+        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
+        g2d.setColor(Color.green);
+        g2d.drawString(numberOfLightBullets, (int) state.camera.getX() + 40, (int) state.camera.getY() + 135);
 //        g2d.translate(state.camera.getX(), state.camera.getY());
     }
 
