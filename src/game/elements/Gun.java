@@ -96,4 +96,8 @@ public abstract class Gun extends GameObject implements Serializable
     public int getDamage() {
         return damage;
     }
+
+    public void setReloadTime(long reloadTime) {
+        this.reloadTime = reloadTime;
+    }
 }
