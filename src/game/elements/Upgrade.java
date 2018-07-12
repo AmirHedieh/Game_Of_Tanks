@@ -65,7 +65,7 @@ public class Upgrade extends GameObject implements Serializable
             }
             else if (id.equals(ObjectId.ShieldUpgrade))
             {
-                //body
+                user.activateShield();
                 activation = false;
             }
         }

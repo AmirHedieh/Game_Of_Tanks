@@ -164,6 +164,7 @@ public class GameState
         }
         objects.getPlayers().get(0).rotate(keyUP, keyDOWN, keyRIGHT, keyLEFT);
         //
+        objects.getPlayers().get(0).checkShieldHeath();
     }
 
     /**
