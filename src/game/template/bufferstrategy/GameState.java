@@ -98,6 +98,7 @@ public class GameState
             Physics.checkMapBounds(objects.getPlayers().get(0));
         }
         //
+
         if (shoot)
         {
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())

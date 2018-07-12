@@ -30,6 +30,8 @@ public class GameFrame extends JFrame
 //    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
     public static final int GAME_HEIGHT = 1000;
     public static final int GAME_WIDTH = 800;
+//    public static final int GAME_HEIGHT = 1024;
+//    public static final int GAME_WIDTH = 1820;
 
     private BufferStrategy bufferStrategy;
 
@@ -243,7 +245,7 @@ public class GameFrame extends JFrame
         //
 
         //draw number of bullets
-        g2d.drawImage(Utility.numberOfHeavyBullet, (int) state.camera.getX() + 10, (int) state.camera.getY() + 10, null);
+        g2d.drawImage(Utility.numberOfHeavyBullet, 10, 10, null);
         String heavyBullets;
         int numberOfHeavyBullets = state.objects.getPlayers().get(0).getMissileGun().getAmmo();
         if (numberOfHeavyBullets / 10 == 0)
@@ -256,9 +258,9 @@ public class GameFrame extends JFrame
         }
         g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
         g2d.setColor(Color.green);
-        g2d.drawString(heavyBullets, (int) state.camera.getX() + 40, (int) state.camera.getY() + 60);
+        g2d.drawString(heavyBullets, 40, 60);
 
-        g2d.drawImage(Utility.numberOfLightBullet, (int) state.camera.getX() + 10, (int) state.camera.getY() + 85, null);
+        g2d.drawImage(Utility.numberOfLightBullet, 10, 85, null);
         String lightBullets;
         int numberOfLightBullets = state.objects.getPlayers().get(0).getMachineGun().getAmmo();
         if (numberOfLightBullets / 10 == 0)
@@ -271,7 +273,7 @@ public class GameFrame extends JFrame
         }
         g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
         g2d.setColor(Color.green);
-        g2d.drawString(lightBullets, (int) state.camera.getX() + 40, (int) state.camera.getY() + 135);
+        g2d.drawString(lightBullets, 40, 135);
         //
 
 //        g2d.translate(state.camera.getX(), state.camera.getY());
