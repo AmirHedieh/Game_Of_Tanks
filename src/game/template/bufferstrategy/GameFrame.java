@@ -100,6 +100,7 @@ public class GameFrame extends JFrame
     private void doRendering(Graphics2D g2d, GameState state)
     {
         Utility.tankAnimation.runAnimation();
+        Utility.buriedRobotAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
 //        g2d.translate(-state.camera.getX(), -state.camera.getY());
 
@@ -224,6 +225,7 @@ public class GameFrame extends JFrame
         {
             if (robots.get(i).isActivated())
             {
+                Utility.buriedRobotAnimation.drawAnimation(g2d, (int) robots.get(i).getX(), (int) robots.get(i).getY(), 0);
                 AffineTransform gunTrans = g2d.getTransform();
                 gunTrans.rotate(state.objects.getRobots().get(i).getAngle(),
                         state.objects.getRobots().get(i).getX() + 50 ,
