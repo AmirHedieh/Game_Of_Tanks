@@ -26,7 +26,7 @@ import javax.swing.*;
 public class GameFrame extends JFrame
 {
 
-//    public static final int GAME_HEIGHT = 520;                  // custom game resolution
+    //    public static final int GAME_HEIGHT = 520;                  // custom game resolution
 //    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 //    public static final int GAME_HEIGHT = 1000;
 //    public static final int GAME_WIDTH = 800;
@@ -116,80 +116,12 @@ public class GameFrame extends JFrame
 
         drawBullets(state, g2d, gameTransform);
 
-        //draw player tank
-        for (int i = 0; i < state.objects.getPlayers().size(); i++)
-        {
-            int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
-            int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
-
-            AffineTransform tankTransform = g2d.getTransform();
-            tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(),centerX,centerY);
-            g2d.setTransform(tankTransform);
-
-            if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyUP())
-            {
-                g2d.drawImage(Utility.tank02,
-                        (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile
-                        (int) state.objects.getPlayers().get(i).getY(), //this is the Y upper left corner of the tile
-                        null);
-            }
-            else
-            {
-                Utility.tankAnimation.drawAnimation(g2d, (int) state.objects.getPlayers().get(i).getX(), (int) state.objects.getPlayers().get(i).getY(), 0);
-            }
-            g2d.setTransform(gameTransform);
-            //draw the Gun of the Player Tank and handle its rotation
-            if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
-            {
-                AffineTransform gunTransform = g2d.getTransform();
-                //we know that atan2 return radian :)
-                if(i == 0) {
-                    double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-                    gunTransform.rotate(playerGunAngle, centerX, centerY);
-                    state.objects.getPlayers().get(0).setGunAngle(playerGunAngle); //set angle in tank info
-                }
-                else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && i == 1){
-                    gunTransform.rotate(state.objects.getPlayers().get(1).getGunAngle(), centerX, centerY);
-                }
-                g2d.setTransform(gunTransform);
-                g2d.drawImage(Utility.gun01,
-                        (int) state.objects.getPlayers().get(i).getX() + 18,
-                        (int) state.objects.getPlayers().get(i).getY() + 5,
-                        null);
-            }
-            else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun))
-            {
-                AffineTransform gunTransform = g2d.getTransform();
-                if(i == 0) {
-                    double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
-                    gunTransform.rotate(playerGunAngle, centerX, centerY);
-                    state.objects.getPlayers().get(0).setGunAngle(playerGunAngle); //set angle in tank info
-                }
-                else if(i == 1){
-                    gunTransform.rotate(state.objects.getPlayers().get(1).getGunAngle(), centerX, centerY);
-                }
-                g2d.setTransform(gunTransform);
-                g2d.drawImage(Utility.gun02,
-                        (int) state.objects.getPlayers().get(i).getX() + 18,
-                        (int) state.objects.getPlayers().get(i).getY(),
-                        null);
-            }
-            g2d.setTransform(gameTransform);
-        }
-        //
-
+        drawPlayers(state, g2d, gameTransform);
         drawAITanks(state, g2d, gameTransform);
         drawTurrets(state, g2d, gameTransform);
         drawBuriedRobots(state, g2d, gameTransform);
+        drawUpgrades(state, g2d);
 
-        //
-
-        for(int i = 0 ; i < state.objects.getUpgrades().size() ; i++){
-            if(state.objects.getUpgrades().get(i).getActivation()) {
-                g2d.setColor(Color.CYAN);
-                g2d.fillRect((int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getX(), 100, 100);
-            }
-        }
 
     }
 
@@ -281,8 +213,8 @@ public class GameFrame extends JFrame
             {
                 AffineTransform gunTrans = g2d.getTransform();
                 gunTrans.rotate(state.objects.getRobots().get(i).getAngle(),
-                        state.objects.getRobots().get(i).getX() + 50 ,
-                        state.objects.getRobots().get(i).getY() + 50 );
+                        state.objects.getRobots().get(i).getX() + 50,
+                        state.objects.getRobots().get(i).getY() + 50);
 
                 g2d.setTransform(gunTrans);
                 Utility.buriedRobotAnimation.drawAnimation(g2d, (int) robots.get(i).getX(), (int) robots.get(i).getY(), 0);
@@ -302,7 +234,7 @@ public class GameFrame extends JFrame
             int centerY = (int) state.objects.getTanks().get(i).getY() + state.objects.getTanks().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
 
             AffineTransform tankTrans = g2d.getTransform();
-            tankTrans.rotate(state.objects.getTanks().get(i).getTankAngle(),centerX,centerY);
+            tankTrans.rotate(state.objects.getTanks().get(i).getTankAngle(), centerX, centerY);
             g2d.setTransform(tankTrans);
 
             g2d.drawImage(Utility.AITank,
@@ -321,22 +253,109 @@ public class GameFrame extends JFrame
         for (int i = 0; i < turrets.size(); i++)
         {
             //before
-        //            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+            //            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
             //after
             g2d.drawImage(Utility.tmpTurret, null, (int) turrets.get(i).getX(), (int) turrets.get(i).getY());
 
             AffineTransform gunTrans = g2d.getTransform();
             gunTrans.rotate(state.objects.getTurrets().get(i).getGunAngle(),
-                    state.objects.getTurrets().get(i).getX() + 50 ,
-                    state.objects.getTurrets().get(i).getY() + 50 );
+                    state.objects.getTurrets().get(i).getX() + 50,
+                    state.objects.getTurrets().get(i).getY() + 50);
 
             g2d.setTransform(gunTrans);
             g2d.drawImage(Utility.tmpTurretGun,
                     (int) state.objects.getTurrets().get(i).getX() + 20, //this is the X upper left corner of the tile
-                    (int) state.objects.getTurrets().get(i).getY() , //this is the Y upper left corner of the tile
+                    (int) state.objects.getTurrets().get(i).getY(), //this is the Y upper left corner of the tile
                     null);
             g2d.setTransform(gameTransform);
         }
         //
+    }
+
+    private void drawPlayers(GameState state, Graphics2D g2d, AffineTransform gameTransform)
+    {
+        //draw player tank
+        for (int i = 0; i < state.objects.getPlayers().size(); i++)
+        {
+            int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
+            int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
+
+            AffineTransform tankTransform = g2d.getTransform();
+            tankTransform.rotate(state.objects.getPlayers().get(i).getTankAngle(), centerX, centerY);
+            g2d.setTransform(tankTransform);
+
+            if (!state.isKeyDOWN() & !state.isKeyLEFT() & !state.isKeyRIGHT() & !state.isKeyUP())
+            {
+                g2d.drawImage(Utility.tank02,
+                        (int) state.objects.getPlayers().get(i).getX(), //this is the X upper left corner of the tile
+                        (int) state.objects.getPlayers().get(i).getY(), //this is the Y upper left corner of the tile
+                        null);
+            }
+            else
+            {
+                Utility.tankAnimation.drawAnimation(g2d, (int) state.objects.getPlayers().get(i).getX(), (int) state.objects.getPlayers().get(i).getY(), 0);
+            }
+            g2d.setTransform(gameTransform);
+            //draw the Gun of the Player Tank and handle its rotation
+            if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
+            {
+                AffineTransform gunTransform = g2d.getTransform();
+                //we know that atan2 return radian :)
+                if (i == 0)
+                {
+                    double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+                    gunTransform.rotate(playerGunAngle, centerX, centerY);
+                    state.objects.getPlayers().get(0).setGunAngle(playerGunAngle); //set angle in tank info
+                }
+                else if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && i == 1)
+                {
+                    gunTransform.rotate(state.objects.getPlayers().get(1).getGunAngle(), centerX, centerY);
+                }
+                g2d.setTransform(gunTransform);
+                g2d.drawImage(Utility.gun01,
+                        (int) state.objects.getPlayers().get(i).getX() + 18,
+                        (int) state.objects.getPlayers().get(i).getY() + 5,
+                        null);
+            }
+            else if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MachineGun))
+            {
+                AffineTransform gunTransform = g2d.getTransform();
+                if (i == 0)
+                {
+                    double playerGunAngle = Math.atan2((state.getMouseY() - centerY), (state.getMouseX() - centerX));
+                    gunTransform.rotate(playerGunAngle, centerX, centerY);
+                    state.objects.getPlayers().get(0).setGunAngle(playerGunAngle); //set angle in tank info
+                }
+                else if (i == 1)
+                {
+                    gunTransform.rotate(state.objects.getPlayers().get(1).getGunAngle(), centerX, centerY);
+                }
+                g2d.setTransform(gunTransform);
+                g2d.drawImage(Utility.gun02,
+                        (int) state.objects.getPlayers().get(i).getX() + 18,
+                        (int) state.objects.getPlayers().get(i).getY(),
+                        null);
+            }
+            g2d.setTransform(gameTransform);
+        }
+        //
+    }
+
+    private void drawUpgrades(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getUpgrades().size(); i++)
+        {
+            if (state.objects.getUpgrades().get(i).getActivation())
+            {
+                if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.MissileGunUpgrade))
+                {
+                    g2d.drawImage(Utility.MissileGunUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                }
+                else if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.MachineGunUpgrade))
+                {
+                    g2d.drawImage(Utility.MachineGunUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                }
+            }
+        }
     }
 }

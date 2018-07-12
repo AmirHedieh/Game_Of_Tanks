@@ -57,10 +57,14 @@ public class Upgrade extends GameObject implements Serializable
                 user.setHealth(user.health + 100);
                 activation = false;
             }
-            else if (id.equals(ObjectId.AmmoUpgrade))
+            else if (id.equals(ObjectId.MachineGunUpgrade))
+            {
+                user.getMachineGun().setAmmo(user.getMachineGun().ammo + 15);
+                activation = false;
+            }
+            else if (id.equals(ObjectId.MissileGunUpgrade))
             {
                 user.getMissileGun().setAmmo(user.getMissileGun().ammo + 15);
-                user.getMachineGun().setAmmo(user.getMachineGun().ammo + 15);
                 activation = false;
             }
             else if (id.equals(ObjectId.ShieldUpgrade))
