@@ -1,9 +1,6 @@
 package game.template.bufferstrategy;
 
-import game.elements.Bullet;
-import game.elements.BuriedRobot;
-import game.elements.GameObject;
-import game.elements.Objects;
+import game.elements.*;
 
 import java.util.Iterator;
 
@@ -17,6 +14,51 @@ public class Physics
             {
                 if (objects.getPlayers().get(0).getY() > objects.getMap().getHardWall().get(i).getY())
                 {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean aiTankCheckHardWallsCollisionUp(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getY() > objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean aiTankCheckHardWallsCollisionDown(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getY() < objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean aiTankCheckHardWallsCollisionRight(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getX() < objects.getMap().getHardWall().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean aiTankCheckHardWallsCollisionLeft(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getX() > objects.getMap().getHardWall().get(i).getX()) {
                     return true;
                 }
             }

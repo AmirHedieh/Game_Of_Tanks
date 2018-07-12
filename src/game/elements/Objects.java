@@ -50,6 +50,8 @@ public class Objects implements Serializable
         {
             players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank
         }
+        AITank tank = new AITank(1150,6400,100,ObjectId.AITank,new MissileGun());
+        tanks.add(tank);
         //upgrade init
         Upgrade upgrade1 = new Upgrade(600, 600, this, ObjectId.DamageUpgrade);
         upgrade1.setActivation(true);
