@@ -211,7 +211,7 @@ public class GameFrame extends JFrame
                     state.objects.getTurrets().get(i).getY() + 50 );
 
             g2d.setTransform(gunTrans);
-            g2d.drawImage(Utility.tutu,
+            g2d.drawImage(Utility.tutu1,
                     (int) state.objects.getTurrets().get(i).getX() + 20, //this is the X upper left corner of the tile
                     (int) state.objects.getTurrets().get(i).getY() , //this is the Y upper left corner of the tile
                     null);
