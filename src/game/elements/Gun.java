@@ -12,6 +12,7 @@ import java.util.Date;
 public abstract class Gun extends GameObject implements Serializable
 {
     //fields
+    protected int damage;
     protected int ammo;
     protected long lastShootTime;
     protected long reloadTime;
@@ -84,5 +85,13 @@ public abstract class Gun extends GameObject implements Serializable
     public int getAmmo()
     {
         return ammo;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 }

@@ -296,10 +296,9 @@ public class Tank extends GameObject implements Serializable
 
     /**
      * when tank dies and its upgrade field is not null, this method get called
-     * and add tank's upgrade to objects upgrades.
-     * @param objects objects of the game
+     * and upgrade gets activated.
      */
-    public void releaseUpgrade(Objects objects){
-        objects.getUpgrades().add(upgrade);
+    public void releaseUpgrade(){
+        upgrade.setActivated(true);
     }
 }

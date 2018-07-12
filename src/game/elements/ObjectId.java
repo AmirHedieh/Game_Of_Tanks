@@ -19,5 +19,9 @@ public enum ObjectId
     ClientPlayer,
     SinglePlayer,
     Alone,
-    TwoPlayer;
+    TwoPlayer,
+    DamageUpgrade,
+    AmmoUpgrade,
+    HealthUpgrade,
+    ShieldUpgrade;
 }

@@ -30,6 +30,7 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
+        upgrades = new ArrayList<>();
         map = new Map();
     }
 
@@ -48,7 +49,7 @@ public class Objects implements Serializable
         }
 
         // Turrets initialization
-        Turret turret = new Turret(400, 400, players,ObjectId.MachineGun);
+        Turret turret = new Turret(600, 400, players,ObjectId.MachineGun);
         turrets.add(turret);
 
         //AI tanks initialization
@@ -58,6 +59,11 @@ public class Objects implements Serializable
         //Buried Robots initialization
         BuriedRobot robot1 = new BuriedRobot(700, 700);
         robots.add(robot1);
+
+        //upgrade init
+        Upgrade upgrade1 = new Upgrade(600,600,this,ObjectId.DamageUpgrade);
+        upgrade1.setActivated(true);
+        upgrades.add(upgrade1);
     }
 
     /**
