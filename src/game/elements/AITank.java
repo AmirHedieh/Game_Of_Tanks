@@ -23,6 +23,7 @@ public class AITank extends Tank implements Serializable
         {
             selectedGun = machineGun;
         }
+        selectedGun.setAmmo(1000);
         setVelX(8);
         setVelY(8);
         activated = false;

@@ -6,21 +6,9 @@ import java.util.Iterator;
 
 public class Physics
 {
-    public static boolean checkHardWallsCollisionUp(Objects objects)
-    {
-        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
-        {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
-            {
-                if (objects.getPlayers().get(0).getY() > objects.getMap().getHardWall().get(i).getY())
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
+    /////////////////////////////
+    //////AI Tanks collision///////
+    /////////////////////////////
     public static boolean aiTankCheckHardWallsCollisionUp(Objects objects , AITank tank){
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
             if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
@@ -122,6 +110,38 @@ public class Physics
         return false;
     }
 
+    /////////////////////////////
+    //////player collision///////
+    /////////////////////////////
+    public static boolean checkHardWallsCollisionUp(Objects objects)
+    {
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
+        {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            {
+                if (objects.getPlayers().get(0).getY() > objects.getMap().getHardWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() > objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() > objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static boolean checkHardWallsCollisionDown(Objects objects)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
@@ -130,6 +150,20 @@ public class Physics
             {
                 if (objects.getPlayers().get(0).getY() < objects.getMap().getHardWall().get(i).getY())
                 {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() < objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() < objects.getTanks().get(i).getY()) {
                     return true;
                 }
             }
@@ -149,6 +183,20 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() < objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() < objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -160,6 +208,20 @@ public class Physics
             {
                 if (objects.getPlayers().get(0).getX() > objects.getMap().getHardWall().get(i).getX())
                 {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() > objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() > objects.getTanks().get(i).getX()) {
                     return true;
                 }
             }
