@@ -1,6 +1,5 @@
 package game.elements;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -28,6 +27,9 @@ public class Tank extends GameObject implements Serializable
 
     private Upgrade upgrade;
 
+    private Boolean hasShield;
+    private int momentHealth;
+
     protected Gun selectedGun;
     protected MissileGun missileGun;
     protected MachineGun machineGun;
@@ -50,6 +52,8 @@ public class Tank extends GameObject implements Serializable
         this.health = health;
 
         upgrade = null;
+
+        hasShield = false;
 
         lastRotateTime = getCurrentTime();
         rechargeRotationTime = 10;
@@ -191,6 +195,26 @@ public class Tank extends GameObject implements Serializable
      */
     public double getTankAngle() {
         return tankAngle;
+    }
+
+    /**
+     * make a shield around the tank that can diminish some damage before
+     * getting dead.
+     */
+    public void activateShield(){
+        health += 100;
+        hasShield = true;
+        momentHealth = health;
+    }
+
+    /**
+     * if shield get a specified amount of damage it gets dead and disabled.
+     * this checks to disable that or not;
+     */
+    public void checkShieldHeath(){
+        if(health - momentHealth < 0){
+            hasShield = false;
+        }
     }
 
     /**

@@ -61,7 +61,7 @@ public class Objects implements Serializable
         robots.add(robot1);
 
         //upgrade init
-        Upgrade upgrade1 = new Upgrade(600,600,this,ObjectId.DamageUpgrade);
+        Upgrade upgrade1 = new Upgrade(600,600,this,ObjectId.ShieldUpgrade);
         upgrade1.setActivation(true);
         upgrades.add(upgrade1);
     }
