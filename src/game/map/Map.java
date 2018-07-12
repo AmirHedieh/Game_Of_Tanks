@@ -20,9 +20,8 @@ public class Map
     private ArrayList<Soil> soil = new ArrayList<>();
 
 
-    public Map()
+    public Map(Objects objects)
     {
-//        mapImage = Utility.mapRotated;
         mapImage = Utility.mapOriginal;
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
@@ -52,6 +51,26 @@ public class Map
                 else if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
                 {
                     teazel.add(new Teazel(xx * 100, yy * 100));
+                }
+                /*else if ((red == 208) && (green == 135) && (blue == 190)) //player
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    objects.getPlayers().add(new Tank(xx * 100, yy * 100, 100, ObjectId.Player));
+                }*/
+                else if ((red == 0) && (green == 0) && (blue == 0)) //buriedRobot
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    objects.getRobots().add(new BuriedRobot(xx * 100, yy * 100));
+                }
+                else if ((red == 166) && (green == 166) && (blue == 76)) //turret
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    objects.getTurrets().add(new Turret(xx * 100, yy * 100, objects.getPlayers(), ObjectId.MachineGun));
+                }
+                else if ((red == 255) && (green == 114) && (blue == 0)) //AITank
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    objects.getTanks().add(new AITank(xx * 100, yy * 100, 100, ObjectId.AITank, new MachineGun()));
                 }
             }
         }

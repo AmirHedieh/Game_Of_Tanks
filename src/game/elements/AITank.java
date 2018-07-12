@@ -7,16 +7,20 @@ import java.io.Serializable;
  * by last parameter in constructor. each tank use MachineGun or MissileGun, not both.
  * its speed is lower than player tank.
  */
-public class AITank extends Tank implements Serializable{
+public class AITank extends Tank implements Serializable
+{
     private boolean activated;
     private Tank target;
 
-    public AITank(double x, double y, int health, ObjectId id,Gun gun){
-        super(x,y,health,id);
-        if(gun instanceof MissileGun){
+    public AITank(double x, double y, int health, ObjectId id, Gun gun)
+    {
+        super(x, y, health, id);
+        if (gun instanceof MissileGun)
+        {
             selectedGun = missileGun;
         }
-        else if(gun instanceof MachineGun){
+        else if (gun instanceof MachineGun)
+        {
             selectedGun = machineGun;
         }
         setVelX(8);
@@ -26,33 +30,41 @@ public class AITank extends Tank implements Serializable{
 
     /**
      * if tank is playing or its sleep(waiting to be invoked).
+     *
      * @return activated or not
      */
-    public boolean isActivated() {
+    public boolean isActivated()
+    {
         return activated;
     }
 
     /**
      * determine that tank is On or Off.
+     *
      * @param activated true if On - false if Off
      */
-    public void setActivated(boolean activated) {
+    public void setActivated(boolean activated)
+    {
         this.activated = activated;
     }
 
     /**
      * set a target for AI tank to move and shoot at.
+     *
      * @param target the tank that must be target of this
      */
-    public void setTarget(Tank target){
+    public void setTarget(Tank target)
+    {
         this.target = target;
     }
 
     /**
      * the tank that AI tank is moving and shooting at(target)
+     *
      * @return
      */
-    public Tank getTarget(){
+    public Tank getTarget()
+    {
         return target;
     }
 }

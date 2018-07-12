@@ -1,5 +1,6 @@
 package game.multiplayer;
 
-public class ClientUpdater {
+public class ClientUpdater
+{
 
 }

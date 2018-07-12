@@ -11,9 +11,11 @@ public class MissileGun extends Gun implements Serializable
     //fields
 
     //constructor
-    public MissileGun(){
+    public MissileGun()
+    {
 
     }
+
     public MissileGun(double x, double y)
     { //todo : try not to pass tank from subclass to father
         super(x, y, ObjectId.MissileGun, "src/resource/tankGun01.png");

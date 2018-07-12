@@ -17,9 +17,11 @@ public abstract class Gun extends GameObject implements Serializable
     protected long reloadTime;
 
     //constructor
-    public Gun(){
+    public Gun()
+    {
 
     }
+
     public Gun(double x, double y, ObjectId id, String path)
     {
         super(x, y, id);

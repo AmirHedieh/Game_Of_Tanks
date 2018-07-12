@@ -55,6 +55,8 @@ public class MainMenu
         menuFrame.setUndecorated(true);
         menuFrame.setLocationRelativeTo(null);
         menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        menuFrame.setExtendedState(menuFrame.MAXIMIZED_BOTH);
+
         mainPanel = new JPanel(null);
         mainPanel.setBackground(Color.BLACK);
 

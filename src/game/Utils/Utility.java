@@ -22,7 +22,6 @@ public class Utility
     public static BufferedImage heavyBullet = loadBufferedImage(resourceDirectory + "bullet/heavyBullet.png");
     public static BufferedImage lightBullet = loadBufferedImage(resourceDirectory + "bullet/lightBullet.png");
     public static BufferedImage mapOriginal = loadBufferedImage(resourceDirectory + "map/mapOriginal.png");
-    public static BufferedImage mapRotated = loadBufferedImage(resourceDirectory + "map/mapRotated.png");
 
     public static ImageIcon startup = loadImageIcon(resourceDirectory + "startup.png");
 
@@ -39,7 +38,8 @@ public class Utility
     public static BufferedImage soil = loadBufferedImage(resourceDirectory + "map/soil.png");
     public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/hardWall.png");
 
-    public static BufferedImage tank = loadBufferedImage(resourceDirectory + "tank/tank01.png");
+    public static BufferedImage AITank = loadBufferedImage(resourceDirectory + "tank/AITank.png");
+    public static BufferedImage AITankGun = loadBufferedImage(resourceDirectory + "tank/AITank.png");
 
     public static BufferedImage tmpTurret = loadBufferedImage(resourceDirectory + "turret/turret.png"); //tmp turret picture
     public static BufferedImage tmpTurretGun = loadBufferedImage(resourceDirectory + "turret/tankGun01.png"); // tmp turret gun picture
@@ -49,7 +49,7 @@ public class Utility
 
     public static File backgroundSound = new File(resourceDirectory + "sounds/backgroundSound.wav");
     public static File heavyShotSound = new File(resourceDirectory + "sounds/HSL.wav");
-    public static File lightShotSound = new File(resourceDirectory+ "sounds/LSS.wav");
+    public static File lightShotSound = new File(resourceDirectory + "sounds/LSS.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {
@@ -86,11 +86,13 @@ public class Utility
 
     /**
      * calculate the distance between two object(tanks here).
+     *
      * @param object1 obj num1
      * @param object2 obj num2
      * @return distance between Ai tank and player tank
      */
-    public static double calculateDistance(GameObject object1, GameObject object2){
+    public static double calculateDistance(GameObject object1, GameObject object2)
+    {
         double distance = Math.sqrt(Math.pow(Math.abs(object1.getX() - object2.getX()), 2) + Math.pow(Math.abs(object1.getY() - object2.getY()), 2));
         return distance;
     }

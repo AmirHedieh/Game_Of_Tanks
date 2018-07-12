@@ -1,5 +1,6 @@
 package game.elements;
 
-public class Upgrade {
+public class Upgrade
+{
 
 }

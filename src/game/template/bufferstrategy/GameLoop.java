@@ -39,7 +39,7 @@ public class GameLoop implements Runnable
 
     private GameFrame canvas;
     private GameState state;
-    private ObjectId gameType,playerType;
+    private ObjectId gameType, playerType;
     private Server server;
     private long sentTime; // gap between sending 2 data to client
     private Client client;
@@ -59,11 +59,13 @@ public class GameLoop implements Runnable
         canvas.addKeyListener(state.getKeyListener());
         canvas.addMouseListener(state.getMouseListener());
         canvas.addMouseMotionListener(state.getMouseMotionListener());
-        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
+        {
             server = new Server(state.objects);
             sentTime = new Date().getTime();
         }
-        else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+        else if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ClientPlayer))
+        {
             client = new Client(state.objects);
         }
     }
@@ -78,12 +80,15 @@ public class GameLoop implements Runnable
             {
                 long start = System.currentTimeMillis();
                 //
-                if(SharedData.getData().gameType.equals(ObjectId.SinglePlayer)) {
+                if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer))
+                {
                     state.update();
                     canvas.render(state);
                 }
-                else if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
-                    if(SharedData.getData().playerType.equals(ObjectId.ServerPlayer)){
+                else if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
+                {
+                    if (SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
+                    {
                         state.update();
                         canvas.render(state);
                         server.tick(state.objects);
@@ -95,7 +100,8 @@ public class GameLoop implements Runnable
 //
 //                        }
                     }
-                    else if(SharedData.getData().playerType.equals(ObjectId.ClientPlayer)){
+                    else if (SharedData.getData().playerType.equals(ObjectId.ClientPlayer))
+                    {
                         client.tick();
                         state.update();
                         canvas.render(state);

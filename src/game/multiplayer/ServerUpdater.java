@@ -1,5 +1,6 @@
 package game.multiplayer;
 
-public class ServerUpdater {
+public class ServerUpdater
+{
 
 }

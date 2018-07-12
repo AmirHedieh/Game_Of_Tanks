@@ -30,9 +30,11 @@ public class Tank extends GameObject implements Serializable
     protected MachineGun machineGun;
 
     //constructor
-    public Tank(){
+    public Tank()
+    {
 
     }
+
     public Tank(double x, double y, int health, ObjectId id)
     { // gun must be added manually after making tank
         super(x, y, id);
@@ -58,6 +60,7 @@ public class Tank extends GameObject implements Serializable
     /**
      * prevents tank from rotating so fast. it checks whether enough time has been passed from
      * last rotate time or not.
+     *
      * @return
      */
     public boolean readyForRotate()
@@ -87,64 +90,95 @@ public class Tank extends GameObject implements Serializable
     /**
      * when tank whats to move, its direction must be set to where its heading.this set suitable value for tank direction angle
      * based on which direction its heading.
-     * @param up is tank moving up
-     * @param down is tank moving down
+     *
+     * @param up    is tank moving up
+     * @param down  is tank moving down
      * @param right is tank moving right
-     * @param left is tank moving left
+     * @param left  is tank moving left
      */
-    public void rotate(Boolean up, Boolean down, Boolean right, Boolean left){
-        if(readyForRotate()) {
+    public void rotate(Boolean up, Boolean down, Boolean right, Boolean left)
+    {
+        if (readyForRotate())
+        {
             double angle = 7 * 0.0174533;
-            if ( up && !right && !left && tankAngle < Math.PI / 2 && tankAngle!= -Math.PI / 2) {
+            if (up && !right && !left && tankAngle < Math.PI / 2 && tankAngle != -Math.PI / 2)
+            {
                 tankAngle += angle; //degree * (1degree to radian) - total value is based on radian
-                if(tankAngle < angle + Math.PI / 2 && tankAngle > + Math.PI / 2 - angle ){
+                if (tankAngle < angle + Math.PI / 2 && tankAngle > +Math.PI / 2 - angle)
+                {
                     tankAngle = Math.PI / 2;
                 }
             }
 
-            if ( down && !right && !left && tankAngle > -Math.PI / 2 && tankAngle != Math.PI / 2) {
+            if (down && !right && !left && tankAngle > -Math.PI / 2 && tankAngle != Math.PI / 2)
+            {
                 tankAngle -= angle; //degree * (1degree to radian) - total value is based on radian
-                if(tankAngle > -Math.PI / 2 - angle && tankAngle < -Math.PI / 2 + angle ){
+                if (tankAngle > -Math.PI / 2 - angle && tankAngle < -Math.PI / 2 + angle)
+                {
                     tankAngle = -Math.PI / 2;
                 }
             }
 
-            if((right || left) && !up && !down && tankAngle != 0){
-                if(tankAngle > 0) {
+            if ((right || left) && !up && !down && tankAngle != 0)
+            {
+                if (tankAngle > 0)
+                {
                     tankAngle -= angle;
                 }
-                else if(tankAngle < 0){
+                else if (tankAngle < 0)
+                {
                     tankAngle += angle;
                 }
-                if(tankAngle < angle && tankAngle > -1*angle ){
+                if (tankAngle < angle && tankAngle > -1 * angle)
+                {
                     tankAngle = 0;
                 }
             }
 
             //two direction at same time
-            if(up && right && !left && !down){
-                if(tankAngle < -Math.PI / 4 - angle)
-                tankAngle += angle;
-                else if(tankAngle > -Math.PI / 4 + angle)
-                    tankAngle -= angle;
-            }
-            else if(up && left && !right && !down){
-                if(tankAngle < Math.PI / 4 - angle)
+            if (up && right && !left && !down)
+            {
+                if (tankAngle < -Math.PI / 4 - angle)
+                {
                     tankAngle += angle;
-                else if(tankAngle > Math.PI / 4 + angle)
+                }
+                else if (tankAngle > -Math.PI / 4 + angle)
+                {
                     tankAngle -= angle;
+                }
             }
-            else if(down && left && !right && !up){
-                if(tankAngle < -Math.PI / 4 - angle)
+            else if (up && left && !right && !down)
+            {
+                if (tankAngle < Math.PI / 4 - angle)
+                {
                     tankAngle += angle;
-                else if(tankAngle > -Math.PI / 4 + angle)
+                }
+                else if (tankAngle > Math.PI / 4 + angle)
+                {
                     tankAngle -= angle;
+                }
             }
-            else if(down && right && !left && !up){
-                if(tankAngle < Math.PI / 4 - angle)
+            else if (down && left && !right && !up)
+            {
+                if (tankAngle < -Math.PI / 4 - angle)
+                {
                     tankAngle += angle;
-                else if(tankAngle > Math.PI / 4 + angle)
+                }
+                else if (tankAngle > -Math.PI / 4 + angle)
+                {
                     tankAngle -= angle;
+                }
+            }
+            else if (down && right && !left && !up)
+            {
+                if (tankAngle < Math.PI / 4 - angle)
+                {
+                    tankAngle += angle;
+                }
+                else if (tankAngle > Math.PI / 4 + angle)
+                {
+                    tankAngle -= angle;
+                }
             }
             lastRotateTime = getCurrentTime();
         }
@@ -152,17 +186,21 @@ public class Tank extends GameObject implements Serializable
 
     /**
      * set an angle for tank to rotate
+     *
      * @param tankAngle
      */
-    public void setTankAngle(double tankAngle) {
+    public void setTankAngle(double tankAngle)
+    {
         this.tankAngle = tankAngle;
     }
 
     /**
      * the angle that tank is currently there.
+     *
      * @return angle which is direction of tank
      */
-    public double getTankAngle() {
+    public double getTankAngle()
+    {
         return tankAngle;
     }
 
@@ -183,11 +221,14 @@ public class Tank extends GameObject implements Serializable
 
     /**
      * set an angle that gun must be rotated
+     *
      * @param angle
      */
-    public void setGunAngle(double angle){
+    public void setGunAngle(double angle)
+    {
         gunAngle = angle;
     }
+
     /**
      * set amount of health for tank.
      *
@@ -261,9 +302,11 @@ public class Tank extends GameObject implements Serializable
 
     /**
      * angle that gun must be rotated
+     *
      * @return
      */
-    public double getGunAngle() {
+    public double getGunAngle()
+    {
         return gunAngle;
     }
 }

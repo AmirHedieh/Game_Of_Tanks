@@ -31,16 +31,20 @@ public class Turret extends GameObject implements Serializable
     private double rangeOfView;
 
     //constructor
-    public Turret(){
+    public Turret()
+    {
 
     }
+
     public Turret(double x, double y, ArrayList<Tank> targets, ObjectId type)
     {
         super(x, y, ObjectId.Turret);
-        if(type.equals(ObjectId.MachineGun)) {
+        if (type.equals(ObjectId.MachineGun))
+        {
             gun = new MachineGun(this.x, this.y);
         }
-        else if(type.equals(ObjectId.MissileGun)){
+        else if (type.equals(ObjectId.MissileGun))
+        {
             gun = new MissileGun(this.x, this.y);
         }
         gun.setAmmo(1000);
@@ -57,12 +61,16 @@ public class Turret extends GameObject implements Serializable
 
     /**
      * if more than 1 player is playing then turret will shoot the player which is closer to turret
+     *
      * @param tanks
      */
-    public void determineTarget(ArrayList<Tank> tanks){
-        for(int i = 0 ; i < tanks.size() ; i++){
+    public void determineTarget(ArrayList<Tank> tanks)
+    {
+        for (int i = 0; i < tanks.size(); i++)
+        {
             double distance = calculateDistance(tanks.get(i));
-            if(distance < calculateDistance(target)){
+            if (distance < calculateDistance(target))
+            {
                 target = tanks.get(i);
             }
         }
@@ -72,16 +80,18 @@ public class Turret extends GameObject implements Serializable
     /**
      * process of a turret during each loop including checking area,
      * shooting target, ... .
+     *
      * @param objects objects of the game
      */
     public void tick(Objects objects)
     {
-        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
+        {
             determineTarget(targets);
         }
         if (checkArea() == true)
         {
-            setGunAngle(calculateAngle(this,target)); // angle between turret and tank
+            setGunAngle(calculateAngle(this, target)); // angle between turret and tank
             if (gun.readyForShoot())
             {
                 objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
@@ -106,10 +116,12 @@ public class Turret extends GameObject implements Serializable
 
     /**
      * calculate the distance between turret and target(player tank).
+     *
      * @param tank target
      * @return distance between turret and player tank
      */
-    private double calculateDistance(Tank tank){
+    private double calculateDistance(Tank tank)
+    {
         double distance = Math.sqrt(Math.pow(Math.abs(this.x - tank.x), 2) + Math.pow(Math.abs(this.y - tank.y), 2));
         return distance;
     }
@@ -124,24 +136,29 @@ public class Turret extends GameObject implements Serializable
         this.target = target;
     }
 
-    public void setGunAngle(double gunAngle) {
+    public void setGunAngle(double gunAngle)
+    {
         this.gunAngle = gunAngle;
     }
 
-    public double getGunAngle() {
+    public double getGunAngle()
+    {
 
         return gunAngle;
     }
 
     /**
      * calculate angle between 2 objects.
+     *
      * @param object1 starting point
      * @param object2 second point
      * @return
      */
-    private static double calculateAngle(GameObject object1, GameObject object2){
-        double angle = Math.atan( ( object2.getY() - object1.getY() ) / (object2.getX() - object1.getX()));
-        if(object2.getX() < object1.getX()){
+    private static double calculateAngle(GameObject object1, GameObject object2)
+    {
+        double angle = Math.atan((object2.getY() - object1.getY()) / (object2.getX() - object1.getX()));
+        if (object2.getX() < object1.getX())
+        {
             angle += Math.PI;
         }
         return angle;

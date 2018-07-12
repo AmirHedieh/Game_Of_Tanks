@@ -8,9 +8,11 @@ public class HeavyBullet extends Bullet
 {
 
     //constructor
-    public HeavyBullet(){
+    public HeavyBullet()
+    {
 
     }
+
     public HeavyBullet(double startX, double startY, double mouseX, double mouseY)
     {
         super(startX, startY, mouseX, mouseY, ObjectId.HeavyBullet);

@@ -2,6 +2,7 @@ package game.elements;
 
 import game.Utils.SharedData;
 import game.map.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -29,7 +30,8 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
-        map = new Map();
+        players.add(new Tank(1150, 6300, 100, ObjectId.Player));
+        map = new Map(this);
     }
 
     //methods
@@ -40,33 +42,24 @@ public class Objects implements Serializable
     public void init()
     {
         //Player tank initialization
-        players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
+//        players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
 //        players.add(new Tank(1150, 6300, 100, ObjectId.Player)); // making player's tank
-        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
+        {
             players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank
         }
-
-        // Turrets initialization
-        Turret turret = new Turret(400, 400, players,ObjectId.MachineGun);
-        turrets.add(turret);
-
-        //AI tanks initialization
-//        AITank tank1 = new AITank(400,400,100,ObjectId.AITank,new MachineGun());
-//        tanks.add(tank1);
-
-        //Buried Robots initialization
-        BuriedRobot robot1 = new BuriedRobot(700, 700);
-        robots.add(robot1);
     }
 
     /**
      * add a new player tank.
+     *
      * @param tank
      */
     public void addPlayerTank(Tank tank)
     {
         players.add(tank);
     }
+
     /**
      * add a tank to tanks ArrayList which contains all available tanks in game
      *
@@ -217,10 +210,12 @@ public class Objects implements Serializable
         return robots;
     }
 
-    public void replacePlayerTank(Tank tank , int number){
+    public void replacePlayerTank(Tank tank, int number)
+    {
         players.remove(players.get(number));
         players.add(tank);
     }
+
     public void setPlayers(ArrayList<Tank> players)
     {
         this.players = players;

@@ -17,7 +17,8 @@ public class Bullet extends GameObject
     private double thrownAngle;
 
     //constructor
-    public Bullet(){
+    public Bullet()
+    {
 
     }
 

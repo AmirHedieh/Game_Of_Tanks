@@ -11,7 +11,8 @@ import java.io.Serializable;
  * each object in the game like tank or bullets and ... has a location(x,y)
  * and certain velocity at X,Y Dimensions.
  */
-public class GameObject implements Serializable {
+public class GameObject implements Serializable
+{
     //fields
     protected ObjectId id;
     protected double x;
@@ -20,9 +21,11 @@ public class GameObject implements Serializable {
 
 
     //constructor
-    public GameObject(){
+    public GameObject()
+    {
 
     }
+
     public GameObject(double x, double y, ObjectId id)
     {
         this.x = x;
