@@ -21,23 +21,35 @@ public class Turret extends GameObject implements Serializable
     public final int TURRET_WIDTH = 128;
     public final int TURRET_HEIGHT = 128;
 
-    private MissileGun gun;
-    private double rangeOfView;
+    private Gun gun;
+
     private ArrayList<Tank> targets;
     private Tank target;
+
     private double gunAngle;
+
+    private double rangeOfView;
 
     //constructor
     public Turret(){
 
     }
-    public Turret(double x, double y, ArrayList<Tank> targets)
+    public Turret(double x, double y, ArrayList<Tank> targets, ObjectId type)
     {
         super(x, y, ObjectId.Turret);
-        gunAngle = 0;
+        if(type.equals(ObjectId.MachineGun)) {
+            gun = new MachineGun(this.x, this.y);
+        }
+        else if(type.equals(ObjectId.MissileGun)){
+            gun = new MissileGun(this.x, this.y);
+        }
+        gun.setAmmo(1000);
+
         target = targets.get(0);
         this.targets = targets;
-        gun = new MissileGun(this.x, this.y);
+
+        gunAngle = 0;
+
         rangeOfView = 800;
     }
 
