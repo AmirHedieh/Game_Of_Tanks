@@ -185,7 +185,7 @@ public class MainMenu
             {
                 System.out.println("clientButton");
 
-                ipTextLabel.setText("Enter your IP: ");
+                ipTextLabel.setText("Enter Host IP: ");
 
                 IPTextField.setText("");
 
