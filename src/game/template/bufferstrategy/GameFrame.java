@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import com.sun.deploy.panel.SpecialTableRenderer;
 import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;
@@ -108,16 +109,57 @@ public class GameFrame extends JFrame
         AffineTransform gameTransform = g2d.getTransform();
 
         runAnimations();
-
-        //render map
-        state.objects.getMap().render(g2d);
-
+        drawSoil(state, g2d);
+        drawHardWalls(state, g2d);
+        drawSoftWalls(state, g2d);
+        drawTeazel(state, g2d);
         drawBullets(state, g2d, gameTransform);
         drawPlayers(state, g2d, gameTransform);
         drawAITanks(state, g2d, gameTransform);
         drawTurrets(state, g2d, gameTransform);
         drawBuriedRobots(state, g2d, gameTransform);
         drawUpgrades(state, g2d);
+        drawPlants(state, g2d);
+    }
+
+    private void drawSoil(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getMap().getSoil().size(); i++)
+        {
+            g2d.drawImage(Utility.soil, (int) state.objects.getMap().getSoil().get(i).getX(), (int) state.objects.getMap().getSoil().get(i).getY(), null);
+        }
+    }
+
+    private void drawSoftWalls(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getMap().getSoftWall().size(); i++)
+        {
+            g2d.drawImage(Utility.softWall, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+        }
+    }
+
+    private void drawTeazel(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getMap().getTeazel().size(); i++)
+        {
+            g2d.drawImage(Utility.teazel, (int) state.objects.getMap().getTeazel().get(i).getX(), (int) state.objects.getMap().getTeazel().get(i).getY(), null);
+        }
+    }
+
+    private void drawPlants(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getMap().getPlant().size(); i++)
+        {
+            g2d.drawImage(Utility.plant, (int) state.objects.getMap().getPlant().get(i).getX(), (int) state.objects.getMap().getPlant().get(i).getY(), null);
+        }
+    }
+
+    private void drawHardWalls(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getMap().getHardWall().size(); i++)
+        {
+            g2d.drawImage(Utility.hardWall, (int) state.objects.getMap().getHardWall().get(i).getX(), (int) state.objects.getMap().getHardWall().get(i).getY(), null);
+        }
     }
 
     private void drawBullets(GameState state, Graphics2D g2d, AffineTransform gameTransform)

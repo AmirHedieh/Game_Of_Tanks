@@ -42,6 +42,7 @@ public class Map
                 }
                 else if ((red == 0) && (green == 255) && (blue == 0)) //Plant
                 {
+                    soil.add(new Soil(xx * 100, yy * 100));
                     plant.add(new Plant(xx * 100, yy * 100));
                 }
                 else if ((red == 255) && (green == 255) && (blue == 255)) //Soil
@@ -50,6 +51,7 @@ public class Map
                 }
                 else if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
                 {
+                    soil.add(new Soil(xx * 100, yy * 100));
                     teazel.add(new Teazel(xx * 100, yy * 100));
                 }
                 /*else if ((red == 208) && (green == 135) && (blue == 190)) //player
@@ -95,30 +97,6 @@ public class Map
                     objects.getTurrets().add(new Turret(xx * 100, yy * 100, objects.getPlayers(), ObjectId.MachineGun));
                 }
             }
-        }
-    }
-
-    public void render(Graphics2D g2d)
-    {
-        for (int i = 0; i < hardWall.size(); i++)
-        {
-            g2d.drawImage(Utility.hardWall, (int) hardWall.get(i).getX(), (int) hardWall.get(i).getY(), null);
-        }
-        for (int i = 0; i < softWall.size(); i++)
-        {
-            g2d.drawImage(Utility.softWall, (int) softWall.get(i).getX(), (int) softWall.get(i).getY(), null);
-        }
-        for (int i = 0; i < plant.size(); i++)
-        {
-            g2d.drawImage(Utility.plant, (int) plant.get(i).getX(), (int) plant.get(i).getY(), null);
-        }
-        for (int i = 0; i < teazel.size(); i++)
-        {
-            g2d.drawImage(Utility.teazel, (int) teazel.get(i).getX(), (int) teazel.get(i).getY(), null);
-        }
-        for (int i = 0; i < soil.size(); i++)
-        {
-            g2d.drawImage(Utility.soil, (int) soil.get(i).getX(), (int) soil.get(i).getY(), null);
         }
     }
 
