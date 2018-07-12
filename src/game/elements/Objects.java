@@ -41,7 +41,6 @@ public class Objects implements Serializable
     {
         //Player tank initialization
         players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
-//        players.add(new Tank(1100, 100, 100, ObjectId.Player)); // making player's tank
 //        players.add(new Tank(1150, 6300, 100, ObjectId.Player)); // making player's tank
         if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)){
             players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank

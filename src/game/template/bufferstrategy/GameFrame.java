@@ -87,6 +87,8 @@ public class GameFrame extends JFrame
             doRendering(graphics, state);
 
             graphics.translate(state.camera.getX(), state.camera.getY());
+
+            drawIndependents(graphics, state);
         }
         finally
         {
@@ -105,7 +107,6 @@ public class GameFrame extends JFrame
      */
     private void doRendering(Graphics2D g2d, GameState state)
     {
-
         Utility.tankAnimation.runAnimation();
         Utility.buriedRobotAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
@@ -245,37 +246,7 @@ public class GameFrame extends JFrame
         }
         //
 
-        //draw number of bullets
-        g2d.drawImage(Utility.numberOfHeavyBullet, 10, 10, null);
-        String heavyBullets;
-        int numberOfHeavyBullets = state.objects.getPlayers().get(0).getMissileGun().getAmmo();
-        if (numberOfHeavyBullets / 10 == 0)
-        {
-            heavyBullets = "0" + numberOfHeavyBullets;
-        }
-        else
-        {
-            heavyBullets = String.valueOf(numberOfHeavyBullets);
-        }
-        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
-        g2d.setColor(Color.green);
-        g2d.drawString(heavyBullets, 40, 60);
 
-        g2d.drawImage(Utility.numberOfLightBullet, 10, 85, null);
-        String lightBullets;
-        int numberOfLightBullets = state.objects.getPlayers().get(0).getMachineGun().getAmmo();
-        if (numberOfLightBullets / 10 == 0)
-        {
-            lightBullets = "0" + numberOfLightBullets;
-        }
-        else
-        {
-            lightBullets = String.valueOf(numberOfLightBullets);
-        }
-        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
-        g2d.setColor(Color.green);
-        g2d.drawString(lightBullets, 40, 135);
-        //
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet, Camera camera)
@@ -307,5 +278,40 @@ public class GameFrame extends JFrame
             g2d.drawImage(Utility.lightBullet, (int) bullet.getX() + 52, (int) bullet.getY() + 50, null);
         }
         g2d.setTransform(gameTransform);
+    }
+
+    private void drawIndependents(Graphics2D g2d, GameState state)
+    {
+        //draw number of bullets
+        g2d.drawImage(Utility.numberOfHeavyBullet, 10, 10, null);
+        String heavyBullets;
+        int numberOfHeavyBullets = state.objects.getPlayers().get(0).getMissileGun().getAmmo();
+        if (numberOfHeavyBullets / 10 == 0)
+        {
+            heavyBullets = "0" + numberOfHeavyBullets;
+        }
+        else
+        {
+            heavyBullets = String.valueOf(numberOfHeavyBullets);
+        }
+        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
+        g2d.setColor(Color.green);
+        g2d.drawString(heavyBullets, 40, 60);
+
+        g2d.drawImage(Utility.numberOfLightBullet, 10, 85, null);
+        String lightBullets;
+        int numberOfLightBullets = state.objects.getPlayers().get(0).getMachineGun().getAmmo();
+        if (numberOfLightBullets / 10 == 0)
+        {
+            lightBullets = "0" + numberOfLightBullets;
+        }
+        else
+        {
+            lightBullets = String.valueOf(numberOfLightBullets);
+        }
+        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
+        g2d.setColor(Color.green);
+        g2d.drawString(lightBullets, 40, 135);
+        //
     }
 }
