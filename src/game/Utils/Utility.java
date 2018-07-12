@@ -13,44 +13,43 @@ import java.io.IOException;
 public class Utility
 {
     public static String resourceDirectory = "src/resource/";
-    public static Image cursor = new ImageIcon("src/resource/cursor.png").getImage();
+    public static Image cursor = new ImageIcon(resourceDirectory + "cursor.png").getImage();
 
     public static BufferedImage buriedRobot01 = loadBufferedImage(resourceDirectory + "buriedRobot/buriedRobot01.png");
     public static BufferedImage buriedRobot02 = loadBufferedImage(resourceDirectory + "buriedRobot/buriedRobot02.png");
     public static Animation buriedRobotAnimation = new Animation(2, buriedRobot01, buriedRobot02);
 
-    public static BufferedImage heavyBullet = loadBufferedImage(resourceDirectory + "heavyBullet.png");
-    public static BufferedImage lightBullet = loadBufferedImage(resourceDirectory + "lightBullet.png");
-    public static BufferedImage mapOriginal = loadBufferedImage(resourceDirectory + "mapOriginal.png");
-    public static BufferedImage mapRotated = loadBufferedImage(resourceDirectory + "mapRotated.png");
-
-    public static BufferedImage tank = loadBufferedImage(resourceDirectory + "tank.png");
+    public static BufferedImage heavyBullet = loadBufferedImage(resourceDirectory + "bullet/heavyBullet.png");
+    public static BufferedImage lightBullet = loadBufferedImage(resourceDirectory + "bullet/lightBullet.png");
+    public static BufferedImage mapOriginal = loadBufferedImage(resourceDirectory + "map/mapOriginal.png");
+    public static BufferedImage mapRotated = loadBufferedImage(resourceDirectory + "map/mapRotated.png");
 
     public static ImageIcon startup = loadImageIcon(resourceDirectory + "startup.png");
 
-    public static BufferedImage tank01 = loadBufferedImage(resourceDirectory + "tank01.png");
-    public static BufferedImage tank02 = loadBufferedImage(resourceDirectory + "tank02.png");
-    public static BufferedImage tank03 = loadBufferedImage(resourceDirectory + "tank03.png");
+    public static BufferedImage tank01 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank01.png");
+    public static BufferedImage tank02 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank02.png");
+    public static BufferedImage tank03 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank03.png");
     public static Animation tankAnimation = new Animation(3, tank01, tank02, tank03);
-    public static BufferedImage gun01 = loadBufferedImage(resourceDirectory + "gun001.png");
-    public static BufferedImage gun02 = loadBufferedImage(resourceDirectory + "gun002.png");
+    public static BufferedImage gun01 = loadBufferedImage(resourceDirectory + "Player Tank/Gun/gun001.png");
+    public static BufferedImage gun02 = loadBufferedImage(resourceDirectory + "Player Tank/Gun/gun002.png");
 
-    public static BufferedImage teazel = loadBufferedImage(resourceDirectory + "teazel.png");
-    public static BufferedImage plant = loadBufferedImage(resourceDirectory + "plant.png");
-    public static BufferedImage softWall = loadBufferedImage(resourceDirectory + "softWall.png");
-    public static BufferedImage soil = loadBufferedImage(resourceDirectory + "soil.png");
-    public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "hardWall.png");
+    public static BufferedImage teazel = loadBufferedImage(resourceDirectory + "map/teazel.png");
+    public static BufferedImage plant = loadBufferedImage(resourceDirectory + "map/plant.png");
+    public static BufferedImage softWall = loadBufferedImage(resourceDirectory + "map/softWall.png");
+    public static BufferedImage soil = loadBufferedImage(resourceDirectory + "map/soil.png");
+    public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/hardWall.png");
 
-    public static BufferedImage turret = loadBufferedImage(resourceDirectory + "turret.png");
+    public static BufferedImage tank = loadBufferedImage(resourceDirectory + "tank/tank01.png");
 
-    public static BufferedImage tmpTurret = loadBufferedImage(resourceDirectory + "tank.png"); //tmp turret picture
-    public static BufferedImage tutu = loadBufferedImage(resourceDirectory + "turret - Copy.png"); //tmp turret picture
-    public static BufferedImage tutu1 = loadBufferedImage(resourceDirectory + "turrets-screenshot3_scirra.png"); //tmp turret picture
-    public static BufferedImage tmpTurretGun = loadBufferedImage(resourceDirectory + "tankGun01.png"); // tmp turret gun picture
+    public static BufferedImage tmpTurret = loadBufferedImage(resourceDirectory + "turret/turret.png"); //tmp turret picture
+    public static BufferedImage tmpTurretGun = loadBufferedImage(resourceDirectory + "turret/tankGun01.png"); // tmp turret gun picture
 
-    public static File backgroundSound = new File("src/resource/backgroundSound.wav");
-    public static File heavyShotSound = new File("src/resource/HSL.wav");
-    public static File lightShotSound = new File("src/resource/LSS.wav");
+    public static BufferedImage numberOfHeavyBullet = loadBufferedImage(resourceDirectory + "NumberOfHeavyBullet.png");
+    public static BufferedImage numberOfLightBullet = loadBufferedImage(resourceDirectory + "NumberOfLightBullet.png");
+
+    public static File backgroundSound = new File(resourceDirectory + "sounds/backgroundSound.wav");
+    public static File heavyShotSound = new File(resourceDirectory + "sounds/HSL.wav");
+    public static File lightShotSound = new File(resourceDirectory+ "sounds/LSS.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {
