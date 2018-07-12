@@ -28,8 +28,10 @@ public class GameFrame extends JFrame
 
 //    public static final int GAME_HEIGHT = 520;                  // custom game resolution
 //    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
-    public static final int GAME_HEIGHT = 1000;
-    public static final int GAME_WIDTH = 800;
+//    public static final int GAME_HEIGHT = 1000;
+//    public static final int GAME_WIDTH = 800;
+    public static final int GAME_HEIGHT = 1024;
+    public static final int GAME_WIDTH = 1820;
 
     private BufferStrategy bufferStrategy;
 
@@ -80,8 +82,13 @@ public class GameFrame extends JFrame
         Graphics2D graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
         try
         {
+            graphics.translate(-state.camera.getX(), -state.camera.getY());
             // Do the rendering
             doRendering(graphics, state);
+
+            graphics.translate(state.camera.getX(), state.camera.getY());
+
+            drawIndependents(graphics, state);
         }
         finally
         {
@@ -103,11 +110,10 @@ public class GameFrame extends JFrame
         Utility.tankAnimation.runAnimation();
         Utility.buriedRobotAnimation.runAnimation();
         AffineTransform gameTransform = g2d.getTransform();
-//        g2d.translate(-state.camera.getX(), -state.camera.getY());
+
 
         //render map
         state.objects.getMap().render(g2d);
-
 
         //draw bullets
         ArrayList<Bullet> bullets = state.objects.getBullets();
@@ -115,12 +121,11 @@ public class GameFrame extends JFrame
         {
             drawBullet(gameTransform, g2d, bullets.get(i), state.camera);
         }
+        //
 
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
         {
-//            state.camera.tick(state.objects.getPlayers().get(i));
-
             int centerX = (int) state.objects.getPlayers().get(i).getX() + state.objects.getPlayers().get(i).TANK_WIDTH / 2; //this is the X center of the player
             int centerY = (int) state.objects.getPlayers().get(i).getY() + state.objects.getPlayers().get(i).TANK_HEIGHT / 2; //this is the Y center of the player
 
@@ -178,6 +183,7 @@ public class GameFrame extends JFrame
             }
             g2d.setTransform(gameTransform);
         }
+        //
 
         //draw tanks
         ArrayList<AITank> tanks = state.objects.getTanks();
@@ -196,6 +202,7 @@ public class GameFrame extends JFrame
                     null);
             g2d.setTransform(gameTransform);
         }
+        //
 
         //draw turrets
         ArrayList<Turret> turrets = state.objects.getTurrets();
@@ -219,6 +226,7 @@ public class GameFrame extends JFrame
             g2d.setTransform(gameTransform);
 
         }
+        //
 
         //draw robots
         ArrayList<BuriedRobot> robots = state.objects.getRobots();
@@ -232,25 +240,13 @@ public class GameFrame extends JFrame
                         state.objects.getRobots().get(i).getY() + 50 );
 
                 g2d.setTransform(gunTrans);
-//                g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
                 Utility.buriedRobotAnimation.drawAnimation(g2d, (int) robots.get(i).getX(), (int) robots.get(i).getY(), 0);
                 g2d.setTransform(gameTransform);
             }
         }
+        //
 
-        //draw number of bullets
-        g2d.drawImage(Utility.numberOfHeavyBullet, (int) state.camera.getX() + 10, (int) state.camera.getY() + 10, null);
-        String numberOfHeavyBullets = String.valueOf(state.objects.getPlayers().get(0).getMissileGun().getAmmo());
-        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
-        g2d.setColor(Color.green);
-        g2d.drawString(numberOfHeavyBullets, (int) state.camera.getX() + 40, (int) state.camera.getY() + 60);
 
-        g2d.drawImage(Utility.numberOfLightBullet, (int) state.camera.getX() + 10, (int) state.camera.getY() + 85, null);
-        String numberOfLightBullets = String.valueOf(state.objects.getPlayers().get(0).getMachineGun().getAmmo());
-        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
-        g2d.setColor(Color.green);
-        g2d.drawString(numberOfLightBullets, (int) state.camera.getX() + 40, (int) state.camera.getY() + 135);
-//        g2d.translate(state.camera.getX(), state.camera.getY());
     }
 
     private void drawBullet(AffineTransform gameTransform, Graphics2D g2d, Bullet bullet, Camera camera)
@@ -282,5 +278,40 @@ public class GameFrame extends JFrame
             g2d.drawImage(Utility.lightBullet, (int) bullet.getX() + 52, (int) bullet.getY() + 50, null);
         }
         g2d.setTransform(gameTransform);
+    }
+
+    private void drawIndependents(Graphics2D g2d, GameState state)
+    {
+        //draw number of bullets
+        g2d.drawImage(Utility.numberOfHeavyBullet, 10, 10, null);
+        String heavyBullets;
+        int numberOfHeavyBullets = state.objects.getPlayers().get(0).getMissileGun().getAmmo();
+        if (numberOfHeavyBullets / 10 == 0)
+        {
+            heavyBullets = "0" + numberOfHeavyBullets;
+        }
+        else
+        {
+            heavyBullets = String.valueOf(numberOfHeavyBullets);
+        }
+        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
+        g2d.setColor(Color.green);
+        g2d.drawString(heavyBullets, 40, 60);
+
+        g2d.drawImage(Utility.numberOfLightBullet, 10, 85, null);
+        String lightBullets;
+        int numberOfLightBullets = state.objects.getPlayers().get(0).getMachineGun().getAmmo();
+        if (numberOfLightBullets / 10 == 0)
+        {
+            lightBullets = "0" + numberOfLightBullets;
+        }
+        else
+        {
+            lightBullets = String.valueOf(numberOfLightBullets);
+        }
+        g2d.setFont(new Font("Titillium Web", Font.BOLD, 20));
+        g2d.setColor(Color.green);
+        g2d.drawString(lightBullets, 40, 135);
+        //
     }
 }

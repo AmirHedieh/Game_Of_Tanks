@@ -1,6 +1,5 @@
 package game.map;
 
-import game.elements.GameObject;
 import game.elements.Tank;
 
 public class Camera
