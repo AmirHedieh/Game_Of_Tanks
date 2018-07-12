@@ -29,6 +29,20 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getY() > objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getY() > objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -36,6 +50,20 @@ public class Physics
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
             if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
                 if (tank.getY() < objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getY() < objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getY() < objects.getTanks().get(i).getY()) {
                     return true;
                 }
             }
@@ -51,6 +79,20 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getX() < objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getX() < objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -59,6 +101,20 @@ public class Physics
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
             if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
                 if (tank.getX() > objects.getMap().getHardWall().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getX() > objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getX() > objects.getTanks().get(i).getX()) {
                     return true;
                 }
             }
