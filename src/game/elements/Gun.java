@@ -45,7 +45,7 @@ public abstract class Gun extends GameObject implements Serializable
      */
     public boolean readyForShoot()
     {
-        if (getCurrentTime() - lastShootTime > reloadTime)
+        if (getCurrentTime() - lastShootTime > reloadTime && ammo > 0)
         {
             return true;
         }
