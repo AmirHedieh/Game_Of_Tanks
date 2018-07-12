@@ -248,7 +248,7 @@ public class GameFrame extends JFrame
         //
 
         for(int i = 0 ; i < state.objects.getUpgrades().size() ; i++){
-            if(state.objects.getUpgrades().get(i).getActivated()) {
+            if(state.objects.getUpgrades().get(i).getActivation()) {
                 g2d.setColor(Color.CYAN);
                 g2d.fillRect((int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getX(), 100, 100);
             }

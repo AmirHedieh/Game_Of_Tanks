@@ -158,7 +158,7 @@ public class GameState
             //
             for (int i = 0; i < objects.getUpgrades().size(); i++)
             {
-                if(objects.getUpgrades().get(i).getActivated()) {
+                if(objects.getUpgrades().get(i).getActivation()) {
                     objects.getUpgrades().get(i).tick();
                 }
             }

@@ -62,7 +62,7 @@ public class Objects implements Serializable
 
         //upgrade init
         Upgrade upgrade1 = new Upgrade(600,600,this,ObjectId.DamageUpgrade);
-        upgrade1.setActivated(true);
+        upgrade1.setActivation(true);
         upgrades.add(upgrade1);
     }
 

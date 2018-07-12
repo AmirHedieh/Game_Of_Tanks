@@ -299,6 +299,6 @@ public class Tank extends GameObject implements Serializable
      * and upgrade gets activated.
      */
     public void releaseUpgrade(){
-        upgrade.setActivated(true);
+        upgrade.setActivation(true);
     }
 }
