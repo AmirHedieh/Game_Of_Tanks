@@ -74,6 +74,21 @@ public class Map
                     tank.getSelectedGun().setReloadTime(500);
                     objects.getTanks().add(tank);
                 }
+                else if ((red == 88) && (green == 162) && (blue == 230)) //MissileGun
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MissileGunUpgrade);
+                    temp.setActivation(true);
+                    objects.getUpgrades().add(temp);
+
+                }
+                else if ((red == 143) && (green == 202) && (blue == 160)) //MachineGun
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MachineGunUpgrade);
+                    temp.setActivation(true);
+                    objects.getUpgrades().add(temp);
+                }
             }
         }
     }
