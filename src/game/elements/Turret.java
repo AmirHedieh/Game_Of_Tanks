@@ -1,6 +1,7 @@
 package game.elements;
 
 import game.Utils.SharedData;
+import game.Utils.Utility;
 import game.map.Camera;
 
 import java.io.Serializable;
@@ -24,6 +25,7 @@ public class Turret extends GameObject implements Serializable
     private double rangeOfView;
     private ArrayList<Tank> targets;
     private Tank target;
+    private double gunAngle;
 
     //constructor
     public Turret(){
@@ -32,6 +34,7 @@ public class Turret extends GameObject implements Serializable
     public Turret(double x, double y, ArrayList<Tank> targets)
     {
         super(x, y, ObjectId.Turret);
+        gunAngle = 0;
         target = targets.get(0);
         this.targets = targets;
         gun = new MissileGun(this.x, this.y);
@@ -53,6 +56,8 @@ public class Turret extends GameObject implements Serializable
         }
     }
 
+
+
     public void tick(Objects objects)
     {
         if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
@@ -60,9 +65,10 @@ public class Turret extends GameObject implements Serializable
         }
         if (checkArea() == true)
         {
+            setGunAngle(Utility.calculateAngle(target,this)); // angle between turret and tank
             if (gun.readyForShoot())
             {
-                objects.addBullet(gun.shoot(this.x, this.y, target.x + 50, target.y + 50));
+                objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
                 target = objects.getPlayers().get(0);
             }
         }
@@ -99,5 +105,14 @@ public class Turret extends GameObject implements Serializable
     public void setTarget(Tank target)
     {
         this.target = target;
+    }
+
+    public void setGunAngle(double gunAngle) {
+        this.gunAngle = gunAngle;
+    }
+
+    public double getGunAngle() {
+
+        return gunAngle;
     }
 }

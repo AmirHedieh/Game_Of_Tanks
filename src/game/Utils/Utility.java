@@ -88,6 +88,16 @@ public class Utility
         double distance = Math.sqrt(Math.pow(Math.abs(object1.getX() - object2.getX()), 2) + Math.pow(Math.abs(object1.getY() - object2.getY()), 2));
         return distance;
     }
+
+    /**
+     * calcualte angle between 2 objects.
+     * @param object1 starting point
+     * @param object2 second point
+     * @return
+     */
+    public static double calculateAngle(GameObject object1, GameObject object2){
+        return Math.atan( ( object2.getY() - object1.getY() )/ (object2.getX() - object1.getX()));
+    }
     /*
         This is how to delete a directory from the repository:
             git rm -r --cached node_modules

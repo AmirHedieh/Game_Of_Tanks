@@ -48,8 +48,8 @@ public class Objects implements Serializable
         }
 
         // Turrets initialization
-//        Turret turret = new Turret(800, 700, players);
-//        turrets.add(turret);
+        Turret turret = new Turret(400, 400, players);
+        turrets.add(turret);
 
         //AI tanks initialization
 //        AITank tank1 = new AITank(400,400,100,ObjectId.AITank,new MachineGun());
