@@ -115,14 +115,11 @@ public class GameFrame extends JFrame
         state.objects.getMap().render(g2d);
 
         drawBullets(state, g2d, gameTransform);
-
         drawPlayers(state, g2d, gameTransform);
         drawAITanks(state, g2d, gameTransform);
         drawTurrets(state, g2d, gameTransform);
         drawBuriedRobots(state, g2d, gameTransform);
         drawUpgrades(state, g2d);
-
-
     }
 
     private void drawBullets(GameState state, Graphics2D g2d, AffineTransform gameTransform)
