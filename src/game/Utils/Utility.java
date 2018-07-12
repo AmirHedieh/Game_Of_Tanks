@@ -1,5 +1,6 @@
 package game.Utils;
 
+import game.elements.GameObject;
 import game.elements.ObjectId;
 
 import javax.imageio.ImageIO;
@@ -77,7 +78,16 @@ public class Utility
         return temp;
     }
 
-
+    /**
+     * calculate the distance between two object(tanks here).
+     * @param object1 obj num1
+     * @param object2 obj num2
+     * @return distance between Ai tank and player tank
+     */
+    public static double calculateDistance(GameObject object1, GameObject object2){
+        double distance = Math.sqrt(Math.pow(Math.abs(object1.getX() - object2.getX()), 2) + Math.pow(Math.abs(object1.getY() - object2.getY()), 2));
+        return distance;
+    }
     /*
         This is how to delete a directory from the repository:
             git rm -r --cached node_modules

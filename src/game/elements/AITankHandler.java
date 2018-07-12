@@ -1,6 +1,7 @@
 package game.elements;
 
 import game.Utils.SharedData;
+import game.Utils.Utility;
 
 import java.util.ArrayList;
 
@@ -105,7 +106,7 @@ public class AITankHandler
      * @param aiTank AI tank to be check whether to be invoked or not
      */
     private void checkToActivate(AITank aiTank){
-        if(calculateDistance(aiTank,aiTank.getTarget()) < range) {
+        if(Utility.calculateDistance(aiTank,aiTank.getTarget()) < range) {
             aiTank.setActivated(true);
         }
     }
@@ -115,7 +116,7 @@ public class AITankHandler
      * @param aiTank AI tank to be check whether to be disabled or not
      */
     private void checkToDisable(AITank aiTank){
-        if(calculateDistance(aiTank,aiTank.getTarget()) > range) {
+        if(Utility.calculateDistance(aiTank,aiTank.getTarget()) > range) {
             aiTank.setActivated(false);
         }
     }
@@ -125,23 +126,14 @@ public class AITankHandler
      */
     public void determineTarget(AITank aiTank){
         for(int i = 0 ; i < players.size() ; i++){
-            double distance = calculateDistance(players.get(i),aiTank);
-            if(distance < calculateDistance(aiTank.getTarget(),players.get(i))){
+            double distance = Utility.calculateDistance(players.get(i),aiTank);
+            if(distance < Utility.calculateDistance(aiTank.getTarget(),players.get(i))){
                 aiTank.setTarget(players.get(i));
             }
         }
     }
 
-    /**
-     * calculate the distance between two object(tanks here).
-     * @param tank1 tank num1
-     * @param tank2 tank num2
-     * @return distance between Ai tank and player tank
-     */
-    private double calculateDistance(Tank tank1, Tank tank2){
-        double distance = Math.sqrt(Math.pow(Math.abs(tank1.x - tank2.x), 2) + Math.pow(Math.abs(tank1.y - tank2.y), 2));
-        return distance;
-    }
+
 
 
     /**

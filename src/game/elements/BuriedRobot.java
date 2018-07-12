@@ -1,12 +1,16 @@
 package game.elements;
 
+import game.Utils.SharedData;
+import game.Utils.Utility;
+
 import java.util.ArrayList;
 
 public class BuriedRobot extends GameObject
 {
     //fields
     private double minDistance;
-    public boolean activated;
+    private boolean activated;
+    private Tank target;
 
     //constructor
     public BuriedRobot(){
@@ -30,27 +34,38 @@ public class BuriedRobot extends GameObject
      * is in range or not
      * @param objects
      */
-    public void tick(Objects objects)
-    {
-        if (activated)
-        { // pass player tank as target
-            move(objects.getPlayers().get(0));
+    public void tick(Objects objects) {
+        determineTarget(objects);
+        if (activated) { // pass player tank as target
+            move(target);
         }
-        else
-        {
-            checkArea(objects.getPlayers().get(0));
+        else {
+            checkArea();
+        }
+    }
+
+    /**
+     * determine which player tank is the target. if game is in coop mode
+     * it will set closer tank to robot as its target.
+     * @param objects objects of the game
+     */
+    private void determineTarget(Objects objects){
+        if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
+            double distanceNumOne = Utility.calculateDistance(this, objects.getPlayers().get(0));
+            double distanceNumTwo = Utility.calculateDistance(this, objects.getPlayers().get(1));
+            target = (distanceNumOne > distanceNumTwo) ? objects.getPlayers().get(1) : objects.getPlayers().get(0);
+        }
+        else { //in single player
+            target = objects.getPlayers().get(0);
         }
     }
 
     /**
      * check area and if player tank in located in area, robot gets activated
-     * @param target
      */
-    private void checkArea(Tank target)
-    {
-        double distance = Math.sqrt(Math.pow(Math.abs(this.x - target.x), 2) + Math.pow(Math.abs(this.y - target.y), 2));
-        if (distance - minDistance <= 0)
-        {
+    private void checkArea() {
+        double distance = Utility.calculateDistance(this,target);
+        if (distance < minDistance) {
             System.out.println("in range");
             activated = true;
         }
