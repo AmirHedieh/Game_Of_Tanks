@@ -4,8 +4,6 @@ package game.template.bufferstrategy;
 import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;
-import game.map.Camera;
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -248,10 +246,7 @@ public class GameFrame extends JFrame
         ArrayList<Turret> turrets = state.objects.getTurrets();
         for (int i = 0; i < turrets.size(); i++)
         {
-            //before
-            //            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
-            //after
-            g2d.drawImage(Utility.tmpTurret, null, (int) turrets.get(i).getX(), (int) turrets.get(i).getY());
+            g2d.drawImage(Utility.turretBody, null, (int) turrets.get(i).getX(), (int) turrets.get(i).getY());
 
             AffineTransform gunTrans = g2d.getTransform();
             gunTrans.rotate(state.objects.getTurrets().get(i).getGunAngle(),
@@ -259,10 +254,14 @@ public class GameFrame extends JFrame
                     state.objects.getTurrets().get(i).getY() + 50);
 
             g2d.setTransform(gunTrans);
-            g2d.drawImage(Utility.tmpTurretGun,
-                    (int) state.objects.getTurrets().get(i).getX() + 20, //this is the X upper left corner of the tile
-                    (int) state.objects.getTurrets().get(i).getY(), //this is the Y upper left corner of the tile
-                    null);
+            if (state.objects.getTurrets().get(i).getGun().getId().equals(ObjectId.MissileGun))
+            {
+                g2d.drawImage(Utility.turretGun01, (int) state.objects.getTurrets().get(i).getX() + 25, (int) state.objects.getTurrets().get(i).getY(), null);
+            }
+            else if (state.objects.getTurrets().get(i).getGun().getId().equals(ObjectId.MachineGun))
+            {
+                g2d.drawImage(Utility.turretGun02, (int) state.objects.getTurrets().get(i).getX() + 25, (int) state.objects.getTurrets().get(i).getY(), null);
+            }
             g2d.setTransform(gameTransform);
         }
         //

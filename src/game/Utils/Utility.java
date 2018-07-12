@@ -43,8 +43,9 @@ public class Utility
     public static BufferedImage MissileGunUpgrade = loadBufferedImage(resourceDirectory + "upgrade/missileGunUpgrade.png");
     public static BufferedImage MachineGunUpgrade = loadBufferedImage(resourceDirectory + "upgrade/MachinGunUpgrade.png");
 
-    public static BufferedImage tmpTurret = loadBufferedImage(resourceDirectory + "turret/turret.png"); //tmp turret picture
-    public static BufferedImage tmpTurretGun = loadBufferedImage(resourceDirectory + "turret/tankGun01.png"); // tmp turret gun picture
+    public static BufferedImage turretBody = loadBufferedImage(resourceDirectory + "turret/turret.png");
+    public static BufferedImage turretGun01 = loadBufferedImage(resourceDirectory + "turret/tankGun01.png");
+    public static BufferedImage turretGun02 = loadBufferedImage(resourceDirectory + "turret/tankGun02.png");
 
     public static BufferedImage numberOfHeavyBullet = loadBufferedImage(resourceDirectory + "NumberOfHeavyBullet.png");
     public static BufferedImage numberOfLightBullet = loadBufferedImage(resourceDirectory + "NumberOfLightBullet.png");

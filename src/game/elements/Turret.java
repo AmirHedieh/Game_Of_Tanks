@@ -163,4 +163,14 @@ public class Turret extends GameObject implements Serializable
         }
         return angle;
     }
+
+    public Gun getGun()
+    {
+        return gun;
+    }
+
+    public void setGun(Gun gun)
+    {
+        this.gun = gun;
+    }
 }

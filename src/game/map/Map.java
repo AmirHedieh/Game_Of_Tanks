@@ -62,10 +62,10 @@ public class Map
                     soil.add(new Soil(xx * 100, yy * 100));
                     objects.getRobots().add(new BuriedRobot(xx * 100, yy * 100));
                 }
-                else if ((red == 166) && (green == 166) && (blue == 76)) //turret
+                else if ((red == 166) && (green == 166) && (blue == 76)) //turret1
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
-                    objects.getTurrets().add(new Turret(xx * 100, yy * 100, objects.getPlayers(), ObjectId.MachineGun));
+                    objects.getTurrets().add(new Turret(xx * 100, yy * 100, objects.getPlayers(), ObjectId.MissileGun));
                 }
                 else if ((red == 255) && (green == 114) && (blue == 0)) //AITank
                 {
@@ -88,6 +88,11 @@ public class Map
                     Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MachineGunUpgrade);
                     temp.setActivation(true);
                     objects.getUpgrades().add(temp);
+                }
+                else if ((red == 22) && (green == 62) && (blue == 34)) //turret2
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    objects.getTurrets().add(new Turret(xx * 100, yy * 100, objects.getPlayers(), ObjectId.MachineGun));
                 }
             }
         }
