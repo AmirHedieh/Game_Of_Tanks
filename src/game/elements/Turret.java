@@ -57,7 +57,11 @@ public class Turret extends GameObject implements Serializable
     }
 
 
-
+    /**
+     * process of a turret during each loop including checking area,
+     * shooting target, ... .
+     * @param objects objects of the game
+     */
     public void tick(Objects objects)
     {
         if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
@@ -65,7 +69,8 @@ public class Turret extends GameObject implements Serializable
         }
         if (checkArea() == true)
         {
-            setGunAngle(Utility.calculateAngle(target,this)); // angle between turret and tank
+            System.out.println(calculateAngle(target,this));
+            setGunAngle(calculateAngle(this,target)); // angle between turret and tank
             if (gun.readyForShoot())
             {
                 objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
@@ -73,6 +78,7 @@ public class Turret extends GameObject implements Serializable
             }
         }
     }
+
 
     public boolean checkArea()
     {
@@ -114,5 +120,19 @@ public class Turret extends GameObject implements Serializable
     public double getGunAngle() {
 
         return gunAngle;
+    }
+
+    /**
+     * calculate angle between 2 objects.
+     * @param object1 starting point
+     * @param object2 second point
+     * @return
+     */
+    private static double calculateAngle(GameObject object1, GameObject object2){
+        double angle = Math.atan( ( object2.getY() - object1.getY() ) / (object2.getX() - object1.getX()));
+        if(object2.getX() < object1.getX()){
+            angle += Math.PI;
+        }
+        return angle;
     }
 }

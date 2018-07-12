@@ -199,7 +199,23 @@ public class GameFrame extends JFrame
         ArrayList<Turret> turrets = state.objects.getTurrets();
         for (int i = 0; i < turrets.size(); i++)
         {
-            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+           //before
+//            g2d.drawImage(Utility.turret, null, (int) turrets.get(i).getX() - turrets.get(i).TURRET_WIDTH / 2, (int) turrets.get(i).getY() - turrets.get(i).TURRET_HEIGHT / 2);
+            //after
+            g2d.drawImage(Utility.tmpTurret, null, (int) turrets.get(i).getX(), (int) turrets.get(i).getY());
+
+            AffineTransform gunTrans = g2d.getTransform();
+            gunTrans.rotate(state.objects.getTurrets().get(i).getGunAngle(),
+                    state.objects.getTurrets().get(i).getX() + 50 ,
+                    state.objects.getTurrets().get(i).getY() + 50 );
+
+            g2d.setTransform(gunTrans);
+            g2d.drawImage(Utility.tmpTurretGun,
+                    (int) state.objects.getTurrets().get(i).getX() + 20, //this is the X upper left corner of the tile
+                    (int) state.objects.getTurrets().get(i).getY() , //this is the Y upper left corner of the tile
+                    null);
+            g2d.setTransform(gameTransform);
+
         }
 
         //draw robots

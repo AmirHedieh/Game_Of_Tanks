@@ -41,6 +41,9 @@ public class Utility
 
     public static BufferedImage turret = loadBufferedImage(resourceDirectory + "turret.png");
 
+    public static BufferedImage tmpTurret = loadBufferedImage(resourceDirectory + "tank.png"); //tmp turret picture
+    public static BufferedImage tmpTurretGun = loadBufferedImage(resourceDirectory + "tankGun01.png"); // tmp turret gun picture
+
     public static File backgroundSound = new File("src/resource/backgroundSound.wav");
     public static File heavyShotSound = new File("src/resource/HSL.wav");
     public static File lightShotSound = new File("src/resource/LSS.wav");
@@ -89,15 +92,7 @@ public class Utility
         return distance;
     }
 
-    /**
-     * calcualte angle between 2 objects.
-     * @param object1 starting point
-     * @param object2 second point
-     * @return
-     */
-    public static double calculateAngle(GameObject object1, GameObject object2){
-        return Math.atan( ( object2.getY() - object1.getY() )/ (object2.getX() - object1.getX()));
-    }
+
     /*
         This is how to delete a directory from the repository:
             git rm -r --cached node_modules
