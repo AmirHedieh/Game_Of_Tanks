@@ -22,8 +22,11 @@ public class Tank extends GameObject implements Serializable
     protected double gunAngle = 0;
 
     protected double tankAngle = 0;
+
     private long lastRotateTime;
     private long rechargeRotationTime;
+
+    private Upgrade upgrade;
 
     protected Gun selectedGun;
     protected MissileGun missileGun;
@@ -45,6 +48,30 @@ public class Tank extends GameObject implements Serializable
 
         this.selectedGun = missileGun;
         this.health = health;
+
+        upgrade = null;
+
+        lastRotateTime = getCurrentTime();
+        rechargeRotationTime = 10;
+
+        setVelX(12); //  set X velocity
+        setVelY(12); // set y velocity
+    }
+
+    public Tank(double x, double y, int health, ObjectId id,Upgrade upgrade)
+    { // gun must be added manually after making tank
+        super(x, y, id);
+
+        missileGun = new MissileGun(this.x, this.y);
+        this.setMissileGun(missileGun);
+
+        machineGun = new MachineGun(this.x, this.y);
+        this.setMachineGun(machineGun);
+
+        this.selectedGun = missileGun;
+        this.health = health;
+
+        this.upgrade = upgrade;
 
         lastRotateTime = getCurrentTime();
         rechargeRotationTime = 10;
@@ -261,9 +288,18 @@ public class Tank extends GameObject implements Serializable
 
     /**
      * angle that gun must be rotated
-     * @return
+     * @return angle between mouse and tank
      */
     public double getGunAngle() {
         return gunAngle;
+    }
+
+    /**
+     * when tank dies and its upgrade field is not null, this method get called
+     * and add tank's upgrade to objects upgrades.
+     * @param objects objects of the game
+     */
+    public void releaseUpgrade(Objects objects){
+        objects.getUpgrades().add(upgrade);
     }
 }

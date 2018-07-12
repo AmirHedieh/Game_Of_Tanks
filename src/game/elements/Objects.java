@@ -18,6 +18,7 @@ public class Objects implements Serializable
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
+    private ArrayList<Upgrade> upgrades;
     private Map map;
 
 
@@ -168,6 +169,10 @@ public class Objects implements Serializable
         this.robots = robots;
     }
 
+    public void setUpgrades(ArrayList<Upgrade> upgrades) {
+        this.upgrades = upgrades;
+    }
+
     /**
      * return players tanks
      *
@@ -216,6 +221,10 @@ public class Objects implements Serializable
     public ArrayList<BuriedRobot> getRobots()
     {
         return robots;
+    }
+
+    public ArrayList<Upgrade> getUpgrades() {
+        return upgrades;
     }
 
     public void replacePlayerTank(Tank tank , int number){
