@@ -2,6 +2,7 @@ package game.elements;
 
 import game.Utils.SharedData;
 import game.Utils.Utility;
+import game.template.bufferstrategy.Physics;
 
 import java.util.ArrayList;
 
@@ -44,7 +45,7 @@ public class BuriedRobot extends GameObject
         setAngle(calculateAngle(this, target));
         if (activated)
         { // pass player tank as target
-            move(target);
+            move(target,objects);
         }
         else
         {
@@ -98,7 +99,6 @@ public class BuriedRobot extends GameObject
         double distance = Utility.calculateDistance(this, target);
         if (distance < minDistance)
         {
-            System.out.println("in range");
             activated = true;
         }
     }
@@ -108,29 +108,33 @@ public class BuriedRobot extends GameObject
      *
      * @param target player tank
      */
-    public void move(Tank target)
+    public void move(Tank target,Objects objects)
     {
         int vib = 6; // removes robot vibration when x or y is same as target x , y
-        if (target.x > this.x + vib)
-        {
-            this.setX(this.getX() + this.getVelX());
+        if (target.x > this.x + vib) {
+            if(!Physics.BuriedRobotCollisionRight(objects,this)) {
+                this.setX(this.getX() + this.getVelX());
+            }
         }
-        else if (target.x < this.x - vib)
-        {
-            this.setX(this.getX() - this.getVelX());
+        else if (target.x < this.x - vib) {
+            if(!Physics.BuriedRobotCollisionLeft(objects,this)) {
+                this.setX(this.getX() - this.getVelX());
+            }
         }
 
         if (target.y > this.y + vib)
         {
-            this.setY(this.getY() + this.getVelY());
+            if(!Physics.BuriedRobotCollisionDown(objects,this)) {
+                this.setY(this.getY() + this.getVelY());
+            }
         }
-        else if (target.y < this.y - vib)
-        {
-            this.setY(this.getY() - this.getVelY());
+        else if (target.y < this.y - vib) {
+            if(!Physics.BuriedRobotCollisionUp(objects,this)) {
+                this.setY(this.getY() - this.getVelY());
+            }
         }
 
-        if (target.x == this.x && target.y == this.y)
-        {
+        if (target.x == this.x && target.y == this.y) {
             activated = false;
         }
     }

@@ -1,14 +1,220 @@
 package game.template.bufferstrategy;
 
-import game.elements.Bullet;
-import game.elements.BuriedRobot;
-import game.elements.GameObject;
-import game.elements.Objects;
+import game.elements.*;
 
 import java.util.Iterator;
 
 public class Physics
 {
+    ///////////////////////////////
+    //////AI Tanks collision///////
+    ///////////////////////////////
+    public static boolean aiTankCheckHardWallsCollisionUp(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getY() > objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getY() > objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getY() > objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean aiTankCheckHardWallsCollisionDown(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getY() < objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getY() < objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getY() < objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean aiTankCheckHardWallsCollisionRight(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getX() < objects.getMap().getHardWall().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getX() < objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getX() < objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean aiTankCheckHardWallsCollisionLeft(Objects objects , AITank tank){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (tank.getX() > objects.getMap().getHardWall().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (tank.getX() > objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (tank.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (tank.getX() > objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    //////////////////////////////////
+    //////BuriedRobot collision///////
+    //////////////////////////////////
+    public static boolean BuriedRobotCollisionUp(Objects objects , BuriedRobot robot){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (robot.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (robot.getY() > objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (robot.getY() > objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (robot.getY() > objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean BuriedRobotCollisionDown(Objects objects , BuriedRobot robot){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (robot.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (robot.getY() < objects.getMap().getHardWall().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (robot.getY() < objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (robot.getY() < objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean BuriedRobotCollisionRight(Objects objects , BuriedRobot robot){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (robot.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (robot.getX() < objects.getMap().getHardWall().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (robot.getX() < objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (robot.getX() < objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean BuriedRobotCollisionLeft(Objects objects , BuriedRobot robot){
+        for (int i = 0; i < objects.getMap().getHardWall().size(); i++) {
+            if (robot.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds())) {
+                if (robot.getX() > objects.getMap().getHardWall().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (robot.getX() > objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (robot.getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (robot.getX() > objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    /////////////////////////////
+    //////player collision///////
+    /////////////////////////////
     public static boolean checkHardWallsCollisionUp(Objects objects)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
@@ -17,6 +223,20 @@ public class Physics
             {
                 if (objects.getPlayers().get(0).getY() > objects.getMap().getHardWall().get(i).getY())
                 {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() > objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() > objects.getTanks().get(i).getY()) {
                     return true;
                 }
             }
@@ -36,6 +256,20 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() < objects.getTurrets().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getY() < objects.getTanks().get(i).getY()) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -51,6 +285,20 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() < objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() < objects.getTanks().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -62,6 +310,20 @@ public class Physics
             {
                 if (objects.getPlayers().get(0).getX() > objects.getMap().getHardWall().get(i).getX())
                 {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTurrets().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTurrets().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() > objects.getTurrets().get(i).getX()) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getTanks().size(); i++) {
+            if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds())) {
+                if (objects.getPlayers().get(0).getX() > objects.getTanks().get(i).getX()) {
                     return true;
                 }
             }

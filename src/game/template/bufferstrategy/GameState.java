@@ -61,6 +61,7 @@ public class GameState
      */
     public void update()
     {
+//        System.out.println(objects.getPlayers().get(0).getX() + " " +objects.getPlayers().get(0).getY() );
         camera.tick(objects.getPlayers().get(0));
         //Update the state of all game elements
         //based on user input and elapsed time ...
@@ -132,7 +133,7 @@ public class GameState
             objects.getPlayers().get(0).swapGun();
             swap = false;
         }
-//        Physics.checkBulletsCollision(objects);
+        Physics.checkBulletsCollision(objects);
         //things that client side must not do
         if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
         {
