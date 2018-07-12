@@ -225,14 +225,14 @@ public class GameFrame extends JFrame
         {
             if (robots.get(i).isActivated())
             {
-                Utility.buriedRobotAnimation.drawAnimation(g2d, (int) robots.get(i).getX(), (int) robots.get(i).getY(), 0);
                 AffineTransform gunTrans = g2d.getTransform();
                 gunTrans.rotate(state.objects.getRobots().get(i).getAngle(),
                         state.objects.getRobots().get(i).getX() + 50 ,
                         state.objects.getRobots().get(i).getY() + 50 );
 
                 g2d.setTransform(gunTrans);
-                g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
+//                g2d.drawImage(Utility.buriedRobot, null, (int) robots.get(i).getX(), (int) robots.get(i).getY());
+                Utility.buriedRobotAnimation.drawAnimation(g2d, (int) robots.get(i).getX(), (int) robots.get(i).getY(), 0);
                 g2d.setTransform(gameTransform);
             }
         }
