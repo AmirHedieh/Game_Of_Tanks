@@ -44,6 +44,7 @@ public class Utility
     public static BufferedImage turret = loadBufferedImage(resourceDirectory + "turret.png");
 
     public static BufferedImage tmpTurret = loadBufferedImage(resourceDirectory + "tank.png"); //tmp turret picture
+    public static BufferedImage tutu = loadBufferedImage(resourceDirectory + "turret - Copy.png"); //tmp turret picture
     public static BufferedImage tmpTurretGun = loadBufferedImage(resourceDirectory + "tankGun01.png"); // tmp turret gun picture
 
     public static File backgroundSound = new File("src/resource/backgroundSound.wav");
