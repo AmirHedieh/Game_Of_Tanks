@@ -20,8 +20,11 @@ public enum ObjectId
     SinglePlayer,
     Alone,
     TwoPlayer,
-                     //lightBlue(88, 162, 230)    Connon shells
-                    //lightGreen(143, 202, 160) machine gun cartridges
+    DamageUpgrade,
+    AmmoUpgrade,
+    HealthUpgrade,
+    ShieldUpgrade;
+    //lightBlue(88, 162, 230)    Connon shells
+    //lightGreen(143, 202, 160) machine gun cartridges
 
-    ;
 }

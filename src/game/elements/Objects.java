@@ -19,6 +19,7 @@ public class Objects implements Serializable
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
+    private ArrayList<Upgrade> upgrades;
     private Map map;
 
 
@@ -30,6 +31,7 @@ public class Objects implements Serializable
         bullets = new ArrayList<>();
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
+        upgrades = new ArrayList<>();
         players.add(new Tank(1150, 6300, 100, ObjectId.Player));
         map = new Map(this);
     }
@@ -48,6 +50,10 @@ public class Objects implements Serializable
         {
             players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank
         }
+        //upgrade init
+        Upgrade upgrade1 = new Upgrade(600, 600, this, ObjectId.DamageUpgrade);
+        upgrade1.setActivation(true);
+        upgrades.add(upgrade1);
     }
 
     /**
@@ -59,6 +65,7 @@ public class Objects implements Serializable
     {
         players.add(tank);
     }
+
 
     /**
      * add a tank to tanks ArrayList which contains all available tanks in game
@@ -160,6 +167,10 @@ public class Objects implements Serializable
         this.robots = robots;
     }
 
+    public void setUpgrades(ArrayList<Upgrade> upgrades) {
+        this.upgrades = upgrades;
+    }
+
     /**
      * return players tanks
      *
@@ -210,11 +221,17 @@ public class Objects implements Serializable
         return robots;
     }
 
+    public ArrayList<Upgrade> getUpgrades()
+    {
+        return upgrades;
+    }
+
     public void replacePlayerTank(Tank tank, int number)
     {
         players.remove(players.get(number));
         players.add(tank);
     }
+
 
     public void setPlayers(ArrayList<Tank> players)
     {

@@ -5,6 +5,7 @@ import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;
 import game.map.Camera;
+import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -113,7 +114,7 @@ public class GameFrame extends JFrame
         //render map
         state.objects.getMap().render(g2d);
 
-        drawBullet(state, g2d, gameTransform);
+        drawBullets(state, g2d, gameTransform);
 
         //draw player tank
         for (int i = 0; i < state.objects.getPlayers().size(); i++)
@@ -180,9 +181,19 @@ public class GameFrame extends JFrame
         drawAITanks(state, g2d, gameTransform);
         drawTurrets(state, g2d, gameTransform);
         drawBuriedRobots(state, g2d, gameTransform);
+
+        //
+
+        for(int i = 0 ; i < state.objects.getUpgrades().size() ; i++){
+            if(state.objects.getUpgrades().get(i).getActivation()) {
+                g2d.setColor(Color.CYAN);
+                g2d.fillRect((int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getX(), 100, 100);
+            }
+        }
+
     }
 
-    private void drawBullet(GameState state, Graphics2D g2d, AffineTransform gameTransform)
+    private void drawBullets(GameState state, Graphics2D g2d, AffineTransform gameTransform)
     {
         //draw bullets
         ArrayList<Bullet> bullets = state.objects.getBullets();

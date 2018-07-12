@@ -12,11 +12,10 @@ public class HeavyBullet extends Bullet
     {
 
     }
-
-    public HeavyBullet(double startX, double startY, double mouseX, double mouseY)
+    public HeavyBullet(double startX, double startY, double mouseX, double mouseY, int damage)
     {
         super(startX, startY, mouseX, mouseY, ObjectId.HeavyBullet);
-        damage = 100;
+        this.damage = damage;
     }
 
 }

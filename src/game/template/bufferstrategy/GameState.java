@@ -155,6 +155,12 @@ public class GameState
 
             aiTankHandler.tick();
             //
+            for (int i = 0; i < objects.getUpgrades().size(); i++)
+            {
+                if(objects.getUpgrades().get(i).getActivation()) {
+                    objects.getUpgrades().get(i).tick();
+                }
+            }
         }
         objects.getPlayers().get(0).rotate(keyUP, keyDOWN, keyRIGHT, keyLEFT);
         //

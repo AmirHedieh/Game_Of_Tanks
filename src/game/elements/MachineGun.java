@@ -17,8 +17,9 @@ public class MachineGun extends Gun implements Serializable
     }
 
     public MachineGun(double x, double y)
-    { //todo : try not to pass tank from subclass to father
+    {
         super(x, y, ObjectId.MachineGun, "src/resource/tankGun02.png");
+        damage = 20;
         ammo = 70;
         reloadTime = 150; // millisecond
     }
@@ -26,7 +27,6 @@ public class MachineGun extends Gun implements Serializable
 
     /**
      * shoot a bullet from MachineGun
-     *
      * @param tankX
      * @param tankY
      * @param mouseX
@@ -35,8 +35,8 @@ public class MachineGun extends Gun implements Serializable
      */
     public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY)
     {
-        Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY);
-        ammo--; //todo : bound for 0 needed
+        Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY,damage);
+        ammo--;
         lastShootTime = getCurrentTime();
 //        System.out.println("Ammo: " + ammo + " " + "Damage: " + damage + " MachineGun");
         return bullet;
