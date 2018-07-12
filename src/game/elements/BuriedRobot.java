@@ -98,7 +98,6 @@ public class BuriedRobot extends GameObject
         double distance = Utility.calculateDistance(this, target);
         if (distance < minDistance)
         {
-            System.out.println("in range");
             activated = true;
         }
     }
