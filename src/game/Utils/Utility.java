@@ -21,7 +21,7 @@ public class Utility
     public static BufferedImage buriedRobot04 = loadBufferedImage(resourceDirectory + "buriedRobot/buriedRobot04.png");
     public static BufferedImage buriedRobot05 = loadBufferedImage(resourceDirectory + "buriedRobot/buriedRobot05.png");
 //    public static Animation buriedRobotAnimation = new Animation(4, buriedRobot01, buriedRobot05, buriedRobot02, buriedRobot04, buriedRobot03);
-    public static Animation buriedRobotAnimation = new Animation(4, buriedRobot01, buriedRobot05, buriedRobot02, buriedRobot04);
+    public static Animation buriedRobotAnimation = new Animation(2, buriedRobot02, buriedRobot04);
 
     public static BufferedImage heavyBullet = loadBufferedImage(resourceDirectory + "heavyBullet.png");
     public static BufferedImage lightBullet = loadBufferedImage(resourceDirectory + "lightBullet.png");
