@@ -70,8 +70,8 @@ public class Map
                 else if ((red == 255) && (green == 114) && (blue == 0)) //AITank
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
-                    AITank tank = new AITank(xx * 100, yy * 100, 100, ObjectId.AITank, new MachineGun());
-                    tank.getSelectedGun().setReloadTime(250);
+                    AITank tank = new AITank(xx * 100, yy * 100, 100, ObjectId.AITank, new MissileGun());
+                    tank.getSelectedGun().setReloadTime(500);
                     objects.getTanks().add(tank);
                 }
             }
