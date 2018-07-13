@@ -22,7 +22,7 @@ public class Map
 
     public Map(Objects objects)
     {
-        mapImage = Utility.mapOriginal;
+        mapImage = Utility.firstEasyMap;
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
             for (int yy = 0; yy < mapImage.getHeight(); yy++)
@@ -54,11 +54,11 @@ public class Map
                     soil.add(new Soil(xx * 100, yy * 100));
                     teazel.add(new Teazel(xx * 100, yy * 100));
                 }
-                /*else if ((red == 208) && (green == 135) && (blue == 190)) //player
+                else if ((red == 208) && (green == 135) && (blue == 190)) //player
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
-                    objects.getPlayers().add(new Tank(xx * 100, yy * 100, 100, ObjectId.Player));
-                }*/
+                    //objects.getPlayers().add(new Tank(xx * 100, yy * 100, 100, ObjectId.Player));
+                }
                 else if ((red == 0) && (green == 0) && (blue == 0)) //buriedRobot
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
@@ -76,7 +76,7 @@ public class Map
                     tank.getSelectedGun().setReloadTime(500);
                     objects.getTanks().add(tank);
                 }
-                else if ((red == 88) && (green == 162) && (blue == 230)) //MissileGun
+                else if ((red == 88) && (green == 162) && (blue == 230)) //MissileGunUpgrade
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
                     Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MissileGunUpgrade);
@@ -84,7 +84,7 @@ public class Map
                     objects.getUpgrades().add(temp);
 
                 }
-                else if ((red == 143) && (green == 202) && (blue == 160)) //MachineGun
+                else if ((red == 143) && (green == 202) && (blue == 160)) //MachineGunUpgrade
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
                     Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MachineGunUpgrade);
@@ -95,6 +95,13 @@ public class Map
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
                     objects.getTurrets().add(new Turret(xx * 100, yy * 100, objects.getPlayers(), ObjectId.MachineGun));
+                }
+                else if ((red == 90) && (green == 90) && (blue == 90)) //shieldUpgrade
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.ShieldUpgrade);
+                    temp.setActivation(true);
+                    objects.getUpgrades().add(temp);
                 }
             }
         }
