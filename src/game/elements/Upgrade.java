@@ -47,8 +47,10 @@ public class Upgrade extends GameObject implements Serializable
         {
             if (id.equals(ObjectId.DamageUpgrade))
             {
-                user.getMissileGun().setDamage(user.getMissileGun().damage + 20);
-                user.getMachineGun().setDamage(user.getMachineGun().damage + 20);
+                user.getMissileGun().setDamage(user.getMissileGun().damage + 40);
+                user.getMachineGun().setDamage(user.getMachineGun().damage + 40);
+                user.getMissileGun().reloadTime -= 50;
+                user.getMachineGun().reloadTime -= 40;
                 makeSound();
                 activation = false;
             }

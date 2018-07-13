@@ -20,7 +20,7 @@ public class SharedData
     public Boolean removePlayer = false;
     public Tank playerToRemove;
     public ObjectId startingType = ObjectId.NewGame;
-
+    public ObjectId result; // win or lose
     //Singleton
     private static SharedData sharedData;
 

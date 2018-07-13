@@ -161,6 +161,30 @@ public class Utility
     {
         new DataInitializer(objects);
     }
+
+    public static Boolean checkEnd(Objects objects){
+        for(int i = 0 ; i < objects.getPlayers().size() ; i++){
+            Rectangle rectangle = new Rectangle((int)objects.getMap().getEnd().getX()+40,(int)objects.getMap().getEnd().getY()+40,50,50);
+            if(objects.getPlayers().get(i).getBounds().intersects(rectangle)){
+                SharedData.getData().result = ObjectId.Won; // one of the players reached the end of the map
+                return true;
+            }
+        }
+        if(objects.getPlayers().size() == 0){ //all player got destroyed so means losing
+            SharedData.getData().result = ObjectId.Lost;
+            return true;
+        }
+        return false;
+    }
+
+    public static void showVictoryEnding(){ //victory frame must be drawn here
+        System.out.println("YOU WON");
+    }
+
+    public static void showDefeatedEnding(){ // //losing frame must be drawn here
+        System.out.println("YOU Lost");
+    }
+
     /*
         This is how to delete a directory from the repository:
             git rm -r --cached node_modules

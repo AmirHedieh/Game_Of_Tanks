@@ -36,5 +36,7 @@ public enum ObjectId
     ThirdMap,
     FourthMap,
     SavedGame,
-    NewGame;
+    NewGame,
+    Won,
+    Lost;// win or lose
 }
