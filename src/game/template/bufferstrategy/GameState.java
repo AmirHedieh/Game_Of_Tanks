@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.savingElements.DataInitializer;
 import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
@@ -40,6 +41,9 @@ public class GameState
 //        Sound sound = new Sound(Utility.backgroundSound, true);
 //        sound.playSound();
         // Initialize the game state and all elements ...
+        if(SharedData.getData().startingType.equals(ObjectId.SavedGame)){
+            new DataInitializer(objects); //initialize game objects to continue last game
+        }
         keyUP = false;
         keyDOWN = false;
         keyRIGHT = false;

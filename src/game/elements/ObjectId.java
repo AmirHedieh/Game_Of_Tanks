@@ -34,5 +34,6 @@ public enum ObjectId
     FirstMap,
     SecondMap,
     ThirdMap,
-    FourthMap;
+    FourthMap,
+    SavedGame;
 }
