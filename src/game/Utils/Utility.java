@@ -77,6 +77,11 @@ public class Utility
     public static BufferedImage numberOfHeavyBullet = loadBufferedImage(resourceDirectory + "NumberOfHeavyBullet.png");
     public static BufferedImage numberOfLightBullet = loadBufferedImage(resourceDirectory + "NumberOfLightBullet.png");
 
+    public static BufferedImage pause = loadBufferedImage(resourceDirectory + "pause.png");
+    public static BufferedImage exit = loadBufferedImage(resourceDirectory + "exit.png");
+    public static BufferedImage resume = loadBufferedImage(resourceDirectory + "resume.png");
+    public static BufferedImage save = loadBufferedImage(resourceDirectory + "save.png");
+
     public static File backgroundSound = new File(resourceDirectory + "sounds/backgroundSound.wav");
     public static File heavyShotSound = new File(resourceDirectory + "sounds/HSL.wav");
     public static File lightShotSound = new File(resourceDirectory + "sounds/LSS.wav");

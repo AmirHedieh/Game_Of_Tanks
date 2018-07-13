@@ -246,6 +246,13 @@ public class GameFrame extends JFrame
         g2d.setColor(Color.green);
         g2d.drawString(lightBullets, 40, 135);
         //
+
+        //draw save, exit, resume, pause
+        g2d.drawImage(Utility.exit, 1750, 10, null);
+        g2d.drawImage(Utility.save, 1750, 85, null);
+        g2d.drawImage(Utility.pause, 1750, 160, null);
+        g2d.drawImage(Utility.resume, 1750, 230, null);
+
     }
 
     private void runAnimations()
