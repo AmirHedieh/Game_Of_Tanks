@@ -167,7 +167,8 @@ public class Objects implements Serializable
         this.robots = robots;
     }
 
-    public void setUpgrades(ArrayList<Upgrade> upgrades) {
+    public void setUpgrades(ArrayList<Upgrade> upgrades)
+    {
         this.upgrades = upgrades;
     }
 

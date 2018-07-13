@@ -25,6 +25,15 @@ public class Utility
     public static BufferedImage firstEasyMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/1/easy.png");
     public static BufferedImage firstMediumMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/1/medium.png");
     public static BufferedImage firstHardMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/1/hard.png");
+    public static BufferedImage secondEasyMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/2/easy.png");
+    public static BufferedImage secondMediumMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/2/medium.png");
+    public static BufferedImage secondHardMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/2/hard.png");
+    public static BufferedImage thirdEasyMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/3/easy.png");
+    public static BufferedImage thirdMediumMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/3/medium.png");
+    public static BufferedImage thirdHardMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/3/hard.png");
+    public static BufferedImage fourthEasyMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/4/easy.png");
+    public static BufferedImage fourthMediumMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/4/medium.png");
+    public static BufferedImage fourthHardMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/4/hard.png");
 
     public static ImageIcon mainMenuBackGroundMedium = loadImageIcon(resourceDirectory + "MainMenuBackGroundMedium.jpg");
     public static ImageIcon mainMenuBackGroundBig = loadImageIcon(resourceDirectory + "MainMenuBackGroundBig.jpg");

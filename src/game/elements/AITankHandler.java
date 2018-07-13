@@ -71,13 +71,15 @@ public class AITankHandler
         //movement in X direction
         if (target.x > tank.x && (Math.abs(target.x - tank.x) > 205))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionRight(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionRight(objects, tank))
+            {
                 tank.setX(tank.getX() + tank.getVelX());
             }
         }
         else if (target.x > tank.x && (Math.abs(target.x - tank.x) < 195))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionLeft(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionLeft(objects, tank))
+            {
                 tank.setX(tank.getX() - tank.getVelX());
             }
         }
@@ -87,38 +89,44 @@ public class AITankHandler
         }
         else if (target.x < tank.x && (Math.abs(target.x - tank.x)) > 205)
         {
-            if(!Physics.aiTankCheckHardWallsCollisionLeft(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionLeft(objects, tank))
+            {
                 tank.setX(tank.getX() - tank.getVelX());
             }
         }
         else if (target.x < tank.x && (Math.abs(target.x - tank.x) < 195))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionRight(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionRight(objects, tank))
+            {
                 tank.setX(tank.getX() + tank.getVelX());
             }
         }
         //movement in Y direction
         if (target.y > tank.y && (Math.abs(target.y - tank.y) > 205))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionDown(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionDown(objects, tank))
+            {
                 tank.setY(tank.getY() + tank.getVelY());
             }
         }
         else if (target.y > tank.y && (Math.abs(target.y - tank.y) < 195))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionUp(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionUp(objects, tank))
+            {
                 tank.setY(tank.getY() - tank.getVelY());
             }
         }
         else if (target.y < tank.y && (Math.abs(target.y - tank.y) > 205))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionUp(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionUp(objects, tank))
+            {
                 tank.setY(tank.getY() - tank.getVelY());
             }
         }
         else if (target.y < tank.y && (Math.abs(target.y - tank.y) < 195))
         {
-            if(!Physics.aiTankCheckHardWallsCollisionDown(objects,tank)) {
+            if (!Physics.aiTankCheckHardWallsCollisionDown(objects, tank))
+            {
                 tank.setY(tank.getY() + tank.getVelY());
             }
         }
@@ -186,7 +194,8 @@ public class AITankHandler
     private void setAngle(AITank tank)
     {
         double angle = Math.atan((tank.getTarget().getY() - tank.getY()) / (tank.getTarget().getX() - tank.getX()));
-        if(tank.getTarget().x > tank.x){
+        if (tank.getTarget().x > tank.x)
+        {
             angle += Math.PI;
         }
         tank.setTankAngle(angle);

@@ -56,8 +56,9 @@ public abstract class Gun extends GameObject implements Serializable
         {
             return true;
         }
-        else if(getCurrentTime() - lastShootTime > reloadTime && ammo == 0){
-            Sound sound = new Sound(Utility.emptyGun,false);
+        else if (getCurrentTime() - lastShootTime > reloadTime && ammo == 0)
+        {
+            Sound sound = new Sound(Utility.emptyGun, false);
             sound.playSound();
             lastShootTime = getCurrentTime();
             return false;
@@ -99,15 +100,18 @@ public abstract class Gun extends GameObject implements Serializable
         return ammo;
     }
 
-    public void setDamage(int damage) {
+    public void setDamage(int damage)
+    {
         this.damage = damage;
     }
 
-    public int getDamage() {
+    public int getDamage()
+    {
         return damage;
     }
 
-    public void setReloadTime(long reloadTime) {
+    public void setReloadTime(long reloadTime)
+    {
         this.reloadTime = reloadTime;
     }
 }

@@ -13,6 +13,9 @@ public class SharedData
     public ObjectId playerType;
     public Boolean clientShot = false;
     public Bullet clientLastShotBullet;
+    public ObjectId difficulty;
+    public ObjectId whichMap;
+    public String ip;
 
     //Singleton
     private static SharedData sharedData;

@@ -48,7 +48,7 @@ public class BuriedRobot extends GameObject
         setAngle(calculateAngle(this, target));
         if (activated)
         { // pass player tank as target
-            move(target,objects);
+            move(target, objects);
         }
         else
         {
@@ -111,28 +111,35 @@ public class BuriedRobot extends GameObject
      *
      * @param target player tank
      */
-    public void move(Tank target,Objects objects)
+    public void move(Tank target, Objects objects)
     {
         int vib = 6; // removes robot vibration when x or y is same as target x , y
-        if (target.x > this.x + vib) {
-            if(!Physics.BuriedRobotCollisionRight(objects,this)) {
+        if (target.x > this.x + vib)
+        {
+            if (!Physics.BuriedRobotCollisionRight(objects, this))
+            {
                 this.setX(this.getX() + this.getVelX());
             }
         }
-        else if (target.x < this.x - vib) {
-            if(!Physics.BuriedRobotCollisionLeft(objects,this)) {
+        else if (target.x < this.x - vib)
+        {
+            if (!Physics.BuriedRobotCollisionLeft(objects, this))
+            {
                 this.setX(this.getX() - this.getVelX());
             }
         }
 
         if (target.y > this.y + vib)
         {
-            if(!Physics.BuriedRobotCollisionDown(objects,this)) {
+            if (!Physics.BuriedRobotCollisionDown(objects, this))
+            {
                 this.setY(this.getY() + this.getVelY());
             }
         }
-        else if (target.y < this.y - vib) {
-            if(!Physics.BuriedRobotCollisionUp(objects,this)) {
+        else if (target.y < this.y - vib)
+        {
+            if (!Physics.BuriedRobotCollisionUp(objects, this))
+            {
                 this.setY(this.getY() - this.getVelY());
             }
         }
@@ -174,11 +181,13 @@ public class BuriedRobot extends GameObject
         return angle;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(int health)
+    {
         this.health = health;
     }
 
-    public int getHealth() {
+    public int getHealth()
+    {
         return health;
     }
 

@@ -2,6 +2,7 @@ package game.map;
 
 import com.sun.prism.Texture;
 import game.Utils.Animation;
+import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;
 import game.template.bufferstrategy.GameState;
@@ -22,7 +23,67 @@ public class Map
 
     public Map(Objects objects)
     {
-        mapImage = Utility.firstEasyMap;
+        if (SharedData.getData().whichMap.equals(ObjectId.FirstMap))
+        {
+            if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
+            {
+                mapImage = Utility.firstEasyMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.MediumMode))
+            {
+                mapImage = Utility.firstMediumMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.HardMode))
+            {
+                mapImage = Utility.firstHardMap;
+            }
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.SecondMap))
+        {
+            if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
+            {
+                mapImage = Utility.secondEasyMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.MediumMode))
+            {
+                mapImage = Utility.secondMediumMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.HardMode))
+            {
+                mapImage = Utility.secondHardMap;
+            }
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
+        {
+            if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
+            {
+                mapImage = Utility.thirdEasyMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.MediumMode))
+            {
+                mapImage = Utility.thirdMediumMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.HardMode))
+            {
+                mapImage = Utility.thirdHardMap;
+            }
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
+        {
+            if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
+            {
+                mapImage = Utility.fourthEasyMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.MediumMode))
+            {
+                mapImage = Utility.fourthMediumMap;
+            }
+            else if (SharedData.getData().difficulty.equals(ObjectId.HardMode))
+            {
+                mapImage = Utility.fourthHardMap;
+            }
+        }
+
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
             for (int yy = 0; yy < mapImage.getHeight(); yy++)

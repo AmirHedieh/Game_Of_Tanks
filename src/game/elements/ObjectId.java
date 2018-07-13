@@ -26,5 +26,12 @@ public enum ObjectId
     HealthUpgrade,       //under the AITank
     ShieldUpgrade,       //gray(90, 90, 90)
     PlayerShooter,
-    AIShooter;
+    AIShooter,
+    HardMode,
+    MediumMode,
+    EasyMode,
+    FirstMap,
+    SecondMap,
+    ThirdMap,
+    FourthMap;
 }

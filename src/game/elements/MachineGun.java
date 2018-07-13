@@ -27,15 +27,16 @@ public class MachineGun extends Gun implements Serializable
 
     /**
      * shoot a bullet from MachineGun
+     *
      * @param tankX
      * @param tankY
      * @param mouseX
      * @param mouseY
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
-    public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY,ObjectId shooter)
+    public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY, ObjectId shooter)
     {
-        Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY,damage,shooter);
+        Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY, damage, shooter);
         ammo--;
         lastShootTime = getCurrentTime();
 //        System.out.println("Ammo: " + ammo + " " + "Damage: " + damage + " MachineGun");
