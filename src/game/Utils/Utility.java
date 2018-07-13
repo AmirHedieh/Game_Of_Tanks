@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Utility
 {
-    public static String resourceDirectory = "src/resource/";
+    public static String resourceDirectory = "res/";
     public static Image cursor = new ImageIcon(resourceDirectory + "cursor.png").getImage();
 
     public static BufferedImage buriedRobot01 = loadBufferedImage(resourceDirectory + "buriedRobot/buriedRobot01.png");
