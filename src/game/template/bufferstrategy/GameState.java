@@ -7,6 +7,7 @@ import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.*;
 import game.map.Camera;
+import game.savingElements.DataSaver;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -29,6 +30,7 @@ public class GameState
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
     private boolean shoot;
     private boolean swap;
+    private boolean save;
     private double mouseX, mouseY;
 
     private KeyHandler keyHandler;
@@ -41,9 +43,10 @@ public class GameState
 //        Sound sound = new Sound(Utility.backgroundSound, true);
 //        sound.playSound();
         // Initialize the game state and all elements ...
-        if(SharedData.getData().startingType.equals(ObjectId.SavedGame)){
-            new DataInitializer(objects); //initialize game objects to continue last game
-        }
+//        if(SharedData.getData().startingType.equals(ObjectId.SavedGame)){
+//             //initialize game objects to continue last game
+//        }
+        new DataInitializer(objects);
         keyUP = false;
         keyDOWN = false;
         keyRIGHT = false;
@@ -51,6 +54,7 @@ public class GameState
         //
         shoot = false;
         swap = false;
+        save = false;
         //
         objects.init(); //initialize game objects
         aiTankHandler = new AITankHandler(objects);
@@ -65,6 +69,10 @@ public class GameState
      */
     public void update()
     {
+        if(save) {
+            System.out.println("Save");
+            new DataSaver(objects);
+        }
 //        System.out.println(objects.getPlayers().get(0).getX() + " " +objects.getPlayers().get(0).getY() );
         camera.tick(objects.getPlayers().get(0));
         //Update the state of all game elements
@@ -281,6 +289,9 @@ public class GameState
                 case KeyEvent.VK_D:
                     keyRIGHT = true;
                     break;
+                 case KeyEvent.VK_O:
+                     save = true;
+                     break;
             }
         }
 
@@ -300,6 +311,9 @@ public class GameState
                     break;
                 case KeyEvent.VK_D:
                     keyRIGHT = false;
+                    break;
+                case KeyEvent.VK_O:
+                    save = false;
                     break;
             }
 

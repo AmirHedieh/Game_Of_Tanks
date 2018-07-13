@@ -15,7 +15,7 @@ public class DataInitializer {
     private void readFile(Objects objects){
         ObjectInputStream ois = null;
         try {
-            FileInputStream streamIn = new FileInputStream("/save.ser");
+            FileInputStream streamIn = new FileInputStream("E:\\save.ser");
             ois = new ObjectInputStream(streamIn);
             SavingData data = (SavingData)ois.readObject();
             initializeObjects(objects,data);

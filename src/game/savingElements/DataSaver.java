@@ -5,7 +5,7 @@ import game.elements.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class DataSaver implements Serializable {
+public class DataSaver {
 
     //fields
 
@@ -27,7 +27,7 @@ public class DataSaver implements Serializable {
     private void writeFile(SavingData data){
         FileOutputStream fout = null;
         try {
-            fout = new FileOutputStream("/save.ser");
+            fout = new FileOutputStream("E:\\save.ser");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

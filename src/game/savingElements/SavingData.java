@@ -2,9 +2,10 @@ package game.savingElements;
 
 import game.elements.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SavingData {
+public class SavingData implements Serializable {
     //fields
     private ArrayList<Tank> players;
     private ArrayList<AITank> tanks;
