@@ -51,6 +51,7 @@ public class Utility
     public static BufferedImage plant = loadBufferedImage(resourceDirectory + "map/environment/plant.png");
     public static BufferedImage soil = loadBufferedImage(resourceDirectory + "map/environment/soil.png");
     public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/environment/hardWall.png");
+    public static BufferedImage end = loadBufferedImage(resourceDirectory + "map/environment/end.png");
 
     public static BufferedImage softWall01 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall01.png");
     public static BufferedImage softWall02 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall02.png");

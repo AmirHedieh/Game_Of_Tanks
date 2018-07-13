@@ -110,6 +110,7 @@ public class GameFrame extends JFrame
         drawHardWalls(state, g2d);
         drawSoftWalls(state, g2d);
         drawTeazel(state, g2d);
+        drawEnd(state, g2d);
         drawBullets(state, g2d, gameTransform);
         drawPlayers(state, g2d, gameTransform);
         drawAITanks(state, g2d, gameTransform);
@@ -117,6 +118,11 @@ public class GameFrame extends JFrame
         drawBuriedRobots(state, g2d, gameTransform);
         drawUpgrades(state, g2d);
         drawPlants(state, g2d);
+    }
+
+    private void drawEnd(GameState state, Graphics2D g2d)
+    {
+        g2d.drawImage(Utility.end, (int) state.objects.getMap().getEnd().getX(), (int) state.objects.getMap().getEnd().getY(), null);
     }
 
     private void drawSoil(GameState state, Graphics2D g2d)

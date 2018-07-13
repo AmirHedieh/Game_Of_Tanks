@@ -1,13 +1,9 @@
 package game.map;
 
-import com.sun.prism.Texture;
-import game.Utils.Animation;
 import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;
-import game.template.bufferstrategy.GameState;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -19,6 +15,7 @@ public class Map
     private ArrayList<SoftWall> softWall = new ArrayList<>();
     private ArrayList<Teazel> teazel = new ArrayList<>();
     private ArrayList<Soil> soil = new ArrayList<>();
+    private End end;
 
 
     public Map(Objects objects)
@@ -109,6 +106,10 @@ public class Map
                 else if ((red == 255) && (green == 255) && (blue == 255)) //Soil
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
+                }
+                else if ((red == 100) && (green == 0) && (blue == 0)) //end
+                {
+                    end = new End(xx * 100, yy * 100);
                 }
                 else if ((red == 255) && (green == 0) && (blue == 255)) //Teazel
                 {
@@ -228,4 +229,13 @@ public class Map
         this.soil = soil;
     }
 
+    public End getEnd()
+    {
+        return end;
+    }
+
+    public void setEnd(End end)
+    {
+        this.end = end;
+    }
 }
