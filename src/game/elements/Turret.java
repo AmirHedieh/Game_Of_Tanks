@@ -23,6 +23,7 @@ public class Turret extends GameObject implements Serializable
 
     private Gun gun;
 
+    private int health;
     private ArrayList<Tank> targets;
     private Tank target;
 
@@ -54,6 +55,7 @@ public class Turret extends GameObject implements Serializable
 
         gunAngle = 0;
 
+        health = 120;
         rangeOfView = 800;
     }
 
@@ -94,7 +96,7 @@ public class Turret extends GameObject implements Serializable
             setGunAngle(calculateAngle(this, target)); // angle between turret and tank
             if (gun.readyForShoot())
             {
-                objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
+                objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2,ObjectId.AIShooter));
                 target = objects.getPlayers().get(0);
             }
         }
@@ -167,6 +169,14 @@ public class Turret extends GameObject implements Serializable
     public Gun getGun()
     {
         return gun;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public void setGun(Gun gun)

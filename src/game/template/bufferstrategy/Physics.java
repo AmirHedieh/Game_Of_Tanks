@@ -487,16 +487,81 @@ public class Physics
         //collision with buried robots
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
-            for (int j = 0; j < objects.getRobots().size(); j++)
-            {
-//                if(objects.getBullets().get(i).getBounds().intersects(new Rectangle((int)objects.getRobots().get(j).getX()+20,
-//                        (int)objects.getRobots().get(j).getY()+20,
-//                        60,60))){
-                if (objects.getBullets().get(i).getBounds().intersects(objects.getRobots().get(j).getBounds()))
+            if (objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter))
+            { //disable friendly fire for AI
+                for (int j = 0; j < objects.getRobots().size(); j++)
                 {
-                    damageRobot(objects, objects.getRobots().get(j), objects.getBullets().get(i).getDamage());
-                    objects.getBullets().remove(i);
-                    break;
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getRobots().get(j).getBounds()))
+                    {
+                        damageRobot(objects, objects.getRobots().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
+                }
+            }
+        }
+        //collision with AI tanks
+        for (int i = 0; i < objects.getBullets().size(); i++)
+        {
+            for (int j = 0; j < objects.getTanks().size(); j++)
+            {
+                if (objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter))
+                { //disable friendly fire for AI
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getTanks().get(j).getBounds()))
+                    {
+                        damageAITank(objects, objects.getTanks().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
+                }
+            }
+        }
+        //collision with Player Tank
+        for (int i = 0; i < objects.getBullets().size(); i++)
+        {
+            for (int j = 0; j < objects.getPlayers().size(); j++)
+            {
+                if (objects.getBullets().get(i).getShooter().equals(ObjectId.AIShooter))
+                {
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getPlayers().get(j).getBounds()))
+                    {
+//                    damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
+                        damagePlayerTank(objects, objects.getPlayers().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
+                }
+            }
+        }
+        //collision with turret
+        for (int i = 0; i < objects.getBullets().size(); i++)
+        {
+            for (int j = 0; j < objects.getTurrets().size(); j++)
+            {
+                if (objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter))
+                {
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getTurrets().get(j).getBounds()))
+                    {
+                        damageTurret(objects, objects.getTurrets().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void checkBuriedRobotsCollisionWithPlayer(Objects objects)
+    {
+        for (int i = 0; i < objects.getRobots().size(); i++)
+        {
+            if (objects.getRobots().get(i).isActivated())
+            { //just done for activated robots
+                if ((Math.abs(objects.getRobots().get(i).getX() - objects.getRobots().get(i).getTarget().getX()) < 70) &&
+                        (Math.abs(objects.getRobots().get(i).getY() - objects.getRobots().get(i).getTarget().getY()) < 70))
+                {
+                    damagePlayerTank(objects, objects.getRobots().get(i).getTarget(), 100); // damage of the robot(hits player)
+                    damageRobot(objects, objects.getRobots().get(i), objects.getRobots().get(i).getHealth()); // makes robot die
                 }
             }
         }
@@ -508,6 +573,33 @@ public class Physics
         if (robot.getHealth() <= 0)
         { // if robot health get down to zero it gets destroyed and must be removed from objects
             objects.getRobots().remove(robot);
+        }
+    }
+
+    private static void damageAITank(Objects objects, AITank tank, int damage)
+    {
+        tank.setHealth(tank.getHealth() - damage);
+        if (tank.getHealth() <= 0)
+        {
+            objects.getTanks().remove(tank);
+        }
+    }
+
+    private static void damagePlayerTank(Objects objects, Tank tank, int damage)
+    {
+        tank.setHealth(tank.getHealth() - damage);
+        if (tank.getHealth() <= 0)
+        {
+            System.out.println("Game Over");
+        }
+    }
+
+    private static void damageTurret(Objects objects, Turret turret, int damage)
+    {
+        turret.setHealth(turret.getHealth() - damage);
+        if (turret.getHealth() <= 0)
+        {
+            objects.getTurrets().remove(turret);
         }
     }
 }

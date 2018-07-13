@@ -19,6 +19,7 @@ public abstract class Gun extends GameObject implements Serializable
     protected int ammo;
     protected long lastShootTime;
     protected long reloadTime;
+    protected ObjectId shooter;
 
     //constructor
     public Gun()
@@ -42,7 +43,7 @@ public abstract class Gun extends GameObject implements Serializable
      * @param mouseY
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
-    public abstract Bullet shoot(double tankX, double tankY, double mouseX, double mouseY);
+    public abstract Bullet shoot(double tankX, double tankY, double mouseX, double mouseY,ObjectId shooter);
 
     /**
      * checks that Gun is ready to shot or not(it is reloading or not).

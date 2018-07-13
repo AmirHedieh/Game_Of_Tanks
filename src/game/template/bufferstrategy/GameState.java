@@ -108,7 +108,7 @@ public class GameState
         {
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
-                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY,ObjectId.PlayerShooter)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
                 if (objects.getPlayers().get(0).getSelectedGun() instanceof MissileGun)
                 {
                     Sound sound = new Sound(Utility.heavyShotSound, false);
@@ -133,7 +133,6 @@ public class GameState
             objects.getPlayers().get(0).swapGun();
             swap = false;
         }
-        Physics.checkBulletsCollision(objects);
         //things that client side must not do
         if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
         {
@@ -155,6 +154,8 @@ public class GameState
             //1
 
             aiTankHandler.tick();
+            Physics.checkBulletsCollision(objects);
+            Physics.checkBuriedRobotsCollisionWithPlayer(objects);
             //
             for (int i = 0; i < objects.getUpgrades().size(); i++)
             {

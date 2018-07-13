@@ -25,6 +25,8 @@ public enum ObjectId
     MachineGunUpgrade,   //lightGreen(143, 202, 160)
     HealthUpgrade,       //under the AITank
     ShieldUpgrade,       //gray(90, 90, 90)
+    PlayerShooter,
+    AIShooter,
     HardMode,
     MediumMode,
     EasyMode,

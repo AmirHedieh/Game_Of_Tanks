@@ -13,9 +13,9 @@ public class LightBullet extends Bullet
 
     }
 
-    public LightBullet(double startX, double startY, double mouseX, double mouseY, int damage)
+    public LightBullet(double startX, double startY, double mouseX, double mouseY, int damage, ObjectId shooter)
     {
-        super(startX, startY, mouseX, mouseY, ObjectId.LightBullet);
+        super(startX, startY, mouseX, mouseY, ObjectId.LightBullet, shooter);
         this.damage = damage;
     }
 

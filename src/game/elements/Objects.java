@@ -32,7 +32,7 @@ public class Objects implements Serializable
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
         upgrades = new ArrayList<>();
-        players.add(new Tank(1150, 6300, 100, ObjectId.Player));
+        players.add(new Tank(1150, 6300, 300, ObjectId.Player));
         map = new Map(this);
     }
 
@@ -48,7 +48,7 @@ public class Objects implements Serializable
 //        players.add(new Tank(1150, 6300, 100, ObjectId.Player)); // making player's tank
         if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
         {
-            players.add(new Tank(300, 300, 100, ObjectId.Player)); // making player's tank
+            players.add(new Tank(300, 300, 300, ObjectId.Player)); // making player's tank
         }
         //upgrade init
         Upgrade upgrade1 = new Upgrade(600, 600, this, ObjectId.DamageUpgrade);
