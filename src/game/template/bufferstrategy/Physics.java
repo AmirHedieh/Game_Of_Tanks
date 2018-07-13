@@ -377,27 +377,28 @@ public class Physics
         }
             //collision with buried robots
         for (int i = 0; i < objects.getBullets().size(); i++) {
-            for(int j = 0 ; j < objects.getRobots().size() ; j++){
+            if(objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter)) { //disable friendly fire for AI
+                for (int j = 0; j < objects.getRobots().size(); j++) {
 //                if(objects.getBullets().get(i).getBounds().intersects(new Rectangle((int)objects.getRobots().get(j).getX()+20,
 //                        (int)objects.getRobots().get(j).getY()+20,
 //                        60,60))){
-                if (objects.getBullets().get(i).getBounds().intersects(objects.getRobots().get(j).getBounds())) {
-                    damageRobot(objects,objects.getRobots().get(j),objects.getBullets().get(i).getDamage());
-                    objects.getBullets().remove(i);
-                    break;
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getRobots().get(j).getBounds())) {
+                        damageRobot(objects, objects.getRobots().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
                 }
             }
         }
         //collision with AI tanks
         for (int i = 0; i < objects.getBullets().size(); i++) {
-            for(int j = 0 ; j < objects.getTanks().size() ; j++){
-//                if(objects.getBullets().get(i).getBounds().intersects(new Rectangle((int)objects.getRobots().get(j).getX()+20,
-//                        (int)objects.getRobots().get(j).getY()+20,
-//                        60,60))){
-                if (objects.getBullets().get(i).getBounds().intersects(objects.getTanks().get(j).getBounds())) {
-                    damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
-                    objects.getBullets().remove(i);
-                    break;
+            for(int j = 0 ; j < objects.getTanks().size() ; j++) {
+                if (objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter)) { //disable friendly fire for AI
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getTanks().get(j).getBounds())) {
+                        damageAITank(objects, objects.getTanks().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
                 }
             }
         }

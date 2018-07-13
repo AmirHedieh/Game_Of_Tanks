@@ -180,4 +180,8 @@ public class Bullet extends GameObject
     {
         return new Rectangle((int) x + 50, (int) y + 50, 22, 22);
     }
+
+    public ObjectId getShooter() {
+        return shooter;
+    }
 }
