@@ -25,7 +25,7 @@ public class Tank extends GameObject implements Serializable
     private long lastRotateTime;
     private long rechargeRotationTime;
 
-    private Upgrade upgrade;
+    protected Upgrade upgrade;
 
     private Boolean hasShield;
     private int momentHealth;
@@ -381,5 +381,15 @@ public class Tank extends GameObject implements Serializable
     public void setHasShield(Boolean hasShield)
     {
         this.hasShield = hasShield;
+    }
+
+    public Upgrade getUpgrade()
+    {
+        return upgrade;
+    }
+
+    public void setUpgrade(Upgrade upgrade)
+    {
+        this.upgrade = upgrade;
     }
 }

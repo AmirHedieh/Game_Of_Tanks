@@ -586,6 +586,12 @@ public class Physics
         {
             Sound sound = new Sound(Utility.explosion,false);
             sound.playSound();
+            if (tank.getUpgrade() != null)
+            {
+                tank.getUpgrade().setX(tank.getX());
+                tank.getUpgrade().setY(tank.getY());
+                tank.releaseUpgrade();
+            }
             objects.getTanks().remove(tank);
         }
     }

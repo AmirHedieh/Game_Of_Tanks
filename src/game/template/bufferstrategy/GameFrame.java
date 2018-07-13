@@ -422,6 +422,14 @@ public class GameFrame extends JFrame
                 {
                     g2d.drawImage(Utility.shieldUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
                 }
+                else if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.DamageUpgrade))
+                {
+                    g2d.drawImage(Utility.repairUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                }
+                else if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.HealthUpgrade))
+                {
+                    g2d.drawImage(Utility.healthUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                }
             }
         }
     }

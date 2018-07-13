@@ -143,7 +143,6 @@ public class Map
                     Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.MissileGunUpgrade);
                     temp.setActivation(true);
                     objects.getUpgrades().add(temp);
-
                 }
                 else if ((red == 143) && (green == 202) && (blue == 160)) //MachineGunUpgrade
                 {
@@ -163,6 +162,22 @@ public class Map
                     Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.ShieldUpgrade);
                     temp.setActivation(true);
                     objects.getUpgrades().add(temp);
+                }
+                else if ((red == 213) && (green == 236) && (blue == 6)) //healthUpgrade with AITank
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.HealthUpgrade);
+                    objects.getUpgrades().add(temp);
+                    AITank tank = new AITank(xx * 100, yy * 100, 140, ObjectId.AITank, new MachineGun(), temp);
+                    objects.getTanks().add(tank);
+                }
+                else if ((red == 255) && (green == 0) && (blue == 0)) //damageUpgrade with AITank
+                {
+                    soil.add(new Soil(xx * 100, yy * 100));
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.DamageUpgrade);
+                    objects.getUpgrades().add(temp);
+                    AITank tank = new AITank(xx * 100, yy * 100, 140, ObjectId.AITank, new MachineGun(), temp);
+                    objects.getTanks().add(tank);
                 }
             }
         }

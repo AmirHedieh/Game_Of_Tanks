@@ -43,17 +43,11 @@ public class Objects implements Serializable
      */
     public void init()
     {
-        //Player tank initialization
-//        players.add(new Tank(300, 100, 100, ObjectId.Player)); // making player's tank
-//        players.add(new Tank(1150, 6300, 100, ObjectId.Player)); // making player's tank
+        //Second Player tank initialization
         if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
         {
             players.add(new Tank(300, 300, 300, ObjectId.Player)); // making player's tank
         }
-        //upgrade init
-        Upgrade upgrade1 = new Upgrade(600, 600, ObjectId.DamageUpgrade);
-        upgrade1.setActivation(true);
-        upgrades.add(upgrade1);
     }
 
     /**

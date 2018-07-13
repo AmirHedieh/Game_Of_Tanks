@@ -30,6 +30,25 @@ public class AITank extends Tank implements Serializable
         activated = false;
     }
 
+    public AITank(double x, double y, int health, ObjectId id, Gun gun, Upgrade upgrade)
+    {
+        super(x, y, health, id);
+        if (gun instanceof MissileGun)
+        {
+            selectedGun = missileGun;
+        }
+        else if (gun instanceof MachineGun)
+        {
+            selectedGun = machineGun;
+        }
+        selectedGun.setReloadTime(500);
+        selectedGun.setAmmo(1000);
+        setVelX(8);
+        setVelY(8);
+        this.upgrade = upgrade;
+        activated = false;
+    }
+
     /**
      * if tank is playing or its sleep(waiting to be invoked).
      *
