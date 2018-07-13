@@ -388,7 +388,7 @@ public class Physics
                 }
             }
         }
-
+        //collision with AI tanks
         for (int i = 0; i < objects.getBullets().size(); i++) {
             for(int j = 0 ; j < objects.getTanks().size() ; j++){
 //                if(objects.getBullets().get(i).getBounds().intersects(new Rectangle((int)objects.getRobots().get(j).getX()+20,
@@ -396,6 +396,17 @@ public class Physics
 //                        60,60))){
                 if (objects.getBullets().get(i).getBounds().intersects(objects.getTanks().get(j).getBounds())) {
                     damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
+                    objects.getBullets().remove(i);
+                    break;
+                }
+            }
+        }
+        //collision with Player Tank
+        for (int i = 0; i < objects.getBullets().size(); i++) {
+            for(int j = 0 ; j < objects.getPlayers().size() ; j++){
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getPlayers().get(j).getBounds())) {
+//                    damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
+                    damagePlayerTank(objects,objects.getPlayers().get(j),objects.getBullets().get(i).getDamage());
                     objects.getBullets().remove(i);
                     break;
                 }
@@ -414,6 +425,13 @@ public class Physics
         tank.setHealth(tank.getHealth() - damage);
         if(tank.getHealth() <= 0){
             objects.getTanks().remove(tank);
+        }
+    }
+
+    private static void damagePlayerTank(Objects objects, Tank tank, int damage){
+        tank.setHealth(tank.getHealth() - damage);
+        if(tank.getHealth() <= 0){
+            System.out.println("Game Over");
         }
     }
 }
