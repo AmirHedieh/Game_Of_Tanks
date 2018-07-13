@@ -2,6 +2,7 @@ package game.Utils;
 
 import game.elements.Bullet;
 import game.elements.ObjectId;
+import game.elements.Tank;
 
 /**
  * a SingleTon patterned class that shares needed info between all classes
@@ -16,6 +17,8 @@ public class SharedData
     public ObjectId difficulty;
     public ObjectId whichMap;
     public String ip;
+    public Boolean removePlayer = false;
+    public Tank playerToRemove;
 
     //Singleton
     private static SharedData sharedData;

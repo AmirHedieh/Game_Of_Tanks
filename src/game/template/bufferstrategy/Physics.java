@@ -1,5 +1,6 @@
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.*;
@@ -594,7 +595,9 @@ public class Physics
         tank.setHealth(tank.getHealth() - damage);
         if (tank.getHealth() <= 0)
         {
-            System.out.println("Game Over");
+            SharedData.getData().removePlayer = true;
+            SharedData.getData().playerToRemove = tank;
+//            System.out.println("Game Over");
         }
     }
 

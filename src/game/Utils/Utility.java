@@ -2,6 +2,8 @@ package game.Utils;
 
 import game.elements.GameObject;
 import game.elements.ObjectId;
+import game.elements.Objects;
+import game.elements.Tank;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -124,7 +126,9 @@ public class Utility
         return distance;
     }
 
-
+    public static void removePlayer(Objects objects , Tank tank){
+        objects.getPlayers().remove(tank);
+    }
     /*
         This is how to delete a directory from the repository:
             git rm -r --cached node_modules
