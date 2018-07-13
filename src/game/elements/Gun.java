@@ -1,5 +1,8 @@
 package game.elements;
 
+import game.Utils.Sound;
+import game.Utils.Utility;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -51,6 +54,12 @@ public abstract class Gun extends GameObject implements Serializable
         if (getCurrentTime() - lastShootTime > reloadTime && ammo > 0)
         {
             return true;
+        }
+        else if(getCurrentTime() - lastShootTime > reloadTime && ammo == 0){
+            Sound sound = new Sound(Utility.emptyGun,false);
+            sound.playSound();
+            lastShootTime = getCurrentTime();
+            return false;
         }
         else
         {

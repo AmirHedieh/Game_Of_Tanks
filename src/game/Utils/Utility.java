@@ -53,6 +53,7 @@ public class Utility
     public static File backgroundSound = new File(resourceDirectory + "sounds/backgroundSound.wav");
     public static File heavyShotSound = new File(resourceDirectory + "sounds/HSL.wav");
     public static File lightShotSound = new File(resourceDirectory + "sounds/LSS.wav");
+    public static File emptyGun = new File(resourceDirectory + "sounds/empty.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {
