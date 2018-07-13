@@ -72,8 +72,7 @@ public class GameLoop implements Runnable
     @Override
     public void run()
     {
-        boolean gameOver = false;
-        while (!gameOver)
+        while (!Utility.checkEnd(state.objects))
         {
             try
             {
@@ -125,6 +124,12 @@ public class GameLoop implements Runnable
             catch (InterruptedException ex)
             {
             }
+        }
+        if(SharedData.getData().result.equals(ObjectId.Won)){
+            Utility.showVictoryEnding();
+        }
+        else if(SharedData.getData().result.equals(ObjectId.Lost)){
+            Utility.showDefeatedEnding();
         }
     }
 }

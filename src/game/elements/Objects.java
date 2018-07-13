@@ -32,7 +32,8 @@ public class Objects implements Serializable
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
         upgrades = new ArrayList<>();
-        players.add(new Tank(1150, 6300, 300, ObjectId.Player));
+//        players.add(new Tank(1150, 6300, 300, ObjectId.Player));
+        players.add(new Tank(2850, 400, 300, ObjectId.Player));
         map = new Map(this);
     }
 
