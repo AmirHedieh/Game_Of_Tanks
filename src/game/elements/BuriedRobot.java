@@ -137,9 +137,9 @@ public class BuriedRobot extends GameObject
             }
         }
 
-        if (target.x == this.x && target.y == this.y) {
-            activated = false;
-        }
+//        if (Math.abs(target.x - this.x) < 9 && Math.abs(target.y - this.y) < 9) {
+//            activated = false;
+//        }
     }
 
     /**
@@ -180,6 +180,10 @@ public class BuriedRobot extends GameObject
 
     public int getHealth() {
         return health;
+    }
+
+    public Tank getTarget() {
+        return target;
     }
 
     public Rectangle getBounds()

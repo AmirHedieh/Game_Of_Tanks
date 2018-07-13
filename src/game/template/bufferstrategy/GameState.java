@@ -134,6 +134,7 @@ public class GameState
             swap = false;
         }
         Physics.checkBulletsCollision(objects);
+        Physics.checkBuriedRobotsCollisionWithPlayer(objects);
         //things that client side must not do
         if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
         {
