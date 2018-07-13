@@ -572,6 +572,8 @@ public class Physics
         robot.setHealth(robot.getHealth() - damage);
         if (robot.getHealth() <= 0)
         { // if robot health get down to zero it gets destroyed and must be removed from objects
+            Sound sound = new Sound(Utility.robotExplosion,false);
+            sound.playSound();
             objects.getRobots().remove(robot);
         }
     }
@@ -581,6 +583,8 @@ public class Physics
         tank.setHealth(tank.getHealth() - damage);
         if (tank.getHealth() <= 0)
         {
+            Sound sound = new Sound(Utility.explosion,false);
+            sound.playSound();
             objects.getTanks().remove(tank);
         }
     }

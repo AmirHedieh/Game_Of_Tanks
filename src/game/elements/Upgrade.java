@@ -1,6 +1,7 @@
 package game.elements;
 
 import game.Utils.SharedData;
+import game.Utils.Sound;
 import game.Utils.Utility;
 
 import java.io.Serializable;
@@ -13,7 +14,7 @@ public class Upgrade extends GameObject implements Serializable
 {
 
     //fields
-    private Objects objects;
+//    private Objects objects;
     private Boolean activation;
     private Tank user;
 
@@ -23,63 +24,70 @@ public class Upgrade extends GameObject implements Serializable
 
     }
 
-    public Upgrade(double x, double y, Objects objects, ObjectId type)
+    public Upgrade(double x, double y, ObjectId type)
     {
         super(x, y, type);
-        this.objects = objects;
         activation = false;
     }
 
     //methods
-    public void tick()
+    public void tick(Objects objects)
     {
-        determineTarget();
-        checkToBeUsed();
+        determineTarget(objects);
+        checkToBeUsed(objects);
     }
 
     /**
      * checks whether a tank is close to upgrade or not, if its close enough
      * it applies upgrade to tank based on the type(id) of the upgrade.
      */
-    public void checkToBeUsed()
+    public void checkToBeUsed(Objects objects)
     {
         if (Math.abs(user.x - this.x) < 95 && Math.abs(user.y - this.y) < 95)
         {
-            System.out.println("INNNNNNNN");
             if (id.equals(ObjectId.DamageUpgrade))
             {
                 user.getMissileGun().setDamage(user.getMissileGun().damage + 20);
                 user.getMachineGun().setDamage(user.getMachineGun().damage + 20);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.HealthUpgrade))
             {
                 user.setHealth(user.health + 100);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.MachineGunUpgrade))
             {
                 user.getMachineGun().setAmmo(user.getMachineGun().ammo + 15);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.MissileGunUpgrade))
             {
                 user.getMissileGun().setAmmo(user.getMissileGun().ammo + 15);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.ShieldUpgrade))
             {
                 System.out.println("shield");
                 user.activateShield();
+                makeSound();
                 activation = false;
             }
         }
     }
 
+    private void makeSound(){
+        Sound sound = new Sound(Utility.upgrade,false);
+        sound.playSound();
+    }
     /**
      * set user to the tank which is closer to upgrade
      */
-    public void determineTarget()
+    public void determineTarget(Objects objects)
     {
         for (int i = 0; i < objects.getPlayers().size(); i++)
         {
