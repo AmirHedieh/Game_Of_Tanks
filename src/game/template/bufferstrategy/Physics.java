@@ -222,7 +222,8 @@ public class Physics
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(i).getX(),(int)objects.getMap().getHardWall().get(i).getY()+20,90,83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
             {
                 if (objects.getPlayers().get(0).getY() > objects.getMap().getHardWall().get(i).getY())
                 {
@@ -251,7 +252,8 @@ public class Physics
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(i).getX()+10,(int)objects.getMap().getHardWall().get(i).getY(),80,83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
             {
                 if (objects.getPlayers().get(0).getY() < objects.getMap().getHardWall().get(i).getY())
                 {
@@ -280,7 +282,8 @@ public class Physics
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(i).getX(),(int)objects.getMap().getHardWall().get(i).getY()+20,83,80);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
             {
                 if (objects.getPlayers().get(0).getX() < objects.getMap().getHardWall().get(i).getX())
                 {
@@ -309,7 +312,8 @@ public class Physics
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
-            if (objects.getPlayers().get(0).getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
+            Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(i).getX()+20,(int)objects.getMap().getHardWall().get(i).getY()+20,83,80);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
             {
                 if (objects.getPlayers().get(0).getX() > objects.getMap().getHardWall().get(i).getX())
                 {
