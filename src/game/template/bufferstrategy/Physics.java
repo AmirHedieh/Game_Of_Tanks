@@ -421,7 +421,6 @@ public class Physics
                         (Math.abs(objects.getRobots().get(i).getY() - objects.getRobots().get(i).getTarget().getY()) < 70)){
                     damagePlayerTank(objects,objects.getRobots().get(i).getTarget(),100); // damage of the robot(hits player)
                     damageRobot(objects,objects.getRobots().get(i),objects.getRobots().get(i).getHealth()); // makes robot die
-//                    damagePlayerTank(objects,objects.getRobots().get(i).getTarget(),100); // damage of the robot(hits player)
                 }
             }
         }

@@ -133,8 +133,6 @@ public class GameState
             objects.getPlayers().get(0).swapGun();
             swap = false;
         }
-        Physics.checkBulletsCollision(objects);
-        Physics.checkBuriedRobotsCollisionWithPlayer(objects);
         //things that client side must not do
         if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer) || SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
         {
@@ -156,6 +154,8 @@ public class GameState
             //1
 
             aiTankHandler.tick();
+            Physics.checkBulletsCollision(objects);
+            Physics.checkBuriedRobotsCollisionWithPlayer(objects);
             //
             for (int i = 0; i < objects.getUpgrades().size(); i++)
             {
