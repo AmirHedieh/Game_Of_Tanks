@@ -1,5 +1,7 @@
 package game.template.bufferstrategy;
 
+import game.Utils.Sound;
+import game.Utils.Utility;
 import game.elements.*;
 
 import java.awt.*;
@@ -363,6 +365,8 @@ public class Physics
                 Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(j).getX()+20,(int)objects.getMap().getHardWall().get(j).getY()+20,45,45);
                 if (objects.getBullets().get(i).getBounds().intersects(rectangle))
                 {
+                    Sound sound = new Sound(Utility.bulletHitHardWall,false);
+                    sound.playSound();
                     objects.getBullets().remove(i);
                     break;
                 }
