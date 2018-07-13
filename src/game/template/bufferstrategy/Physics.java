@@ -412,6 +412,18 @@ public class Physics
                 }
             }
         }
+        //collision with turret
+        for (int i = 0; i < objects.getBullets().size(); i++) {
+            for(int j = 0 ; j < objects.getTurrets().size() ; j++){
+                if(objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter)) {
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getTurrets().get(j).getBounds())) {
+                        damageTurret(objects, objects.getTurrets().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public static void checkBuriedRobotsCollisionWithPlayer(Objects objects){
@@ -444,6 +456,13 @@ public class Physics
         tank.setHealth(tank.getHealth() - damage);
         if(tank.getHealth() <= 0){
             System.out.println("Game Over");
+        }
+    }
+
+    private static void damageTurret(Objects objects, Turret turret, int damage){
+        turret.setHealth(turret.getHealth() - damage);
+        if(turret.getHealth() <= 0){
+            objects.getTurrets().remove(turret);
         }
     }
 }
