@@ -388,12 +388,32 @@ public class Physics
                 }
             }
         }
+
+        for (int i = 0; i < objects.getBullets().size(); i++) {
+            for(int j = 0 ; j < objects.getTanks().size() ; j++){
+//                if(objects.getBullets().get(i).getBounds().intersects(new Rectangle((int)objects.getRobots().get(j).getX()+20,
+//                        (int)objects.getRobots().get(j).getY()+20,
+//                        60,60))){
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getTanks().get(j).getBounds())) {
+                    damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
+                    objects.getBullets().remove(i);
+                    break;
+                }
+            }
+        }
     }
 
     private static void damageRobot(Objects objects, BuriedRobot robot, int damage){
         robot.setHealth(robot.getHealth() - damage);
         if(robot.getHealth() <= 0){ // if robot health get down to zero it gets destroyed and must be removed from objects
             objects.getRobots().remove(robot);
+        }
+    }
+
+    private static void damageAITank(Objects objects, AITank tank, int damage){
+        tank.setHealth(tank.getHealth() - damage);
+        if(tank.getHealth() <= 0){
+            objects.getTanks().remove(tank);
         }
     }
 }

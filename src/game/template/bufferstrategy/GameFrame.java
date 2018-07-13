@@ -289,6 +289,9 @@ public class GameFrame extends JFrame
                     (int) state.objects.getTanks().get(i).getX(), //this is the X upper left corner of the tile
                     (int) state.objects.getTanks().get(i).getY(), //this is the Y upper left corner of the tile
                     null);
+//            g2d.fillRect(state.objects.getTanks().get(i).getBounds().x,
+//                        state.objects.getTanks().get(i).getBounds().y,
+//                        state.objects.getTanks().get(i).getBounds().width,state.objects.getTanks().get(i).getBounds().height);
             g2d.setTransform(gameTransform);
         }
         //
