@@ -12,6 +12,7 @@ public class TransferringData implements Serializable
     private ArrayList<Bullet> bullets;
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
+    private ArrayList<Upgrade> upgrades;
 
     public ArrayList<Tank> getPlayers()
     {
@@ -38,6 +39,10 @@ public class TransferringData implements Serializable
         return robots;
     }
 
+    public ArrayList<Upgrade> getUpgrades() {
+        return upgrades;
+    }
+
     //constructor
     public TransferringData()
     {
@@ -51,6 +56,7 @@ public class TransferringData implements Serializable
         this.bullets = objects.getBullets();
         this.turrets = objects.getTurrets();
         this.robots = objects.getRobots();
+        this.upgrades = objects.getUpgrades();
     }
 }
 

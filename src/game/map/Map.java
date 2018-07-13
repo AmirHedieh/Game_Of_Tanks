@@ -79,7 +79,7 @@ public class Map
                 else if ((red == 88) && (green == 162) && (blue == 230)) //MissileGunUpgrade
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
-                    Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MissileGunUpgrade);
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.MissileGunUpgrade);
                     temp.setActivation(true);
                     objects.getUpgrades().add(temp);
 
@@ -87,7 +87,7 @@ public class Map
                 else if ((red == 143) && (green == 202) && (blue == 160)) //MachineGunUpgrade
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
-                    Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.MachineGunUpgrade);
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.MachineGunUpgrade);
                     temp.setActivation(true);
                     objects.getUpgrades().add(temp);
                 }
@@ -99,7 +99,7 @@ public class Map
                 else if ((red == 90) && (green == 90) && (blue == 90)) //shieldUpgrade
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
-                    Upgrade temp = new Upgrade(xx * 100, yy * 100, objects, ObjectId.ShieldUpgrade);
+                    Upgrade temp = new Upgrade(xx * 100, yy * 100, ObjectId.ShieldUpgrade);
                     temp.setActivation(true);
                     objects.getUpgrades().add(temp);
                 }

@@ -86,6 +86,7 @@ public class Client
         objects.setRobots(data.getRobots());
         objects.setTanks(data.getTanks());
         objects.setTurrets(data.getTurrets());
+        objects.setUpgrades(data.getUpgrades());
     }
 
 //    private void sendLocationData(Objects objects){
