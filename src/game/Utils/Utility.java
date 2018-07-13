@@ -132,23 +132,28 @@ public class Utility
         return distance;
     }
 
-    public static void removePlayer(Objects objects , Tank tank){
+    public static void removePlayer(Objects objects, Tank tank)
+    {
         objects.getPlayers().remove(tank);
     }
 
     /**
      * save game states
+     *
      * @param objects objects of the game
      */
-    public static void saveGame(Objects objects){
+    public static void saveGame(Objects objects)
+    {
         new DataSaver(objects);
     }
 
     /**
      * if there is any save file, it initialize game objects
+     *
      * @param objects
      */
-    public static void initGame(Objects objects){
+    public static void initGame(Objects objects)
+    {
         new DataInitializer(objects);
     }
 

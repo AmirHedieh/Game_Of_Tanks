@@ -39,7 +39,8 @@ public class TransferringData implements Serializable
         return robots;
     }
 
-    public ArrayList<Upgrade> getUpgrades() {
+    public ArrayList<Upgrade> getUpgrades()
+    {
         return upgrades;
     }
 

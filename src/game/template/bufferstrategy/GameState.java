@@ -43,7 +43,8 @@ public class GameState
 //        Sound sound = new Sound(Utility.backgroundSound, true);
 //        sound.playSound();
         // Initialize the game state and all elements ...
-        if(SharedData.getData().startingType.equals(ObjectId.SavedGame)){
+        if (SharedData.getData().startingType.equals(ObjectId.SavedGame))
+        {
             Utility.initGame(objects);//initialize game objects to continue last game
         }
 //        new DataInitializer(objects);
@@ -69,7 +70,8 @@ public class GameState
      */
     public void update()
     {
-        if(save) {
+        if (save)
+        {
             Utility.saveGame(objects);
         }
 //        System.out.println(objects.getPlayers().get(0).getX() + " " +objects.getPlayers().get(0).getY() );
@@ -119,7 +121,7 @@ public class GameState
         {
             if (objects.getPlayers().get(0).getSelectedGun().readyForShoot())
             {
-                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY,ObjectId.PlayerShooter)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
+                objects.addBullet(objects.getPlayers().get(0).getSelectedGun().shoot(objects.getPlayers().get(0).getX(), objects.getPlayers().get(0).getY(), mouseX, mouseY, ObjectId.PlayerShooter)); //tank's gun shoots a bullet. bullet is added to bullets arrayList
                 if (objects.getPlayers().get(0).getSelectedGun() instanceof MissileGun)
                 {
                     Sound sound = new Sound(Utility.heavyShotSound, false);
@@ -170,7 +172,8 @@ public class GameState
             //
             for (int i = 0; i < objects.getUpgrades().size(); i++)
             {
-                if(objects.getUpgrades().get(i).getActivation()) {
+                if (objects.getUpgrades().get(i).getActivation())
+                {
                     objects.getUpgrades().get(i).tick(objects);
                 }
             }
@@ -288,9 +291,9 @@ public class GameState
                 case KeyEvent.VK_D:
                     keyRIGHT = true;
                     break;
-                 case KeyEvent.VK_O:
-                     save = true;
-                     break;
+                case KeyEvent.VK_O:
+                    save = true;
+                    break;
             }
         }
 

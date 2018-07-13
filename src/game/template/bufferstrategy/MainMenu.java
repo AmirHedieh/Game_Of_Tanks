@@ -32,7 +32,9 @@ public class MainMenu
     private JPanel ipPanel;
     private JLabel ipTextLabel;
     private JTextField IPTextField;
+    private JPanel multiDownButtonsPanel;
     private JButton startButton;
+    private JButton cancelButton;
 
     private JFrame settingFrame;
     private JPanel settingPanel;
@@ -191,7 +193,8 @@ public class MainMenu
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            if(e.getSource().equals(continueButton)){
+            if (e.getSource().equals(continueButton))
+            {
                 SharedData.getData().startingType = ObjectId.SavedGame;
                 output = 10;
                 menuFrame.setVisible(false);
@@ -272,6 +275,10 @@ public class MainMenu
                 multiFrame.revalidate();
                 multiFrame.repaint();
                 multiFrame.setVisible(true);
+            }
+            if (e.getSource().equals(cancelButton))
+            {
+                multiFrame.dispose();
             }
 
 
@@ -405,13 +412,25 @@ public class MainMenu
             ipPanel.add(IPTextField, BorderLayout.CENTER);
             multiPlayerPanel.add(ipPanel);
 
+            multiDownButtonsPanel = new JPanel(new GridLayout(1, 2));
+
             startButton = new JButton("Start");
             startButton.setFont(new Font("Titillium Web", 4, 30));
             startButton.setForeground(Color.WHITE);
             startButton.setBackground(Color.BLACK);
             startButton.setFocusable(false);
-            startButton.addActionListener(new MainMenu.ActionHandler());
-            multiPlayerPanel.add(startButton);
+            startButton.addActionListener(new ActionHandler());
+
+            cancelButton = new JButton("Cancel");
+            cancelButton.setFont(new Font("Titillium Web", 4, 30));
+            cancelButton.setForeground(Color.WHITE);
+            cancelButton.setBackground(Color.BLACK);
+            cancelButton.setFocusable(false);
+            cancelButton.addActionListener(new ActionHandler());
+
+            multiDownButtonsPanel.add(startButton);
+            multiDownButtonsPanel.add(cancelButton);
+            multiPlayerPanel.add(multiDownButtonsPanel);
 
 
             multiFrame.validate();
@@ -544,7 +563,7 @@ public class MainMenu
             settingPanel.add(centerPanel, BorderLayout.CENTER);
 
 
-            downButtonsPanel = new JPanel(new GridLayout(1, 2, 1, 1));
+            downButtonsPanel = new JPanel(new GridLayout(1, 2));
 
             confirm = new JButton("Confirm");
             confirm.setFont(new Font("Titillium Web", 4, 30));
