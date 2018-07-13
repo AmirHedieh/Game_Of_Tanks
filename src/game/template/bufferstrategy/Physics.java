@@ -405,11 +405,13 @@ public class Physics
         //collision with Player Tank
         for (int i = 0; i < objects.getBullets().size(); i++) {
             for(int j = 0 ; j < objects.getPlayers().size() ; j++){
-                if (objects.getBullets().get(i).getBounds().intersects(objects.getPlayers().get(j).getBounds())) {
+                if(objects.getBullets().get(i).getShooter().equals(ObjectId.AIShooter)) {
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getPlayers().get(j).getBounds())) {
 //                    damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
-                    damagePlayerTank(objects,objects.getPlayers().get(j),objects.getBullets().get(i).getDamage());
-                    objects.getBullets().remove(i);
-                    break;
+                        damagePlayerTank(objects, objects.getPlayers().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                        break;
+                    }
                 }
             }
         }
