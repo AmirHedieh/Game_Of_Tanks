@@ -7,12 +7,20 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+/**
+ * initialize game objects if there is any save from before.
+ * it reads save and init objects
+ */
 public class DataInitializer {
 
     public DataInitializer(Objects objects){
         readFile(objects);
     }
 
+    /**
+     * reads save file and calls a method to initialize game objects.
+     * @param objects objects of the game
+     */
     private void readFile(Objects objects){
         ObjectInputStream ois = null;
         FileInputStream streamIn = null;
@@ -45,6 +53,11 @@ public class DataInitializer {
         }
     }
 
+    /**
+     * initialize game objects using data that was read from save file
+     * @param objects objects of the game
+     * @param data data read from save file
+     */
     private void initializeObjects(Objects objects,SavingData data){
         objects.setPlayers(data.getPlayers());
         objects.setUpgrades(data.getUpgrades());

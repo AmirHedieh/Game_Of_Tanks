@@ -5,6 +5,10 @@ import game.elements.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * all data that must be stored and combined in 1 Serializable object.
+ * the object will be used to be written and read later.
+ */
 public class SavingData implements Serializable {
     //fields
     private ArrayList<Tank> players;

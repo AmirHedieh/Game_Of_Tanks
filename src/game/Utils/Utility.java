@@ -136,10 +136,18 @@ public class Utility
         objects.getPlayers().remove(tank);
     }
 
+    /**
+     * save game states
+     * @param objects objects of the game
+     */
     public static void saveGame(Objects objects){
         new DataSaver(objects);
     }
 
+    /**
+     * if there is any save file, it initialize game objects
+     * @param objects
+     */
     public static void initGame(Objects objects){
         new DataInitializer(objects);
     }
