@@ -25,12 +25,9 @@ import javax.swing.*;
 public class GameFrame extends JFrame
 {
 
-    //    public static final int GAME_HEIGHT = 520;                  // custom game resolution
-//    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
-//    public static final int GAME_HEIGHT = 1000;
-//    public static final int GAME_WIDTH = 800;
-    public static final int GAME_HEIGHT = 1024;
-    public static final int GAME_WIDTH = 1820;
+    public static final int GAME_HEIGHT = 1024;                  // custom game resolution
+    public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
+
 
     private BufferStrategy bufferStrategy;
 
@@ -332,6 +329,11 @@ public class GameFrame extends JFrame
             {
                 Utility.tankAnimation.drawAnimation(g2d, (int) state.objects.getPlayers().get(i).getX(), (int) state.objects.getPlayers().get(i).getY(), 0);
             }
+            if (state.objects.getPlayers().get(0).getHasShield())
+            {
+                g2d.setColor(Color.BLACK);
+                g2d.drawRect((int) state.objects.getPlayers().get(0).getX(), (int) state.objects.getPlayers().get(0).getY(), 100, 100);
+            }
             g2d.setTransform(gameTransform);
             //draw the Gun of the Player Tank and handle its rotation
             if (state.objects.getPlayers().get(i).getSelectedGun().getId().equals(ObjectId.MissileGun))
@@ -386,11 +388,15 @@ public class GameFrame extends JFrame
             {
                 if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.MissileGunUpgrade))
                 {
-                    g2d.drawImage(Utility.MissileGunUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                    g2d.drawImage(Utility.missileGunUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
                 }
                 else if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.MachineGunUpgrade))
                 {
-                    g2d.drawImage(Utility.MachineGunUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                    g2d.drawImage(Utility.machineGunUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
+                }
+                else if (state.objects.getUpgrades().get(i).getId().equals(ObjectId.ShieldUpgrade))
+                {
+                    g2d.drawImage(Utility.shieldUpgrade, null, (int) state.objects.getUpgrades().get(i).getX(), (int) state.objects.getUpgrades().get(i).getY());
                 }
             }
         }

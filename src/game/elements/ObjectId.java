@@ -20,9 +20,9 @@ public enum ObjectId
     SinglePlayer,
     Alone,
     TwoPlayer,
-    DamageUpgrade,
+    DamageUpgrade,       //under the AITank
     MissileGunUpgrade,   //lightBlue(88, 162, 230)
     MachineGunUpgrade,   //lightGreen(143, 202, 160)
     HealthUpgrade,       //under the AITank
-    ShieldUpgrade;
+    ShieldUpgrade;       //gray(90, 90, 90)
 }

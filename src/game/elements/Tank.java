@@ -369,4 +369,14 @@ public class Tank extends GameObject implements Serializable
     {
         upgrade.setActivation(true);
     }
+
+    public Boolean getHasShield()
+    {
+        return hasShield;
+    }
+
+    public void setHasShield(Boolean hasShield)
+    {
+        this.hasShield = hasShield;
+    }
 }
