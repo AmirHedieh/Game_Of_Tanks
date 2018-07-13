@@ -334,6 +334,28 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getSoftWall().get(i).getX(), (int) objects.getMap().getSoftWall().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getY() > objects.getMap().getSoftWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getTeazel().get(i).getX(), (int) objects.getMap().getTeazel().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getY() > objects.getMap().getTeazel().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -365,6 +387,28 @@ public class Physics
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds()))
             {
                 if (objects.getPlayers().get(0).getY() < objects.getTanks().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getSoftWall().get(i).getX(), (int) objects.getMap().getSoftWall().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getY() < objects.getMap().getSoftWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getTeazel().get(i).getX(), (int) objects.getMap().getTeazel().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getY() < objects.getMap().getTeazel().get(i).getY())
                 {
                     return true;
                 }
@@ -406,6 +450,28 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getSoftWall().get(i).getX(), (int) objects.getMap().getSoftWall().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getX() < objects.getMap().getSoftWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getTeazel().get(i).getX(), (int) objects.getMap().getTeazel().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getX() < objects.getMap().getTeazel().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -437,6 +503,28 @@ public class Physics
             if (objects.getPlayers().get(0).getBounds().intersects(objects.getTanks().get(i).getBounds()))
             {
                 if (objects.getPlayers().get(0).getX() > objects.getTanks().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getSoftWall().get(i).getX(), (int) objects.getMap().getSoftWall().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getX() > objects.getMap().getSoftWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            Rectangle rectangle = new Rectangle((int) objects.getMap().getTeazel().get(i).getX(), (int) objects.getMap().getTeazel().get(i).getY() + 20, 90, 83);
+            if (objects.getPlayers().get(0).getBounds().intersects(rectangle))
+            {
+                if (objects.getPlayers().get(0).getX() > objects.getMap().getTeazel().get(i).getX())
                 {
                     return true;
                 }
