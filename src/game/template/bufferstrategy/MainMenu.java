@@ -1,7 +1,9 @@
 package game.template.bufferstrategy;
 
+import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
+import game.elements.ObjectId;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -13,6 +15,7 @@ public class MainMenu
 {
     private JFrame menuFrame;
     private JPanel mainPanel;
+    private JButton continueButton;
     private JButton singlePlayerGameButton;
     private JButton multiPlayerButton;
     private JButton settingButton;
@@ -51,6 +54,7 @@ public class MainMenu
     private JButton confirm;
     private JButton cancel;
 
+    SharedData sharedData = new SharedData();
 
     private Sound backgroundSound;
 
@@ -85,6 +89,17 @@ public class MainMenu
         mainPanel.setBackground(Color.BLACK);
 
         menuFrame.setContentPane(mainPanel);
+
+        continueButton = new JButton("Continue");
+        continueButton.setSize(275, 70);
+        continueButton.setBackground(Color.BLACK);
+        continueButton.setForeground(Color.WHITE);
+        continueButton.setLocation(-10, 230);
+        continueButton.setFocusable(false);
+        continueButton.setOpaque(true);
+        continueButton.setBorder(BorderFactory.createEmptyBorder());
+        continueButton.setFont(new Font("Titillium Web", 4, 30));
+        continueButton.addActionListener(new ActionHandler());
 
         singlePlayerGameButton = new JButton("Play Game");
         singlePlayerGameButton.setSize(275, 70);
@@ -141,6 +156,7 @@ public class MainMenu
         exitButton.setFont(new Font("Titillium Web", 4, 30));
         exitButton.addActionListener(new ActionHandler());
 
+        mainPanel.add(continueButton);
         mainPanel.add(singlePlayerGameButton);
         mainPanel.add(multiPlayerButton);
         mainPanel.add(settingButton);
@@ -175,6 +191,12 @@ public class MainMenu
         @Override
         public void actionPerformed(ActionEvent e)
         {
+            if(e.getSource().equals(continueButton)){
+                SharedData.getData().startingType = ObjectId.SavedGame;
+                output = 10;
+                menuFrame.setVisible(false);
+                new Game(output, ip, difficulty, whichMap);
+            }
             if (e.getSource().equals(singlePlayerGameButton))
             {
                 System.out.println("singlePlayerGameButton");

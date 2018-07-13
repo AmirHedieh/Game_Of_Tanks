@@ -4,6 +4,8 @@ import game.elements.GameObject;
 import game.elements.ObjectId;
 import game.elements.Objects;
 import game.elements.Tank;
+import game.savingElements.DataInitializer;
+import game.savingElements.DataSaver;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -129,6 +131,14 @@ public class Utility
 
     public static void removePlayer(Objects objects , Tank tank){
         objects.getPlayers().remove(tank);
+    }
+
+    public static void saveGame(Objects objects){
+        new DataSaver(objects);
+    }
+
+    public static void initGame(Objects objects){
+        new DataInitializer(objects);
     }
     /*
         This is how to delete a directory from the repository:

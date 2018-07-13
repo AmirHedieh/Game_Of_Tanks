@@ -19,7 +19,7 @@ public class SharedData
     public String ip;
     public Boolean removePlayer = false;
     public Tank playerToRemove;
-    public ObjectId startingType;
+    public ObjectId startingType = ObjectId.NewGame;
 
     //Singleton
     private static SharedData sharedData;

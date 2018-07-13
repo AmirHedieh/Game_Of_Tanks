@@ -27,7 +27,7 @@ public class DataSaver {
     private void writeFile(SavingData data){
         FileOutputStream fout = null;
         try {
-            fout = new FileOutputStream("E:\\save.ser");
+            fout = new FileOutputStream("res/save.ser");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

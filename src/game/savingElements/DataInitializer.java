@@ -2,6 +2,7 @@ package game.savingElements;
 
 import game.elements.Objects;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,13 +15,25 @@ public class DataInitializer {
 
     private void readFile(Objects objects){
         ObjectInputStream ois = null;
+        FileInputStream streamIn = null;
         try {
-            FileInputStream streamIn = new FileInputStream("E:\\save.ser");
+           streamIn = new FileInputStream("res/save.ser");
+        }catch (IOException e) {
+            JFrame frame = new JFrame("NO SAVE FOUND");
+            frame.setSize(500,200);
+//            frame.setLayout(null);
+            frame.setLocationRelativeTo(null);
+            JLabel label = new JLabel("                                  There is no save to continue so new game created");
+//            label.setLocation(0,250);
+            frame.add(label);
+            frame.setVisible(true);
+        }
+        try{
             ois = new ObjectInputStream(streamIn);
             SavingData data = (SavingData)ois.readObject();
             initializeObjects(objects,data);
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         } finally {
             if(ois != null){
                 try {

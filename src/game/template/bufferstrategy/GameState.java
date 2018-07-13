@@ -43,10 +43,10 @@ public class GameState
 //        Sound sound = new Sound(Utility.backgroundSound, true);
 //        sound.playSound();
         // Initialize the game state and all elements ...
-//        if(SharedData.getData().startingType.equals(ObjectId.SavedGame)){
-//             //initialize game objects to continue last game
-//        }
-        new DataInitializer(objects);
+        if(SharedData.getData().startingType.equals(ObjectId.SavedGame)){
+            Utility.initGame(objects);//initialize game objects to continue last game
+        }
+//        new DataInitializer(objects);
         keyUP = false;
         keyDOWN = false;
         keyRIGHT = false;
@@ -70,8 +70,7 @@ public class GameState
     public void update()
     {
         if(save) {
-            System.out.println("Save");
-            new DataSaver(objects);
+            Utility.saveGame(objects);
         }
 //        System.out.println(objects.getPlayers().get(0).getX() + " " +objects.getPlayers().get(0).getY() );
         camera.tick(objects.getPlayers().get(0));

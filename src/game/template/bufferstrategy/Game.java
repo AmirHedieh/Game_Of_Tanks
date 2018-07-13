@@ -24,7 +24,6 @@ public class Game
             @Override
             public void run()
             {
-                SharedData sharedData = new SharedData();
                 GameFrame frame = new GameFrame("Normal Tanks");
                 frame.setLocationRelativeTo(null); // put frame at center of screen
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
