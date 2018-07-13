@@ -8,12 +8,14 @@ import java.util.ArrayList;
 /**
  * saves game state to load later it user wanted to continue its save.
  */
-public class DataSaver {
+public class DataSaver
+{
 
     //fields
 
 
-    public DataSaver(Objects objects){
+    public DataSaver(Objects objects)
+    {
 
         SavingData data = new SavingData();
 
@@ -30,24 +32,35 @@ public class DataSaver {
     /**
      * writes a save file to be read later.
      * it serialize SavingData object.
+     *
      * @param data
      */
-    private void writeFile(SavingData data){
+    private void writeFile(SavingData data)
+    {
         FileOutputStream fout = null;
-        try {
+        try
+        {
             fout = new FileOutputStream("res/save.ser");
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e)
+        {
             e.printStackTrace();
         }
         ObjectOutputStream oos = null;
-        try {
+        try
+        {
             oos = new ObjectOutputStream(fout);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
-        try {
+        try
+        {
             oos.writeObject(data);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
