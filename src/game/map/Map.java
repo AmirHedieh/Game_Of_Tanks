@@ -135,7 +135,6 @@ public class Map
                 {
                     soil.add(new Soil(xx * 100, yy * 100));
                     AITank tank = new AITank(xx * 100, yy * 100, 140, ObjectId.AITank, new MissileGun());
-                    tank.getSelectedGun().setReloadTime(500);
                     objects.getTanks().add(tank);
                 }
                 else if ((red == 88) && (green == 162) && (blue == 230)) //MissileGunUpgrade
