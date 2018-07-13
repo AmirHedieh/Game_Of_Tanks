@@ -362,36 +362,38 @@ public class Physics
     public static void checkBulletsCollision(Objects objects)
     {
         //hardWalls
-        for (int i = 0; i < objects.getBullets().size(); i++)
-        {
-            for (int j = 0; j < objects.getMap().getHardWall().size(); j++)
-            {
-                Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(j).getX()+20,(int)objects.getMap().getHardWall().get(j).getY()+20,45,45);
-                if (objects.getBullets().get(i).getBounds().intersects(rectangle))
-                {
-                    Sound sound = new Sound(Utility.bulletHitHardWall,false);
+        for (int i = 0; i < objects.getBullets().size(); i++) {
+            //collision with walls
+            for (int j = 0; j < objects.getMap().getHardWall().size(); j++) {
+//                Rectangle rectangle = new Rectangle((int) objects.getMap().getHardWall().get(j).getX() + 20, (int) objects.getMap().getHardWall().get(j).getY() + 20, 45, 45);
+//                if (objects.getBullets().get(i).getBounds().intersects(rectangle)) {
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getHardWall().get(j).getBounds())) {
+                    Sound sound = new Sound(Utility.bulletHitHardWall, false);
                     sound.playSound();
                     objects.getBullets().remove(i);
                     break;
                 }
             }
         }
-
-        //buriedRobot
-        Iterator<Bullet> bulletIterator = objects.getBullets().iterator();
-        Iterator<BuriedRobot> buriedRobotIterator = objects.getRobots().iterator();
-        /*while (bulletIterator.hasNext())
-        {
-            while (buriedRobotIterator.hasNext())
-            {
-                if (bulletIterator.next().getBounds().intersects(buriedRobotIterator.next().getBounds()))
-                {
-                    bulletIterator.remove();
-                    buriedRobotIterator.remove();
+            //collision with buried robots
+        for (int i = 0; i < objects.getBullets().size(); i++) {
+            for(int j = 0 ; j < objects.getRobots().size() ; j++){
+//                if(objects.getBullets().get(i).getBounds().intersects(new Rectangle((int)objects.getRobots().get(j).getX()+20,
+//                        (int)objects.getRobots().get(j).getY()+20,
+//                        60,60))){
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getRobots().get(j).getBounds())) {
+                    damageRobot(objects,objects.getRobots().get(j),objects.getBullets().get(i).getDamage());
+                    objects.getBullets().remove(i);
                     break;
                 }
             }
-        }*/
+        }
+    }
 
+    private static void damageRobot(Objects objects, BuriedRobot robot, int damage){
+        robot.setHealth(robot.getHealth() - damage);
+        if(robot.getHealth() <= 0){ // if robot health get down to zero it gets destroyed and must be removed from objects
+            objects.getRobots().remove(robot);
+        }
     }
 }

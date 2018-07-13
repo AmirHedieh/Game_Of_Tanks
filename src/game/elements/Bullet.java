@@ -1,5 +1,7 @@
 package game.elements;
 
+import java.awt.*;
+
 /**
  * each Gun makes bullets to hit others.
  * Bullets takes their damages from the gun which made them.
@@ -170,5 +172,10 @@ public class Bullet extends GameObject
     public void setThrownAngle(double thrownAngle)
     {
         this.thrownAngle = thrownAngle;
+    }
+
+    public Rectangle getBounds()
+    {
+        return new Rectangle((int) x + 50, (int) y + 50, 22, 22);
     }
 }

@@ -4,11 +4,13 @@ import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.template.bufferstrategy.Physics;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class BuriedRobot extends GameObject
 {
     //fields
+    private int health;
     private double minDistance;
     private boolean activated;
     private Tank target;
@@ -23,6 +25,7 @@ public class BuriedRobot extends GameObject
     public BuriedRobot(double x, double y)
     {
         super(x, y, ObjectId.BuriedRobot);
+        health = 80;
         minDistance = 400;
         activated = false;
         angle = 0;
@@ -169,5 +172,18 @@ public class BuriedRobot extends GameObject
     {
 
         return angle;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public Rectangle getBounds()
+    {
+        return new Rectangle((int) x + 30, (int) y + 20, 50, 60);
     }
 }
