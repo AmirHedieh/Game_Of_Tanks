@@ -134,7 +134,7 @@ public class GameFrame extends JFrame
     {
         for (int i = 0; i < state.objects.getMap().getSoftWall().size(); i++)
         {
-            g2d.drawImage(Utility.softWall, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            g2d.drawImage(Utility.softWall01, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
         }
     }
 

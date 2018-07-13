@@ -34,9 +34,14 @@ public class Utility
 
     public static BufferedImage teazel = loadBufferedImage(resourceDirectory + "map/teazel.png");
     public static BufferedImage plant = loadBufferedImage(resourceDirectory + "map/plant.png");
-    public static BufferedImage softWall = loadBufferedImage(resourceDirectory + "map/softWall.png");
     public static BufferedImage soil = loadBufferedImage(resourceDirectory + "map/soil.png");
     public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/hardWall.png");
+
+    public static BufferedImage softWall01 = loadBufferedImage(resourceDirectory + "map/softWall01.png");
+    public static BufferedImage softWall02 = loadBufferedImage(resourceDirectory + "map/softWall02.png");
+    public static BufferedImage softWall03 = loadBufferedImage(resourceDirectory + "map/softWall03.png");
+    public static BufferedImage softWall04 = loadBufferedImage(resourceDirectory + "map/softWall04.png");
+    public static BufferedImage softWall05 = loadBufferedImage(resourceDirectory + "map/softWall05.png");
 
     public static BufferedImage AITank = loadBufferedImage(resourceDirectory + "tank/AITank.png");
 
