@@ -12,6 +12,7 @@ public class LightBullet extends Bullet
     {
 
     }
+
     public LightBullet(double startX, double startY, double mouseX, double mouseY, int damage)
     {
         super(startX, startY, mouseX, mouseY, ObjectId.LightBullet);

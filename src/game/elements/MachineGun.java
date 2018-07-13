@@ -27,6 +27,7 @@ public class MachineGun extends Gun implements Serializable
 
     /**
      * shoot a bullet from MachineGun
+     *
      * @param tankX
      * @param tankY
      * @param mouseX
@@ -35,7 +36,7 @@ public class MachineGun extends Gun implements Serializable
      */
     public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY)
     {
-        Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY,damage);
+        Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY, damage);
         ammo--;
         lastShootTime = getCurrentTime();
 //        System.out.println("Ammo: " + ammo + " " + "Damage: " + damage + " MachineGun");

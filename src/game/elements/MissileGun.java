@@ -36,7 +36,7 @@ public class MissileGun extends Gun implements Serializable
      */
     public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY)
     {
-        Bullet bullet = new HeavyBullet(tankX, tankY, mouseX, mouseY,damage);
+        Bullet bullet = new HeavyBullet(tankX, tankY, mouseX, mouseY, damage);
         ammo--;
         lastShootTime = getCurrentTime();
 //        System.out.println("Ammo: " + ammo + " " + "Damage: " + damage + " MissileGun");

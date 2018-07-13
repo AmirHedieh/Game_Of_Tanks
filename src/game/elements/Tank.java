@@ -239,7 +239,8 @@ public class Tank extends GameObject implements Serializable
      * make a shield around the tank that can diminish some damage before
      * getting dead.
      */
-    public void activateShield(){
+    public void activateShield()
+    {
         health += 100;
         hasShield = true;
         momentHealth = health;
@@ -249,8 +250,10 @@ public class Tank extends GameObject implements Serializable
      * if shield get a specified amount of damage it gets dead and disabled.
      * this checks to disable that or not;
      */
-    public void checkShieldHeath(){
-        if(health - momentHealth < 0){
+    public void checkShieldHeath()
+    {
+        if (health - momentHealth < 0)
+        {
             hasShield = false;
         }
     }
