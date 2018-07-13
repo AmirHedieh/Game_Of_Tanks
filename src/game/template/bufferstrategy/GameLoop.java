@@ -79,15 +79,15 @@ public class GameLoop implements Runnable
             {
                 long start = System.currentTimeMillis();
                 //
-                if(SharedData.getData().removePlayer) {
-                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
-                    if (state.objects.getPlayers().size() == 0) {
-                        System.out.println("DONE");
-                        while (true){
-                            System.out.println("here");
-                        }
-                    }
-                }
+//                if(SharedData.getData().removePlayer) {
+//                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
+//                    if (state.objects.getPlayers().size() == 0) {
+//                        System.out.println("DONE");
+//                        while (true){
+//                            System.out.println("here");
+//                        }
+//                    }
+//                }
                 if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer))
                 {
                     state.update();
