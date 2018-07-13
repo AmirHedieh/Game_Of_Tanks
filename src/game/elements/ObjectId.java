@@ -24,5 +24,7 @@ public enum ObjectId
     MissileGunUpgrade,   //lightBlue(88, 162, 230)
     MachineGunUpgrade,   //lightGreen(143, 202, 160)
     HealthUpgrade,       //under the AITank
-    ShieldUpgrade;       //gray(90, 90, 90)
+    ShieldUpgrade,       //gray(90, 90, 90)
+    PlayerShooter,
+    AIShooter;
 }

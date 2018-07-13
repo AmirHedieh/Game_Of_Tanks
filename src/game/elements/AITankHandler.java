@@ -179,7 +179,7 @@ public class AITankHandler
     {
         if (tank.getSelectedGun().readyForShoot())
         {
-            objects.addBullet(tank.getSelectedGun().shoot(tank.x + tank.TANK_WIDTH / 2, tank.y + tank.TANK_HEIGHT / 2, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
+            objects.addBullet(tank.getSelectedGun().shoot(tank.x + tank.TANK_WIDTH / 2, tank.y + tank.TANK_HEIGHT / 2, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2,ObjectId.AIShooter));
         }
     }
 

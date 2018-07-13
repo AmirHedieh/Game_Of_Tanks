@@ -94,7 +94,7 @@ public class Turret extends GameObject implements Serializable
             setGunAngle(calculateAngle(this, target)); // angle between turret and tank
             if (gun.readyForShoot())
             {
-                objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2));
+                objects.addBullet(gun.shoot(this.x, this.y, target.x + target.TANK_WIDTH / 2, target.y + target.TANK_HEIGHT / 2,ObjectId.AIShooter));
                 target = objects.getPlayers().get(0);
             }
         }

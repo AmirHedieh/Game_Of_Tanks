@@ -17,6 +17,7 @@ public class Bullet extends GameObject
     private double targetX, targetY;
     private boolean isThrown;
     private double thrownAngle;
+    private ObjectId shooter;
 
     //constructor
     public Bullet()
@@ -24,7 +25,7 @@ public class Bullet extends GameObject
 
     }
 
-    public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id)
+    public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id, ObjectId shooter)
     {
         super(startX, startY, id);
         targetX = mouseX;
@@ -32,6 +33,7 @@ public class Bullet extends GameObject
         startX += 50;//this must be changed if tank size changes
         startY += 50; //this must be changed if tank size changes
         shootDirectionAngle = calculateShootAngle(startX, startY, mouseX, mouseY);
+        this.shooter = shooter;
         //moving in 4 direction needs specific velocity
 //        System.out.println(mouseX + " " + mouseY + " " + startX + " " + startY);
 //        System.out.println(shootDirectionAngle);
