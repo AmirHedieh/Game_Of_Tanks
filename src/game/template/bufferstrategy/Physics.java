@@ -2,6 +2,7 @@ package game.template.bufferstrategy;
 
 import game.elements.*;
 
+import java.awt.*;
 import java.util.Iterator;
 
 public class Physics
@@ -359,7 +360,8 @@ public class Physics
         {
             for (int j = 0; j < objects.getMap().getHardWall().size(); j++)
             {
-                if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getHardWall().get(j).getBounds()))
+                Rectangle rectangle = new Rectangle((int)objects.getMap().getHardWall().get(j).getX()+20,(int)objects.getMap().getHardWall().get(j).getY()+20,45,45);
+                if (objects.getBullets().get(i).getBounds().intersects(rectangle))
                 {
                     objects.getBullets().remove(i);
                     break;

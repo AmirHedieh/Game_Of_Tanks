@@ -5,7 +5,7 @@ package game.elements;
  * Bullets takes their damages from the gun which made them.
  */
 public class Bullet extends GameObject
-{ // todo: 2 classes must extend bullet ( missle - machine gun)
+{
     //fields
     public final int BULLET_WIDTH = 5;
     public final int BULLET_HEIGHT = 5;
