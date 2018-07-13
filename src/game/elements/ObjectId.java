@@ -15,6 +15,7 @@ public enum ObjectId
     Plant,               //green (0, 255, 0)
     Soil,                //white (255, 255, 255)
     Teazel,              //purple (255, 0, 255)
+    End,                 //dark red(100, 0, 0)
     ServerPlayer,
     ClientPlayer,
     SinglePlayer,
