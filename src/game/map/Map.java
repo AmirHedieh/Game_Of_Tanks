@@ -22,7 +22,7 @@ public class Map
 
     public Map(Objects objects)
     {
-        mapImage = Utility.mapOriginal;
+        mapImage = Utility.firstEasyMap;
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
             for (int yy = 0; yy < mapImage.getHeight(); yy++)

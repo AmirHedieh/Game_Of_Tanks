@@ -21,9 +21,13 @@ public class Utility
 
     public static BufferedImage heavyBullet = loadBufferedImage(resourceDirectory + "bullet/heavyBullet.png");
     public static BufferedImage lightBullet = loadBufferedImage(resourceDirectory + "bullet/lightBullet.png");
-    public static BufferedImage mapOriginal = loadBufferedImage(resourceDirectory + "map/mapOriginal.png");
 
-    public static ImageIcon startup = loadImageIcon(resourceDirectory + "startup.png");
+    public static BufferedImage firstEasyMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/1/easy.png");
+    public static BufferedImage firstMediumMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/1/medium.png");
+    public static BufferedImage firstHardMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/1/hard.png");
+
+    public static ImageIcon mainMenuBackGroundMedium = loadImageIcon(resourceDirectory + "MainMenuBackGroundMedium.jpg");
+    public static ImageIcon mainMenuBackGroundBig = loadImageIcon(resourceDirectory + "MainMenuBackGroundBig.jpg");
 
     public static BufferedImage tank01 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank01.png");
     public static BufferedImage tank02 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank02.png");
@@ -32,16 +36,16 @@ public class Utility
     public static BufferedImage gun01 = loadBufferedImage(resourceDirectory + "Player Tank/Gun/gun001.png");
     public static BufferedImage gun02 = loadBufferedImage(resourceDirectory + "Player Tank/Gun/gun002.png");
 
-    public static BufferedImage teazel = loadBufferedImage(resourceDirectory + "map/teazel.png");
-    public static BufferedImage plant = loadBufferedImage(resourceDirectory + "map/plant.png");
-    public static BufferedImage soil = loadBufferedImage(resourceDirectory + "map/soil.png");
-    public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/hardWall.png");
+    public static BufferedImage teazel = loadBufferedImage(resourceDirectory + "map/environment/teazel.png");
+    public static BufferedImage plant = loadBufferedImage(resourceDirectory + "map/environment/plant.png");
+    public static BufferedImage soil = loadBufferedImage(resourceDirectory + "map/environment/soil.png");
+    public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/environment/hardWall.png");
 
-    public static BufferedImage softWall01 = loadBufferedImage(resourceDirectory + "map/softWall01.png");
-    public static BufferedImage softWall02 = loadBufferedImage(resourceDirectory + "map/softWall02.png");
-    public static BufferedImage softWall03 = loadBufferedImage(resourceDirectory + "map/softWall03.png");
-    public static BufferedImage softWall04 = loadBufferedImage(resourceDirectory + "map/softWall04.png");
-    public static BufferedImage softWall05 = loadBufferedImage(resourceDirectory + "map/softWall05.png");
+    public static BufferedImage softWall01 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall01.png");
+    public static BufferedImage softWall02 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall02.png");
+    public static BufferedImage softWall03 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall03.png");
+    public static BufferedImage softWall04 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall04.png");
+    public static BufferedImage softWall05 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall05.png");
 
     public static BufferedImage AITank = loadBufferedImage(resourceDirectory + "tank/AITank.png");
 

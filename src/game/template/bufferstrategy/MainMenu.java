@@ -51,11 +51,11 @@ public class MainMenu
     public MainMenu()
     {
         menuFrame = new JFrame("Normal Tanks");
-        menuFrame.setSize(1120, 700);
+        menuFrame.setSize(1920, 1080);
         menuFrame.setUndecorated(true);
         menuFrame.setLocationRelativeTo(null);
         menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        menuFrame.setExtendedState(menuFrame.MAXIMIZED_BOTH);
+        menuFrame.setExtendedState(menuFrame.MAXIMIZED_BOTH);
 
         mainPanel = new JPanel(null);
         mainPanel.setBackground(Color.BLACK);
@@ -123,8 +123,18 @@ public class MainMenu
         mainPanel.add(aboutButton);
         mainPanel.add(exitButton);
 
-        JLabel startupLabel = new JLabel(Utility.startup);
-        startupLabel.setSize(1120, 700);
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        JLabel startupLabel = null;
+        if (dimension.width >= 3840)
+        {
+            startupLabel = new JLabel(Utility.mainMenuBackGroundBig);
+        }
+        else
+        {
+            startupLabel = new JLabel(Utility.mainMenuBackGroundMedium);
+        }
+        startupLabel.setSize(dimension.width, dimension.height);
         mainPanel.add(startupLabel);
 
         backgroundSound = new Sound(Utility.backgroundSound, true);
