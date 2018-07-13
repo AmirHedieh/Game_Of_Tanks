@@ -1,6 +1,7 @@
 package game.elements;
 
 import game.Utils.SharedData;
+import game.Utils.Sound;
 import game.Utils.Utility;
 
 import java.io.Serializable;
@@ -48,32 +49,41 @@ public class Upgrade extends GameObject implements Serializable
             {
                 user.getMissileGun().setDamage(user.getMissileGun().damage + 20);
                 user.getMachineGun().setDamage(user.getMachineGun().damage + 20);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.HealthUpgrade))
             {
                 user.setHealth(user.health + 100);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.MachineGunUpgrade))
             {
                 user.getMachineGun().setAmmo(user.getMachineGun().ammo + 15);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.MissileGunUpgrade))
             {
                 user.getMissileGun().setAmmo(user.getMissileGun().ammo + 15);
+                makeSound();
                 activation = false;
             }
             else if (id.equals(ObjectId.ShieldUpgrade))
             {
                 System.out.println("shield");
                 user.activateShield();
+                makeSound();
                 activation = false;
             }
         }
     }
 
+    private void makeSound(){
+        Sound sound = new Sound(Utility.upgrade,false);
+        sound.playSound();
+    }
     /**
      * set user to the tank which is closer to upgrade
      */

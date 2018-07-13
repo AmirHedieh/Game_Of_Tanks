@@ -73,6 +73,9 @@ public class Utility
     public static File heavyShotSound = new File(resourceDirectory + "sounds/HSL.wav");
     public static File lightShotSound = new File(resourceDirectory + "sounds/LSS.wav");
     public static File emptyGun = new File(resourceDirectory + "sounds/empty.wav");
+    public static File explosion = new File(resourceDirectory + "sounds/explosion.wav");
+    public static File upgrade = new File(resourceDirectory + "sounds/upgrade.wav");
+    public static File robotExplosion = new File(resourceDirectory + "sounds/smallEx.wav");
     public static File bulletHitHardWall = new File(resourceDirectory + "sounds/bulletHitHardWall.wav");
 
     public static BufferedImage loadBufferedImage(String path)
