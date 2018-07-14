@@ -80,13 +80,12 @@ public class Objects implements Serializable
             }
             else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
             {
-                players.add(new Tank(300, 2600, 400, ObjectId.Player));
+                players.add(new Tank(650, 2600, 400, ObjectId.Player));
             }
             else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
             {
                 players.add(new Tank(1150, 6300, 400, ObjectId.Player));
             }
-            players.add(new Tank(300, 300, 400, ObjectId.Player));
         }
     }
 
