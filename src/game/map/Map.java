@@ -7,6 +7,9 @@ import game.elements.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+/**
+ * a class for process the png of the map and fill the arrayLists of the elements.
+ */
 public class Map
 {
     BufferedImage mapImage;
@@ -17,9 +20,9 @@ public class Map
     private ArrayList<Soil> soil = new ArrayList<>();
     private End end;
 
-
     public Map(Objects objects)
     {
+        //first map
         if (SharedData.getData().whichMap.equals(ObjectId.FirstMap))
         {
             if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
@@ -35,6 +38,8 @@ public class Map
                 mapImage = Utility.firstHardMap;
             }
         }
+
+        //second map
         else if (SharedData.getData().whichMap.equals(ObjectId.SecondMap))
         {
             if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
@@ -50,6 +55,8 @@ public class Map
                 mapImage = Utility.secondHardMap;
             }
         }
+
+        //third map
         else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
         {
             if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
@@ -65,6 +72,8 @@ public class Map
                 mapImage = Utility.thirdHardMap;
             }
         }
+
+        //fourth map
         else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
         {
             if (SharedData.getData().difficulty.equals(ObjectId.EasyMode))
@@ -81,6 +90,7 @@ public class Map
             }
         }
 
+        //process the image
         for (int xx = 0; xx < mapImage.getWidth(); xx++)
         {
             for (int yy = 0; yy < mapImage.getHeight(); yy++)
@@ -184,71 +194,120 @@ public class Map
         }
     }
 
+    /**
+     * @return the map image
+     */
     public BufferedImage getMapImage()
     {
         return mapImage;
     }
 
+    /**
+     * set the map image
+     * @param mapImage
+     */
     public void setMapImage(BufferedImage mapImage)
     {
         this.mapImage = mapImage;
     }
 
+    /**
+     * @return the hardWall list
+     */
     public ArrayList<HardWall> getHardWall()
     {
         return hardWall;
     }
 
+    /**
+     * set the hardWall list
+     * @param hardWall
+     */
     public void setHardWall(ArrayList<HardWall> hardWall)
     {
         this.hardWall = hardWall;
     }
 
+    /**
+     * @return the plant list
+     */
     public ArrayList<Plant> getPlant()
     {
         return plant;
     }
 
+    /**
+     * set the plant list
+     * @param plant
+     */
     public void setPlant(ArrayList<Plant> plant)
     {
         this.plant = plant;
     }
 
+    /**
+     * @return the softWall list
+     */
     public ArrayList<SoftWall> getSoftWall()
     {
         return softWall;
     }
 
+    /**
+     * set the softWall list
+     * @param softWall
+     */
     public void setSoftWall(ArrayList<SoftWall> softWall)
     {
         this.softWall = softWall;
     }
 
+    /**
+     * @return the teazel list
+     */
     public ArrayList<Teazel> getTeazel()
     {
         return teazel;
     }
 
+    /**
+     * set the teazel list
+     * @param teazel
+     */
     public void setTeazel(ArrayList<Teazel> teazel)
     {
         this.teazel = teazel;
     }
 
+    /**
+     * @return the soil list
+     */
     public ArrayList<Soil> getSoil()
     {
         return soil;
     }
 
+    /**
+     * set the soil list
+     * @param soil
+     */
     public void setSoil(ArrayList<Soil> soil)
     {
         this.soil = soil;
     }
 
+    /**
+     * @return the end
+     */
     public End getEnd()
     {
         return end;
     }
 
+    /**
+     * set the end
+     * @param end
+     */
     public void setEnd(End end)
     {
         this.end = end;
