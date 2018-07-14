@@ -73,7 +73,22 @@ public class GameState
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
-        camera = new Camera(803, 5450);
+        if (SharedData.getData().whichMap.equals(ObjectId.FirstMap))
+        {
+            camera = new Camera(803, 5450);
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.SecondMap))
+        {
+            camera = new Camera(803, 5450);
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
+        {
+            camera = new Camera(803, 5450);
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
+        {
+            camera = new Camera(803, 5450);
+        }
     }
 
     /**
