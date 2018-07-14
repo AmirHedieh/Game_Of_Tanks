@@ -13,7 +13,15 @@ public class Physics
     ///////////////////////////////
     //////AI Tanks collision///////
     ///////////////////////////////
-    public static boolean aiTankCheckHardWallsCollisionUp(Objects objects, AITank tank)
+
+    /**
+     * check the top collision of the AITanks.
+     *
+     * @param objects
+     * @param tank
+     * @return
+     */
+    public static boolean aiTankCheckCollisionUp(Objects objects, AITank tank)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -69,7 +77,14 @@ public class Physics
         return false;
     }
 
-    public static boolean aiTankCheckHardWallsCollisionDown(Objects objects, AITank tank)
+    /**
+     * check the down collision of the AITanks.
+     *
+     * @param objects
+     * @param tank
+     * @return
+     */
+    public static boolean aiTankCheckCollisionDown(Objects objects, AITank tank)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -124,7 +139,14 @@ public class Physics
         return false;
     }
 
-    public static boolean aiTankCheckHardWallsCollisionRight(Objects objects, AITank tank)
+    /**
+     * check the right collision of the AITanks.
+     *
+     * @param objects
+     * @param tank
+     * @return
+     */
+    public static boolean aiTankCheckCollisionRight(Objects objects, AITank tank)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -179,8 +201,14 @@ public class Physics
         return false;
     }
 
-
-    public static boolean aiTankCheckHardWallsCollisionLeft(Objects objects, AITank tank)
+    /**
+     * check the left collision of the AITanks.
+     *
+     * @param objects
+     * @param tank
+     * @return
+     */
+    public static boolean aiTankCheckCollisionLeft(Objects objects, AITank tank)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -238,6 +266,14 @@ public class Physics
     //////////////////////////////////
     //////BuriedRobot collision///////
     //////////////////////////////////
+
+    /**
+     * check the top collision of the BuriedRobots.
+     *
+     * @param objects
+     * @param robot
+     * @return
+     */
     public static boolean BuriedRobotCollisionUp(Objects objects, BuriedRobot robot)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
@@ -273,6 +309,13 @@ public class Physics
         return false;
     }
 
+    /**
+     * check the down collision of the BuriedRobots.
+     *
+     * @param objects
+     * @param robot
+     * @return
+     */
     public static boolean BuriedRobotCollisionDown(Objects objects, BuriedRobot robot)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
@@ -308,6 +351,13 @@ public class Physics
         return false;
     }
 
+    /**
+     * check the right collision of the BuriedRobots.
+     *
+     * @param objects
+     * @param robot
+     * @return
+     */
     public static boolean BuriedRobotCollisionRight(Objects objects, BuriedRobot robot)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
@@ -343,7 +393,13 @@ public class Physics
         return false;
     }
 
-
+    /**
+     * check the left collision of the BuriedRobots.
+     *
+     * @param objects
+     * @param robot
+     * @return
+     */
     public static boolean BuriedRobotCollisionLeft(Objects objects, BuriedRobot robot)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
@@ -382,7 +438,14 @@ public class Physics
     /////////////////////////////
     //////player collision///////
     /////////////////////////////
-    public static boolean checkHardWallsCollisionUp(Objects objects)
+
+    /**
+     * check the top collision of the
+     *
+     * @param objects
+     * @return
+     */
+    public static boolean checkPlayerCollisionUp(Objects objects)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -440,7 +503,13 @@ public class Physics
         return false;
     }
 
-    public static boolean checkHardWallsCollisionDown(Objects objects)
+    /**
+     * check the down collision of the
+     *
+     * @param objects
+     * @return
+     */
+    public static boolean checkPlayerCollisionDown(Objects objects)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -498,7 +567,13 @@ public class Physics
         return false;
     }
 
-    public static boolean checkHardWallsCollisionRight(Objects objects)
+    /**
+     * check the right collision of the
+     *
+     * @param objects
+     * @return
+     */
+    public static boolean checkPlayerCollisionRight(Objects objects)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -556,7 +631,13 @@ public class Physics
         return false;
     }
 
-    public static boolean checkHardWallsCollisionLeft(Objects objects)
+    /**
+     * check the left collision of the
+     *
+     * @param objects
+     * @return
+     */
+    public static boolean checkPlayerCollisionLeft(Objects objects)
     {
         for (int i = 0; i < objects.getMap().getHardWall().size(); i++)
         {
@@ -614,6 +695,11 @@ public class Physics
         return false;
     }
 
+    /**
+     * check to avoid cross the map bounds
+     *
+     * @param object
+     */
     public static void checkMapBounds(GameObject object)
     {
         if (object.getX() > 3400)
@@ -635,6 +721,11 @@ public class Physics
         }
     }
 
+    /**
+     * check the collision of the bullets
+     *
+     * @param objects
+     */
     public static void checkBulletsCollision(Objects objects)
     {
         //hardWalls
@@ -741,6 +832,11 @@ public class Physics
         }
     }
 
+    /**
+     * check the collision of the player with buriedRobot
+     *
+     * @param objects
+     */
     public static void checkBuriedRobotsCollisionWithPlayer(Objects objects)
     {
         for (int i = 0; i < objects.getRobots().size(); i++)
@@ -757,6 +853,13 @@ public class Physics
         }
     }
 
+    /**
+     * check the health of the robots and play their sound
+     *
+     * @param objects
+     * @param robot
+     * @param damage
+     */
     private static void damageRobot(Objects objects, BuriedRobot robot, int damage)
     {
         robot.setHealth(robot.getHealth() - damage);
@@ -769,6 +872,13 @@ public class Physics
         }
     }
 
+    /**
+     * check the health of the aiTanks and play their sound and release their upgrade
+     *
+     * @param objects
+     * @param tank
+     * @param damage
+     */
     private static void damageAITank(Objects objects, AITank tank, int damage)
     {
         tank.setHealth(tank.getHealth() - damage);
@@ -787,6 +897,13 @@ public class Physics
         }
     }
 
+    /**
+     * check the health of the player
+     *
+     * @param objects
+     * @param tank
+     * @param damage
+     */
     private static void damagePlayerTank(Objects objects, Tank tank, int damage)
     {
         tank.setHealth(tank.getHealth() - damage);
@@ -810,6 +927,13 @@ public class Physics
 
     }
 
+    /**
+     * check the health of the turrets and play their sound and release their upgrade
+     *
+     * @param objects
+     * @param turret
+     * @param damage
+     */
     private static void damageTurret(Objects objects, Turret turret, int damage)
     {
         turret.setHealth(turret.getHealth() - damage);
@@ -820,6 +944,13 @@ public class Physics
         objects.getDeletedItems().add(turret);
     }
 
+    /**
+     * check the health of the softWalls to change their textures
+     *
+     * @param objects
+     * @param wall
+     * @param damage
+     */
     private static void damageSoftWall(Objects objects, SoftWall wall, int damage)
     {
         wall.setHealth(wall.getHealth() - damage);

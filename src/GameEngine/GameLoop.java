@@ -6,6 +6,7 @@ import game.Utils.Utility;
 import game.elements.ObjectId;
 import game.multiplayer.Client;
 import game.multiplayer.Server;
+
 import java.util.Date;
 
 
@@ -73,21 +74,26 @@ public class GameLoop implements Runnable
             {
                 long start = System.currentTimeMillis();
                 //
-                if(SharedData.getData().playerDied) {
-                    if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
-                        if(SharedData.getData().ServerLost && SharedData.getData().clientLost) {
+                if (SharedData.getData().playerDied)
+                {
+                    if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
+                    {
+                        if (SharedData.getData().ServerLost && SharedData.getData().clientLost)
+                        {
                             server.tick(state.objects);
                         }
                     }
                     state.objects.getPlayers().remove(SharedData.getData().playerToRemove);
                     SharedData.getData().playerDied = false;
-                    if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().ServerLost && SharedData.getData().clientLost) {
+                    if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().ServerLost && SharedData.getData().clientLost)
+                    {
                         SharedData.getData().result = ObjectId.Lost;
                         break;
                     }
                     continue;
                 }
-                if(SharedData.getData().gameDone){
+                if (SharedData.getData().gameDone)
+                {
                     SharedData.getData().result = ObjectId.Won;
                     break;
                 }
@@ -110,11 +116,13 @@ public class GameLoop implements Runnable
                         client.tick();
                         state.update();
                         canvas.render(state);
-                        if(SharedData.getData().clientLost && SharedData.getData().ServerLost){
+                        if (SharedData.getData().clientLost && SharedData.getData().ServerLost)
+                        {
                             SharedData.getData().result = ObjectId.Lost;
                             break;
                         }
-                        if(SharedData.getData().gameDone){
+                        if (SharedData.getData().gameDone)
+                        {
                             SharedData.getData().result = ObjectId.Won;
                             break;
                         }
@@ -131,10 +139,12 @@ public class GameLoop implements Runnable
             {
             }
         }
-        if(SharedData.getData().result.equals(ObjectId.Won)){
+        if (SharedData.getData().result.equals(ObjectId.Won))
+        {
             Utility.showVictoryEnding(canvas);
         }
-        else if(SharedData.getData().result.equals(ObjectId.Lost)){
+        else if (SharedData.getData().result.equals(ObjectId.Lost))
+        {
             Utility.showDefeatedEnding(canvas);
         }
     }

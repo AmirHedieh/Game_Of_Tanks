@@ -139,7 +139,7 @@ public class GameState
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
         if (keyUP)
         {
-            if (!Physics.checkHardWallsCollisionUp(objects))
+            if (!Physics.checkPlayerCollisionUp(objects))
             {
                 objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() - objects.getPlayers().get(0).getVelY());
                 objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() - objects.getPlayers().get(0).getVelY());
@@ -148,7 +148,7 @@ public class GameState
         }
         if (keyDOWN)
         {
-            if (!Physics.checkHardWallsCollisionDown(objects))
+            if (!Physics.checkPlayerCollisionDown(objects))
             {
                 objects.getPlayers().get(0).setY(objects.getPlayers().get(0).getY() + objects.getPlayers().get(0).getVelY());
                 objects.getPlayers().get(0).getSelectedGun().setY(objects.getPlayers().get(0).getSelectedGun().getY() + objects.getPlayers().get(0).getVelY());
@@ -157,7 +157,7 @@ public class GameState
         }
         if (keyLEFT)
         {
-            if (!Physics.checkHardWallsCollisionLeft(objects))
+            if (!Physics.checkPlayerCollisionLeft(objects))
             {
                 objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() - objects.getPlayers().get(0).getVelX());
                 objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() - objects.getPlayers().get(0).getVelX());
@@ -166,7 +166,7 @@ public class GameState
         }
         if (keyRIGHT)
         {
-            if (!Physics.checkHardWallsCollisionRight(objects))
+            if (!Physics.checkPlayerCollisionRight(objects))
             {
                 objects.getPlayers().get(0).setX(objects.getPlayers().get(0).getX() + objects.getPlayers().get(0).getVelX());
                 objects.getPlayers().get(0).getSelectedGun().setX(objects.getPlayers().get(0).getSelectedGun().getX() + objects.getPlayers().get(0).getVelX());
