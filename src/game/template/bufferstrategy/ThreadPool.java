@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 /**
  * This class holds a global thread-pool for executing our threads.
  *
- * @author Seyed Mohammad Ghaffarian
+ * @author Seyed Mohammad Ghaffarian - Ali Nazari - Amirhossein Hediehloo
  */
 public class ThreadPool
 {

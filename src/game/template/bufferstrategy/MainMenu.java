@@ -11,6 +11,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.net.InetAddress;
 
+/**
+ * the very first menu that is shown to user. continue - New Game - Setting - About
+ * are all accessible from here.
+ */
 public class MainMenu
 {
     private JFrame menuFrame;
@@ -365,6 +369,9 @@ public class MainMenu
         }
     }
 
+    /**
+     * new menu for players to play Coop. they set which user is host and which one is client.
+     */
     private class MultiPlayerFrame
     {
         public MultiPlayerFrame()

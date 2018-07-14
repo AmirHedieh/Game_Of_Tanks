@@ -20,7 +20,7 @@ import javax.swing.*;
  * http://docs.oracle.com/javase/tutorial/extra/fullscreen/bufferstrategy.html
  * http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferStrategy.html
  *
- * @author Seyed Mohammad Ghaffarian
+ * @author Seyed Mohammad Ghaffarian - Ali Nazari - Amirhossein Hediehloo
  */
 public class GameFrame extends JFrame
 {

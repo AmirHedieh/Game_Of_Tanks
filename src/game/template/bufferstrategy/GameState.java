@@ -20,7 +20,7 @@ import java.awt.event.MouseMotionListener;
  * This class holds the state of the game and all of its elements.
  * This class also handles user inputs, which affect the game state.
  *
- * @author Seyed Mohammad Ghaffarian
+ * @author Seyed Mohammad Ghaffarian - Ali Nazari - Amirhossein Hediehloo
  */
 public class GameState
 {
@@ -413,6 +413,9 @@ public class GameState
 
     }
 
+    /**
+     * handle action done with mouse
+     */
     class MouseHandler implements MouseListener, MouseMotionListener
     {
 

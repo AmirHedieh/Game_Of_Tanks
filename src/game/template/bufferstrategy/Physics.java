@@ -643,8 +643,6 @@ public class Physics
             //collision with walls
             for (int j = 0; j < objects.getMap().getHardWall().size(); j++)
             {
-//                Rectangle rectangle = new Rectangle((int) objects.getMap().getHardWall().get(j).getX() + 20, (int) objects.getMap().getHardWall().get(j).getY() + 20, 45, 45);
-//                if (objects.getBullets().get(i).getBounds().intersects(rectangle)) {
                 if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getHardWall().get(j).getBounds()))
                 {
                     Sound sound = new Sound(Utility.bulletHitHardWall, false);
@@ -671,9 +669,6 @@ public class Physics
                     {
                         objects.getBullets().remove(i);
                     }
-//                    Sound sound = new Sound(Utility.bulletHitHardWall, false);
-//                    sound.playSound();
-
                     break;
                 }
             }
@@ -694,6 +689,7 @@ public class Physics
                 }
             }
         }
+
         //collision with AI tanks
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
@@ -710,6 +706,7 @@ public class Physics
                 }
             }
         }
+
         //collision with Player Tank
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
@@ -719,7 +716,6 @@ public class Physics
                 {
                     if (objects.getBullets().get(i).getBounds().intersects(objects.getPlayers().get(j).getBounds()))
                     {
-//                    damageAITank(objects,objects.getTanks().get(j),objects.getBullets().get(i).getDamage());
                         damagePlayerTank(objects, objects.getPlayers().get(j), objects.getBullets().get(i).getDamage());
                         objects.getBullets().remove(i);
                         break;
@@ -798,21 +794,16 @@ public class Physics
         {
             SharedData.getData().playerDied = true;
             SharedData.getData().playerToRemove = tank;
-//            objects.getPlayers().remove(tank);
-//            System.out.println("Game Over");
             if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && tank == objects.getPlayers().get(0))
             {
-                System.out.println("SERVER SHATACKED ALLLA");
                 SharedData.getData().ServerLost = true;
             }
         }
         if (objects.getPlayers().size() == 2 && tank == objects.getPlayers().get(1))
         {
-            System.out.println("client got damage");
             SharedData.getData().clientTakenDamage = damage;
             if (tank.getHealth() <= 0)
             {
-                System.out.println("client dead");
                 SharedData.getData().clientLost = true;
             }
         }

@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 /**
  * Program start.
  *
- * @author Seyed Mohammad Ghaffarian
+ * @author Seyed Mohammad Ghaffarian - Ali Nazari - Amirhossein Hediehloo
  */
 public class Game
 {

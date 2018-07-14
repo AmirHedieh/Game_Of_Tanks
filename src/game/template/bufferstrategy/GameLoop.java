@@ -2,17 +2,12 @@
 package game.template.bufferstrategy;
 
 import game.Utils.SharedData;
-import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.ObjectId;
-import game.map.Camera;
 import game.multiplayer.Client;
 import game.multiplayer.Server;
-
-import javax.rmi.CORBA.Util;
-
 import java.util.Date;
-import java.util.Scanner;
+
 
 /**
  * A very simple structure for the main game loop.
@@ -26,7 +21,7 @@ import java.util.Scanner;
  * patterns is available in the following link:
  * http://gameprogrammingpatterns.com/game-loop.html
  *
- * @author Seyed Mohammad Ghaffarian
+ * @author Seyed Mohammad Ghaffarian - Ali Nazari - Amirhossein Hediehloo
  */
 public class GameLoop implements Runnable
 {
