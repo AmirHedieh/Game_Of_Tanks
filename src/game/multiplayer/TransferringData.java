@@ -15,7 +15,7 @@ public class TransferringData implements Serializable
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
     private int takenDamage;
-//
+    //
     private Boolean serverIsAlive;
     private Boolean clientIsAlive;
 
@@ -49,15 +49,18 @@ public class TransferringData implements Serializable
         return upgrades;
     }
 
-    public Boolean getServerIsAlive() {
+    public Boolean getServerIsAlive()
+    {
         return serverIsAlive;
     }
 
-    public Boolean getClientIsAlive() {
+    public Boolean getClientIsAlive()
+    {
         return clientIsAlive;
     }
 
-    public int getTakenDamage() {
+    public int getTakenDamage()
+    {
         return takenDamage;
     }
 
@@ -76,17 +79,21 @@ public class TransferringData implements Serializable
         this.robots = objects.getRobots();
         this.upgrades = objects.getUpgrades();
         takenDamage = SharedData.getData().clientTakenDamage;
-        if(!SharedData.getData().ServerLost){
+        if (!SharedData.getData().ServerLost)
+        {
             serverIsAlive = true;
         }
-        else {
+        else
+        {
             System.out.println("serverAlize false shod");
             serverIsAlive = false;
         }
-        if(objects.getPlayers().size() > 1){
+        if (objects.getPlayers().size() > 1)
+        {
             clientIsAlive = true;
         }
-        else {
+        else
+        {
             clientIsAlive = false;
             SharedData.getData().clientLost = true;
         }

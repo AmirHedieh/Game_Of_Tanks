@@ -13,11 +13,13 @@ public class SoftWall extends GameObject
         super(x, y, ObjectId.SoftWall);
     }
 
-    public void setHealth(int health) {
+    public void setHealth(int health)
+    {
         this.health = health;
     }
 
-    public int getHealth() {
+    public int getHealth()
+    {
         return health;
     }
 }

@@ -78,16 +78,20 @@ public class GameLoop implements Runnable
             {
                 long start = System.currentTimeMillis();
                 //
-                if(SharedData.getData().playerDied) {
+                if (SharedData.getData().playerDied)
+                {
 //                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
                     System.out.println("player removed");
-                    if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
+                    if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
+                    {
                         server.tick(state.objects);
                     }
                     state.objects.getPlayers().remove(SharedData.getData().playerToRemove);
                     SharedData.getData().playerDied = false;
-                    if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
-                        if(SharedData.getData().ServerLost && SharedData.getData().clientLost){
+                    if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
+                    {
+                        if (SharedData.getData().ServerLost && SharedData.getData().clientLost)
+                        {
                             SharedData.getData().result = ObjectId.Lost;
                             break;
                         }
@@ -115,7 +119,8 @@ public class GameLoop implements Runnable
                         state.update();
                         canvas.render(state);
                         System.out.println("tick");
-                        if(SharedData.getData().clientLost && SharedData.getData().ServerLost){
+                        if (SharedData.getData().clientLost && SharedData.getData().ServerLost)
+                        {
                             System.out.println("finally");
                             SharedData.getData().result = ObjectId.Lost;
                             break;
@@ -133,10 +138,12 @@ public class GameLoop implements Runnable
             {
             }
         }
-        if(SharedData.getData().result.equals(ObjectId.Won)){
+        if (SharedData.getData().result.equals(ObjectId.Won))
+        {
             Utility.showVictoryEnding(canvas);
         }
-        else if(SharedData.getData().result.equals(ObjectId.Lost)){
+        else if (SharedData.getData().result.equals(ObjectId.Lost))
+        {
             Utility.showDefeatedEnding(canvas);
         }
     }

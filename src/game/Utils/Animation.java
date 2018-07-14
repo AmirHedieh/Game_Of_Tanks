@@ -48,10 +48,10 @@ public class Animation
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5,
                      BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10,
                      BufferedImage img11, BufferedImage img12, BufferedImage img13, BufferedImage img14,
-                    BufferedImage img15, BufferedImage img16, BufferedImage img17, BufferedImage img18, BufferedImage img19,
-                    BufferedImage img20, BufferedImage img21, BufferedImage img22, BufferedImage img23,
-                    BufferedImage img24, BufferedImage img25, BufferedImage img26, BufferedImage img27, BufferedImage img28,
-                    BufferedImage img29, BufferedImage img30)
+                     BufferedImage img15, BufferedImage img16, BufferedImage img17, BufferedImage img18, BufferedImage img19,
+                     BufferedImage img20, BufferedImage img21, BufferedImage img22, BufferedImage img23,
+                     BufferedImage img24, BufferedImage img25, BufferedImage img26, BufferedImage img27, BufferedImage img28,
+                     BufferedImage img29, BufferedImage img30)
     {
         this.speed = speed;
         this.img1 = img1;

@@ -36,10 +36,11 @@ public class Server
     public void tick(Objects objects)
     {
         sendData();
-        if(!SharedData.getData().clientLost) {
+        if (!SharedData.getData().clientLost)
+        {
             receiveData();
         }
-        SharedData.getData().clientTakenDamage = 0 ;
+        SharedData.getData().clientTakenDamage = 0;
     }
 
     private void sendData()
