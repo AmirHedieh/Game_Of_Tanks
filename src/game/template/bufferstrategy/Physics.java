@@ -808,9 +808,11 @@ public class Physics
         }
         if (objects.getPlayers().size() == 2 && tank == objects.getPlayers().get(1))
         {
+            System.out.println("client got damage");
             SharedData.getData().clientTakenDamage = damage;
             if (tank.getHealth() <= 0)
             {
+                System.out.println("client dead");
                 SharedData.getData().clientLost = true;
             }
         }

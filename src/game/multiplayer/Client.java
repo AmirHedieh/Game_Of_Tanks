@@ -99,7 +99,9 @@ public class Client
             System.out.println("clnt side");
             SharedData.getData().ServerLost = true;
         }
-
+        if(data.getGameDone()){
+            SharedData.getData().gameDone = true;
+        }
     }
 
 //    private void sendLocationData(Objects objects){

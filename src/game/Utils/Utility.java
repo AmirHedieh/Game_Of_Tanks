@@ -200,6 +200,7 @@ public class Utility
             Rectangle rectangle = new Rectangle((int) objects.getMap().getEnd().getX() + 40, (int) objects.getMap().getEnd().getY() + 40, 50, 50);
             if (objects.getPlayers().get(i).getBounds().intersects(rectangle))
             {
+                SharedData.getData().gameDone = true;
                 SharedData.getData().result = ObjectId.Won; // one of the players reached the end of the map
                 return true;
             }

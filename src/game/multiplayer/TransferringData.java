@@ -18,6 +18,7 @@ public class TransferringData implements Serializable
     //
     private Boolean serverIsAlive;
     private Boolean clientIsAlive;
+    private Boolean gameDone = SharedData.getData().gameDone;
 
     public ArrayList<Tank> getPlayers()
     {
@@ -59,10 +60,15 @@ public class TransferringData implements Serializable
         return clientIsAlive;
     }
 
+    public Boolean getGameDone() {
+        return gameDone;
+    }
+
     public int getTakenDamage()
     {
         return takenDamage;
     }
+
 
     //constructor
     public TransferringData()
@@ -81,19 +87,23 @@ public class TransferringData implements Serializable
         takenDamage = SharedData.getData().clientTakenDamage;
         if (!SharedData.getData().ServerLost)
         {
+            System.out.println("11111");
             serverIsAlive = true;
         }
         else
         {
             System.out.println("serverAlize false shod");
+            System.out.println("22222");
             serverIsAlive = false;
         }
         if (objects.getPlayers().size() > 1)
         {
+            System.out.println("3333");
             clientIsAlive = true;
         }
         else
         {
+            System.out.println("4444");
             clientIsAlive = false;
             SharedData.getData().clientLost = true;
         }

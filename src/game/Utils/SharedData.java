@@ -24,6 +24,7 @@ public class SharedData
     public Boolean clientLost = false;
     public Boolean ServerLost = false;
     public int clientTakenDamage = 0;
+    public Boolean gameDone = false;
     //Singleton
     private static SharedData sharedData;
 

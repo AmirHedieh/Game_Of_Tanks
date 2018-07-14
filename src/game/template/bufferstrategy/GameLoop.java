@@ -97,6 +97,10 @@ public class GameLoop implements Runnable
                     continue;
 //                    Utility.checkEnd(state.objects);
                 }
+                if(SharedData.getData().gameDone){
+                    SharedData.getData().result = ObjectId.Won;
+                    break;
+                }
                 if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer))
                 {
                     state.update();
@@ -120,6 +124,11 @@ public class GameLoop implements Runnable
                         if(SharedData.getData().clientLost && SharedData.getData().ServerLost){
                             System.out.println("finally");
                             SharedData.getData().result = ObjectId.Lost;
+                            break;
+                        }
+                        if(SharedData.getData().gameDone){
+                            System.out.println("Client won the game");
+                            SharedData.getData().result = ObjectId.Won;
                             break;
                         }
                     }
