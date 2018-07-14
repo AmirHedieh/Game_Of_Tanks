@@ -75,6 +75,23 @@ public class Utility
     public static BufferedImage softWall04 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall04.png");
     public static BufferedImage softWall05 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall05.png");
 
+    public static BufferedImage explosion01 = loadBufferedImage(resourceDirectory + "explosion/01.png");
+    public static BufferedImage explosion02 = loadBufferedImage(resourceDirectory + "explosion/02.png");
+    public static BufferedImage explosion03 = loadBufferedImage(resourceDirectory + "explosion/03.png");
+    public static BufferedImage explosion04 = loadBufferedImage(resourceDirectory + "explosion/04.png");
+    public static BufferedImage explosion05 = loadBufferedImage(resourceDirectory + "explosion/05.png");
+    public static BufferedImage explosion06 = loadBufferedImage(resourceDirectory + "explosion/06.png");
+    public static BufferedImage explosion07 = loadBufferedImage(resourceDirectory + "explosion/07.png");
+    public static BufferedImage explosion08 = loadBufferedImage(resourceDirectory + "explosion/08.png");
+    public static BufferedImage explosion09 = loadBufferedImage(resourceDirectory + "explosion/09.png");
+    public static BufferedImage explosion10 = loadBufferedImage(resourceDirectory + "explosion/10.png");
+    public static BufferedImage explosion11 = loadBufferedImage(resourceDirectory + "explosion/11.png");
+    public static BufferedImage explosion12 = loadBufferedImage(resourceDirectory + "explosion/12.png");
+    public static BufferedImage explosion13 = loadBufferedImage(resourceDirectory + "explosion/13.png");
+    public static BufferedImage explosion14 = loadBufferedImage(resourceDirectory + "explosion/14.png");
+    public static Animation explosionAnimation = new Animation(14, explosion01, explosion02, explosion03, explosion04, explosion05, explosion06, explosion07, explosion08,
+            explosion09, explosion10, explosion11, explosion12, explosion13, explosion14);
+
     public static BufferedImage AITank = loadBufferedImage(resourceDirectory + "tank/AITank.png");
 
     public static BufferedImage missileGunUpgrade = loadBufferedImage(resourceDirectory + "upgrade/missileGunUpgrade.png");

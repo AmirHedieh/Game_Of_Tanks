@@ -657,22 +657,26 @@ public class Physics
         //collision with soft walls
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
-                //collision with walls
-                for (int j = 0; j < objects.getMap().getSoftWall().size(); j++) {
-                    if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getSoftWall().get(j).getBounds())) {
-                        if(objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter)) {
-                            damageSoftWall(objects, objects.getMap().getSoftWall().get(j), objects.getBullets().get(i).getDamage());
-                            objects.getBullets().remove(i);
-                        }
-                        else if(objects.getBullets().get(i).getShooter().equals(ObjectId.AIShooter)) {
-                            objects.getBullets().remove(i);
-                        }
+            //collision with walls
+            for (int j = 0; j < objects.getMap().getSoftWall().size(); j++)
+            {
+                if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getSoftWall().get(j).getBounds()))
+                {
+                    if (objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter))
+                    {
+                        damageSoftWall(objects, objects.getMap().getSoftWall().get(j), objects.getBullets().get(i).getDamage());
+                        objects.getBullets().remove(i);
+                    }
+                    else if (objects.getBullets().get(i).getShooter().equals(ObjectId.AIShooter))
+                    {
+                        objects.getBullets().remove(i);
+                    }
 //                    Sound sound = new Sound(Utility.bulletHitHardWall, false);
 //                    sound.playSound();
 
-                        break;
-                    }
+                    break;
                 }
+            }
         }
         //collision with buried robots
         for (int i = 0; i < objects.getBullets().size(); i++)
@@ -764,6 +768,7 @@ public class Physics
         { // if robot health get down to zero it gets destroyed and must be removed from objects
             Sound sound = new Sound(Utility.robotExplosion, false);
             sound.playSound();
+            objects.getDeletedItems().add(robot);
             objects.getRobots().remove(robot);
         }
     }
@@ -781,6 +786,7 @@ public class Physics
                 tank.getUpgrade().setY(tank.getY());
                 tank.releaseUpgrade();
             }
+            objects.getDeletedItems().add(tank);
             objects.getTanks().remove(tank);
         }
     }
@@ -803,14 +809,18 @@ public class Physics
         {
             objects.getTurrets().remove(turret);
         }
+        objects.getDeletedItems().add(turret);
     }
 
-    private static void damageSoftWall(Objects objects, SoftWall wall , int damage){
+    private static void damageSoftWall(Objects objects, SoftWall wall, int damage)
+    {
         wall.setHealth(wall.getHealth() - damage);
-        if(wall.getHealth() <= 0){
-            Sound sound = new Sound(Utility.softWalldestruction,false);
+        if (wall.getHealth() <= 0)
+        {
+            Sound sound = new Sound(Utility.softWalldestruction, false);
             sound.playSound();
             objects.getMap().getSoftWall().remove(wall);
         }
+        //objects.getDeletedItems().add(wall);
     }
 }
