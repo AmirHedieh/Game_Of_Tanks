@@ -41,8 +41,7 @@ public class GameState
 
     public Camera camera;
 
-    public GameState()
-    {
+    public GameState() {
 //        Sound sound = new Sound(Utility.backgroundSound, true);
 //        sound.playSound();
         // Initialize the game state and all elements ...

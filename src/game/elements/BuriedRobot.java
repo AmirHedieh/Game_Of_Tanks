@@ -64,11 +64,17 @@ public class BuriedRobot extends GameObject
      */
     private void determineTarget(Objects objects)
     {
-        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
         {
-            double distanceNumOne = Utility.calculateDistance(this, objects.getPlayers().get(0));
-            double distanceNumTwo = Utility.calculateDistance(this, objects.getPlayers().get(1));
-            target = (distanceNumOne > distanceNumTwo) ? objects.getPlayers().get(1) : objects.getPlayers().get(0);
+            target = objects.getPlayers().get(0);
+            for (int i = 0; i < objects.getPlayers().size(); i++)
+            {
+                double distance = Utility.calculateDistance(this,objects.getPlayers().get(i));
+                if (distance <= Utility.calculateDistance(this,target))
+                {
+                    target = objects.getPlayers().get(i);
+                }
+            }
         }
         else
         { //in single player

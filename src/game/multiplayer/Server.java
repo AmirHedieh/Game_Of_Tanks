@@ -1,5 +1,6 @@
 package game.multiplayer;
 
+import game.Utils.SharedData;
 import game.elements.Objects;
 import game.elements.Tank;
 
@@ -35,7 +36,10 @@ public class Server
     public void tick(Objects objects)
     {
         sendData();
-        receiveData();
+        if(!SharedData.getData().clientLost) {
+            receiveData();
+        }
+        SharedData.getData().clientTakenDamage = 0 ;
     }
 
     private void sendData()
@@ -66,7 +70,7 @@ public class Server
 
     public void receiveData()
     {
-        System.out.println("REC");
+//        System.out.println("REC");
         try
         {
             ois = new ObjectInputStream(socket.getInputStream());

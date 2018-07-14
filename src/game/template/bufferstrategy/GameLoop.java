@@ -79,9 +79,12 @@ public class GameLoop implements Runnable
                 long start = System.currentTimeMillis();
                 //
                 if(SharedData.getData().playerDied) {
-                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
-                    Utility.checkEnd(state.objects);
-                    break;
+//                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
+                    System.out.println("player removed");
+                    state.objects.getPlayers().remove(SharedData.getData().playerToRemove);
+                    SharedData.getData().playerDied = false;
+                    continue;
+//                    Utility.checkEnd(state.objects);
                 }
                 if (SharedData.getData().gameType.equals(ObjectId.SinglePlayer))
                 {
@@ -92,16 +95,20 @@ public class GameLoop implements Runnable
                 {
                     if (SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
                     {
+                        System.out.println(state.objects.getPlayers().size());
                         state.update();
                         canvas.render(state);
                         server.tick(state.objects);
-
                     }
                     else if (SharedData.getData().playerType.equals(ObjectId.ClientPlayer))
                     {
                         client.tick();
                         state.update();
                         canvas.render(state);
+//                        if(SharedData.getData().clientLost){
+//                            SharedData.getData().result = ObjectId.Lost;
+//                            break;
+//                        }
                     }
                 }
                 //

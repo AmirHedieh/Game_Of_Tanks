@@ -169,7 +169,7 @@ public class AITankHandler
         for (int i = 0; i < players.size(); i++)
         {
             double distance = Utility.calculateDistance(players.get(i), aiTank);
-            if (distance < Utility.calculateDistance(aiTank.getTarget(), players.get(i)))
+            if (distance <= Utility.calculateDistance(aiTank.getTarget(), players.get(i)))
             {
                 aiTank.setTarget(players.get(i));
             }

@@ -91,18 +91,21 @@ public class Upgrade extends GameObject implements Serializable
      */
     public void determineTarget(Objects objects)
     {
-        for (int i = 0; i < objects.getPlayers().size(); i++)
-        {
-            if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
-            {
-                user = (Utility.calculateDistance(this, objects.getPlayers().get(0)) > Utility.calculateDistance(this, objects.getPlayers().get(1))) ?
-                        objects.getPlayers().get(1) : objects.getPlayers().get(0);
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
+            user = objects.getPlayers().get(0);
+            for (int i = 0; i < objects.getPlayers().size(); i++) {
+//                user = (Utility.calculateDistance(this, objects.getPlayers().get(0)) > Utility.calculateDistance(this, objects.getPlayers().get(1))) ?
+//                        objects.getPlayers().get(1) : objects.getPlayers().get(0);
+                    double distance = Utility.calculateDistance(this, objects.getPlayers().get(i));
+                    if (distance <= Utility.calculateDistance(this, user)) {
+                        user = objects.getPlayers().get(i);
+                    }
             }
+        }
             else
             { //in single player
                 user = objects.getPlayers().get(0);
             }
-        }
     }
 
     /**

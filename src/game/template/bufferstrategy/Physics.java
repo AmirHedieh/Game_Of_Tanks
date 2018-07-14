@@ -792,7 +792,14 @@ public class Physics
         {
             SharedData.getData().playerDied = true;
             SharedData.getData().playerToRemove = tank;
+//            objects.getPlayers().remove(tank);
 //            System.out.println("Game Over");
+        }
+        if(objects.getPlayers().size() == 2 && tank == objects.getPlayers().get(1)){
+            SharedData.getData().clientTakenDamage = damage;
+            if(tank.getHealth() <= 0){
+                SharedData.getData().clientLost = true;
+            }
         }
     }
 

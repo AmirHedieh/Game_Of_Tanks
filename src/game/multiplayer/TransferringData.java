@@ -1,5 +1,6 @@
 package game.multiplayer;
 
+import game.Utils.SharedData;
 import game.elements.*;
 
 import java.io.Serializable;
@@ -13,8 +14,10 @@ public class TransferringData implements Serializable
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
-
-    private Boolean alive;
+    private int takenDamage;
+//
+    private Boolean serverIsAlive;
+    private Boolean clientIsAlive;
 
     public ArrayList<Tank> getPlayers()
     {
@@ -46,8 +49,16 @@ public class TransferringData implements Serializable
         return upgrades;
     }
 
-    public Boolean getAlive() {
-        return alive;
+    public Boolean getServerIsAlive() {
+        return serverIsAlive;
+    }
+
+    public Boolean getClientIsAlive() {
+        return clientIsAlive;
+    }
+
+    public int getTakenDamage() {
+        return takenDamage;
     }
 
     //constructor
@@ -64,11 +75,19 @@ public class TransferringData implements Serializable
         this.turrets = objects.getTurrets();
         this.robots = objects.getRobots();
         this.upgrades = objects.getUpgrades();
-        if(objects.getPlayers().get(1) != null){
-            alive = true;
+        takenDamage = SharedData.getData().clientTakenDamage;
+        if(objects.getPlayers().get(0) != null){
+            serverIsAlive = true;
         }
         else {
-            alive = false;
+            serverIsAlive = false;
+        }
+        if(objects.getPlayers().size() > 1){
+            clientIsAlive = true;
+        }
+        else {
+            clientIsAlive = false;
+            SharedData.getData().clientLost = true;
         }
     }
 }

@@ -20,7 +20,9 @@ public class SharedData
     public Boolean playerDied = false;
     public Tank playerToRemove;
     public ObjectId startingType = ObjectId.NewGame;
-    public ObjectId result; // win or lose
+    public ObjectId result = ObjectId.Won; // win or lose
+    public Boolean clientLost = false;
+    public int clientTakenDamage = 0;
     //Singleton
     private static SharedData sharedData;
 

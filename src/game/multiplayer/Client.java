@@ -1,7 +1,5 @@
 package game.multiplayer;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 import game.Utils.SharedData;
 import game.elements.Objects;
 
@@ -37,7 +35,9 @@ public class Client
     {
         receiveData();
 //        sendLocationData(objects);
-        sendData();
+        if(!SharedData.getData().clientLost) {
+            sendData();
+        }
 
     }
 
@@ -81,18 +81,17 @@ public class Client
     private void updateObjects(TransferringData data)
     { // called in receive data
 //        objects.setPlayers(data.getPlayers());
-        if(data.getAlive()) {
-            objects.replacePlayerTank(data.getPlayers().get(0), 1);
-        }
-        else if(!data.getAlive()){
-//            objects.getPlayers().
-        }
+        objects.replacePlayerTank(data.getPlayers().get(0), 1);
         objects.setBullets(data.getBullets());
         objects.setRobots(data.getRobots());
         objects.setTanks(data.getTanks());
         objects.setTurrets(data.getTurrets());
         objects.setUpgrades(data.getUpgrades());
-
+        objects.getPlayers().get(0).setHealth( objects.getPlayers().get(0).getHealth() - data.getTakenDamage());
+        if(!data.getClientIsAlive()){
+            objects.replacePlayerTank(data.getPlayers().get(0), 0);
+            SharedData.getData().clientLost = true;
+        }
     }
 
 //    private void sendLocationData(Objects objects){
