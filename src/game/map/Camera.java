@@ -48,9 +48,9 @@ public class Camera
             {
                 x = 0;
             }
-            if (x >= 1670)
+            if (x >= 600)
             {
-                x = 1670;
+                x = 600;
             }
 
             if (y <= 0)
