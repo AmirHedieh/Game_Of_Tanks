@@ -27,7 +27,7 @@ public class GameState
     public Objects objects = new Objects(); // objects of the game
     private AITankHandler aiTankHandler; // AI tanks manager
 
-    private boolean missileAmmoCheat,machineGunAmmoCheat,godMode,superDamageCheat;  //cheats
+    private boolean missileAmmoCheat, machineGunAmmoCheat, godMode, superDamageCheat;  //cheats
     private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT; //movements
     private boolean doubleSpeed; // speed key
     private boolean shoot;
@@ -41,7 +41,8 @@ public class GameState
 
     public Camera camera;
 
-    public GameState() {
+    public GameState()
+    {
 //        Sound sound = new Sound(Utility.backgroundSound, true);
 //        sound.playSound();
         // Initialize the game state and all elements ...
@@ -76,31 +77,39 @@ public class GameState
     /**
      * The method which updates the game state.
      */
-    public void update() {
-        if (save) {
+    public void update()
+    {
+        if (save)
+        {
             Utility.saveGame(objects);
         }
-        if(doubleSpeed){
+        if (doubleSpeed)
+        {
             objects.getPlayers().get(0).setVelX(25);
             objects.getPlayers().get(0).setVelY(25);
         }
-        else {
+        else
+        {
             objects.getPlayers().get(0).setVelX(12);
             objects.getPlayers().get(0).setVelY(12);
         }
-        if(missileAmmoCheat) {
+        if (missileAmmoCheat)
+        {
             objects.getPlayers().get(0).getMissileGun().setAmmo(objects.getPlayers().get(0).getMissileGun().getAmmo() + 10);
             missileAmmoCheat = false;
         }
-        if(machineGunAmmoCheat) {
+        if (machineGunAmmoCheat)
+        {
             objects.getPlayers().get(0).getMachineGun().setAmmo(objects.getPlayers().get(0).getMachineGun().getAmmo() + 30);
             machineGunAmmoCheat = false;
         }
-        if(godMode) {
+        if (godMode)
+        {
             objects.getPlayers().get(0).setHealth(5000);
             godMode = false;
         }
-        if(superDamageCheat){
+        if (superDamageCheat)
+        {
             objects.getPlayers().get(0).getMissileGun().setDamage(500);
             objects.getPlayers().get(0).getMachineGun().setDamage(500);
             superDamageCheat = false;
@@ -325,7 +334,7 @@ public class GameState
                 case KeyEvent.VK_O:
                     save = true;
                     break;
-                case  KeyEvent.VK_SHIFT:
+                case KeyEvent.VK_SHIFT:
                     doubleSpeed = true;
                     break;
             }

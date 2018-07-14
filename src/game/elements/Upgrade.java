@@ -82,30 +82,35 @@ public class Upgrade extends GameObject implements Serializable
         }
     }
 
-    private void makeSound(){
-        Sound sound = new Sound(Utility.upgrade,false);
+    private void makeSound()
+    {
+        Sound sound = new Sound(Utility.upgrade, false);
         sound.playSound();
     }
+
     /**
      * set user to the tank which is closer to upgrade
      */
     public void determineTarget(Objects objects)
     {
-        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
+        {
             user = objects.getPlayers().get(0);
-            for (int i = 0; i < objects.getPlayers().size(); i++) {
+            for (int i = 0; i < objects.getPlayers().size(); i++)
+            {
 //                user = (Utility.calculateDistance(this, objects.getPlayers().get(0)) > Utility.calculateDistance(this, objects.getPlayers().get(1))) ?
 //                        objects.getPlayers().get(1) : objects.getPlayers().get(0);
-                    double distance = Utility.calculateDistance(this, objects.getPlayers().get(i));
-                    if (distance <= Utility.calculateDistance(this, user)) {
-                        user = objects.getPlayers().get(i);
-                    }
+                double distance = Utility.calculateDistance(this, objects.getPlayers().get(i));
+                if (distance <= Utility.calculateDistance(this, user))
+                {
+                    user = objects.getPlayers().get(i);
+                }
             }
         }
-            else
-            { //in single player
-                user = objects.getPlayers().get(0);
-            }
+        else
+        { //in single player
+            user = objects.getPlayers().get(0);
+        }
     }
 
     /**

@@ -35,7 +35,8 @@ public class Client
     {
         receiveData();
 //        sendLocationData(objects);
-        if(!SharedData.getData().clientLost) {
+        if (!SharedData.getData().clientLost)
+        {
             sendData();
         }
 
@@ -87,12 +88,14 @@ public class Client
         objects.setTanks(data.getTanks());
         objects.setTurrets(data.getTurrets());
         objects.setUpgrades(data.getUpgrades());
-        objects.getPlayers().get(0).setHealth( objects.getPlayers().get(0).getHealth() - data.getTakenDamage());
-        if(!data.getClientIsAlive()){
+        objects.getPlayers().get(0).setHealth(objects.getPlayers().get(0).getHealth() - data.getTakenDamage());
+        if (!data.getClientIsAlive())
+        {
             objects.replacePlayerTank(data.getPlayers().get(0), 0);
             SharedData.getData().clientLost = true;
         }
-        if(!data.getServerIsAlive()){
+        if (!data.getServerIsAlive())
+        {
             System.out.println("clnt side");
             SharedData.getData().ServerLost = true;
         }
