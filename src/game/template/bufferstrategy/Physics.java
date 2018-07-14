@@ -4,6 +4,7 @@ import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.*;
+import game.map.SoftWall;
 
 import java.awt.*;
 import java.util.Iterator;
@@ -20,6 +21,26 @@ public class Physics
             if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
                 if (tank.getY() > objects.getMap().getHardWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getSoftWall().get(i).getBounds()))
+            {
+                if (tank.getY() > objects.getMap().getSoftWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getTeazel().get(i).getBounds()))
+            {
+                if (tank.getY() > objects.getMap().getTeazel().get(i).getY())
                 {
                     return true;
                 }
@@ -45,6 +66,7 @@ public class Physics
                 }
             }
         }
+
         return false;
     }
 
@@ -55,6 +77,26 @@ public class Physics
             if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
                 if (tank.getY() < objects.getMap().getHardWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getSoftWall().get(i).getBounds()))
+            {
+                if (tank.getY() < objects.getMap().getSoftWall().get(i).getY())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getTeazel().get(i).getBounds()))
+            {
+                if (tank.getY() < objects.getMap().getTeazel().get(i).getY())
                 {
                     return true;
                 }
@@ -95,6 +137,26 @@ public class Physics
                 }
             }
         }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getSoftWall().get(i).getBounds()))
+            {
+                if (tank.getX() < objects.getMap().getSoftWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getTeazel().get(i).getBounds()))
+            {
+                if (tank.getX() < objects.getMap().getTeazel().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
         for (int i = 0; i < objects.getTurrets().size(); i++)
         {
             if (tank.getBounds().intersects(objects.getTurrets().get(i).getBounds()))
@@ -126,6 +188,26 @@ public class Physics
             if (tank.getBounds().intersects(objects.getMap().getHardWall().get(i).getBounds()))
             {
                 if (tank.getX() > objects.getMap().getHardWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getSoftWall().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getSoftWall().get(i).getBounds()))
+            {
+                if (tank.getX() > objects.getMap().getSoftWall().get(i).getX())
+                {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i < objects.getMap().getTeazel().size(); i++)
+        {
+            if (tank.getBounds().intersects(objects.getMap().getTeazel().get(i).getBounds()))
+            {
+                if (tank.getX() > objects.getMap().getTeazel().get(i).getX())
                 {
                     return true;
                 }
@@ -573,6 +655,26 @@ public class Physics
                 }
             }
         }
+        //collision with soft walls
+        for (int i = 0; i < objects.getBullets().size(); i++)
+        {
+                //collision with walls
+                for (int j = 0; j < objects.getMap().getSoftWall().size(); j++) {
+                    if (objects.getBullets().get(i).getBounds().intersects(objects.getMap().getSoftWall().get(j).getBounds())) {
+                        if(objects.getBullets().get(i).getShooter().equals(ObjectId.PlayerShooter)) {
+                            damageSoftWall(objects, objects.getMap().getSoftWall().get(j), objects.getBullets().get(i).getDamage());
+                            objects.getBullets().remove(i);
+                        }
+                        else if(objects.getBullets().get(i).getShooter().equals(ObjectId.AIShooter)) {
+                            objects.getBullets().remove(i);
+                        }
+//                    Sound sound = new Sound(Utility.bulletHitHardWall, false);
+//                    sound.playSound();
+
+                        break;
+                    }
+                }
+        }
         //collision with buried robots
         for (int i = 0; i < objects.getBullets().size(); i++)
         {
@@ -701,6 +803,13 @@ public class Physics
         if (turret.getHealth() <= 0)
         {
             objects.getTurrets().remove(turret);
+        }
+    }
+
+    private static void damageSoftWall(Objects objects, SoftWall wall , int damage){
+        wall.setHealth(wall.getHealth() - damage);
+        if(wall.getHealth() <= 0){
+            objects.getMap().getSoftWall().remove(wall);
         }
     }
 }
