@@ -800,6 +800,11 @@ public class Physics
             SharedData.getData().playerToRemove = tank;
 //            objects.getPlayers().remove(tank);
 //            System.out.println("Game Over");
+            if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && tank == objects.getPlayers().get(0))
+            {
+                System.out.println("SERVER SHATACKED ALLLA");
+                SharedData.getData().ServerLost = true;
+            }
         }
         if (objects.getPlayers().size() == 2 && tank == objects.getPlayers().get(1))
         {
@@ -809,11 +814,7 @@ public class Physics
                 SharedData.getData().clientLost = true;
             }
         }
-        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && tank == objects.getPlayers().get(0))
-        {
-            System.out.println("SERVER SHATACKED");
-            SharedData.getData().ServerLost = true;
-        }
+
     }
 
     private static void damageTurret(Objects objects, Turret turret, int damage)

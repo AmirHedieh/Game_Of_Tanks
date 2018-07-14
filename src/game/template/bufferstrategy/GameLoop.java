@@ -82,15 +82,17 @@ public class GameLoop implements Runnable
 //                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
                     System.out.println("player removed");
                     if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
-                        server.tick(state.objects);
+                        System.out.println("num1");
+                        if(SharedData.getData().ServerLost && SharedData.getData().clientLost) {
+                            server.tick(state.objects);
+                        }
                     }
                     state.objects.getPlayers().remove(SharedData.getData().playerToRemove);
                     SharedData.getData().playerDied = false;
-                    if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer)) {
-                        if(SharedData.getData().ServerLost && SharedData.getData().clientLost){
-                            SharedData.getData().result = ObjectId.Lost;
-                            break;
-                        }
+                    if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().ServerLost && SharedData.getData().clientLost) {
+                        System.out.println("BOTH DEAD");
+                        SharedData.getData().result = ObjectId.Lost;
+                        break;
                     }
                     continue;
 //                    Utility.checkEnd(state.objects);
