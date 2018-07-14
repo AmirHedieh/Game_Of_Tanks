@@ -1,5 +1,6 @@
 package game.Utils;
 
+import GameEngine.MainMenu;
 import game.elements.GameObject;
 import game.elements.ObjectId;
 import game.elements.Objects;
@@ -239,20 +240,14 @@ public class Utility
         canvas.setLayout(null);
 
         JButton exitButton = new JButton("Exit");
-        if (dimension.width >= 3840)
-        {
-            exitButton.setSize(400, 100);
-        }
-        else
-        {
-            exitButton.setSize(275, 70);
-        }
+        exitButton.setSize(275, 70);
         exitButton.setBackground(Color.BLACK);
         exitButton.setForeground(Color.WHITE);
         exitButton.setFocusable(false);
         exitButton.setOpaque(true);
         exitButton.setBorder(BorderFactory.createEmptyBorder());
-        exitButton.setFont(new Font("Titillium Web", 4, 50));
+        exitButton.setFont(new Font("Titillium Web", 4, 30));
+        exitButton.setLocation(-10, 500);
         exitButton.addActionListener(new ActionListener()
         {
             @Override
@@ -265,6 +260,29 @@ public class Utility
             }
         });
 
+        JButton mainMenuButton = new JButton("Main Menu");
+        mainMenuButton.setSize(275, 70);
+        mainMenuButton.setBackground(Color.BLACK);
+        mainMenuButton.setForeground(Color.WHITE);
+        mainMenuButton.setFocusable(false);
+        mainMenuButton.setOpaque(true);
+        mainMenuButton.setBorder(BorderFactory.createEmptyBorder());
+        mainMenuButton.setFont(new Font("Titillium Web", 4, 30));
+        mainMenuButton.setLocation(-10, 410);
+        mainMenuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (e.getSource().equals(mainMenuButton))
+                {
+                    canvas.dispose();
+                    new MainMenu();
+                }
+            }
+        });
+
+        mainPanel.add(mainMenuButton);
         mainPanel.add(exitButton);
 
         JLabel startupLabel = null;
@@ -272,13 +290,11 @@ public class Utility
         {
             startupLabel = new JLabel(Utility.winSmall);
             startupLabel.setSize(1820, 1024);
-            exitButton.setLocation(-10, 410);
         }
         else
         {
             startupLabel = new JLabel(Utility.winMedium);
             startupLabel.setSize(dimension.width, dimension.height);
-            exitButton.setLocation(-10, 410);
         }
         mainPanel.add(startupLabel);
 
@@ -306,20 +322,14 @@ public class Utility
         canvas.setLayout(null);
 
         JButton exitButton = new JButton("Exit");
-        if (dimension.width >= 3840)
-        {
-            exitButton.setSize(400, 100);
-        }
-        else
-        {
-            exitButton.setSize(275, 70);
-        }
+        exitButton.setSize(275, 70);
         exitButton.setBackground(Color.BLACK);
         exitButton.setForeground(Color.WHITE);
         exitButton.setFocusable(false);
         exitButton.setOpaque(true);
         exitButton.setBorder(BorderFactory.createEmptyBorder());
-        exitButton.setFont(new Font("Titillium Web", 4, 50));
+        exitButton.setFont(new Font("Titillium Web", 4, 30));
+        exitButton.setLocation(-10, 500);
         exitButton.addActionListener(new ActionListener()
         {
             @Override
@@ -332,6 +342,29 @@ public class Utility
             }
         });
 
+        JButton mainMenuButton = new JButton("Main Menu");
+        mainMenuButton.setSize(275, 70);
+        mainMenuButton.setBackground(Color.BLACK);
+        mainMenuButton.setForeground(Color.WHITE);
+        mainMenuButton.setFocusable(false);
+        mainMenuButton.setOpaque(true);
+        mainMenuButton.setBorder(BorderFactory.createEmptyBorder());
+        mainMenuButton.setFont(new Font("Titillium Web", 4, 30));
+        mainMenuButton.setLocation(-10, 410);
+        mainMenuButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (e.getSource().equals(mainMenuButton))
+                {
+                    canvas.dispose();
+                    new MainMenu();
+                }
+            }
+        });
+
+        mainPanel.add(mainMenuButton);
         mainPanel.add(exitButton);
 
         JLabel startupLabel = null;
@@ -339,13 +372,11 @@ public class Utility
         {
             startupLabel = new JLabel(Utility.loseSmall);
             startupLabel.setSize(1820, 1024);
-            exitButton.setLocation(-10, 410);
         }
         else
         {
             startupLabel = new JLabel(Utility.loseMedium);
             startupLabel.setSize(dimension.width, dimension.height);
-            exitButton.setLocation(-10, 410);
         }
         mainPanel.add(startupLabel);
 
