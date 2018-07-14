@@ -81,6 +81,7 @@ public class DataInitializer
         objects.setRobots(data.getRobots());
         objects.setBullets(data.getBullets());
         objects.setTanks(data.getTanks());
+        objects.getMap().setSoftWall(data.getWalls());
     }
 
     public static int numOfMap(){

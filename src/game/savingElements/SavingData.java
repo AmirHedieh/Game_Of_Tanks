@@ -2,6 +2,7 @@ package game.savingElements;
 
 import game.Utils.SharedData;
 import game.elements.*;
+import game.map.SoftWall;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class SavingData implements Serializable
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
+    private ArrayList<SoftWall> walls;
     private int mapId;
 
     public SavingData()
@@ -59,6 +61,14 @@ public class SavingData implements Serializable
 
     public void setMapId(int mapId) {
         this.mapId = mapId;
+    }
+
+    public ArrayList<SoftWall> getWalls() {
+        return walls;
+    }
+
+    public void setWalls(ArrayList<SoftWall> walls) {
+        this.walls = walls;
     }
 
     public int getMapId() {

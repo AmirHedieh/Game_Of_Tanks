@@ -25,6 +25,7 @@ public class DataSaver
         data.setTanks(objects.getTanks());
         data.setUpgrades(objects.getUpgrades());
         data.setTurrets(objects.getTurrets());
+        data.setWalls(objects.getMap().getSoftWall());
 
         int whichMap = 1;
         if(SharedData.getData().whichMap.equals(ObjectId.FirstMap)){
