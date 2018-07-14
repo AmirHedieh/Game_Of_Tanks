@@ -126,10 +126,10 @@ public class GameLoop implements Runnable
             }
         }
         if(SharedData.getData().result.equals(ObjectId.Won)){
-            Utility.showVictoryEnding();
+            Utility.showVictoryEnding(canvas);
         }
         else if(SharedData.getData().result.equals(ObjectId.Lost)){
-            Utility.showDefeatedEnding();
+            Utility.showDefeatedEnding(canvas);
         }
     }
 }

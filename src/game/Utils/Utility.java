@@ -6,10 +6,14 @@ import game.elements.Objects;
 import game.elements.Tank;
 import game.savingElements.DataInitializer;
 import game.savingElements.DataSaver;
+import game.template.bufferstrategy.GameFrame;
+import game.template.bufferstrategy.MainMenu;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +45,11 @@ public class Utility
 
     public static ImageIcon mainMenuBackGroundMedium = loadImageIcon(resourceDirectory + "MainMenuBackGroundMedium.jpg");
     public static ImageIcon mainMenuBackGroundBig = loadImageIcon(resourceDirectory + "MainMenuBackGroundBig.jpg");
+
+    public static ImageIcon loseMedium = loadImageIcon(resourceDirectory + "finishGame/lose/loseMedium.jpg");
+    public static ImageIcon loseBig = loadImageIcon(resourceDirectory + "finishGame/lose/loseBig.jpg");
+    public static ImageIcon winMedium = loadImageIcon(resourceDirectory + "finishGame/win/winMedium.jpg");
+    public static ImageIcon winBig = loadImageIcon(resourceDirectory + "finishGame/win/winBig.jpg");
 
     public static BufferedImage tank01 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank01.png");
     public static BufferedImage tank02 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank02.png");
@@ -178,12 +187,110 @@ public class Utility
         return false;
     }
 
-    public static void showVictoryEnding(){ //victory frame must be drawn here
+    public static void showVictoryEnding(GameFrame canvas){ //victory frame must be drawn here
         System.out.println("YOU WON");
+
+        JPanel mainPanel = new JPanel(null);
+        mainPanel.setBackground(Color.BLACK);
+
+        canvas.setContentPane(mainPanel);
+        canvas.setLayout(null);
+
+        JButton exitButton = new JButton("Exit");
+        exitButton.setSize(400, 100);
+        exitButton.setBackground(Color.BLACK);
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setFocusable(false);
+        exitButton.setOpaque(true);
+        exitButton.setBorder(BorderFactory.createEmptyBorder());
+        exitButton.setFont(new Font("Titillium Web", 4, 50));
+        exitButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (e.getSource().equals(exitButton))
+                {
+                    System.exit(10);
+                }
+            }
+        });
+
+        mainPanel.add(exitButton);
+
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        JLabel startupLabel = null;
+        if (dimension.width >= 3840)
+        {
+            startupLabel = new JLabel(Utility.winBig);
+            exitButton.setLocation(1700, 2000);
+        }
+        else
+        {
+            startupLabel = new JLabel(Utility.winMedium);
+            exitButton.setLocation(500, 700);
+        }
+        startupLabel.setSize(dimension.width, dimension.height);
+        mainPanel.add(startupLabel);
+
+
+        canvas.revalidate();
+        canvas.repaint();
+        canvas.setVisible(true);
     }
 
-    public static void showDefeatedEnding(){ // //losing frame must be drawn here
+    public static void showDefeatedEnding(GameFrame canvas){ // //losing frame must be drawn here
         System.out.println("YOU Lost");
+
+        JPanel mainPanel = new JPanel(null);
+        mainPanel.setBackground(Color.BLACK);
+
+        canvas.setContentPane(mainPanel);
+        canvas.setLayout(null);
+
+        JButton exitButton = new JButton("Exit");
+        exitButton.setSize(400, 100);
+        exitButton.setBackground(Color.BLACK);
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setFocusable(false);
+        exitButton.setOpaque(true);
+        exitButton.setBorder(BorderFactory.createEmptyBorder());
+        exitButton.setFont(new Font("Titillium Web", 4, 50));
+        exitButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if (e.getSource().equals(exitButton))
+                {
+                    System.exit(10);
+                }
+            }
+        });
+
+        mainPanel.add(exitButton);
+
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        JLabel startupLabel = null;
+        if (dimension.width >= 3840)
+        {
+            startupLabel = new JLabel(Utility.loseBig);
+            exitButton.setLocation(1700, 2000);
+        }
+        else
+        {
+            startupLabel = new JLabel(Utility.loseMedium);
+            exitButton.setLocation(500, 700);
+        }
+        startupLabel.setSize(dimension.width, dimension.height);
+        mainPanel.add(startupLabel);
+
+
+        canvas.revalidate();
+        canvas.repaint();
+        canvas.setVisible(true);
     }
 
     /*
