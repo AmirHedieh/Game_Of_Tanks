@@ -63,7 +63,7 @@ public class MainMenu
     private int output;
     private String ip = "";
     private int difficulty = 1;
-    private int whichMap = 1;
+    private int whichMap = 3;
 
     public static void main(String[] args)
     {
@@ -524,7 +524,6 @@ public class MainMenu
             firstMap.setBackground(Color.BLACK);
             firstMap.setFocusable(false);
             firstMap.addActionListener(new ActionHandler());
-            firstMap.setSelected(true);
 
             secondMap.setText("Second");
             secondMap.setFont(new Font("Titillium Web", 4, 30));
@@ -539,6 +538,7 @@ public class MainMenu
             thirdMap.setBackground(Color.BLACK);
             thirdMap.setFocusable(false);
             thirdMap.addActionListener(new ActionHandler());
+            thirdMap.setSelected(true);
 
             fourthMap.setText("Fourth");
             fourthMap.setFont(new Font("Titillium Web", 4, 30));
