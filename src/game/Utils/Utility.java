@@ -107,7 +107,7 @@ public class Utility
     public static File upgrade = new File(resourceDirectory + "sounds/upgrade.wav");
     public static File robotExplosion = new File(resourceDirectory + "sounds/smallEx.wav");
     public static File bulletHitHardWall = new File(resourceDirectory + "sounds/bulletHitHardWall.wav");
-    public static File softWalldestruction = new File(resourceDirectory + "sounds/softWall.wav");
+    public static File softWallDestruction = new File(resourceDirectory + "sounds/softWall.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {

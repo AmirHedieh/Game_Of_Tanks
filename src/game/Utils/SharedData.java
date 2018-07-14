@@ -10,12 +10,12 @@ import game.elements.Tank;
 public class SharedData
 {
 
-    public ObjectId gameType;
+    public ObjectId gameType = ObjectId.SinglePlayer;
     public ObjectId playerType;
     public Boolean clientShot = false;
     public Bullet clientLastShotBullet;
-    public ObjectId difficulty;
-    public ObjectId whichMap;
+    public ObjectId difficulty = ObjectId.EasyMode;
+    public ObjectId whichMap = ObjectId.FirstMap;
     public String ip;
     public Boolean playerDied = false;
     public Tank playerToRemove;

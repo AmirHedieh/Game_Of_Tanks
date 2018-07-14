@@ -1,6 +1,7 @@
 /*** In The Name of Allah ***/
 package game.template.bufferstrategy;
 
+import game.mapEditor.Main;
 import game.savingElements.DataInitializer;
 import game.Utils.SharedData;
 import game.Utils.Sound;
@@ -33,6 +34,7 @@ public class GameState
     private boolean shoot;
     private boolean swap;
     private boolean save;
+    private boolean pause;
 
     private double mouseX, mouseY;
 
@@ -279,6 +281,16 @@ public class GameState
         this.keyLEFT = keyLEFT;
     }
 
+    public boolean isPause()
+    {
+        return pause;
+    }
+
+    public void setPause(boolean pause)
+    {
+        this.pause = pause;
+    }
+
     /**
      * The mouse and key handler.
      */
@@ -333,6 +345,10 @@ public class GameState
                     break;
                 case KeyEvent.VK_O:
                     save = true;
+                    break;
+                case KeyEvent.VK_ESCAPE:
+                    new DataSaver(objects);
+                    new MainMenu();
                     break;
                 case KeyEvent.VK_SHIFT:
                     doubleSpeed = true;
