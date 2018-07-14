@@ -27,12 +27,13 @@ public class GameState
     public Objects objects = new Objects(); // objects of the game
     private AITankHandler aiTankHandler; // AI tanks manager
 
-    private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
-    private boolean doubleSpeed;
-    private boolean missileAmmoCheat,machineGunAmmoCheat,godMode,superDamageCheat;
+    private boolean missileAmmoCheat,machineGunAmmoCheat,godMode,superDamageCheat;  //cheats
+    private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT; //movements
+    private boolean doubleSpeed; // speed key
     private boolean shoot;
     private boolean swap;
     private boolean save;
+
     private double mouseX, mouseY;
 
     private KeyHandler keyHandler;
@@ -76,10 +77,8 @@ public class GameState
     /**
      * The method which updates the game state.
      */
-    public void update()
-    {
-        if (save)
-        {
+    public void update() {
+        if (save) {
             Utility.saveGame(objects);
         }
         if(doubleSpeed){

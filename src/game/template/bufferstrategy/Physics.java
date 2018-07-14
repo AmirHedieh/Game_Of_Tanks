@@ -7,7 +7,6 @@ import game.elements.*;
 import game.map.SoftWall;
 
 import java.awt.*;
-import java.util.Iterator;
 
 public class Physics
 {
@@ -791,7 +790,7 @@ public class Physics
         tank.setHealth(tank.getHealth() - damage);
         if (tank.getHealth() <= 0)
         {
-            SharedData.getData().removePlayer = true;
+            SharedData.getData().playerDied = true;
             SharedData.getData().playerToRemove = tank;
 //            System.out.println("Game Over");
         }

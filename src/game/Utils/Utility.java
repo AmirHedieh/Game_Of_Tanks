@@ -180,7 +180,7 @@ public class Utility
                 return true;
             }
         }
-        if(objects.getPlayers().size() == 0){ //all player got destroyed so means losing
+        if(objects.getPlayers().size() == 0){ //all players got destroyed that means losing
             SharedData.getData().result = ObjectId.Lost;
             return true;
         }
