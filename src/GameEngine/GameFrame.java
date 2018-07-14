@@ -1,7 +1,6 @@
 /*** In The Name of Allah ***/
-package game.template.bufferstrategy;
+package GameEngine;
 
-import com.sun.deploy.panel.SpecialTableRenderer;
 import game.Utils.SharedData;
 import game.Utils.Utility;
 import game.elements.*;

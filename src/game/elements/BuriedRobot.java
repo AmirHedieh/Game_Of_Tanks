@@ -2,10 +2,9 @@ package game.elements;
 
 import game.Utils.SharedData;
 import game.Utils.Utility;
-import game.template.bufferstrategy.Physics;
+import GameEngine.Physics;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class BuriedRobot extends GameObject
 {

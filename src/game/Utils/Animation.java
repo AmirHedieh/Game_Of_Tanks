@@ -3,6 +3,10 @@ package game.Utils;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+/**
+ * A class for showing and using animations with Graphics2D.
+ * It has several constructors for various number of pictures for creating the animations.
+ */
 public class Animation
 {
 
@@ -45,6 +49,40 @@ public class Animation
     private BufferedImage currentImg;
 
     //30 frame animation
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     * @param img10
+     * @param img11
+     * @param img12
+     * @param img13
+     * @param img14
+     * @param img15
+     * @param img16
+     * @param img17
+     * @param img18
+     * @param img19
+     * @param img20
+     * @param img21
+     * @param img22
+     * @param img23
+     * @param img24
+     * @param img25
+     * @param img26
+     * @param img27
+     * @param img28
+     * @param img29
+     * @param img30
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5,
                      BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10,
                      BufferedImage img11, BufferedImage img12, BufferedImage img13, BufferedImage img14,
@@ -88,6 +126,24 @@ public class Animation
     }
 
     //14 frame animation
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     * @param img10
+     * @param img11
+     * @param img12
+     * @param img13
+     * @param img14
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12, BufferedImage img13, BufferedImage img14)
     {
         this.speed = speed;
@@ -109,6 +165,23 @@ public class Animation
     }
 
     //13 frame animation
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     * @param img10
+     * @param img11
+     * @param img12
+     * @param img13
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12, BufferedImage img13)
     {
         this.speed = speed;
@@ -129,6 +202,22 @@ public class Animation
     }
 
     //12 frame animation
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     * @param img10
+     * @param img11
+     * @param img12
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12)
     {
         this.speed = speed;
@@ -148,6 +237,21 @@ public class Animation
     }
 
     //11 frame animation
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     * @param img10
+     * @param img11
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11)
     {
         this.speed = speed;
@@ -166,6 +270,20 @@ public class Animation
     }
 
     //10 frame animation
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     * @param img10
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10)
     {
         this.speed = speed;
@@ -183,6 +301,19 @@ public class Animation
     }
 
     // 9 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     * @param img9
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9)
     {
         this.speed = speed;
@@ -199,6 +330,18 @@ public class Animation
     }
 
     //8 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     * @param img8
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8)
     {
         this.speed = speed;
@@ -214,6 +357,17 @@ public class Animation
     }
 
     //7 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     * @param img7
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7)
     {
         this.speed = speed;
@@ -228,6 +382,16 @@ public class Animation
     }
 
     //6 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     * @param img6
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6)
     {
         this.speed = speed;
@@ -241,6 +405,15 @@ public class Animation
     }
 
     //5 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     * @param img5
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5)
     {
         this.speed = speed;
@@ -253,6 +426,14 @@ public class Animation
     }
 
     //4 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     * @param img4
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4)
     {
         this.speed = speed;
@@ -264,6 +445,13 @@ public class Animation
     }
 
     //3 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     * @param img3
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3)
     {
         this.speed = speed;
@@ -274,6 +462,12 @@ public class Animation
     }
 
     //2 frame
+
+    /**
+     * @param speed
+     * @param img1
+     * @param img2
+     */
     public Animation(int speed, BufferedImage img1, BufferedImage img2)
     {
         this.speed = speed;
@@ -282,6 +476,9 @@ public class Animation
         frames = 2;
     }
 
+    /**
+     * a method for running the animation by changing the frames.
+     */
     public void runAnimation()
     {
         index++;
@@ -292,6 +489,9 @@ public class Animation
         }
     }
 
+    /**
+     * a method for changing the frames and go to the next frame.
+     */
     public void nextFrame()
     {
 
@@ -847,26 +1047,46 @@ public class Animation
         }
     }
 
+    /**
+     * a method for drawing the animation by drawing separate images by Graphics2d
+     *
+     * @param g
+     * @param x
+     * @param y
+     * @param offset
+     */
     public void drawAnimation(Graphics g, double x, double y, int offset)
     {
         g.drawImage(currentImg, (int) x - offset, (int) y, null);
     }
 
+    /**
+     * @param count
+     */
     public void setCount(int count)
     {
         this.count = count;
     }
 
+    /**
+     * @return count
+     */
     public int getCount()
     {
         return count;
     }
 
+    /**
+     * @return speed
+     */
     public int getSpeed()
     {
         return speed;
     }
 
+    /**
+     * @param speed
+     */
     public void setSpeed(int speed)
     {
         this.speed = speed;

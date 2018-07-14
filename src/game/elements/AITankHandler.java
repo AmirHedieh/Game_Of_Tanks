@@ -2,7 +2,7 @@ package game.elements;
 
 import game.Utils.SharedData;
 import game.Utils.Utility;
-import game.template.bufferstrategy.Physics;
+import GameEngine.Physics;
 
 import java.util.ArrayList;
 

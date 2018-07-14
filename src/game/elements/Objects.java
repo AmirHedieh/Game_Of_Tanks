@@ -2,7 +2,6 @@ package game.elements;
 
 import game.Utils.SharedData;
 import game.map.*;
-import game.template.bufferstrategy.GameState;
 
 import java.io.Serializable;
 import java.util.ArrayList;
