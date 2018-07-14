@@ -801,13 +801,16 @@ public class Physics
 //            objects.getPlayers().remove(tank);
 //            System.out.println("Game Over");
         }
-        if(objects.getPlayers().size() == 2 && tank == objects.getPlayers().get(1)){
+        if (objects.getPlayers().size() == 2 && tank == objects.getPlayers().get(1))
+        {
             SharedData.getData().clientTakenDamage = damage;
-            if(tank.getHealth() <= 0){
+            if (tank.getHealth() <= 0)
+            {
                 SharedData.getData().clientLost = true;
             }
         }
-        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && tank == objects.getPlayers().get(0)){
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && tank == objects.getPlayers().get(0))
+        {
             System.out.println("SERVER SHATACKED");
             SharedData.getData().ServerLost = true;
         }
@@ -832,6 +835,5 @@ public class Physics
             sound.playSound();
             objects.getMap().getSoftWall().remove(wall);
         }
-        //objects.getDeletedItems().add(wall);
     }
 }

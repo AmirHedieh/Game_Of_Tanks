@@ -125,23 +125,7 @@ public class GameFrame extends JFrame
     {
         for (int i = 0; i < state.objects.getDeletedItems().size(); i++)
         {
-            /*if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.Turret))
-            {
-
-            }
-            else if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.Turret))
-            {
-
-            }
-            else if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.AITank))
-            {
-
-            }
-            else if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.BuriedRobot))
-            {
-
-            }*/
-            Utility.explosionAnimation.drawAnimation(g2d, (int) state.objects.getDeletedItems().get(i).getX(), (int) state.objects.getDeletedItems().get(i).getY(), 0);
+            g2d.drawImage(Utility.explosionGif, (int) state.objects.getDeletedItems().get(i).getX(), (int) state.objects.getDeletedItems().get(i).getY(), null);
             state.objects.getDeletedItems().remove(i);
 
         }
@@ -317,7 +301,6 @@ public class GameFrame extends JFrame
     {
         Utility.tankAnimation.runAnimation();
         Utility.buriedRobotAnimation.runAnimation();
-        Utility.explosionAnimation.runAnimation();
     }
 
     private void drawBuriedRobots(GameState state, Graphics2D g2d, AffineTransform gameTransform)

@@ -69,8 +69,8 @@ public class BuriedRobot extends GameObject
             target = objects.getPlayers().get(0);
             for (int i = 0; i < objects.getPlayers().size(); i++)
             {
-                double distance = Utility.calculateDistance(this,objects.getPlayers().get(i));
-                if (distance <= Utility.calculateDistance(this,target))
+                double distance = Utility.calculateDistance(this, objects.getPlayers().get(i));
+                if (distance <= Utility.calculateDistance(this, target))
                 {
                     target = objects.getPlayers().get(i);
                 }
@@ -197,7 +197,8 @@ public class BuriedRobot extends GameObject
         return health;
     }
 
-    public Tank getTarget() {
+    public Tank getTarget()
+    {
         return target;
     }
 
