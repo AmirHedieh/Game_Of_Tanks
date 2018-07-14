@@ -21,7 +21,7 @@ public class Client
     {
         try
         {
-            socket = new Socket("127.0.0.1", 6666);
+            socket = new Socket(SharedData.getData().ip, 6666);
             clientData = new ClientSendingData();
             this.objects = objects;
             clientData.setClientTank(objects.getPlayers().get(0));
