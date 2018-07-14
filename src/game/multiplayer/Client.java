@@ -67,7 +67,7 @@ public class Client
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+//            e.printStackTrace();
             System.out.println("couldn't read objects");
         }
         catch (ClassNotFoundException e)
@@ -132,7 +132,8 @@ public class Client
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println("Server Disconnected");
+//            e.printStackTrace();
         }
     }
 
