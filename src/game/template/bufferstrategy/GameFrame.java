@@ -34,22 +34,25 @@ public class GameFrame extends JFrame
     public GameFrame(String title)
     {
         super(title);
-//        this.setUndecorated(true);
-        if (false) // Full screen mode
+
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        if (dimension.width >= 3840) //window mode
         {
-            // Disables decorations for this frame.
             this.setUndecorated(true);
-            // Puts the frame to full screen.
-            this.setExtendedState(this.MAXIMIZED_BOTH);
-        }
-        else // Window mode
-        {
             // Size of the frame.
             this.setSize(GAME_WIDTH, GAME_HEIGHT);
             // Puts frame to center of the screen.
             this.setLocationRelativeTo(null);
             // So that frame cannot be resizable by the user.
             this.setResizable(false);
+        }
+        else //full screen
+        {
+            // Disables decorations for this frame.
+            this.setUndecorated(true);
+            // Puts the frame to full screen.
+            this.setExtendedState(this.MAXIMIZED_BOTH);
         }
         // Initialize the JFrame ...
         //

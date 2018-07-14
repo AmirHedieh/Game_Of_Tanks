@@ -45,7 +45,7 @@ public class Utility
     public static BufferedImage fourthHardMap = loadBufferedImage(resourceDirectory + "map/spriteSheet/4/hard.png");
 
     public static ImageIcon mainMenuBackGroundMedium = loadImageIcon(resourceDirectory + "MainMenuBackGroundMedium.jpg");
-    public static ImageIcon mainMenuBackGroundBig = loadImageIcon(resourceDirectory + "MainMenuBackGroundBig.jpg");
+    public static ImageIcon mainMenuBackGroundSmall = loadImageIcon(resourceDirectory + "MainMenuBackGroundSmall.jpg");
 
     public static ImageIcon loseMedium = loadImageIcon(resourceDirectory + "finishGame/lose/loseMedium.jpg");
     public static ImageIcon loseBig = loadImageIcon(resourceDirectory + "finishGame/lose/loseBig.jpg");

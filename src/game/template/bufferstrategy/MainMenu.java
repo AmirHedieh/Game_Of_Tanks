@@ -81,11 +81,29 @@ public class MainMenu
     public MainMenu()
     {
         menuFrame = new JFrame("Normal Tanks");
-        menuFrame.setSize(1920, 1080);
-        menuFrame.setUndecorated(true);
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        if (dimension.width >= 3840) //window mode
+        {
+            menuFrame.setUndecorated(true);
+            // Size of the frame.
+            menuFrame.setSize(GameFrame.GAME_WIDTH, GameFrame.GAME_HEIGHT);
+            // Puts frame to center of the screen.
+            menuFrame.setLocationRelativeTo(null);
+            // So that frame cannot be resizable by the user.
+            menuFrame.setResizable(false);
+        }
+        else //full screen
+        {
+            // Disables decorations for this frame.
+            menuFrame.setUndecorated(true);
+            // Puts the frame to full screen.
+            menuFrame.setExtendedState(menuFrame.MAXIMIZED_BOTH);
+        }
+
+        //  menuFrame.setSize(1920, 1080);
         menuFrame.setLocationRelativeTo(null);
         menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        menuFrame.setExtendedState(menuFrame.MAXIMIZED_BOTH);
 
         mainPanel = new JPanel(null);
         mainPanel.setBackground(Color.BLACK);
@@ -165,18 +183,17 @@ public class MainMenu
         mainPanel.add(aboutButton);
         mainPanel.add(exitButton);
 
-        Dimension dimension = new Dimension();
-        dimension = Toolkit.getDefaultToolkit().getScreenSize();
         JLabel startupLabel = null;
         if (dimension.width >= 3840)
         {
-            startupLabel = new JLabel(Utility.mainMenuBackGroundBig);
+            startupLabel = new JLabel(Utility.mainMenuBackGroundSmall);
+            startupLabel.setSize(1820, 1024);
         }
         else
         {
             startupLabel = new JLabel(Utility.mainMenuBackGroundMedium);
+            startupLabel.setSize(dimension.width, dimension.height);
         }
-        startupLabel.setSize(dimension.width, dimension.height);
         mainPanel.add(startupLabel);
 
         backgroundSound = new Sound(Utility.backgroundSound, true);
