@@ -96,6 +96,7 @@ public class Map
                 }
                 else if ((red == 0) && (green == 0) && (blue == 255)) //SoftWall
                 {
+                    soil.add(new Soil(xx * 100, yy * 100));
                     softWall.add(new SoftWall(xx * 100, yy * 100));
                 }
                 else if ((red == 0) && (green == 255) && (blue == 0)) //Plant

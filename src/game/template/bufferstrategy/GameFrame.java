@@ -137,7 +137,22 @@ public class GameFrame extends JFrame
     {
         for (int i = 0; i < state.objects.getMap().getSoftWall().size(); i++)
         {
-            g2d.drawImage(Utility.softWall01, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            if (state.objects.getMap().getSoftWall().get(i).getHealth() > 300)
+            {
+                g2d.drawImage(Utility.softWall01, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
+            else if (state.objects.getMap().getSoftWall().get(i).getHealth() > 200)
+            {
+                g2d.drawImage(Utility.softWall02, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
+            else if (state.objects.getMap().getSoftWall().get(i).getHealth() > 100)
+            {
+                g2d.drawImage(Utility.softWall03, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
+            else if (state.objects.getMap().getSoftWall().get(i).getHealth() > 0)
+            {
+                g2d.drawImage(Utility.softWall04, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
         }
     }
 

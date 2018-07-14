@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class SoftWall extends GameObject
 {
-    int health = 200;
+    int health = 400;
 
     public SoftWall(double x, double y)
     {
