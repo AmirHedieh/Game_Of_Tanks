@@ -56,7 +56,7 @@ public class Upgrade extends GameObject implements Serializable
             }
             else if (id.equals(ObjectId.HealthUpgrade))
             {
-                user.setHealth(user.health + 100);
+                user.setHealth(user.health + 110);
                 makeSound();
                 activation = false;
             }
