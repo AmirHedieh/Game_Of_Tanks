@@ -79,11 +79,11 @@ public class GameState
         }
         else if (SharedData.getData().whichMap.equals(ObjectId.SecondMap))
         {
-            camera = new Camera(803, 5450);
+            camera = new Camera(200, 0);
         }
         else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
         {
-            camera = new Camera(803, 5450);
+            camera = new Camera(0, 2100);
         }
         else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
         {
