@@ -15,8 +15,10 @@ public class GameObject implements Serializable
 {
     //fields
     protected ObjectId id;
+
     protected double x;
     protected double y;
+
     protected int velX, velY;
 
 
@@ -30,8 +32,10 @@ public class GameObject implements Serializable
     {
         this.x = x;
         this.y = y;
+
         velX = 0;
         velY = 0;
+
         this.id = id;
     }
 
@@ -135,6 +139,10 @@ public class GameObject implements Serializable
         return velY;
     }
 
+    /**
+     * the bounds of object by returning a new rectangle with object bounds
+     * @return a rectangle with object bound
+     */
     public Rectangle getBounds()
     {
         return new Rectangle((int) x, (int) y, 100, 100);

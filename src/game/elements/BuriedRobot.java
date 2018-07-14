@@ -6,14 +6,20 @@ import GameEngine.Physics;
 
 import java.awt.*;
 
+/**
+ * robot that is offline in default but gets activated when user gets close to them.
+ * it follow player and hits player.
+ */
 public class BuriedRobot extends GameObject
 {
     //fields
     private int health;
+
     private double minDistance;
     private boolean activated;
-    private Tank target;
     private double angle;
+
+    private Tank target;
 
     //constructor
     public BuriedRobot()
@@ -24,10 +30,12 @@ public class BuriedRobot extends GameObject
     public BuriedRobot(double x, double y)
     {
         super(x, y, ObjectId.BuriedRobot);
+
         health = 80;
         minDistance = 400;
         activated = false;
         angle = 0;
+
         setVelX(5);
         setVelY(5);
     }
@@ -148,10 +156,6 @@ public class BuriedRobot extends GameObject
                 this.setY(this.getY() - this.getVelY());
             }
         }
-
-//        if (Math.abs(target.x - this.x) < 9 && Math.abs(target.y - this.y) < 9) {
-//            activated = false;
-//        }
     }
 
     /**
@@ -175,32 +179,56 @@ public class BuriedRobot extends GameObject
         activated = state;
     }
 
+    /**
+     * set angle for robot to rotate
+     * @param angle the angle of robot for rotating
+     */
     public void setAngle(double angle)
     {
         this.angle = angle;
     }
 
+    /**
+     * get the robot angle
+     * @return the angle of robot for rotating
+     */
     public double getAngle()
     {
 
         return angle;
     }
 
+    /**
+     * set health for robot
+     * @param health amount of health for robot to set
+     */
     public void setHealth(int health)
     {
         this.health = health;
     }
 
+    /**
+     * how much health robot has
+     * @return health of the robot
+     */
     public int getHealth()
     {
         return health;
     }
 
+    /**
+     * returns the target of the robot
+     * @return a tank a target
+     */
     public Tank getTarget()
     {
         return target;
     }
 
+    /**
+     * returns bounds of robot
+     * @return a rectangle that has robot bounds
+     */
     public Rectangle getBounds()
     {
         return new Rectangle((int) x + 30, (int) y + 20, 50, 60);
