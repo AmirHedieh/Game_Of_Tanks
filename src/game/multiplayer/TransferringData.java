@@ -76,10 +76,11 @@ public class TransferringData implements Serializable
         this.robots = objects.getRobots();
         this.upgrades = objects.getUpgrades();
         takenDamage = SharedData.getData().clientTakenDamage;
-        if(objects.getPlayers().get(0) != null){
+        if(!SharedData.getData().ServerLost){
             serverIsAlive = true;
         }
         else {
+            System.out.println("serverAlize false shod");
             serverIsAlive = false;
         }
         if(objects.getPlayers().size() > 1){

@@ -22,6 +22,7 @@ public class SharedData
     public ObjectId startingType = ObjectId.NewGame;
     public ObjectId result = ObjectId.Won; // win or lose
     public Boolean clientLost = false;
+    public Boolean ServerLost = false;
     public int clientTakenDamage = 0;
     //Singleton
     private static SharedData sharedData;

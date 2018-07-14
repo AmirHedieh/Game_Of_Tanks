@@ -801,6 +801,10 @@ public class Physics
                 SharedData.getData().clientLost = true;
             }
         }
+        if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && tank == objects.getPlayers().get(0)){
+            System.out.println("SERVER SHATACKED");
+            SharedData.getData().ServerLost = true;
+        }
     }
 
     private static void damageTurret(Objects objects, Turret turret, int damage)

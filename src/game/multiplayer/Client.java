@@ -92,6 +92,11 @@ public class Client
             objects.replacePlayerTank(data.getPlayers().get(0), 0);
             SharedData.getData().clientLost = true;
         }
+        if(!data.getServerIsAlive()){
+            System.out.println("clnt side");
+            SharedData.getData().ServerLost = true;
+        }
+
     }
 
 //    private void sendLocationData(Objects objects){

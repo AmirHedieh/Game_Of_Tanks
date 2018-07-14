@@ -81,8 +81,10 @@ public class GameLoop implements Runnable
                 if(SharedData.getData().playerDied) {
 //                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
                     System.out.println("player removed");
+                    server.tick(state.objects);
                     state.objects.getPlayers().remove(SharedData.getData().playerToRemove);
                     SharedData.getData().playerDied = false;
+
                     continue;
 //                    Utility.checkEnd(state.objects);
                 }
@@ -105,10 +107,12 @@ public class GameLoop implements Runnable
                         client.tick();
                         state.update();
                         canvas.render(state);
-//                        if(SharedData.getData().clientLost){
-//                            SharedData.getData().result = ObjectId.Lost;
-//                            break;
-//                        }
+                        System.out.println("tick");
+                        if(SharedData.getData().clientLost && SharedData.getData().ServerLost){
+                            System.out.println("finally");
+                            SharedData.getData().result = ObjectId.Lost;
+                            break;
+                        }
                     }
                 }
                 //
