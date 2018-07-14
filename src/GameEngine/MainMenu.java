@@ -4,6 +4,7 @@ import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.ObjectId;
+import game.mapEditor.editor.Controller;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -27,7 +28,8 @@ public class MainMenu
     private JButton settingButton;
     private JButton aboutButton;
     private JButton exitButton;
-    private JButton mapEditor;
+    private JButton mapEditorPSButton;
+    private JButton mapEditorJavaButton;
 
 
     private JFrame multiFrame;
@@ -120,7 +122,7 @@ public class MainMenu
         continueButton.setSize(275, 70);
         continueButton.setBackground(Color.BLACK);
         continueButton.setForeground(Color.WHITE);
-        continueButton.setLocation(-10, 230);
+        continueButton.setLocation(-10, 190);
         continueButton.setFocusable(false);
         continueButton.setOpaque(true);
         continueButton.setBorder(BorderFactory.createEmptyBorder());
@@ -131,7 +133,7 @@ public class MainMenu
         singlePlayerGameButton.setSize(275, 70);
         singlePlayerGameButton.setBackground(Color.BLACK);
         singlePlayerGameButton.setForeground(Color.WHITE);
-        singlePlayerGameButton.setLocation(-10, 320);
+        singlePlayerGameButton.setLocation(-10, 280);
         singlePlayerGameButton.setFocusable(false);
         singlePlayerGameButton.setOpaque(true);
         singlePlayerGameButton.setBorder(BorderFactory.createEmptyBorder());
@@ -142,7 +144,7 @@ public class MainMenu
         multiPlayerButton.setSize(275, 70);
         multiPlayerButton.setBackground(Color.BLACK);
         multiPlayerButton.setForeground(Color.WHITE);
-        multiPlayerButton.setLocation(-10, 410);
+        multiPlayerButton.setLocation(-10, 370);
         multiPlayerButton.setFocusable(false);
         multiPlayerButton.setOpaque(true);
         multiPlayerButton.setBorder(BorderFactory.createEmptyBorder());
@@ -153,29 +155,40 @@ public class MainMenu
         settingButton.setSize(275, 70);
         settingButton.setBackground(Color.BLACK);
         settingButton.setForeground(Color.WHITE);
-        settingButton.setLocation(-10, 500);
+        settingButton.setLocation(-10, 460);
         settingButton.setFocusable(false);
         settingButton.setOpaque(true);
         settingButton.setBorder(BorderFactory.createEmptyBorder());
         settingButton.setFont(new Font("Titillium Web", 4, 30));
         settingButton.addActionListener(new ActionHandler());
 
-        mapEditor = new JButton("Map Editor");
-        mapEditor.setSize(275, 70);
-        mapEditor.setBackground(Color.BLACK);
-        mapEditor.setForeground(Color.WHITE);
-        mapEditor.setLocation(-10, 590);
-        mapEditor.setFocusable(false);
-        mapEditor.setOpaque(true);
-        mapEditor.setBorder(BorderFactory.createEmptyBorder());
-        mapEditor.setFont(new Font("Titillium Web", 4, 30));
-        mapEditor.addActionListener(new ActionHandler());
+        mapEditorPSButton = new JButton("Map Editor PhotoShop");
+        mapEditorPSButton.setSize(275, 70);
+        mapEditorPSButton.setBackground(Color.BLACK);
+        mapEditorPSButton.setForeground(Color.WHITE);
+        mapEditorPSButton.setLocation(-10, 550);
+        mapEditorPSButton.setFocusable(false);
+        mapEditorPSButton.setOpaque(true);
+        mapEditorPSButton.setBorder(BorderFactory.createEmptyBorder());
+        mapEditorPSButton.setFont(new Font("Titillium Web", 4, 25));
+        mapEditorPSButton.addActionListener(new ActionHandler());
+
+        mapEditorJavaButton = new JButton("Map Editor Swing");
+        mapEditorJavaButton.setSize(275, 70);
+        mapEditorJavaButton.setBackground(Color.BLACK);
+        mapEditorJavaButton.setForeground(Color.WHITE);
+        mapEditorJavaButton.setLocation(-10, 640);
+        mapEditorJavaButton.setFocusable(false);
+        mapEditorJavaButton.setOpaque(true);
+        mapEditorJavaButton.setBorder(BorderFactory.createEmptyBorder());
+        mapEditorJavaButton.setFont(new Font("Titillium Web", 4, 30));
+        mapEditorJavaButton.addActionListener(new ActionHandler());
 
         aboutButton = new JButton("About");
         aboutButton.setSize(275, 70);
         aboutButton.setBackground(Color.BLACK);
         aboutButton.setForeground(Color.WHITE);
-        aboutButton.setLocation(-10, 770);
+        aboutButton.setLocation(-10, 730);
         aboutButton.setFocusable(false);
         aboutButton.setOpaque(true);
         aboutButton.setBorder(BorderFactory.createEmptyBorder());
@@ -186,7 +199,7 @@ public class MainMenu
         exitButton.setSize(275, 70);
         exitButton.setBackground(Color.BLACK);
         exitButton.setForeground(Color.WHITE);
-        exitButton.setLocation(-10, 680);
+        exitButton.setLocation(-10, 820);
         exitButton.setFocusable(false);
         exitButton.setOpaque(true);
         exitButton.setBorder(BorderFactory.createEmptyBorder());
@@ -197,7 +210,8 @@ public class MainMenu
         mainPanel.add(singlePlayerGameButton);
         mainPanel.add(multiPlayerButton);
         mainPanel.add(settingButton);
-        mainPanel.add(mapEditor);
+        mainPanel.add(mapEditorPSButton);
+        mainPanel.add(mapEditorJavaButton);
         mainPanel.add(aboutButton);
         mainPanel.add(exitButton);
 
@@ -238,7 +252,6 @@ public class MainMenu
             }
             if (e.getSource().equals(singlePlayerGameButton))
             {
-                System.out.println("singlePlayerGameButton");
                 output = 10;
                 menuFrame.setVisible(false);
                 backgroundSound.stopSound();
@@ -246,26 +259,21 @@ public class MainMenu
             }
             if (e.getSource().equals(multiPlayerButton))
             {
-                System.out.println("multiPlayerButton");
                 new MultiPlayerFrame();
             }
             if (e.getSource().equals(settingButton))
             {
-                System.out.println("settingButton");
                 new Settings();
             }
             if (e.getSource().equals(aboutButton))
             {
-                System.out.println("aboutButton");
             }
             if (e.getSource().equals(exitButton))
             {
-                System.out.println("exitButton");
                 System.exit(10);
             }
-            if (e.getSource().equals(mapEditor))
+            if (e.getSource().equals(mapEditorPSButton))
             {
-                System.out.println("mapEditor");
                 try
                 {
                     Desktop.getDesktop().open(new File("C:Program Files\\Adobe\\Adobe Photoshop CC 2018\\Photoshop.exe"));
@@ -275,11 +283,14 @@ public class MainMenu
                     e1.printStackTrace();
                 }
             }
+            if (e.getSource().equals(mapEditorJavaButton))
+            {
+                new Controller();
+            }
 
             //multiPlayer
             if (e.getSource().equals(startButton))
             {
-                System.out.println("startButton");
                 if (clientButton.isSelected())
                 {
                     output = 21;
@@ -297,8 +308,6 @@ public class MainMenu
             }
             if (clientButton.isSelected())
             {
-                System.out.println("clientButton");
-
                 ipTextLabel.setText("Enter Host IP: ");
 
                 IPTextField.setText("");
@@ -309,8 +318,6 @@ public class MainMenu
             }
             if (serverButton.isSelected())
             {
-                System.out.println("serverButton");
-
                 ipTextLabel.setText("Your IP is: ");
                 try
                 {
@@ -335,47 +342,38 @@ public class MainMenu
             //setting
             if (e.getSource().equals(cancel))
             {
-                System.out.println("cancel");
                 settingFrame.dispose();
             }
             if (e.getSource().equals(confirm))
             {
-                System.out.println("confirm");
                 //difficulty
                 if (hardGame.isSelected())
                 {
-                    System.out.println("hardGame");
                     difficulty = 3;
                 }
                 if (mediumGame.isSelected())
                 {
-                    System.out.println("mediumGame");
                     difficulty = 2;
                 }
                 if (easyGame.isSelected())
                 {
-                    System.out.println("easyGame");
                     difficulty = 1;
                 }
                 //maps
                 if (firstMap.isSelected())
                 {
-                    System.out.println("firstMap");
                     whichMap = 1;
                 }
                 if (secondMap.isSelected())
                 {
-                    System.out.println("secondMap");
                     whichMap = 2;
                 }
                 if (thirdMap.isSelected())
                 {
-                    System.out.println("thirdMap");
                     whichMap = 3;
                 }
                 if (fourthMap.isSelected())
                 {
-                    System.out.println("fourthMap");
                     whichMap = 4;
                 }
                 settingFrame.setVisible(false);
