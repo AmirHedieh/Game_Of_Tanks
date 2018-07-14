@@ -15,7 +15,6 @@ public class AITankHandler
 
     //fields
     private double range;
-    //    private Tank target;
     private Objects objects;
     private ArrayList<Tank> players;
 
@@ -25,12 +24,9 @@ public class AITankHandler
         range = 500;
         this.players = objects.getPlayers();
         this.objects = objects;
-//        target = objects.getPlayers().get(0);
-
     }
 
     //methods
-
     /**
      * ticks tanks. means checking that if they must be invoked , getting closer to player , shoot player.
      * it also checks if a tank must be disabled.
@@ -191,6 +187,10 @@ public class AITankHandler
         }
     }
 
+    /**
+     * set an angle for tank to rotate in that direction.
+     * @param tank
+     */
     private void setAngle(AITank tank)
     {
         double angle = Math.atan((tank.getTarget().getY() - tank.getY()) / (tank.getTarget().getX() - tank.getX()));

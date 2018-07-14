@@ -9,14 +9,14 @@ import java.awt.*;
 public class Bullet extends GameObject
 {
     //fields
-    public final int BULLET_WIDTH = 5;
-    public final int BULLET_HEIGHT = 5;
-
     protected int damage;
+
     private double shootDirectionAngle;
     private double targetX, targetY;
-    private boolean isThrown;
     private double thrownAngle;
+
+    private boolean isThrown;
+
     private ObjectId shooter;
 
     //constructor
@@ -28,62 +28,55 @@ public class Bullet extends GameObject
     public Bullet(double startX, double startY, double mouseX, double mouseY, ObjectId id, ObjectId shooter)
     {
         super(startX, startY, id);
+
         targetX = mouseX;
         targetY = mouseY;
+
         startX += 50;//this must be changed if tank size changes
         startY += 50; //this must be changed if tank size changes
+
         shootDirectionAngle = calculateShootAngle(startX, startY, mouseX, mouseY);
+
         this.shooter = shooter;
-        //moving in 4 direction needs specific velocity
-//        System.out.println(mouseX + " " + mouseY + " " + startX + " " + startY);
-//        System.out.println(shootDirectionAngle);
-////        System.out.println("PI" + Math.PI / 2);
+
         if (mouseX > startX && mouseY > startY)
         {
-//            System.out.println("1");
             velX = 14;
             velY = 14;
         }
         else if (mouseX > startX && mouseY < startY)
         {
-//            System.out.println("2");
             velX = 14;
             velY = 14;
         }
         else if (mouseX < startX && mouseY < startY)
         {
-//            System.out.println("3");
             velX = -14;
             velY = -14;
         }
         else if (mouseX < startX && mouseY > startY)
         {
-//            System.out.println("4");
             velX = -14;
             velY = -14;
         }
         //from now on if conditions are for times where angle is 0 or PI/2
         else if (mouseX == startX && mouseY > startY)
         {
-//            System.out.println("5");
             velX = 0;
             velY = 14;
         }
         else if (mouseX == startX && mouseY < startY)
         {
-//            System.out.println("6");
             velX = 0;
             velY = 14; //idk why but its true
         }
         else if (mouseX > startX && mouseY == startY)
         {
-//            System.out.println("7");
             velX = 14;
             velY = 0;
         }
         else if (mouseX < startX && mouseY == startY)
         {
-//            System.out.println("8");
             velX = -14;
             velY = 0;
         }
@@ -91,14 +84,12 @@ public class Bullet extends GameObject
     }
 
     //methods
-
     /**
      * calculate the angle that bullet must go.
-     *
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
+     * @param x1 x of starting point
+     * @param y1 y of starting point
+     * @param x2 x of destination
+     * @param y2 y of destination
      * @return
      */
     private double calculateShootAngle(double x1, double y1, double x2, double y2)
@@ -108,7 +99,6 @@ public class Bullet extends GameObject
 
     /**
      * set damage for bullet
-     *
      * @param damage amount of damage it must provides
      */
     public void setDamage(int damage)
@@ -118,7 +108,6 @@ public class Bullet extends GameObject
 
     /**
      * get damage of bullet
-     *
      * @return amount of damage it provides
      */
     public int getDamage()
@@ -128,7 +117,6 @@ public class Bullet extends GameObject
 
     /**
      * the X position where bullet is going to(where mouse was clicked)
-     *
      * @return X of where mouse was clicked to shoot there
      */
     public double getTargetX()
@@ -138,7 +126,6 @@ public class Bullet extends GameObject
 
     /**
      * the Y position where bullet is going to(where mouse was clicked)
-     *
      * @return Y of where mouse was clicked to shoot there
      */
     public double getTargetY()
@@ -148,7 +135,6 @@ public class Bullet extends GameObject
 
     /**
      * returns the angle of the way bullet must go.
-     *
      * @return the angle that way of bullet go.
      */
     public double getShootDirectionAngle()
@@ -156,31 +142,55 @@ public class Bullet extends GameObject
         return shootDirectionAngle;
     }
 
+    /**
+     * if a bullet is fired.
+     * @return true if fired
+     */
     public boolean isThrown()
     {
         return isThrown;
     }
 
+    /**
+     *  set if a bullet is thrown or not
+     * @param thrown true for thrown and vise versa
+     */
     public void setThrown(boolean thrown)
     {
         isThrown = thrown;
     }
 
+    /**
+     * get the angle of bullet
+     * @return double as angle
+     */
     public double getThrownAngle()
     {
         return thrownAngle;
     }
 
+    /**
+     * set a angle for bullet
+     * @param thrownAngle angle
+     */
     public void setThrownAngle(double thrownAngle)
     {
         this.thrownAngle = thrownAngle;
     }
 
+    /**
+     * get bounds of the bullet.
+     * @return a rectangle with bounds of bullet
+     */
     public Rectangle getBounds()
     {
         return new Rectangle((int) x + 50, (int) y + 50, 22, 22);
     }
 
+    /**
+     * returns the id of its shooter. Ai or player
+     * @return player for playerShooter and AIshooter for AiShooter
+     */
     public ObjectId getShooter()
     {
         return shooter;

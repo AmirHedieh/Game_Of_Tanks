@@ -15,6 +15,7 @@ public class AITank extends Tank implements Serializable
     public AITank(double x, double y, int health, ObjectId id, Gun gun)
     {
         super(x, y, health, id);
+
         if (gun instanceof MissileGun)
         {
             selectedGun = missileGun;
@@ -23,16 +24,20 @@ public class AITank extends Tank implements Serializable
         {
             selectedGun = machineGun;
         }
+
         selectedGun.setReloadTime(500);
         selectedGun.setAmmo(1000);
+
         setVelX(8);
         setVelY(8);
+
         activated = false;
     }
 
     public AITank(double x, double y, int health, ObjectId id, Gun gun, Upgrade upgrade)
     {
         super(x, y, health, id);
+
         if (gun instanceof MissileGun)
         {
             selectedGun = missileGun;
@@ -41,11 +46,15 @@ public class AITank extends Tank implements Serializable
         {
             selectedGun = machineGun;
         }
+
         selectedGun.setReloadTime(500);
         selectedGun.setAmmo(1000);
+
         setVelX(8);
         setVelY(8);
+
         this.upgrade = upgrade;
+
         activated = false;
     }
 
@@ -81,8 +90,7 @@ public class AITank extends Tank implements Serializable
 
     /**
      * the tank that AI tank is moving and shooting at(target)
-     *
-     * @return
+     * @return the target of the tank
      */
     public Tank getTarget()
     {
