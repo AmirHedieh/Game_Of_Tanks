@@ -281,6 +281,7 @@ public class MainMenu
                 try
                 {
                     Desktop.getDesktop().open(new File("C:Program Files\\Adobe\\Adobe Photoshop CC 2018\\Photoshop.exe"));
+                    Desktop.getDesktop().open(new File("res/map_Guide.jpg"));
                 }
                 catch (IOException e1)
                 {
