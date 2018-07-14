@@ -72,7 +72,7 @@ public class Server
         catch (IOException e)
         {
             System.out.println("Sending Failed!");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 
@@ -102,12 +102,13 @@ public class Server
             }
             catch (ClassNotFoundException e)
             {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("Client Disconnected");
         }
     }
 

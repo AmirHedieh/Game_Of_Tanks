@@ -106,7 +106,6 @@ public class GameLoop implements Runnable
                 {
                     if (SharedData.getData().playerType.equals(ObjectId.ServerPlayer))
                     {
-                        System.out.println(state.objects.getPlayers().size());
                         state.update();
                         canvas.render(state);
                         server.tick(state.objects);
