@@ -122,7 +122,7 @@ public class GameState
         }
         if (godMode)
         {
-            objects.getPlayers().get(0).setHealth(5000);
+            objects.getPlayers().get(0).setHealth(50000);
             godMode = false;
         }
         if (superDamageCheat)
