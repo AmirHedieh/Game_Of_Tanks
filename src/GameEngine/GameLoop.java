@@ -1,18 +1,13 @@
 /*** In The Name of Allah ***/
-package game.template.bufferstrategy;
+package GameEngine;
 
 import game.Utils.SharedData;
-import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.ObjectId;
-import game.map.Camera;
 import game.multiplayer.Client;
 import game.multiplayer.Server;
 
-import javax.rmi.CORBA.Util;
-
 import java.util.Date;
-import java.util.Scanner;
 
 /**
  * A very simple structure for the main game loop.

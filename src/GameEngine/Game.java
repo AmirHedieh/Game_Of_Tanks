@@ -1,5 +1,5 @@
 /*** In The Name of Allah ***/
-package game.template.bufferstrategy;
+package GameEngine;
 
 import game.Utils.SharedData;
 import game.elements.ObjectId;

@@ -1,8 +1,6 @@
 /*** In The Name of Allah ***/
-package game.template.bufferstrategy;
+package GameEngine;
 
-import game.mapEditor.Main;
-import game.savingElements.DataInitializer;
 import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;

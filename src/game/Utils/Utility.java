@@ -6,8 +6,7 @@ import game.elements.Objects;
 import game.elements.Tank;
 import game.savingElements.DataInitializer;
 import game.savingElements.DataSaver;
-import game.template.bufferstrategy.GameFrame;
-import game.template.bufferstrategy.MainMenu;
+import GameEngine.GameFrame;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,7 +16,6 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Utility
 {

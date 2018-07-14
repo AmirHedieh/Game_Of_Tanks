@@ -1,4 +1,4 @@
-package game.template.bufferstrategy;
+package GameEngine;
 
 import game.Utils.SharedData;
 import game.Utils.Sound;
