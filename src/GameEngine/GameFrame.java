@@ -123,6 +123,11 @@ public class GameFrame extends JFrame
         drawDeletedItems(state, g2d);
     }
 
+    /**
+     * draw animation when an object gets destroyed.
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     public void drawDeletedItems(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getDeletedItems().size(); i++)
@@ -133,11 +138,21 @@ public class GameFrame extends JFrame
         }
     }
 
+    /**
+     * draw the end tile for the ending of the game
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawEnd(GameState state, Graphics2D g2d)
     {
         g2d.drawImage(Utility.end, (int) state.objects.getMap().getEnd().getX(), (int) state.objects.getMap().getEnd().getY(), null);
     }
 
+    /**
+     * draw the background. it covers all area of the map.
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawSoil(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getMap().getSoil().size(); i++)
@@ -146,6 +161,11 @@ public class GameFrame extends JFrame
         }
     }
 
+    /**
+     * draw the breakable walls that can get destroyed.
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawSoftWalls(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getMap().getSoftWall().size(); i++)
@@ -169,6 +189,11 @@ public class GameFrame extends JFrame
         }
     }
 
+    /**
+     * draw teazel thing over the map. they r not passable.
+     * * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawTeazel(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getMap().getTeazel().size(); i++)
@@ -177,6 +202,11 @@ public class GameFrame extends JFrame
         }
     }
 
+    /**
+     * drawing plant over the map
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawPlants(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getMap().getPlant().size(); i++)
@@ -185,6 +215,11 @@ public class GameFrame extends JFrame
         }
     }
 
+    /**
+     * draw hard walls over the map
+     * @param state
+     * @param g2d
+     */
     private void drawHardWalls(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getMap().getHardWall().size(); i++)
@@ -193,6 +228,11 @@ public class GameFrame extends JFrame
         }
     }
 
+    /**
+     * draw all bullet (no exception for AI or player bullets)
+     * * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawBullets(GameState state, Graphics2D g2d, AffineTransform gameTransform)
     {
         //draw bullets
@@ -230,6 +270,11 @@ public class GameFrame extends JFrame
         //
     }
 
+    /**
+     * draws the thing that moving camera must not affect them.
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawIndependents(Graphics2D g2d, GameState state)
     {
         //draw number of bullets
@@ -295,6 +340,12 @@ public class GameFrame extends JFrame
         Utility.buriedRobotAnimation.runAnimation();
     }
 
+    /**
+     * draw buried robots if they get activated.
+     * @param state GameState object
+     * @param g2d Graphics2D
+     * @param gameTransform
+     */
     private void drawBuriedRobots(GameState state, Graphics2D g2d, AffineTransform gameTransform)
     {
         //draw robots
@@ -315,6 +366,12 @@ public class GameFrame extends JFrame
         //
     }
 
+    /**
+     * draw AI tanks over the map.
+     * @param state GameState object
+     * @param g2d Graphics2D
+     * @param gameTransform
+     */
     private void drawAITanks(GameState state, Graphics2D g2d, AffineTransform gameTransform)
     {
         //draw tanks
@@ -337,6 +394,12 @@ public class GameFrame extends JFrame
         //
     }
 
+    /**
+     * draw turrets on the map
+     * @param state GameState object
+     * @param g2d Graphics2D
+     * @param gameTransform
+     */
     private void drawTurrets(GameState state, Graphics2D g2d, AffineTransform gameTransform)
     {
         //draw turrets
@@ -364,6 +427,12 @@ public class GameFrame extends JFrame
         //
     }
 
+    /**
+     * draw player tanks. in single player its just 1 tank and in Coop its 2
+     * @param state GameState object
+     * @param g2d Graphics2D
+     * @param gameTransform
+     */
     private void drawPlayers(GameState state, Graphics2D g2d, AffineTransform gameTransform)
     {
         //draw player tank
@@ -438,6 +507,11 @@ public class GameFrame extends JFrame
         //
     }
 
+    /**
+     * draw upgrades over the map
+     * @param state GameState object
+     * @param g2d Graphics2D
+     */
     private void drawUpgrades(GameState state, Graphics2D g2d)
     {
         for (int i = 0; i < state.objects.getUpgrades().size(); i++)

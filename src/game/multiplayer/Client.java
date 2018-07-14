@@ -6,24 +6,34 @@ import game.elements.Objects;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * client side of the Coop. client side doesn't do some actions and instead
+ * server side handles them. like moving bullets and updating game object states like turrets and AI Tanks.
+ * it also sends data to server when it shoot or move. the data is passed by OOS and OIS.
+ */
 public class Client
 {
     //fields
     private Socket socket;
+
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
+
     private ClientSendingData clientData;
+
     private Objects objects;
 
+    //constructor
     public Client(Objects objects)
     {
         try
         {
             socket = new Socket(SharedData.getData().ip, 6666);
+
             clientData = new ClientSendingData();
             this.objects = objects;
+
             clientData.setClientTank(objects.getPlayers().get(0));
-//            ois = new ObjectInputStream(socket.getInputStream());
         }
         catch (IOException e)
         {
@@ -31,42 +41,29 @@ public class Client
         }
     }
 
+    /**
+     * ticks client. it first receive data from host then send some data to host if needed.
+     */
     public void tick()
     {
         receiveData();
-//        sendLocationData(objects);
         if (!SharedData.getData().clientLost)
         {
             sendData();
         }
-
     }
 
+    /**
+     * gets data from server and call updateObject method to update all game objects states.
+     */
     private void receiveData()
     {
         try
         {
             ois = new ObjectInputStream(socket.getInputStream());
             TransferringData data = (TransferringData) ois.readObject();
-//            System.out.println(data.getPlayers().get(0).getX());
+
             updateObjects(data);
-            //******************
-//            byte[] bytes = new byte[1024];
-//            int rd = socket.getInputStream().read();
-//            int index = 0;
-//            while(rd != -1)
-//            {
-//                bytes[index++] = (byte)rd;
-//                rd = socket.getInputStream().read();
-//            }
-            //***********
-//            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
-//            BufferedReader br = new BufferedReader(isr);
-//            String str = br.readLine();
-//            TransferringData updatedObjects = (TransferringData) (new XStream(new StaxDriver())).fromXML(str);
-//            updateObjects(objects,updatedObjects);
-//            System.out.println(updatedObjects.getPlayers().get(0).getX());
-            //***********
         }
         catch (IOException e)
         {
@@ -79,9 +76,13 @@ public class Client
         }
     }
 
+    /**
+     * gets data and update all game objects with that.
+     * it also updates SharedData class from the data received from server.
+     * @param data taken data from server
+     */
     private void updateObjects(TransferringData data)
     { // called in receive data
-//        objects.setPlayers(data.getPlayers());
         objects.replacePlayerTank(data.getPlayers().get(0), 1);
         objects.setBullets(data.getBullets());
         objects.setRobots(data.getRobots());
@@ -91,6 +92,7 @@ public class Client
         objects.getMap().setSoftWall(data.getWalls());
 
         objects.getPlayers().get(0).setHealth(objects.getPlayers().get(0).getHealth() - data.getTakenDamage());
+
         if (!data.getClientIsAlive())
         {
             objects.replacePlayerTank(data.getPlayers().get(0), 0);
@@ -98,7 +100,6 @@ public class Client
         }
         if (!data.getServerIsAlive())
         {
-            System.out.println("clnt side");
             SharedData.getData().ServerLost = true;
         }
         if(data.getGameDone()){
@@ -106,18 +107,11 @@ public class Client
         }
     }
 
-//    private void sendLocationData(Objects objects){
-//        try {
-//            System.out.println("Data");
-//            oos = new ObjectOutputStream(socket.getOutputStream());
-//            oos.writeObject(objects.getPlayers().get(0));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            System.out.println("Couldn't send from client side");
-//        }
-//
-//    }
-
+    /**
+     * sends data to server side. it contains:
+     * if client fired a bullet.
+     * client tank position.
+     */
     private void sendData()
     {
         try
@@ -130,6 +124,7 @@ public class Client
             }
             //
             oos.writeObject(clientData);
+            //
             //making clientData null ('cause of checking in server)
             clientData.setLastShotBullet(null);
         }
@@ -139,6 +134,9 @@ public class Client
         }
     }
 
+    /**
+     * if client fired a bullet it specify that bullet to be sent by sending Data
+     */
     private void addClientDataNewBullet()
     {
         clientData.setLastShotBullet(SharedData.getData().clientLastShotBullet);

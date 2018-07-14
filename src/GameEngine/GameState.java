@@ -92,6 +92,7 @@ public class GameState
 
     /**
      * The method which updates the game state.
+     * in each loop of the game, objects must get tick.
      */
     public void update()
     {
