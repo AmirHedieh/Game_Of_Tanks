@@ -1,5 +1,9 @@
 package game.elements;
 
+/**
+ * Enum
+ * things at game that needs to have an id choose their id from here.
+ */
 public enum ObjectId
 {
     Player,              //lightPink(208, 135, 190)

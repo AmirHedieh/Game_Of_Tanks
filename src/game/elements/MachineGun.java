@@ -23,15 +23,14 @@ public class MachineGun extends Gun implements Serializable
         ammo = 70;
         reloadTime = 150; // millisecond
     }
-    //methods
 
+    //methods
     /**
      * shoot a bullet from MachineGun
-     *
-     * @param tankX
-     * @param tankY
-     * @param mouseX
-     * @param mouseY
+     * @param tankX X of starting point for shoot
+     * @param tankY Y of starting point for shoot
+     * @param mouseX X of ending point for shoot
+     * @param mouseY Y of ending point for shoot
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
     public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY, ObjectId shooter)
@@ -39,7 +38,7 @@ public class MachineGun extends Gun implements Serializable
         Bullet bullet = new LightBullet(tankX, tankY, mouseX, mouseY, damage, shooter);
         ammo--;
         lastShootTime = getCurrentTime();
-//        System.out.println("Ammo: " + ammo + " " + "Damage: " + damage + " MachineGun");
         return bullet;
     }
+
 }

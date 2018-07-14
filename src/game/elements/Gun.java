@@ -17,8 +17,10 @@ public abstract class Gun extends GameObject implements Serializable
     //fields
     protected int damage;
     protected int ammo;
+
     protected long lastShootTime;
     protected long reloadTime;
+
     protected ObjectId shooter;
 
     //constructor
@@ -33,14 +35,12 @@ public abstract class Gun extends GameObject implements Serializable
     }
 
     //methods
-
     /**
      * shooting bullet from gun(creating a bullet).
-     *
-     * @param tankX
-     * @param tankY
-     * @param mouseX
-     * @param mouseY
+     * @param tankX X of starting point for shoot
+     * @param tankY Y of starting point for shoot
+     * @param mouseX X of ending point for shoot
+     * @param mouseY Y of ending point for shoot
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
     public abstract Bullet shoot(double tankX, double tankY, double mouseX, double mouseY, ObjectId shooter);
@@ -100,16 +100,28 @@ public abstract class Gun extends GameObject implements Serializable
         return ammo;
     }
 
+    /**
+     * set a damage for gun.
+     * @param damage damage to be set for gun
+     */
     public void setDamage(int damage)
     {
         this.damage = damage;
     }
 
+    /**
+     * returns the damage of the gun
+     * @return gun's damage
+     */
     public int getDamage()
     {
         return damage;
     }
 
+    /**
+     * set a reload time for gun
+     * @param reloadTime gun's reload time
+     */
     public void setReloadTime(long reloadTime)
     {
         this.reloadTime = reloadTime;

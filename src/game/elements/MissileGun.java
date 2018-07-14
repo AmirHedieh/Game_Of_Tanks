@@ -26,12 +26,11 @@ public class MissileGun extends Gun implements Serializable
     //methods
 
     /**
-     * shoot a bullet from MissleGun.
-     *
-     * @param tankX
-     * @param tankY
-     * @param mouseX
-     * @param mouseY
+     * shoot a bullet from MissileGun.
+     * @param tankX X of starting point for shoot
+     * @param tankY Y of starting point for shoot
+     * @param mouseX X of ending point for shoot
+     * @param mouseY Y of ending point for shoot
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
      */
     public Bullet shoot(double tankX, double tankY, double mouseX, double mouseY, ObjectId shooter)
@@ -39,7 +38,6 @@ public class MissileGun extends Gun implements Serializable
         Bullet bullet = new HeavyBullet(tankX, tankY, mouseX, mouseY, damage, shooter);
         ammo--;
         lastShootTime = getCurrentTime();
-//        System.out.println("Ammo: " + ammo + " " + "Damage: " + damage + " MissileGun");
         return bullet;
     }
 
