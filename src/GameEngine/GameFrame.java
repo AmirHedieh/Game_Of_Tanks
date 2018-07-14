@@ -337,7 +337,7 @@ public class GameFrame extends JFrame
         {
             g2d.drawImage(Utility.health2, 820, 10, null);
         }
-        else if (state.objects.getPlayers().get(0).getHealth() >= 100)
+        else
         {
             g2d.drawImage(Utility.health1, 820, 10, null);
         }
