@@ -9,6 +9,8 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
 
 /**
@@ -25,6 +27,7 @@ public class MainMenu
     private JButton settingButton;
     private JButton aboutButton;
     private JButton exitButton;
+    private JButton mapEditor;
 
 
     private JFrame multiFrame;
@@ -157,11 +160,22 @@ public class MainMenu
         settingButton.setFont(new Font("Titillium Web", 4, 30));
         settingButton.addActionListener(new ActionHandler());
 
+        mapEditor = new JButton("Map Editor");
+        mapEditor.setSize(275, 70);
+        mapEditor.setBackground(Color.BLACK);
+        mapEditor.setForeground(Color.WHITE);
+        mapEditor.setLocation(-10, 590);
+        mapEditor.setFocusable(false);
+        mapEditor.setOpaque(true);
+        mapEditor.setBorder(BorderFactory.createEmptyBorder());
+        mapEditor.setFont(new Font("Titillium Web", 4, 30));
+        mapEditor.addActionListener(new ActionHandler());
+
         aboutButton = new JButton("About");
         aboutButton.setSize(275, 70);
         aboutButton.setBackground(Color.BLACK);
         aboutButton.setForeground(Color.WHITE);
-        aboutButton.setLocation(-10, 590);
+        aboutButton.setLocation(-10, 770);
         aboutButton.setFocusable(false);
         aboutButton.setOpaque(true);
         aboutButton.setBorder(BorderFactory.createEmptyBorder());
@@ -183,6 +197,7 @@ public class MainMenu
         mainPanel.add(singlePlayerGameButton);
         mainPanel.add(multiPlayerButton);
         mainPanel.add(settingButton);
+        mainPanel.add(mapEditor);
         mainPanel.add(aboutButton);
         mainPanel.add(exitButton);
 
@@ -247,6 +262,18 @@ public class MainMenu
             {
                 System.out.println("exitButton");
                 System.exit(10);
+            }
+            if (e.getSource().equals(mapEditor))
+            {
+                System.out.println("mapEditor");
+                try
+                {
+                    Desktop.getDesktop().open(new File("C:Program Files\\Adobe\\Adobe Photoshop CC 2018\\Photoshop.exe"));
+                }
+                catch (IOException e1)
+                {
+                    e1.printStackTrace();
+                }
             }
 
             //multiPlayer
