@@ -17,6 +17,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * a class full of static fields and methods for using in all classes.
+ */
 public class Utility
 {
     public static String resourceDirectory = "res/";
@@ -107,6 +110,12 @@ public class Utility
     public static File bulletHitHardWall = new File(resourceDirectory + "sounds/bulletHitHardWall.wav");
     public static File softWallDestruction = new File(resourceDirectory + "sounds/softWall.wav");
 
+    /**
+     * a method for loading BufferedImages.
+     *
+     * @param path
+     * @return
+     */
     public static BufferedImage loadBufferedImage(String path)
     {
         BufferedImage temp = null;
@@ -121,11 +130,23 @@ public class Utility
         return temp;
     }
 
+    /**
+     * a method for loading ImageIcons.
+     *
+     * @param path
+     * @return
+     */
     public static ImageIcon loadImageIcon(String path)
     {
         return new ImageIcon(String.valueOf(new File(path)));
     }
 
+    /**
+     * a method for loading Images.
+     *
+     * @param path
+     * @return
+     */
     public static Image loadImage(String path)
     {
         try
@@ -139,20 +160,6 @@ public class Utility
         }
     }
 
-    public static BufferedImage loadImageIO(String path)
-    {
-        BufferedImage temp = null;
-        try
-        {
-            temp = ImageIO.read(new File(path));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        return temp;
-    }
-
     /**
      * calculate the distance between two object(tanks here).
      *
@@ -164,11 +171,6 @@ public class Utility
     {
         double distance = Math.sqrt(Math.pow(Math.abs(object1.getX() - object2.getX()), 2) + Math.pow(Math.abs(object1.getY() - object2.getY()), 2));
         return distance;
-    }
-
-    public static void removePlayer(Objects objects, Tank tank)
-    {
-        objects.getPlayers().remove(tank);
     }
 
     /**
@@ -191,6 +193,13 @@ public class Utility
         new DataInitializer(objects);
     }
 
+
+    /**
+     * a method for checking whether the game should be finished or not.
+     *
+     * @param objects
+     * @return
+     */
     public static Boolean checkEnd(Objects objects)
     {
         for (int i = 0; i < objects.getPlayers().size(); i++)
@@ -211,13 +220,18 @@ public class Utility
         return false;
     }
 
+    /**
+     * a method for showing Victory.
+     *
+     * @param canvas
+     */
     public static void showVictoryEnding(GameFrame canvas)
     { //victory frame must be drawn here
         System.out.println("YOU WON");
 
         Dimension dimension = new Dimension();
         dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        
+
         JPanel mainPanel = new JPanel(null);
         mainPanel.setBackground(Color.BLACK);
 
@@ -268,14 +282,18 @@ public class Utility
         }
         mainPanel.add(startupLabel);
 
-
         canvas.revalidate();
         canvas.repaint();
         canvas.setVisible(true);
     }
 
+    /**
+     * a method for showing defeat.
+     *
+     * @param canvas
+     */
     public static void showDefeatedEnding(GameFrame canvas)
-    { // //losing frame must be drawn here
+    { //losing frame must be drawn here
         System.out.println("YOU Lost");
 
         Dimension dimension = new Dimension();
@@ -330,7 +348,6 @@ public class Utility
             exitButton.setLocation(-10, 410);
         }
         mainPanel.add(startupLabel);
-
 
         canvas.revalidate();
         canvas.repaint();

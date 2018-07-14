@@ -28,11 +28,17 @@ public class SharedData
     //Singleton
     private static SharedData sharedData;
 
+    /**
+     * init the object
+     */
     public SharedData()
     {
         sharedData = this;
     }
 
+    /**
+     * @return sharedData
+     */
     public static SharedData getData()
     {
         return sharedData;
