@@ -35,8 +35,22 @@ public class Objects implements Serializable
         robots = new ArrayList<>();
         upgrades = new ArrayList<>();
         deletedItems = new ArrayList<>();
-        players.add(new Tank(1150, 6300, 400, ObjectId.Player));
-//        players.add(new Tank(2850, 400, 300, ObjectId.Player));
+        if (SharedData.getData().whichMap.equals(ObjectId.FirstMap))
+        {
+            players.add(new Tank(1150, 6300, 400, ObjectId.Player));
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.SecondMap))
+        {
+            players.add(new Tank(700, 100, 400, ObjectId.Player));
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
+        {
+            players.add(new Tank(300, 2600, 400, ObjectId.Player));
+        }
+        else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
+        {
+            players.add(new Tank(1150, 6300, 400, ObjectId.Player));
+        }
         map = new Map(this);
     }
 
@@ -50,7 +64,23 @@ public class Objects implements Serializable
         //Second Player tank initialization
         if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
         {
-            players.add(new Tank(300, 300, 400, ObjectId.Player)); // making player's tank
+            if (SharedData.getData().whichMap.equals(ObjectId.FirstMap))
+            {
+                players.add(new Tank(1150, 6300, 400, ObjectId.Player));
+            }
+            else if (SharedData.getData().whichMap.equals(ObjectId.SecondMap))
+            {
+                players.add(new Tank(700, 100, 400, ObjectId.Player));
+            }
+            else if (SharedData.getData().whichMap.equals(ObjectId.ThirdMap))
+            {
+                players.add(new Tank(300, 2600, 400, ObjectId.Player));
+            }
+            else if (SharedData.getData().whichMap.equals(ObjectId.FourthMap))
+            {
+                players.add(new Tank(1150, 6300, 400, ObjectId.Player));
+            }
+            players.add(new Tank(300, 300, 400, ObjectId.Player));
         }
     }
 
