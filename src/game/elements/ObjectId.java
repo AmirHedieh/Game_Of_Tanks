@@ -1,10 +1,12 @@
 package game.elements;
 
+import java.io.Serializable;
+
 /**
  * Enum
  * things at game that needs to have an id choose their id from here.
  */
-public enum ObjectId
+public enum ObjectId implements Serializable
 {
     Player,              //lightPink(208, 135, 190)
     MachineGun,

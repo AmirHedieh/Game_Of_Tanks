@@ -1,5 +1,6 @@
 package game.savingElements;
 
+import game.Utils.SharedData;
 import game.elements.*;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class SavingData implements Serializable
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
+    private int mapId;
 
     public SavingData()
     {
@@ -53,6 +55,14 @@ public class SavingData implements Serializable
     public void setUpgrades(ArrayList<Upgrade> upgrades)
     {
         this.upgrades = upgrades;
+    }
+
+    public void setMapId(int mapId) {
+        this.mapId = mapId;
+    }
+
+    public int getMapId() {
+        return mapId;
     }
 
     public ArrayList<Tank> getPlayers()

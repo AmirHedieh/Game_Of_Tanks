@@ -4,6 +4,8 @@ import game.Utils.SharedData;
 import game.Utils.Sound;
 import game.Utils.Utility;
 import game.elements.ObjectId;
+import game.savingElements.DataInitializer;
+import game.savingElements.DataSaver;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -231,6 +233,8 @@ public class MainMenu
             if (e.getSource().equals(continueButton))
             {
                 SharedData.getData().startingType = ObjectId.SavedGame;
+                int num = DataInitializer.numOfMap();
+                whichMap = num;
                 output = 10;
                 menuFrame.setVisible(false);
                 backgroundSound.stopSound();

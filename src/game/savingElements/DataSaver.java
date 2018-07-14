@@ -1,5 +1,6 @@
 package game.savingElements;
 
+import game.Utils.SharedData;
 import game.elements.*;
 
 import java.io.*;
@@ -24,6 +25,21 @@ public class DataSaver
         data.setTanks(objects.getTanks());
         data.setUpgrades(objects.getUpgrades());
         data.setTurrets(objects.getTurrets());
+
+        int whichMap = 1;
+        if(SharedData.getData().whichMap.equals(ObjectId.FirstMap)){
+            whichMap = 1;
+        }
+        else if(SharedData.getData().whichMap.equals(ObjectId.SecondMap)){
+            whichMap = 2;
+        }
+        else if(SharedData.getData().whichMap.equals(ObjectId.ThirdMap)){
+            whichMap = 3;
+        }
+        else if(SharedData.getData().whichMap.equals(ObjectId.FourthMap)){
+            whichMap = 4;
+        }
+        data.setMapId(whichMap);
 
         writeFile(data);
     }
