@@ -253,6 +253,22 @@ public class GameFrame extends JFrame
         g2d.drawImage(Utility.pause, 1750, 160, null);
         g2d.drawImage(Utility.resume, 1750, 230, null);
 
+        //draw health
+        switch (state.objects.getPlayers().get(0).getHealth())
+        {
+            case 100:
+                g2d.drawImage(Utility.health1, 820, 10, null);
+                break;
+            case 200:
+                g2d.drawImage(Utility.health2, 820, 10, null);
+                break;
+            case 300:
+                g2d.drawImage(Utility.health3, 820, 10, null);
+                break;
+            case 400:
+                g2d.drawImage(Utility.health4, 820, 10, null);
+                break;
+        }
     }
 
     private void runAnimations()

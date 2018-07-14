@@ -64,6 +64,11 @@ public class Utility
     public static BufferedImage hardWall = loadBufferedImage(resourceDirectory + "map/environment/hardWall.png");
     public static BufferedImage end = loadBufferedImage(resourceDirectory + "map/environment/end.png");
 
+    public static BufferedImage health1 = loadBufferedImage(resourceDirectory + "health/1.png");
+    public static BufferedImage health2 = loadBufferedImage(resourceDirectory + "health/2.png");
+    public static BufferedImage health3 = loadBufferedImage(resourceDirectory + "health/3.png");
+    public static BufferedImage health4 = loadBufferedImage(resourceDirectory + "health/4.png");
+
     public static BufferedImage softWall01 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall01.png");
     public static BufferedImage softWall02 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall02.png");
     public static BufferedImage softWall03 = loadBufferedImage(resourceDirectory + "map/environment/softWalls/softWall03.png");
@@ -73,7 +78,7 @@ public class Utility
     public static BufferedImage AITank = loadBufferedImage(resourceDirectory + "tank/AITank.png");
 
     public static BufferedImage missileGunUpgrade = loadBufferedImage(resourceDirectory + "upgrade/missileGunUpgrade.png");
-    public static BufferedImage machineGunUpgrade = loadBufferedImage(resourceDirectory + "upgrade/MachinGunUpgrade.png");
+    public static BufferedImage machineGunUpgrade = loadBufferedImage(resourceDirectory + "upgrade/MachineGunUpgrade.png");
     public static BufferedImage shieldUpgrade = loadBufferedImage(resourceDirectory + "upgrade/shieldUpgrade.png");
     public static BufferedImage healthUpgrade = loadBufferedImage(resourceDirectory + "upgrade/healthUpgrade.png");
     public static BufferedImage damageUpgrade = loadBufferedImage(resourceDirectory + "upgrade/damageUpgrade.png");
