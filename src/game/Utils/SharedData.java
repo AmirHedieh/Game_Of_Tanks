@@ -17,7 +17,7 @@ public class SharedData
     public ObjectId difficulty;
     public ObjectId whichMap;
     public String ip;
-    public Boolean removePlayer = false;
+    public Boolean playerDied = false;
     public Tank playerToRemove;
     public ObjectId startingType = ObjectId.NewGame;
     public ObjectId result; // win or lose

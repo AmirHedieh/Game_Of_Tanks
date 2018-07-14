@@ -99,6 +99,7 @@ public class Utility
     public static File upgrade = new File(resourceDirectory + "sounds/upgrade.wav");
     public static File robotExplosion = new File(resourceDirectory + "sounds/smallEx.wav");
     public static File bulletHitHardWall = new File(resourceDirectory + "sounds/bulletHitHardWall.wav");
+    public static File softWalldestruction = new File(resourceDirectory + "sounds/softWall.wav");
 
     public static BufferedImage loadBufferedImage(String path)
     {
@@ -179,7 +180,7 @@ public class Utility
                 return true;
             }
         }
-        if(objects.getPlayers().size() == 0){ //all player got destroyed so means losing
+        if(objects.getPlayers().size() == 0){ //all players got destroyed that means losing
             SharedData.getData().result = ObjectId.Lost;
             return true;
         }
