@@ -105,7 +105,6 @@ public class MainMenu
             menuFrame.setExtendedState(menuFrame.MAXIMIZED_BOTH);
         }
 
-        //  menuFrame.setSize(1920, 1080);
         menuFrame.setLocationRelativeTo(null);
         menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -201,7 +200,7 @@ public class MainMenu
         mainPanel.add(startupLabel);
 
         backgroundSound = new Sound(Utility.backgroundSound, true);
-        //backgroundSound.playSound();
+        backgroundSound.playSound();
 
         menuFrame.revalidate();
         menuFrame.repaint();
@@ -219,6 +218,7 @@ public class MainMenu
                 SharedData.getData().startingType = ObjectId.SavedGame;
                 output = 10;
                 menuFrame.setVisible(false);
+                backgroundSound.stopSound();
                 new Game(output, ip, difficulty, whichMap);
             }
             if (e.getSource().equals(singlePlayerGameButton))
@@ -226,6 +226,7 @@ public class MainMenu
                 System.out.println("singlePlayerGameButton");
                 output = 10;
                 menuFrame.setVisible(false);
+                backgroundSound.stopSound();
                 new Game(output, ip, difficulty, whichMap);
             }
             if (e.getSource().equals(multiPlayerButton))
@@ -264,6 +265,7 @@ public class MainMenu
                 }
                 menuFrame.setVisible(false);
                 multiFrame.dispose();
+                backgroundSound.stopSound();
                 new Game(output, ip, difficulty, whichMap);
             }
             if (clientButton.isSelected())
