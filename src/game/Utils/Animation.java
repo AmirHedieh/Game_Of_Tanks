@@ -25,8 +25,67 @@ public class Animation
     private BufferedImage img12;
     private BufferedImage img13;
     private BufferedImage img14;
+    private BufferedImage img15;
+    private BufferedImage img16;
+    private BufferedImage img17;
+    private BufferedImage img18;
+    private BufferedImage img19;
+    private BufferedImage img20;
+    private BufferedImage img21;
+    private BufferedImage img22;
+    private BufferedImage img23;
+    private BufferedImage img24;
+    private BufferedImage img25;
+    private BufferedImage img26;
+    private BufferedImage img27;
+    private BufferedImage img28;
+    private BufferedImage img29;
+    private BufferedImage img30;
 
     private BufferedImage currentImg;
+
+    //30 frame animation
+    public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5,
+                     BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10,
+                     BufferedImage img11, BufferedImage img12, BufferedImage img13, BufferedImage img14,
+                    BufferedImage img15, BufferedImage img16, BufferedImage img17, BufferedImage img18, BufferedImage img19,
+                    BufferedImage img20, BufferedImage img21, BufferedImage img22, BufferedImage img23,
+                    BufferedImage img24, BufferedImage img25, BufferedImage img26, BufferedImage img27, BufferedImage img28,
+                    BufferedImage img29, BufferedImage img30)
+    {
+        this.speed = speed;
+        this.img1 = img1;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
+        this.img5 = img5;
+        this.img6 = img6;
+        this.img7 = img7;
+        this.img8 = img8;
+        this.img9 = img9;
+        this.img10 = img10;
+        this.img11 = img11;
+        this.img12 = img12;
+        this.img13 = img13;
+        this.img14 = img14;
+        this.img15 = img15;
+        this.img16 = img16;
+        this.img17 = img17;
+        this.img18 = img18;
+        this.img19 = img19;
+        this.img20 = img20;
+        this.img21 = img21;
+        this.img22 = img22;
+        this.img23 = img23;
+        this.img24 = img24;
+        this.img25 = img25;
+        this.img26 = img26;
+        this.img27 = img27;
+        this.img28 = img28;
+        this.img29 = img29;
+        this.img30 = img30;
+        frames = 30;
+    }
 
     //14 frame animation
     public Animation(int speed, BufferedImage img1, BufferedImage img2, BufferedImage img3, BufferedImage img4, BufferedImage img5, BufferedImage img6, BufferedImage img7, BufferedImage img8, BufferedImage img9, BufferedImage img10, BufferedImage img11, BufferedImage img12, BufferedImage img13, BufferedImage img14)

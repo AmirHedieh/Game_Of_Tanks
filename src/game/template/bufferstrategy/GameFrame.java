@@ -118,6 +118,33 @@ public class GameFrame extends JFrame
         drawBuriedRobots(state, g2d, gameTransform);
         drawUpgrades(state, g2d);
         drawPlants(state, g2d);
+        drawDeletedItems(state, g2d);
+    }
+
+    public void drawDeletedItems(GameState state, Graphics2D g2d)
+    {
+        for (int i = 0; i < state.objects.getDeletedItems().size(); i++)
+        {
+            /*if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.Turret))
+            {
+
+            }
+            else if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.Turret))
+            {
+
+            }
+            else if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.AITank))
+            {
+
+            }
+            else if (state.objects.getDeletedItems().get(i).getId().equals(ObjectId.BuriedRobot))
+            {
+
+            }*/
+            Utility.explosionAnimation.drawAnimation(g2d, (int) state.objects.getDeletedItems().get(i).getX(), (int) state.objects.getDeletedItems().get(i).getY(), 0);
+            state.objects.getDeletedItems().remove(i);
+
+        }
     }
 
     private void drawEnd(GameState state, Graphics2D g2d)
@@ -137,7 +164,22 @@ public class GameFrame extends JFrame
     {
         for (int i = 0; i < state.objects.getMap().getSoftWall().size(); i++)
         {
-            g2d.drawImage(Utility.softWall01, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            if (state.objects.getMap().getSoftWall().get(i).getHealth() > 300)
+            {
+                g2d.drawImage(Utility.softWall01, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
+            else if (state.objects.getMap().getSoftWall().get(i).getHealth() > 200)
+            {
+                g2d.drawImage(Utility.softWall02, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
+            else if (state.objects.getMap().getSoftWall().get(i).getHealth() > 100)
+            {
+                g2d.drawImage(Utility.softWall03, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
+            else if (state.objects.getMap().getSoftWall().get(i).getHealth() > 0)
+            {
+                g2d.drawImage(Utility.softWall04, (int) state.objects.getMap().getSoftWall().get(i).getX(), (int) state.objects.getMap().getSoftWall().get(i).getY(), null);
+            }
         }
     }
 
@@ -253,12 +295,29 @@ public class GameFrame extends JFrame
         g2d.drawImage(Utility.pause, 1750, 160, null);
         g2d.drawImage(Utility.resume, 1750, 230, null);
 
+        //draw health
+        switch (state.objects.getPlayers().get(0).getHealth())
+        {
+            case 100:
+                g2d.drawImage(Utility.health1, 820, 10, null);
+                break;
+            case 200:
+                g2d.drawImage(Utility.health2, 820, 10, null);
+                break;
+            case 300:
+                g2d.drawImage(Utility.health3, 820, 10, null);
+                break;
+            case 400:
+                g2d.drawImage(Utility.health4, 820, 10, null);
+                break;
+        }
     }
 
     private void runAnimations()
     {
         Utility.tankAnimation.runAnimation();
         Utility.buriedRobotAnimation.runAnimation();
+        Utility.explosionAnimation.runAnimation();
     }
 
     private void drawBuriedRobots(GameState state, Graphics2D g2d, AffineTransform gameTransform)

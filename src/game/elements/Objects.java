@@ -2,6 +2,7 @@ package game.elements;
 
 import game.Utils.SharedData;
 import game.map.*;
+import game.template.bufferstrategy.GameState;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class Objects implements Serializable
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
+    private ArrayList<GameObject> deletedItems;
     private Map map;
 
 
@@ -32,7 +34,8 @@ public class Objects implements Serializable
         turrets = new ArrayList<>();
         robots = new ArrayList<>();
         upgrades = new ArrayList<>();
-        players.add(new Tank(1150, 6300, 300, ObjectId.Player));
+        deletedItems = new ArrayList<>();
+        players.add(new Tank(1150, 6300, 400, ObjectId.Player));
 //        players.add(new Tank(2850, 400, 300, ObjectId.Player));
         map = new Map(this);
     }
@@ -47,7 +50,7 @@ public class Objects implements Serializable
         //Second Player tank initialization
         if (SharedData.getData().gameType.equals(ObjectId.TwoPlayer))
         {
-            players.add(new Tank(300, 300, 300, ObjectId.Player)); // making player's tank
+            players.add(new Tank(300, 300, 400, ObjectId.Player)); // making player's tank
         }
     }
 
@@ -242,5 +245,15 @@ public class Objects implements Serializable
     public void setMap(Map map)
     {
         this.map = map;
+    }
+
+    public ArrayList<GameObject> getDeletedItems()
+    {
+        return deletedItems;
+    }
+
+    public void setDeletedItems(ArrayList<GameObject> deletedItems)
+    {
+        this.deletedItems = deletedItems;
     }
 }
