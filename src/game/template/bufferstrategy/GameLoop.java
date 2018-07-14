@@ -95,13 +95,7 @@ public class GameLoop implements Runnable
                         state.update();
                         canvas.render(state);
                         server.tick(state.objects);
-//                        long time = new Date().getTime();
-//                        if(time - sentTime > 0){
-//                            sentTime = time;
-//                        }
-//                        if(SharedData.getData().clientSending){
-//
-//                        }
+
                     }
                     else if (SharedData.getData().playerType.equals(ObjectId.ClientPlayer))
                     {
@@ -129,3 +123,11 @@ public class GameLoop implements Runnable
         }
     }
 }
+
+//                        long time = new Date().getTime();
+//                        if(time - sentTime > 0){
+//                            sentTime = time;
+//                        }
+//                        if(SharedData.getData().clientSending){
+//
+//                        }

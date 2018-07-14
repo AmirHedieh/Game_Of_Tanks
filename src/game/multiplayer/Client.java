@@ -81,12 +81,18 @@ public class Client
     private void updateObjects(TransferringData data)
     { // called in receive data
 //        objects.setPlayers(data.getPlayers());
-        objects.replacePlayerTank(data.getPlayers().get(0), 1);
+        if(data.getAlive()) {
+            objects.replacePlayerTank(data.getPlayers().get(0), 1);
+        }
+        else if(!data.getAlive()){
+//            objects.getPlayers().
+        }
         objects.setBullets(data.getBullets());
         objects.setRobots(data.getRobots());
         objects.setTanks(data.getTanks());
         objects.setTurrets(data.getTurrets());
         objects.setUpgrades(data.getUpgrades());
+
     }
 
 //    private void sendLocationData(Objects objects){

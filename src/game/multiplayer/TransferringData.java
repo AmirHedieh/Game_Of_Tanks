@@ -14,6 +14,8 @@ public class TransferringData implements Serializable
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
 
+    private Boolean alive;
+
     public ArrayList<Tank> getPlayers()
     {
         return players;
@@ -44,6 +46,10 @@ public class TransferringData implements Serializable
         return upgrades;
     }
 
+    public Boolean getAlive() {
+        return alive;
+    }
+
     //constructor
     public TransferringData()
     {
@@ -58,6 +64,12 @@ public class TransferringData implements Serializable
         this.turrets = objects.getTurrets();
         this.robots = objects.getRobots();
         this.upgrades = objects.getUpgrades();
+        if(objects.getPlayers().get(1) != null){
+            alive = true;
+        }
+        else {
+            alive = false;
+        }
     }
 }
 
