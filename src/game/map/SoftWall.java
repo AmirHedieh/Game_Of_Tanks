@@ -18,6 +18,7 @@ public class SoftWall extends GameObject
 
     /**
      * set the health of the softWall.
+     *
      * @param health
      */
     public void setHealth(int health)

@@ -141,6 +141,7 @@ public class GameObject implements Serializable
 
     /**
      * the bounds of object by returning a new rectangle with object bounds
+     *
      * @return a rectangle with object bound
      */
     public Rectangle getBounds()

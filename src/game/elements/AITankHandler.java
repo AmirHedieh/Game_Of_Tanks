@@ -27,6 +27,7 @@ public class AITankHandler
     }
 
     //methods
+
     /**
      * ticks tanks. means checking that if they must be invoked , getting closer to player , shoot player.
      * it also checks if a tank must be disabled.
@@ -189,6 +190,7 @@ public class AITankHandler
 
     /**
      * set an angle for tank to rotate in that direction.
+     *
      * @param tank
      */
     private void setAngle(AITank tank)

@@ -14,7 +14,6 @@ public class Upgrade extends GameObject implements Serializable
 {
 
     //fields
-//    private Objects objects;
     private Boolean activation;
     private Tank user;
 
@@ -24,6 +23,11 @@ public class Upgrade extends GameObject implements Serializable
 
     }
 
+    /**
+     * @param x
+     * @param y
+     * @param type
+     */
     public Upgrade(double x, double y, ObjectId type)
     {
         super(x, y, type);
@@ -31,6 +35,13 @@ public class Upgrade extends GameObject implements Serializable
     }
 
     //methods
+
+    /**
+     * ticks a upgrade
+     * and determine the target and check to be used
+     *
+     * @param objects
+     */
     public void tick(Objects objects)
     {
         determineTarget(objects);
@@ -82,6 +93,9 @@ public class Upgrade extends GameObject implements Serializable
         }
     }
 
+    /**
+     * make a sound when the player get the upgrade
+     */
     private void makeSound()
     {
         Sound sound = new Sound(Utility.upgrade, false);
@@ -98,8 +112,6 @@ public class Upgrade extends GameObject implements Serializable
             user = objects.getPlayers().get(0);
             for (int i = 0; i < objects.getPlayers().size(); i++)
             {
-//                user = (Utility.calculateDistance(this, objects.getPlayers().get(0)) > Utility.calculateDistance(this, objects.getPlayers().get(1))) ?
-//                        objects.getPlayers().get(1) : objects.getPlayers().get(0);
                 double distance = Utility.calculateDistance(this, objects.getPlayers().get(i));
                 if (distance <= Utility.calculateDistance(this, user))
                 {

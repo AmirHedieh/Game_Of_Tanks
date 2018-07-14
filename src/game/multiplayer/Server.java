@@ -41,6 +41,7 @@ public class Server
     /**
      * ticks Server. which means sending data and receiving data from client to
      * affect them in the game.
+     *
      * @param objects
      */
     public void tick(Objects objects)
@@ -86,10 +87,12 @@ public class Server
             try
             {
                 ClientSendingData data = (ClientSendingData) ois.readObject(); //
-                if(objects.getPlayers().size() == 2) {
+                if (objects.getPlayers().size() == 2)
+                {
                     objects.replacePlayerTank(data.getClientTank(), 1);
                 }
-                else if (SharedData.getData().ServerLost){
+                else if (SharedData.getData().ServerLost)
+                {
                     objects.replacePlayerTank(data.getClientTank(), 0);
                 }
                 if (data.getLastShotBullet() != null)

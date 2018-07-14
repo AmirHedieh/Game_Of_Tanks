@@ -16,6 +16,7 @@ public class ClientSendingData implements Serializable
 
     /**
      * set client tank to send it to server
+     *
      * @param clientTank
      */
     public void setClientTank(Tank clientTank)
@@ -25,6 +26,7 @@ public class ClientSendingData implements Serializable
 
     /**
      * last bullet shot from client
+     *
      * @param lastShotBullet last shot bullet
      */
     public void setLastShotBullet(Bullet lastShotBullet)
@@ -34,6 +36,7 @@ public class ClientSendingData implements Serializable
 
     /**
      * returns client tank
+     *
      * @return client tank
      */
     public Tank getClientTank()
@@ -43,6 +46,7 @@ public class ClientSendingData implements Serializable
 
     /**
      * returns last shot bullet
+     *
      * @return lsat fired bullet
      */
     public Bullet getLastShotBullet()

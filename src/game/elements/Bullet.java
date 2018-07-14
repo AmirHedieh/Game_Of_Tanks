@@ -84,8 +84,10 @@ public class Bullet extends GameObject
     }
 
     //methods
+
     /**
      * calculate the angle that bullet must go.
+     *
      * @param x1 x of starting point
      * @param y1 y of starting point
      * @param x2 x of destination
@@ -99,6 +101,7 @@ public class Bullet extends GameObject
 
     /**
      * set damage for bullet
+     *
      * @param damage amount of damage it must provides
      */
     public void setDamage(int damage)
@@ -108,6 +111,7 @@ public class Bullet extends GameObject
 
     /**
      * get damage of bullet
+     *
      * @return amount of damage it provides
      */
     public int getDamage()
@@ -117,6 +121,7 @@ public class Bullet extends GameObject
 
     /**
      * the X position where bullet is going to(where mouse was clicked)
+     *
      * @return X of where mouse was clicked to shoot there
      */
     public double getTargetX()
@@ -126,6 +131,7 @@ public class Bullet extends GameObject
 
     /**
      * the Y position where bullet is going to(where mouse was clicked)
+     *
      * @return Y of where mouse was clicked to shoot there
      */
     public double getTargetY()
@@ -135,6 +141,7 @@ public class Bullet extends GameObject
 
     /**
      * returns the angle of the way bullet must go.
+     *
      * @return the angle that way of bullet go.
      */
     public double getShootDirectionAngle()
@@ -144,6 +151,7 @@ public class Bullet extends GameObject
 
     /**
      * if a bullet is fired.
+     *
      * @return true if fired
      */
     public boolean isThrown()
@@ -152,7 +160,8 @@ public class Bullet extends GameObject
     }
 
     /**
-     *  set if a bullet is thrown or not
+     * set if a bullet is thrown or not
+     *
      * @param thrown true for thrown and vise versa
      */
     public void setThrown(boolean thrown)
@@ -162,6 +171,7 @@ public class Bullet extends GameObject
 
     /**
      * get the angle of bullet
+     *
      * @return double as angle
      */
     public double getThrownAngle()
@@ -171,6 +181,7 @@ public class Bullet extends GameObject
 
     /**
      * set a angle for bullet
+     *
      * @param thrownAngle angle
      */
     public void setThrownAngle(double thrownAngle)
@@ -180,6 +191,7 @@ public class Bullet extends GameObject
 
     /**
      * get bounds of the bullet.
+     *
      * @return a rectangle with bounds of bullet
      */
     public Rectangle getBounds()
@@ -189,6 +201,7 @@ public class Bullet extends GameObject
 
     /**
      * returns the id of its shooter. Ai or player
+     *
      * @return player for playerShooter and AIshooter for AiShooter
      */
     public ObjectId getShooter()

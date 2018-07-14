@@ -40,6 +40,12 @@ public class Tank extends GameObject implements Serializable
 
     }
 
+    /**
+     * @param x
+     * @param y
+     * @param health
+     * @param id
+     */
     public Tank(double x, double y, int health, ObjectId id)
     { // gun must be added manually after making tank
         super(x, y, id);
@@ -64,6 +70,13 @@ public class Tank extends GameObject implements Serializable
         setVelY(12); // set y velocity
     }
 
+    /**
+     * @param x
+     * @param y
+     * @param health
+     * @param id
+     * @param upgrade
+     */
     public Tank(double x, double y, int health, ObjectId id, Upgrade upgrade)
     { // gun must be added manually after making tank
         super(x, y, id);
@@ -373,21 +386,37 @@ public class Tank extends GameObject implements Serializable
         upgrade.setActivation(true);
     }
 
+    /**
+     * @return whether the tank has shield or not
+     */
     public Boolean getHasShield()
     {
         return hasShield;
     }
 
+    /**
+     * set the tank to have shield or not
+     *
+     * @param hasShield
+     */
     public void setHasShield(Boolean hasShield)
     {
         this.hasShield = hasShield;
     }
 
+    /**
+     * @return the upgrade that is under the tank
+     */
     public Upgrade getUpgrade()
     {
         return upgrade;
     }
 
+    /**
+     * set the upgrade that is under the tank
+     *
+     * @param upgrade
+     */
     public void setUpgrade(Upgrade upgrade)
     {
         this.upgrade = upgrade;

@@ -181,6 +181,7 @@ public class BuriedRobot extends GameObject
 
     /**
      * set angle for robot to rotate
+     *
      * @param angle the angle of robot for rotating
      */
     public void setAngle(double angle)
@@ -190,6 +191,7 @@ public class BuriedRobot extends GameObject
 
     /**
      * get the robot angle
+     *
      * @return the angle of robot for rotating
      */
     public double getAngle()
@@ -200,6 +202,7 @@ public class BuriedRobot extends GameObject
 
     /**
      * set health for robot
+     *
      * @param health amount of health for robot to set
      */
     public void setHealth(int health)
@@ -209,6 +212,7 @@ public class BuriedRobot extends GameObject
 
     /**
      * how much health robot has
+     *
      * @return health of the robot
      */
     public int getHealth()
@@ -218,6 +222,7 @@ public class BuriedRobot extends GameObject
 
     /**
      * returns the target of the robot
+     *
      * @return a tank a target
      */
     public Tank getTarget()
@@ -227,6 +232,7 @@ public class BuriedRobot extends GameObject
 
     /**
      * returns bounds of robot
+     *
      * @return a rectangle that has robot bounds
      */
     public Rectangle getBounds()

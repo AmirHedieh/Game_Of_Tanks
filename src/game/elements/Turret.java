@@ -18,9 +18,6 @@ public class Turret extends GameObject implements Serializable
 {
 
     //fields
-    public final int TURRET_WIDTH = 128;
-    public final int TURRET_HEIGHT = 128;
-
     private Gun gun;
 
     private int health;
@@ -37,6 +34,12 @@ public class Turret extends GameObject implements Serializable
 
     }
 
+    /**
+     * @param x
+     * @param y
+     * @param targets
+     * @param type
+     */
     public Turret(double x, double y, ArrayList<Tank> targets, ObjectId type)
     {
         super(x, y, ObjectId.Turret);
@@ -103,6 +106,11 @@ public class Turret extends GameObject implements Serializable
     }
 
 
+    /**
+     * a method for check the area and calculate the distance
+     *
+     * @return
+     */
     public boolean checkArea()
     {
         double distance = calculateDistance(target);
@@ -128,21 +136,37 @@ public class Turret extends GameObject implements Serializable
         return distance;
     }
 
+    /**
+     * @return the target(Tank)
+     */
     public Tank getTarget()
     {
         return target;
     }
 
+    /**
+     * set the target of the turret
+     *
+     * @param target
+     */
     public void setTarget(Tank target)
     {
         this.target = target;
     }
 
+    /**
+     * set the gun angle of the turret to shoot
+     *
+     * @param gunAngle
+     */
     public void setGunAngle(double gunAngle)
     {
         this.gunAngle = gunAngle;
     }
 
+    /**
+     * @return the gun angle
+     */
     public double getGunAngle()
     {
 
@@ -166,21 +190,37 @@ public class Turret extends GameObject implements Serializable
         return angle;
     }
 
+    /**
+     * @return the gun of the turret
+     */
     public Gun getGun()
     {
         return gun;
     }
 
+    /**
+     * @return the health of the turret
+     */
     public int getHealth()
     {
         return health;
     }
 
+    /**
+     * set the health of the turret
+     *
+     * @param health
+     */
     public void setHealth(int health)
     {
         this.health = health;
     }
 
+    /**
+     * set the gun of the turret
+     *
+     * @param gun
+     */
     public void setGun(Gun gun)
     {
         this.gun = gun;

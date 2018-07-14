@@ -90,6 +90,7 @@ public class AITank extends Tank implements Serializable
 
     /**
      * the tank that AI tank is moving and shooting at(target)
+     *
      * @return the target of the tank
      */
     public Tank getTarget()

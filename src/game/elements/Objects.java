@@ -25,6 +25,10 @@ public class Objects implements Serializable
 
 
     //constructor
+
+    /**
+     * init the arrayLists and also place the first player
+     */
     public Objects()
     {
         players = new ArrayList<>();
@@ -57,6 +61,9 @@ public class Objects implements Serializable
 
     /**
      * if the game hasn't been started before it needs to be initialized. player's tank must be create.
+     */
+    /**
+     * init and place the second player
      */
     public void init()
     {
@@ -194,6 +201,11 @@ public class Objects implements Serializable
         this.robots = robots;
     }
 
+    /**
+     * set the upgrade ArrayList
+     *
+     * @param upgrades
+     */
     public void setUpgrades(ArrayList<Upgrade> upgrades)
     {
         this.upgrades = upgrades;
@@ -249,38 +261,67 @@ public class Objects implements Serializable
         return robots;
     }
 
+    /**
+     * @return the upgrades arrayList
+     */
     public ArrayList<Upgrade> getUpgrades()
     {
         return upgrades;
     }
 
+    /**
+     * replace one of the players with a Tank.
+     *
+     * @param tank
+     * @param number
+     */
     public void replacePlayerTank(Tank tank, int number)
     {
         players.remove(players.get(number));
         players.add(tank);
     }
 
-
+    /**
+     * set the players ArrayList.
+     *
+     * @param players
+     */
     public void setPlayers(ArrayList<Tank> players)
     {
         this.players = players;
     }
 
+    /**
+     * @return the map
+     */
     public Map getMap()
     {
         return map;
     }
 
+    /**
+     * set the map
+     *
+     * @param map
+     */
     public void setMap(Map map)
     {
         this.map = map;
     }
 
+    /**
+     * @return the arrayList of the deadObjects
+     */
     public ArrayList<GameObject> getDeletedItems()
     {
         return deletedItems;
     }
 
+    /**
+     * set the arrayList of the dead objects
+     *
+     * @param deletedItems
+     */
     public void setDeletedItems(ArrayList<GameObject> deletedItems)
     {
         this.deletedItems = deletedItems;

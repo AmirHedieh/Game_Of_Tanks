@@ -35,10 +35,12 @@ public abstract class Gun extends GameObject implements Serializable
     }
 
     //methods
+
     /**
      * shooting bullet from gun(creating a bullet).
-     * @param tankX X of starting point for shoot
-     * @param tankY Y of starting point for shoot
+     *
+     * @param tankX  X of starting point for shoot
+     * @param tankY  Y of starting point for shoot
      * @param mouseX X of ending point for shoot
      * @param mouseY Y of ending point for shoot
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.
@@ -102,6 +104,7 @@ public abstract class Gun extends GameObject implements Serializable
 
     /**
      * set a damage for gun.
+     *
      * @param damage damage to be set for gun
      */
     public void setDamage(int damage)
@@ -111,6 +114,7 @@ public abstract class Gun extends GameObject implements Serializable
 
     /**
      * returns the damage of the gun
+     *
      * @return gun's damage
      */
     public int getDamage()
@@ -120,6 +124,7 @@ public abstract class Gun extends GameObject implements Serializable
 
     /**
      * set a reload time for gun
+     *
      * @param reloadTime gun's reload time
      */
     public void setReloadTime(long reloadTime)

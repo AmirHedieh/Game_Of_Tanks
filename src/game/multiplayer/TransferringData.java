@@ -32,6 +32,7 @@ public class TransferringData implements Serializable
 
     /**
      * returns all alive players
+     *
      * @return players
      */
     public ArrayList<Tank> getPlayers()
@@ -41,6 +42,7 @@ public class TransferringData implements Serializable
 
     /**
      * returns all alive AI tanks
+     *
      * @return AI tanks
      */
     public ArrayList<AITank> getTanks()
@@ -50,6 +52,7 @@ public class TransferringData implements Serializable
 
     /**
      * returns all bullets of the game
+     *
      * @return bullets
      */
     public ArrayList<Bullet> getBullets()
@@ -59,6 +62,7 @@ public class TransferringData implements Serializable
 
     /**
      * returns all alive turrets
+     *
      * @return
      */
     public ArrayList<Turret> getTurrets()
@@ -68,6 +72,7 @@ public class TransferringData implements Serializable
 
     /**
      * returns all alive robots
+     *
      * @return robots
      */
     public ArrayList<BuriedRobot> getRobots()
@@ -77,6 +82,7 @@ public class TransferringData implements Serializable
 
     /**
      * returns all alive upgrades
+     *
      * @return upgrades
      */
     public ArrayList<Upgrade> getUpgrades()
@@ -86,6 +92,7 @@ public class TransferringData implements Serializable
 
     /**
      * true is server is alive and vise versa
+     *
      * @return true - false(if dead)
      */
     public Boolean getServerIsAlive()
@@ -95,6 +102,7 @@ public class TransferringData implements Serializable
 
     /**
      * true is client is alive and vise versa
+     *
      * @return true - false(if dead)
      */
     public Boolean getClientIsAlive()
@@ -104,14 +112,17 @@ public class TransferringData implements Serializable
 
     /**
      * true is game is done
+     *
      * @return true - false(if dead)
      */
-    public Boolean getGameDone() {
+    public Boolean getGameDone()
+    {
         return gameDone;
     }
 
     /**
      * the damage that client get.
+     *
      * @return
      */
     public int getTakenDamage()
@@ -121,9 +132,11 @@ public class TransferringData implements Serializable
 
     /**
      * all soft walls.
+     *
      * @return soft walls of the game.
      */
-    public ArrayList<SoftWall> getWalls() {
+    public ArrayList<SoftWall> getWalls()
+    {
         return walls;
     }
 

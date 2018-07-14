@@ -79,6 +79,7 @@ public class Client
     /**
      * gets data and update all game objects with that.
      * it also updates SharedData class from the data received from server.
+     *
      * @param data taken data from server
      */
     private void updateObjects(TransferringData data)
@@ -102,7 +103,8 @@ public class Client
         {
             SharedData.getData().ServerLost = true;
         }
-        if(data.getGameDone()){
+        if (data.getGameDone())
+        {
             SharedData.getData().gameDone = true;
         }
     }

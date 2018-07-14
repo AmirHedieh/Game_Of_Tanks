@@ -25,10 +25,12 @@ public class MachineGun extends Gun implements Serializable
     }
 
     //methods
+
     /**
      * shoot a bullet from MachineGun
-     * @param tankX X of starting point for shoot
-     * @param tankY Y of starting point for shoot
+     *
+     * @param tankX  X of starting point for shoot
+     * @param tankY  Y of starting point for shoot
      * @param mouseX X of ending point for shoot
      * @param mouseY Y of ending point for shoot
      * @return the bullet must be stored in arrayList so it is returned to be added to list in GameState Class.

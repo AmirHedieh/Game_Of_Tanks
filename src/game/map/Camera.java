@@ -23,6 +23,7 @@ public class Camera
 
     /**
      * update the condition of the camera.
+     *
      * @param player
      */
     public void tick(Tank player)
@@ -130,6 +131,7 @@ public class Camera
 
     /**
      * set the x of the camera
+     *
      * @param x
      */
     public void setX(double x)
@@ -147,6 +149,7 @@ public class Camera
 
     /**
      * set the y of the camera
+     *
      * @param y
      */
     public void setY(double y)

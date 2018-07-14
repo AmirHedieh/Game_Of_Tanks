@@ -204,6 +204,7 @@ public class Map
 
     /**
      * set the map image
+     *
      * @param mapImage
      */
     public void setMapImage(BufferedImage mapImage)
@@ -221,6 +222,7 @@ public class Map
 
     /**
      * set the hardWall list
+     *
      * @param hardWall
      */
     public void setHardWall(ArrayList<HardWall> hardWall)
@@ -238,6 +240,7 @@ public class Map
 
     /**
      * set the plant list
+     *
      * @param plant
      */
     public void setPlant(ArrayList<Plant> plant)
@@ -255,6 +258,7 @@ public class Map
 
     /**
      * set the softWall list
+     *
      * @param softWall
      */
     public void setSoftWall(ArrayList<SoftWall> softWall)
@@ -272,6 +276,7 @@ public class Map
 
     /**
      * set the teazel list
+     *
      * @param teazel
      */
     public void setTeazel(ArrayList<Teazel> teazel)
@@ -289,6 +294,7 @@ public class Map
 
     /**
      * set the soil list
+     *
      * @param soil
      */
     public void setSoil(ArrayList<Soil> soil)
@@ -306,6 +312,7 @@ public class Map
 
     /**
      * set the end
+     *
      * @param end
      */
     public void setEnd(End end)
