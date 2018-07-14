@@ -2,12 +2,17 @@ package game.multiplayer;
 
 import game.Utils.SharedData;
 import game.elements.Objects;
-import game.elements.Tank;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * the server side of the coop. it handles all the data that it has and also received from client side.
+ * it ticks bullets , AI Tanks , turrets , buried Robots , ... , which client side just get them
+ * from server side and doesn't handle them itself. it pass Objects object which contains all game objects.
+ * this work is done by Serialization.
+ */
 public class Server
 {
     //fields
@@ -33,6 +38,11 @@ public class Server
         }
     }
 
+    /**
+     * ticks Server. which means sending data and receiving data from client to
+     * affect them in the game.
+     * @param objects
+     */
     public void tick(Objects objects)
     {
         sendData();
@@ -43,24 +53,20 @@ public class Server
         SharedData.getData().clientTakenDamage = 0;
     }
 
+    /**
+     * makes a OOS to send data then Make a TransferringData that contains all needed
+     * data to be sent to client side. then it sends them.
+     */
     private void sendData()
     {
         try
         {
-            //****************
             oos = new ObjectOutputStream(socket.getOutputStream());
             TransferringData data = new TransferringData(objects);
+
             oos.writeObject(data);
+
             oos.flush();
-//            System.out.println(data.getPlayers().get(0).getX()+" SENT");
-            //****************
-//            XStream serDes = new XStream(new StaxDriver());
-//            TransferringData data = new TransferringData(objects);
-//            String xml = serDes.toXML(data);
-//            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-//            osw.write(xml  + "\r\n", 0, xml.length()+2);
-//            osw.flush();
-            //****************
         }
         catch (IOException e)
         {
@@ -69,16 +75,16 @@ public class Server
         }
     }
 
+    /**
+     * receive data from client side and affect them in game
+     */
     public void receiveData()
     {
-//        System.out.println("REC");
         try
         {
             ois = new ObjectInputStream(socket.getInputStream());
             try
             {
-//                Tank clientTank = (Tank)ois.readObject();
-//                objects.replacePlayerTank(clientTank,1);
                 ClientSendingData data = (ClientSendingData) ois.readObject(); //
                 if(objects.getPlayers().size() == 2) {
                     objects.replacePlayerTank(data.getClientTank(), 1);
@@ -101,10 +107,6 @@ public class Server
             e.printStackTrace();
         }
     }
-
-//    private void makeData(TransferingData data){
-//        data.setPlayers(objects.getPlayers());
-//    }
 
 }
 
