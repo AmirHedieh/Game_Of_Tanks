@@ -809,6 +809,8 @@ public class Physics
     private static void damageSoftWall(Objects objects, SoftWall wall , int damage){
         wall.setHealth(wall.getHealth() - damage);
         if(wall.getHealth() <= 0){
+            Sound sound = new Sound(Utility.softWalldestruction,false);
+            sound.playSound();
             objects.getMap().getSoftWall().remove(wall);
         }
     }
