@@ -48,9 +48,9 @@ public class Utility
     public static ImageIcon mainMenuBackGroundSmall = loadImageIcon(resourceDirectory + "MainMenuBackGroundSmall.jpg");
 
     public static ImageIcon loseMedium = loadImageIcon(resourceDirectory + "finishGame/lose/loseMedium.jpg");
-    public static ImageIcon loseBig = loadImageIcon(resourceDirectory + "finishGame/lose/loseBig.jpg");
+    public static ImageIcon loseSmall = loadImageIcon(resourceDirectory + "finishGame/lose/loseSmall.jpg");
     public static ImageIcon winMedium = loadImageIcon(resourceDirectory + "finishGame/win/winMedium.jpg");
-    public static ImageIcon winBig = loadImageIcon(resourceDirectory + "finishGame/win/winBig.jpg");
+    public static ImageIcon winSmall = loadImageIcon(resourceDirectory + "finishGame/win/winSmall.jpg");
 
     public static BufferedImage tank01 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank01.png");
     public static BufferedImage tank02 = loadBufferedImage(resourceDirectory + "Player Tank/Body/tank02.png");
@@ -216,6 +216,9 @@ public class Utility
     { //victory frame must be drawn here
         System.out.println("YOU WON");
 
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        
         JPanel mainPanel = new JPanel(null);
         mainPanel.setBackground(Color.BLACK);
 
@@ -223,7 +226,14 @@ public class Utility
         canvas.setLayout(null);
 
         JButton exitButton = new JButton("Exit");
-        exitButton.setSize(400, 100);
+        if (dimension.width >= 3840)
+        {
+            exitButton.setSize(400, 100);
+        }
+        else
+        {
+            exitButton.setSize(275, 70);
+        }
         exitButton.setBackground(Color.BLACK);
         exitButton.setForeground(Color.WHITE);
         exitButton.setFocusable(false);
@@ -244,20 +254,19 @@ public class Utility
 
         mainPanel.add(exitButton);
 
-        Dimension dimension = new Dimension();
-        dimension = Toolkit.getDefaultToolkit().getScreenSize();
         JLabel startupLabel = null;
         if (dimension.width >= 3840)
         {
-            startupLabel = new JLabel(Utility.winBig);
-            exitButton.setLocation(1700, 2000);
+            startupLabel = new JLabel(Utility.winSmall);
+            startupLabel.setSize(1820, 1024);
+            exitButton.setLocation(-10, 410);
         }
         else
         {
             startupLabel = new JLabel(Utility.winMedium);
-            exitButton.setLocation(500, 700);
+            startupLabel.setSize(dimension.width, dimension.height);
+            exitButton.setLocation(-10, 410);
         }
-        startupLabel.setSize(dimension.width, dimension.height);
         mainPanel.add(startupLabel);
 
 
@@ -270,6 +279,9 @@ public class Utility
     { // //losing frame must be drawn here
         System.out.println("YOU Lost");
 
+        Dimension dimension = new Dimension();
+        dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
         JPanel mainPanel = new JPanel(null);
         mainPanel.setBackground(Color.BLACK);
 
@@ -277,7 +289,14 @@ public class Utility
         canvas.setLayout(null);
 
         JButton exitButton = new JButton("Exit");
-        exitButton.setSize(400, 100);
+        if (dimension.width >= 3840)
+        {
+            exitButton.setSize(400, 100);
+        }
+        else
+        {
+            exitButton.setSize(275, 70);
+        }
         exitButton.setBackground(Color.BLACK);
         exitButton.setForeground(Color.WHITE);
         exitButton.setFocusable(false);
@@ -298,20 +317,19 @@ public class Utility
 
         mainPanel.add(exitButton);
 
-        Dimension dimension = new Dimension();
-        dimension = Toolkit.getDefaultToolkit().getScreenSize();
         JLabel startupLabel = null;
         if (dimension.width >= 3840)
         {
-            startupLabel = new JLabel(Utility.loseBig);
-            exitButton.setLocation(1700, 2000);
+            startupLabel = new JLabel(Utility.loseSmall);
+            startupLabel.setSize(1820, 1024);
+            exitButton.setLocation(-10, 410);
         }
         else
         {
             startupLabel = new JLabel(Utility.loseMedium);
-            exitButton.setLocation(500, 700);
+            startupLabel.setSize(dimension.width, dimension.height);
+            exitButton.setLocation(-10, 410);
         }
-        startupLabel.setSize(dimension.width, dimension.height);
         mainPanel.add(startupLabel);
 
 
