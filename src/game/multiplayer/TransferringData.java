@@ -2,6 +2,7 @@ package game.multiplayer;
 
 import game.Utils.SharedData;
 import game.elements.*;
+import game.map.SoftWall;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class TransferringData implements Serializable
     private ArrayList<Turret> turrets;
     private ArrayList<BuriedRobot> robots;
     private ArrayList<Upgrade> upgrades;
+    private ArrayList<SoftWall> walls;
     private int takenDamage;
     //
     private Boolean serverIsAlive;
@@ -69,6 +71,9 @@ public class TransferringData implements Serializable
         return takenDamage;
     }
 
+    public ArrayList<SoftWall> getWalls() {
+        return walls;
+    }
 
     //constructor
     public TransferringData()
@@ -84,6 +89,8 @@ public class TransferringData implements Serializable
         this.turrets = objects.getTurrets();
         this.robots = objects.getRobots();
         this.upgrades = objects.getUpgrades();
+        this.walls = objects.getMap().getSoftWall();
+
         takenDamage = SharedData.getData().clientTakenDamage;
         if (!SharedData.getData().ServerLost)
         {

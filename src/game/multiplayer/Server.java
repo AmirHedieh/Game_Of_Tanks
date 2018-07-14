@@ -80,7 +80,12 @@ public class Server
 //                Tank clientTank = (Tank)ois.readObject();
 //                objects.replacePlayerTank(clientTank,1);
                 ClientSendingData data = (ClientSendingData) ois.readObject(); //
-                objects.replacePlayerTank(data.getClientTank(), 1);
+                if(objects.getPlayers().size() == 2) {
+                    objects.replacePlayerTank(data.getClientTank(), 1);
+                }
+                else if (SharedData.getData().ServerLost){
+                    objects.replacePlayerTank(data.getClientTank(), 0);
+                }
                 if (data.getLastShotBullet() != null)
                 {
                     objects.addBullet(data.getLastShotBullet());

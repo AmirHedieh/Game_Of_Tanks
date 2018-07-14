@@ -52,7 +52,7 @@ public class GameState
         {
             Utility.initGame(objects);//initialize game objects to continue last game
         }
-//        new DataInitializer(objects);
+        //
         keyUP = false;
         keyDOWN = false;
         keyRIGHT = false;
@@ -73,6 +73,7 @@ public class GameState
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
+        //
         if (SharedData.getData().whichMap.equals(ObjectId.FirstMap))
         {
             camera = new Camera(803, 5450);
@@ -131,8 +132,9 @@ public class GameState
             objects.getPlayers().get(0).getMachineGun().setDamage(500);
             superDamageCheat = false;
         }
-//        System.out.println(objects.getPlayers().get(0).getX() + " " +objects.getPlayers().get(0).getY() );
+
         camera.tick(objects.getPlayers().get(0));
+
         //Update the state of all game elements
         //based on user input and elapsed time ...
         //first element( objects.getPlayers().get(0) ) in arrayList is player's tank.
@@ -221,8 +223,7 @@ public class GameState
             {
                 objects.getRobots().get(i).tick(objects);
             }
-            //1
-
+            //
             aiTankHandler.tick();
             Physics.checkBulletsCollision(objects);
             Physics.checkBuriedRobotsCollisionWithPlayer(objects);

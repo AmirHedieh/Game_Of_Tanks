@@ -88,6 +88,8 @@ public class Client
         objects.setTanks(data.getTanks());
         objects.setTurrets(data.getTurrets());
         objects.setUpgrades(data.getUpgrades());
+        objects.getMap().setSoftWall(data.getWalls());
+
         objects.getPlayers().get(0).setHealth(objects.getPlayers().get(0).getHealth() - data.getTakenDamage());
         if (!data.getClientIsAlive())
         {

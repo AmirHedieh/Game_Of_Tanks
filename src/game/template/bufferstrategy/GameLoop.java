@@ -79,10 +79,7 @@ public class GameLoop implements Runnable
                 long start = System.currentTimeMillis();
                 //
                 if(SharedData.getData().playerDied) {
-//                    Utility.removePlayer(state.objects,SharedData.getData().playerToRemove);
-                    System.out.println("player removed");
                     if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().playerType.equals(ObjectId.ServerPlayer)) {
-                        System.out.println("num1");
                         if(SharedData.getData().ServerLost && SharedData.getData().clientLost) {
                             server.tick(state.objects);
                         }
@@ -90,12 +87,10 @@ public class GameLoop implements Runnable
                     state.objects.getPlayers().remove(SharedData.getData().playerToRemove);
                     SharedData.getData().playerDied = false;
                     if(SharedData.getData().gameType.equals(ObjectId.TwoPlayer) && SharedData.getData().ServerLost && SharedData.getData().clientLost) {
-                        System.out.println("BOTH DEAD");
                         SharedData.getData().result = ObjectId.Lost;
                         break;
                     }
                     continue;
-//                    Utility.checkEnd(state.objects);
                 }
                 if(SharedData.getData().gameDone){
                     SharedData.getData().result = ObjectId.Won;
@@ -120,14 +115,11 @@ public class GameLoop implements Runnable
                         client.tick();
                         state.update();
                         canvas.render(state);
-                        System.out.println("tick");
                         if(SharedData.getData().clientLost && SharedData.getData().ServerLost){
-                            System.out.println("finally");
                             SharedData.getData().result = ObjectId.Lost;
                             break;
                         }
                         if(SharedData.getData().gameDone){
-                            System.out.println("Client won the game");
                             SharedData.getData().result = ObjectId.Won;
                             break;
                         }
@@ -152,11 +144,3 @@ public class GameLoop implements Runnable
         }
     }
 }
-
-//                        long time = new Date().getTime();
-//                        if(time - sentTime > 0){
-//                            sentTime = time;
-//                        }
-//                        if(SharedData.getData().clientSending){
-//
-//                        }

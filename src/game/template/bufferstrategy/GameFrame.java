@@ -191,10 +191,6 @@ public class GameFrame extends JFrame
         for (int i = 0; i < state.objects.getMap().getHardWall().size(); i++)
         {
             g2d.drawImage(Utility.hardWall, (int) state.objects.getMap().getHardWall().get(i).getX(), (int) state.objects.getMap().getHardWall().get(i).getY(), null);
-//            g2d.setColor(Color.BLACK);
-//            g2d.fillRect(state.objects.getMap().getHardWall().get(i).getBounds().x,
-//                        state.objects.getMap().getHardWall().get(i).getBounds().y,
-//                        state.objects.getMap().getHardWall().get(i).getBounds().width,state.objects.getMap().getHardWall().get(i).getBounds().height);
         }
     }
 
@@ -225,17 +221,10 @@ public class GameFrame extends JFrame
             if (bullets.get(i).getId().equals(ObjectId.HeavyBullet))
             {
                 g2d.drawImage(Utility.heavyBullet, (int) bullets.get(i).getX() + 52, (int) bullets.get(i).getY() + 50, null);
-//                g2d.setColor(Color.RED);
-//                g2d.fillRect(state.objects.getBullets().get(i).getBounds().x,
-//                        state.objects.getBullets().get(i).getBounds().y,
-//                        state.objects.getBullets().get(i).getBounds().width,state.objects.getBullets().get(i).getBounds().height);
             }
             else
             {
                 g2d.drawImage(Utility.lightBullet, (int) bullets.get(i).getX() + 52, (int) bullets.get(i).getY() + 50, null);
-//                g2d.fillRect(state.objects.getBullets().get(i).getBounds().x,
-//                        state.objects.getBullets().get(i).getBounds().y,
-//                        state.objects.getBullets().get(i).getBounds().width,state.objects.getBullets().get(i).getBounds().height);
             }
             g2d.setTransform(gameTransform);
         }
@@ -321,10 +310,6 @@ public class GameFrame extends JFrame
 
                 g2d.setTransform(gunTrans);
                 Utility.buriedRobotAnimation.drawAnimation(g2d, (int) state.objects.getRobots().get(i).getX(), (int) state.objects.getRobots().get(i).getY(), 0);
-//                g2d.fillRect((int)state.objects.getRobots().get(i).getX(),(int)state.objects.getRobots().get(i).getY(),100,100);
-//                g2d.fillRect((int)state.objects.getRobots().get(i).getX()+20,
-//                        (int)state.objects.getRobots().get(i).getY()+20,
-//                        60,60);
                 g2d.setTransform(gameTransform);
             }
         }
@@ -348,9 +333,6 @@ public class GameFrame extends JFrame
                     (int) state.objects.getTanks().get(i).getX(), //this is the X upper left corner of the tile
                     (int) state.objects.getTanks().get(i).getY(), //this is the Y upper left corner of the tile
                     null);
-//            g2d.fillRect(state.objects.getTanks().get(i).getBounds().x,
-//                        state.objects.getTanks().get(i).getBounds().y,
-//                        state.objects.getTanks().get(i).getBounds().width,state.objects.getTanks().get(i).getBounds().height);
             g2d.setTransform(gameTransform);
         }
         //
